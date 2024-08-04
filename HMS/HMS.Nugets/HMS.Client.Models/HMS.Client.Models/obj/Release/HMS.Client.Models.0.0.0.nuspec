@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HMS.Client.Models</id>
+    <version>0.0.0</version>
+    <title>HMS.Client.Models</title>
+    <authors>Jorge</authors>
+    <description>Produzido no intuito de facilitar no desenvolvimento e na comunicação entre serviços!
+	&lt;RepositoryUrl&gt; https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release &lt;/RepositoryUrl&gt;</description>
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="7fe40b4b5c24bf09314edcc2a1aa4ebfc67bb79f" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\HMS.Client.Models\HMS.Client.Models\bin\Release\net8.0\HMS.Client.Models.dll" target="lib\net8.0\HMS.Client.Models.dll" />
+  </files>
+</package>

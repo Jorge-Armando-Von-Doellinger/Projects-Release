@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3pADrWwxEX8=",
+  "dgSpecHash": "IGi5xpNjWwg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Application\\HMS.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Nome\\.nuget\\packages\\hms.client.models\\0.0.1\\hms.client.models.0.0.1.nupkg.sha512",
+    "C:\\Users\\Nome\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v8.0": {
       "HMS.API/1.0.0": {
         "dependencies": {
+          "HMS.Client.Models": "0.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
           "HMS.API.dll": {}
+        }
+      },
+      "HMS.Client.Models/0.0.0": {
+        "runtime": {
+          "lib/net8.0/HMS.Client.Models.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
@@ -68,6 +77,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "HMS.Client.Models/0.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8XgRioko1MWdL2O6ynVZU3BCriPjTW1Z2Ne7UiLPzXwkGZeT+JQLc6ijnQ38k/YPwwb47fy/xoKJ4hB9YHQvGg==",
+      "path": "hms.client.models/0.0.0",
+      "hashPath": "hms.client.models.0.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",

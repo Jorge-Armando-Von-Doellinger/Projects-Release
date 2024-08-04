@@ -31,3 +31,4 @@ C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.AP
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\obj\Debug\net8.0\HMS.API.pdb
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\obj\Debug\net8.0\HMS.API.genruntimeconfig.cache
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\obj\Debug\net8.0\ref\HMS.API.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\HMS.Client.Models.dll

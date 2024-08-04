@@ -5,13 +5,12 @@ using System.Runtime.CompilerServices;
 
 namespace HMS.Infrastructure.DataContext
 {
-    internal sealed class ClientContext : DbContext
+    public class ClientContext : DbContext
     {
-        private const string SqlServerConnection = "Server=localhost:1433; " +
+        private const string SqlServerConnection = "Server=localhost,1433; " +
             "Database=ProjectsRelease; " +
             "User Id=SA; " +
             "Password=MyStrongPassword123!; " +
-            "Encrypt=false; " +
             "TrustServerCertificate=true";
         // DESENVOLVIMENTO
         public ClientContext()
@@ -23,7 +22,7 @@ namespace HMS.Infrastructure.DataContext
         {
         }
 
-        public DbSet<ClientEntity>
+        public DbSet<ClientEntity> Clients { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
