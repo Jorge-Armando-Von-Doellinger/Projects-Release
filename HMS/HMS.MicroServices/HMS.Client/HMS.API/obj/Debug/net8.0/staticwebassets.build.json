@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "tIaRp3CrhTcm5LPOHP/9z2rXqhqXWW6tMolgKKKfzOI=",
+  "Source": "HMS.API",
+  "BasePath": "_content/HMS.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
