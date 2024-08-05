@@ -1,4 +1,5 @@
 ﻿using HMS.Client.Models.Input;
+using System.Runtime.CompilerServices;
 
 namespace HMS.Client.Models.Output
 {
@@ -19,16 +20,5 @@ namespace HMS.Client.Models.Output
         public short YearsOld { get; set; }
         
 
-    }
-
-    public class OutputModel<T>
-    {
-        // Para ele receber algum valor especifico, como o do Input
-        // Pode ser usado para casos onde o Input e o Output serão iguais ou semelhantes!
-        public T Value { get; set; }
-        public OutputModel(T value)
-        {
-            Value = value;
-        }
     }
 }

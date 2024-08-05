@@ -6,8 +6,8 @@
     <title>HMS.Client.Models</title>
     <authors>Jorge</authors>
     <description>Produzido no intuito de facilitar no desenvolvimento e na comunicação entre serviços!
-	&lt;RepositoryUrl&gt;https://github.com/Jorge-Armando-Von-Doellinger/Nugets&lt;/RepositoryUrl&gt;</description>
-    <repository type="git" commit="7fe40b4b5c24bf09314edcc2a1aa4ebfc67bb79f" />
+	&lt;RepositoryUrl&gt; https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release &lt;/RepositoryUrl&gt;</description>
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="3a66843d021ec60d4d3f8a7cd81873d0af6c59fd" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>

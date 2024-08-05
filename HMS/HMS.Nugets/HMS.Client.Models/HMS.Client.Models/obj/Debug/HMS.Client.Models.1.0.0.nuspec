@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HMS.Client.Models</id>
-    <version>0.0.0</version>
+    <version>1.0.0</version>
     <title>HMS.Client.Models</title>
     <authors>Jorge</authors>
     <description>Produzido no intuito de facilitar no desenvolvimento e na comunicação entre serviços!
@@ -13,6 +13,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\HMS.Client.Models\HMS.Client.Models\bin\Release\net8.0\HMS.Client.Models.dll" target="lib\net8.0\HMS.Client.Models.dll" />
+    <file src="C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\HMS.Client.Models\HMS.Client.Models\bin\Debug\net8.0\HMS.Client.Models.dll" target="lib\net8.0\HMS.Client.Models.dll" />
   </files>
 </package>

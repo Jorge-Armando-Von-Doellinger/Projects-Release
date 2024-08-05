@@ -1,6 +1,4 @@
-﻿using HMS.Client.Models.Input;
-using HMS.Client.Models.Output;
-using HMS.Core.Entity;
+﻿using HMS.Core.Entity;
 
 namespace HMS.Application.Mapper
 {
@@ -32,10 +30,7 @@ namespace HMS.Application.Mapper
 
         internal OutputModel Map(ClientEntity client)
         {
-            return new OutputModel
-            {
-               
-            };
+            return new OutputModel();
         }
 
         internal List<OutputModel> Map(List<ClientEntity> clients)
@@ -45,5 +40,7 @@ namespace HMS.Application.Mapper
             {
 
             }
+            return outputs;
+        }
     }
 }

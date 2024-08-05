@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "HMS.Client.Models/0.0.1": {
+      "HMS.Client.Models/1.0.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/HMS.Client.Models.dll": {}
@@ -40,13 +40,13 @@
     }
   },
   "libraries": {
-    "HMS.Client.Models/0.0.1": {
-      "sha512": "U6LcvK6p3LW5/pY5sOspW+uQJCb+ZTf628+gHzbWbhEAZDxkpAPu18EFvhMhmX3LpHUeRyFK3/gVQodL54adYA==",
+    "HMS.Client.Models/1.0.0": {
+      "sha512": "S0CmKygUsObcihSS6Yebx/f11ELiARfpgXFO/zEGeHnvv/pl5scHBgy2FsGl8mE5kW0KptHSLrj6UmUSOobrBg==",
       "type": "package",
-      "path": "hms.client.models/0.0.1",
+      "path": "hms.client.models/1.0.0",
       "files": [
         ".nupkg.metadata",
-        "hms.client.models.0.0.1.nupkg.sha512",
+        "hms.client.models.1.0.0.nupkg.sha512",
         "hms.client.models.nuspec",
         "lib/net8.0/HMS.Client.Models.dll"
       ]
@@ -91,7 +91,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "HMS.Client.Models >= 0.0.1",
+      "HMS.Client.Models >= 1.0.0",
       "HMS.Core >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.0"
     ]
@@ -154,7 +154,7 @@
         "dependencies": {
           "HMS.Client.Models": {
             "target": "Package",
-            "version": "[0.0.1, )"
+            "version": "[1.0.0, )"
           },
           "Microsoft.Extensions.DependencyInjection.Abstractions": {
             "target": "Package",

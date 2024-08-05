@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "HMS.Client.Models/0.0.1": {
+      "HMS.Client.Models/1.0.0": {
         "runtime": {
           "HMS.Client.Models.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "HMS.Client.Models/0.0.1": {
+    "HMS.Client.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

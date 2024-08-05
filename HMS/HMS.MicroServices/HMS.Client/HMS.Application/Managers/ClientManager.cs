@@ -18,7 +18,7 @@ namespace HMS.Application.Managers
         
         public OutputModel GetClientsAsync()
         {
-
+            throw new NotImplementedException();
         }
     }
 }

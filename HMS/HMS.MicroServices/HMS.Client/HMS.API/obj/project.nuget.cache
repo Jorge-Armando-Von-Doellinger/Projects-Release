@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "T+HCdMJ2x18=",
+  "dgSpecHash": "kuKisBPYHK4=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\HMS.API.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Nome\\.nuget\\packages\\hms.client.models\\0.0.1\\hms.client.models.0.0.1.nupkg.sha512",
+    "C:\\Users\\Nome\\.nuget\\packages\\hms.client.models\\1.0.0\\hms.client.models.1.0.0.nupkg.sha512",
     "C:\\Users\\Nome\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Nome\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Nome\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

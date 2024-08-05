@@ -2,7 +2,7 @@
 using HMS.Core.Interfaces.Repository;
 using HMS.Infrastructure.DataContext;
 using HMS.Infrastructure.TransactionServices;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace HMS.Infrastructure.Repository
 {
