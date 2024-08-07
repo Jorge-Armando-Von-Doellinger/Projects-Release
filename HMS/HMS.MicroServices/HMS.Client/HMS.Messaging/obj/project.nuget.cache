@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "pq0jXVvSoRM=",
+  "dgSpecHash": "HB95EWz6piI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Nome\\.nuget\\packages\\nuget.clients\\1.0.0\\nuget.clients.1.0.0.nupkg.sha512",
+    "C:\\Users\\Nome\\.nuget\\packages\\nuget.messageobject\\1.0.0\\nuget.messageobject.1.0.0.nupkg.sha512",
+    "C:\\Users\\Nome\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
+    "C:\\Users\\Nome\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Nome\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

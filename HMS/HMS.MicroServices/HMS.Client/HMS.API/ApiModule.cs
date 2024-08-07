@@ -6,6 +6,8 @@ namespace HMS.API
     {
         public static IServiceCollection AddApiModule(this IServiceCollection services)
         {
+            services
+                .AddManagers();
             return services;
         }
 
@@ -13,6 +15,6 @@ namespace HMS.API
         {
             services.AddScoped<ClientManager>();
             return services;
-        }
+        }   
     }
 }

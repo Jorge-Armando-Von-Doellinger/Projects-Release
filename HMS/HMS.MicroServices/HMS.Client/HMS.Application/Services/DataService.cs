@@ -1,5 +1,5 @@
 ﻿using HMS.Application.Mapper;
-using HMS.Client.Models.Input;
+using Nuget.Clients.DTOs.Input;
 using HMS.Core.Entity;
 using System;
 using System.Collections.Generic;
@@ -12,9 +12,11 @@ namespace HMS.Application.Services
     public sealed class DataService
     {
         internal ClientMapper Mapper { get; set; }
-        internal DataService(ClientMapper mapper) 
+        public DataService(ClientMapper mapper) 
         {
             Mapper = mapper;
         }
+
+         
     }
 }

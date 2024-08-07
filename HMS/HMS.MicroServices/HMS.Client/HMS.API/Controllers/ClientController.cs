@@ -1,5 +1,6 @@
 ﻿using HMS.Application.Managers;
-using HMS.Client.Models.Input;
+using Nuget.Clients.DTOs.Input;
+using Nuget.Clients.DTOs.Output;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,11 +16,20 @@ namespace HMS.API.Controllers
             _clientManager = clientManager;
         }
         [HttpGet]
-        public async Task<IActionResult> GetClientsAsync(InputModel input)
-        {
-            Console.WriteLine(input.Name);
-            await Task.CompletedTask;
-            return Ok();
-        }
+        public async Task<IActionResult> GetClientsAsync()
+            => Ok(await _clientManager.GetClientsAsync());
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddClientAsync(InputModel input)
+            => Ok(await _clientManager.AddClientAsync(input));
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateClientAsync(UpdateModel input)
+            => Ok(await _clientManager.UpdateClientAsync(input));
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteClientAsync(long ID)
+            => Ok(await _clientManager.DeleteClientAsync(ID));
     }
 }

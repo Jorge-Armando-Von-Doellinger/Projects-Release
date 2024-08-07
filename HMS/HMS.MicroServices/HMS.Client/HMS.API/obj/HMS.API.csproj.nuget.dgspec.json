@@ -37,6 +37,12 @@
             "projectReferences": {
               "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Application\\HMS.Application.csproj": {
                 "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Application\\HMS.Application.csproj"
+              },
+              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj"
+              },
+              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj": {
+                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj"
               }
             }
           }
@@ -56,6 +62,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Nuget.Clients": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -117,6 +127,9 @@
             "projectReferences": {
               "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj": {
                 "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj"
+              },
+              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj"
               }
             }
           }
@@ -136,13 +149,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "HMS.Client.Models": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Nuget.Clients": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Nuget.MessageObject": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             }
           },
           "imports": [
@@ -212,6 +229,182 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj",
+        "projectName": "HMS.Infrastructure",
+        "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
+          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj": {
+                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj",
+        "projectName": "HMS.Messaging",
+        "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj",
+        "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
+          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj": {
+                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Nuget.Clients": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Nuget.MessageObject": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.8.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

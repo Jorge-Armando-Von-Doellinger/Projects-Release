@@ -2,6 +2,7 @@
 using HMS.Core.Interfaces.Repository;
 using HMS.Infrastructure.DataContext;
 using HMS.Infrastructure.TransactionServices;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace HMS.Infrastructure.Repository
@@ -76,10 +77,13 @@ namespace HMS.Infrastructure.Repository
             {
                 return await _transactionService.ExecuteTransactionAsync(_context, async () =>
                 {
-                    ClientEntity existingClient = await _context.Clients.FindAsync(client.Id) ?? 
-                    throw new Exception("Nenhum usuario encontrado!");
-                    _context.Clients.Update(client.UpdateClient(existingClient));
-                    //await Task.Delay(1);
+                    ClientEntity existingClient = await _context.Clients
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync(x => x.Id == client.Id);
+                    if(existingClient == default)
+                        throw new Exception("Client não encontrado");
+                    client.UpdateClient(existingClient);
+                    _context.Clients.Update(client);
                 });
             }
             catch

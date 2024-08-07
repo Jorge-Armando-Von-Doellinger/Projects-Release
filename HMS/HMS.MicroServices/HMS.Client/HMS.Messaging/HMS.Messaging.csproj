@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Nuget.Clients" Version="1.0.0" />
+    <PackageReference Include="Nuget.MessageObject" Version="1.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HMS.Core\HMS.Core.csproj" />
+  </ItemGroup>
+
 </Project>

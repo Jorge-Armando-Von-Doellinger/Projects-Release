@@ -1,11 +1,184 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Nuget.Clients/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.Clients.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Clients.dll": {}
+        }
+      },
+      "Nuget.MessageObject/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.MessageObject.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.MessageObject.dll": {}
+        }
+      },
+      "RabbitMQ.Client/6.8.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.5",
+          "System.Threading.Channels": "7.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Threading.Channels/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/System.Threading.Channels.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/System.Threading.Channels.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "HMS.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/HMS.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HMS.Core.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Nuget.Clients/1.0.0": {
+      "sha512": "gjQeYfkXZus+t3TEHVWAIoeHz96/jF/UfsT2OwF+aF3xqkIohDvctl7G1/aWMHZ1zpiNXUXscM/e1KyXfgrb8Q==",
+      "type": "package",
+      "path": "nuget.clients/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.Clients.dll",
+        "nuget.clients.1.0.0.nupkg.sha512",
+        "nuget.clients.nuspec"
+      ]
+    },
+    "Nuget.MessageObject/1.0.0": {
+      "sha512": "PGJ1ExDn3ztH9QLsBM/MJMbjhXgGGN+nFYHOtgVXd5M/A6OUfgmvX0erIQ3JIel5e9sEYwU9Z7fsS/raLavZmg==",
+      "type": "package",
+      "path": "nuget.messageobject/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.MessageObject.dll",
+        "nuget.messageobject.1.0.0.nupkg.sha512",
+        "nuget.messageobject.nuspec"
+      ]
+    },
+    "RabbitMQ.Client/6.8.1": {
+      "sha512": "jNsmGgmCNw2S/NzskeN2ijtGywtH4Sk/G6jWUTD5sY9SrC27Xz6BsLIiB8hdsfjeyWCa4j4GvCIGkpE8wrjU1Q==",
+      "type": "package",
+      "path": "rabbitmq.client/6.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net462/RabbitMQ.Client.dll",
+        "lib/net462/RabbitMQ.Client.xml",
+        "lib/netstandard2.0/RabbitMQ.Client.dll",
+        "lib/netstandard2.0/RabbitMQ.Client.xml",
+        "rabbitmq.client.6.8.1.nupkg.sha512",
+        "rabbitmq.client.nuspec"
+      ]
+    },
+    "System.Memory/4.5.5": {
+      "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "type": "package",
+      "path": "system.memory/4.5.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.5.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Threading.Channels/7.0.0": {
+      "sha512": "qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
+      "type": "package",
+      "path": "system.threading.channels/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Threading.Channels.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Threading.Channels.targets",
+        "lib/net462/System.Threading.Channels.dll",
+        "lib/net462/System.Threading.Channels.xml",
+        "lib/net6.0/System.Threading.Channels.dll",
+        "lib/net6.0/System.Threading.Channels.xml",
+        "lib/net7.0/System.Threading.Channels.dll",
+        "lib/net7.0/System.Threading.Channels.xml",
+        "lib/netstandard2.0/System.Threading.Channels.dll",
+        "lib/netstandard2.0/System.Threading.Channels.xml",
+        "lib/netstandard2.1/System.Threading.Channels.dll",
+        "lib/netstandard2.1/System.Threading.Channels.xml",
+        "system.threading.channels.7.0.0.nupkg.sha512",
+        "system.threading.channels.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "HMS.Core/1.0.0": {
+      "type": "project",
+      "path": "../HMS.Core/HMS.Core.csproj",
+      "msbuildProject": "../HMS.Core/HMS.Core.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "HMS.Core >= 1.0.0",
+      "Nuget.Clients >= 1.0.0",
+      "Nuget.MessageObject >= 1.0.0",
+      "RabbitMQ.Client >= 6.8.1"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Nome\\.nuget\\packages\\": {},
@@ -41,7 +214,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj": {
+              "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Core\\HMS.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -58,6 +235,20 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Nuget.Clients": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "Nuget.MessageObject": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "RabbitMQ.Client": {
+            "target": "Package",
+            "version": "[6.8.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

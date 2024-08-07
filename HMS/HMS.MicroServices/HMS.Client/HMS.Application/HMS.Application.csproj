@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HMS.Client.Models" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Nuget.Clients" Version="1.0.0" />
+    <PackageReference Include="Nuget.MessageObject" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HMS.Core\HMS.Core.csproj" />
+    <ProjectReference Include="..\HMS.Infrastructure\HMS.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using HMS.Core.Entity;
+﻿using Nuget.Clients.DTOs.Output;
+using Nuget.Clients.DTOs.Input;
+using HMS.Core.Entity;
 
 namespace HMS.Application.Mapper
 {
@@ -30,17 +32,43 @@ namespace HMS.Application.Mapper
 
         internal OutputModel Map(ClientEntity client)
         {
-            return new OutputModel();
+            return new OutputModel
+            {
+                Name = client.Name,
+                CPF = client.CPF,
+                RG = client.RG,
+                EmailAdress = client.EmailAdress,
+                PhoneNumber= client.PhoneNumber,
+                DateBirth = client.DateBirth,
+                YearsOld = client.YearsOld,
+            };
         }
 
-        internal List<OutputModel> Map(List<ClientEntity> clients)
+        internal Task<List<OutputModel>> Map(List<ClientEntity> clients)
         {
             List<OutputModel> outputs = new List<OutputModel>();
             foreach(var client in clients)
             {
-
+                outputs.Add(Map(client));
             }
-            return outputs;
+            return Task.FromResult(outputs);
+        }
+
+        internal ClientEntity Map(UpdateModel updateModel)
+        {
+            var a =new ClientEntity
+            {
+                CPF = updateModel.CPF,
+                DateBirth = updateModel.DateBirth,
+                EmailAdress = updateModel.EmailAdress,
+                Id = updateModel.ID,
+                Name = updateModel.Name,
+                PhoneNumber = updateModel.PhoneNumber,
+                RG = updateModel.RG,
+                YearsOld = updateModel.YearsOld
+            };
+            Console.WriteLine(a.Id);
+            return a;
         }
     }
 }
