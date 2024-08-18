@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WqXdlQXZUEI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nome\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0-preview.7.24405.7\\microsoft.extensions.dependencyinjection.abstractions.9.0.0-preview.7.24405.7.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,4 +1,4 @@
-﻿using Nuget.Clients.DTOs.Mensaging;
+﻿using Nuget.Client.MessagingSettings;
 using RabbitMQ.Client;
 
 namespace HMS.Messaging.Configurators
@@ -12,9 +12,9 @@ namespace HMS.Messaging.Configurators
 
         public void SetConfigs(IModel channel)
         {
-            var configs = new ClientMessagingConfigs();
+            var configs = new ClientMessagingSettings();
             channel.ExchangeDeclare(configs.Exchange, 
-                configs.TypeExchange,
+                ExchangeType.Direct,
                 false, 
                 false, 
                 null);
@@ -25,10 +25,10 @@ namespace HMS.Messaging.Configurators
                 null);
             channel.QueueBind(configs.Queue,
                 configs.Exchange,
-                configs.AddClientKey); 
-            channel.QueueBind(configs.Queue,
+                configs.AddKey); 
+            /*channel.QueueBind(configs.Queue,
                 configs.Exchange,
-                configs.UpdateKey); 
+                configs.UpdateKey); */
             channel.QueueBind(configs.Queue,
                 configs.Exchange,
                 configs.DeleteKey);
@@ -38,9 +38,9 @@ namespace HMS.Messaging.Configurators
             channel.QueueBind(configs.Queue,
                 configs.Exchange,
                 configs.GetByIdKey); 
-            channel.QueueBind(configs.Queue,
+            /*channel.QueueBind(configs.Queue,
                 configs.Exchange,
-                configs.ResponseKey);
+                configs.ResponseKey);*/
             
         }
     }

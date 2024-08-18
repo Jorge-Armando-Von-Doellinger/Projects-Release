@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Nuget.Client/1.0.1": {
+        "dependencies": {
+          "Nuget.MessagingUtilities": "1.0.1"
+        },
+        "runtime": {
+          "Nuget.Client.dll": {}
+        }
+      },
+      "Nuget.MessagingUtilities/1.0.1": {
+        "runtime": {
+          "Nuget.MessagingUtilities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Nuget.Client/1.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Nuget.MessagingUtilities/1.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

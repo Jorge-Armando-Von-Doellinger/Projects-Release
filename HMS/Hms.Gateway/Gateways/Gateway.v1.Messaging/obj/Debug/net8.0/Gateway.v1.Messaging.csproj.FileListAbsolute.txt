@@ -1,0 +1,16 @@
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\bin\Debug\net8.0\Gateway.v1.Messaging.deps.json
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\bin\Debug\net8.0\Gateway.v1.Messaging.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\bin\Debug\net8.0\Gateway.v1.Messaging.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\bin\Debug\net8.0\Gateway.v1.Core.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\bin\Debug\net8.0\Gateway.v1.Core.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.csproj.AssemblyReference.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.AssemblyInfoInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.AssemblyInfo.cs
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.csproj.CoreCompileInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.sourcelink.json
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway..275AE1A3.Up2Date
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\refint\Gateway.v1.Messaging.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\Gateway.v1.Messaging.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Messaging\obj\Debug\net8.0\ref\Gateway.v1.Messaging.dll

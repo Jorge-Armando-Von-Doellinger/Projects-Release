@@ -1,6 +1,8 @@
 ﻿using HMS.Core.Interfaces.Messaging;
 using HMS.Messaging.Factorys;
-using Nuget.Clients.DTOs.Mensaging;
+using HMS.Messaging.Tests;
+using Nuget.Client.MessagingSettings;
+using Nuget.MessagingUtilities.MessageSettings;
 using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
@@ -18,18 +20,31 @@ namespace HMS.Messaging.Publishers
         {
             try
             {
-                var configs = new ClientMessagingConfigs();
+                var configureResponse = new ConfigureResponseRoutings();
+                var clientConfig = new ClientMessagingSettings();
+                string keyResponse = configureResponse.GetResponseKey(clientConfig.ResponseBase);
+
                 string dataSerialized = JsonSerializer.Serialize(data);
                 byte[] dataBytes = Encoding.UTF8.GetBytes(dataSerialized);
-                _channel.BasicPublish(exchange: configs.Exchange,
-                    routingKey: configs.ResponseKey,
+
+                _channel.QueueDeclare(queue: ResponseSettings.Queue);
+                _channel.ExchangeDeclare(exchange: ResponseSettings.Exchange, 
+                                         type: ResponseSettings.ExchangeType);
+
+                _channel.QueueBind(queue: ResponseSettings.Queue, 
+                                   exchange: ResponseSettings.Exchange,
+                                   routingKey: keyResponse);
+                _channel.BasicPublish(exchange: ResponseSettings.Exchange,
+                    routingKey: keyResponse,
                     mandatory: false,
                     basicProperties: null,
                     body: dataBytes);
+                //await new ResponseQueueTest().ResponseQueue(_channel);
                 return await Task.FromResult(true);
             }
             catch
             {
+                throw;
                 return false;
             }
         }

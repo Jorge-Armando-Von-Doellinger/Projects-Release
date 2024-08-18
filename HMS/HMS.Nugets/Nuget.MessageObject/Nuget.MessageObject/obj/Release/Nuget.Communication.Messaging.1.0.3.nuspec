@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Nuget.Communication.Messaging</id>
+    <version>1.0.3</version>
+    <title>Nuget.Communication.Messaging</title>
+    <authors>Jorge Von Doellinger Jr</authors>
+    <description>Criado com o objetivo de comunicação entre micro-serviços e manipulação de mensagens!</description>
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="c531f22f2aaa6c4cbab7f6f76ff341ca5e6476aa" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nuget.MessageObject\Nuget.MessageObject\bin\Release\net8.0\Nuget.Communication.Messaging.dll" target="lib\net8.0\Nuget.Communication.Messaging.dll" />
+  </files>
+</package>

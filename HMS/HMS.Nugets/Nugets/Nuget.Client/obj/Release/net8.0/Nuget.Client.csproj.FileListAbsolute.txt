@@ -1,0 +1,16 @@
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Release\net8.0\Nuget.Client.deps.json
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Release\net8.0\Nuget.Client.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Release\net8.0\Nuget.Client.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.AssemblyInfoInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.AssemblyInfo.cs
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.csproj.CoreCompileInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.sourcelink.json
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\refint\Nuget.Client.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\ref\Nuget.Client.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Release\net8.0\Nuget.MessagingUtilities.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Release\net8.0\Nuget.MessagingUtilities.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Client.csproj.AssemblyReference.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\obj\Release\net8.0\Nuget.Cl.C22629C5.Up2Date

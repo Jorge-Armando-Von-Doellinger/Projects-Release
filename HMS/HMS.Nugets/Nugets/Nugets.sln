@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Client", "Nuget.Client\Nuget.Client.csproj", "{73468EAE-01B3-4962-988A-75CD6B364097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.MessagingUtilities", "Nuget.MessagingUtilities\Nuget.MessagingUtilities.csproj", "{68B2CF5E-D289-499A-9FC5-1CF363D696CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73468EAE-01B3-4962-988A-75CD6B364097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73468EAE-01B3-4962-988A-75CD6B364097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73468EAE-01B3-4962-988A-75CD6B364097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73468EAE-01B3-4962-988A-75CD6B364097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B2CF5E-D289-499A-9FC5-1CF363D696CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B2CF5E-D289-499A-9FC5-1CF363D696CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B2CF5E-D289-499A-9FC5-1CF363D696CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B2CF5E-D289-499A-9FC5-1CF363D696CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94575D1F-1634-44A8-B550-819EB2C0201E}
+	EndGlobalSection
+EndGlobal

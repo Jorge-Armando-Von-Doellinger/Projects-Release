@@ -1,8 +1,13 @@
 ﻿using HMS.Application.Services;
+using HMS.Application.Tests;
 using HMS.Core.Entity;
+using HMS.Core.Interfaces.Messaging;
 using HMS.Core.Interfaces.Repository;
-using Nuget.Clients.DTOs.Input;
-using Nuget.Clients.DTOs.Output;
+using Microsoft.Extensions.DependencyInjection;
+using Nuget.Client.Input;
+using Nuget.Client.Output;
+using Nuget.MessagingUtilities;
+using System.Text.Json;
 
 namespace HMS.Application.Managers
 {
@@ -10,24 +15,32 @@ namespace HMS.Application.Managers
     {
         private readonly IClientRepository _clientRepository;
         private readonly DataService _dataService;
+        private readonly IServiceScope scope;
         // Publisher de mensagem
 
-        public ClientManager(IClientRepository repository, DataService dataService) 
-        { 
+        public ClientManager(IClientRepository repository, DataService dataService, IServiceProvider serviceProvider)
+        {
             _clientRepository = repository;
             _dataService = dataService;
+            scope = serviceProvider.CreateScope();
+
+
         }
+
         
         public async Task<List<OutputModel>> GetClientsAsync()
         {
             try
             {
+                //await new PublishMessage().teste(scope);
+                
                 List<ClientEntity> clients = await _clientRepository.GetClientsAsync();
                 return await _dataService.Mapper.Map(clients);
             }
             catch
             {
-                return default;
+                throw;
+                //return default;
             }
         }
 
@@ -37,13 +50,14 @@ namespace HMS.Application.Managers
         {
             try
             {
-                ClientEntity client = await _clientRepository.GetClientsByIdAsync(ID);
-                var output = _dataService.Mapper.Map(client);
-                return output;
+                //new PublishMessage().teste(scope);
+                ClientEntity client = await _clientRepository.GetClientsByIdAsync(ID) ??
+                    throw new Exception("Cliente não encontrado!");
+                return await Task.FromResult(_dataService.Mapper.Map(client));
             }
             catch
             {
-                throw;
+                return default;
             }
         }
     }

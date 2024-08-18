@@ -6,7 +6,7 @@
     <title>Clients.DTO</title>
     <authors>Jorge Von Doelliger Jr</authors>
     <description>Utilizado para ajudar na transferencia de dados entre as camadas da aplicação e na conexão com outros micro servicos!</description>
-    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="b98852af8f3b1313ac64a2eafd06ca3442fe9520" />
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="c531f22f2aaa6c4cbab7f6f76ff341ca5e6476aa" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>

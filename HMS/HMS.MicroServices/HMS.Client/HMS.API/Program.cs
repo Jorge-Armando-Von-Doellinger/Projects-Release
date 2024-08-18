@@ -1,6 +1,7 @@
 
 using HMS.Application;
 using HMS.Infrastructure;
+using HMS.Messaging;
 
 namespace HMS.API
 {
@@ -17,10 +18,17 @@ namespace HMS.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null; // Para manter os nomes como estão no código
+                });
             builder.Services
                 .AddApiModule()
                 .AddApplicationModule()
-                .AddInfrastructureModule();
+                .AddInfrastructureModule()
+                .AddMessagingModule()
+                .AddMessagingModuleExtension();
 
             var app = builder.Build();
 

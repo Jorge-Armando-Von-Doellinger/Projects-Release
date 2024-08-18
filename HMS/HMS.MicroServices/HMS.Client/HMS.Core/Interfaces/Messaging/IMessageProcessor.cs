@@ -1,7 +1,7 @@
 ﻿namespace HMS.Core.Interfaces.Messaging
 {
-    public interface IMessageProcessor
+    public interface IMessageProcessor<T>
     {
-        Task Process();
+        Task Process(T message);
     }
 }

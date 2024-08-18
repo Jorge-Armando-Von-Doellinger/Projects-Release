@@ -12,7 +12,9 @@
           "Microsoft.EntityFrameworkCore": "8.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.7",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.7",
-          "Microsoft.Extensions.Configuration": "8.0.0"
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Nuget.Client": "1.0.2",
+          "Nuget.MessagingUtilities": "1.0.4"
         },
         "runtime": {
           "HMS.Infrastructure.dll": {}
@@ -673,6 +675,25 @@
           }
         }
       },
+      "Nuget.Client/1.0.2": {
+        "dependencies": {
+          "Nuget.MessagingUtilities": "1.0.4"
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Client.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "Nuget.MessagingUtilities/1.0.4": {
+        "runtime": {
+          "lib/net8.0/Nuget.MessagingUtilities.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -1247,6 +1268,20 @@
       "sha512": "sha512-KZYeKBET/2Z0gY1WlTAK7+RHTl7GSbtvTLDXEZZojUdAPqpQNDL6tHv7VUpqfX5VEOh+uRGKaZXkuD253nEOBQ==",
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
+    },
+    "Nuget.Client/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eOEHvrHHzPIKtpD1j48t7H70aRCaj0GMUzytNcbvQy+gNbRb7t//3N8s+PxPZjT0N4zfBAi8DqlzLGPtnreI/A==",
+      "path": "nuget.client/1.0.2",
+      "hashPath": "nuget.client.1.0.2.nupkg.sha512"
+    },
+    "Nuget.MessagingUtilities/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yzebiez4IH3zpdufKnEP8UwvqF2+ERsFvfgTZ5AyQ4+WE+O9W0XLHygC8je/ytA5FXQtBSkJRWsIT1wfQzDrTQ==",
+      "path": "nuget.messagingutilities/1.0.4",
+      "hashPath": "nuget.messagingutilities.1.0.4.nupkg.sha512"
     },
     "System.CodeDom/4.4.0": {
       "type": "package",

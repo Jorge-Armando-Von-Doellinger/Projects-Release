@@ -1,0 +1,12 @@
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\bin\Debug\net8.0\Nuget.MessagingUtilities.deps.json
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\bin\Debug\net8.0\Nuget.MessagingUtilities.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\bin\Debug\net8.0\Nuget.MessagingUtilities.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\Nuget.MessagingUtilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\Nuget.MessagingUtilities.AssemblyInfoInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\Nuget.MessagingUtilities.AssemblyInfo.cs
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\Nuget.MessagingUtilities.csproj.CoreCompileInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\Nuget.MessagingUtilities.sourcelink.json
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\Nuget.MessagingUtilities.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\refint\Nuget.MessagingUtilities.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\Nuget.MessagingUtilities.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\obj\Debug\net8.0\ref\Nuget.MessagingUtilities.dll

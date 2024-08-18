@@ -16,7 +16,8 @@ namespace HMS.Messaging.Factorys
         {
             var factory = new ConnectionFactory()
             {
-                HostName = "localhost"
+                HostName = "localhost",
+                Port = 5672
             };
             var connection = factory.CreateConnection();
             var channel = connection.CreateModel();

@@ -12,9 +12,7 @@ C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.AP
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\HMS.API.runtimeconfig.json
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\HMS.API.dll
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\HMS.API.pdb
-C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\HMS.Client.Models.dll
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Nuget.Clients.DTOs.dll
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -79,3 +77,7 @@ C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.AP
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\HMS.Infrastructure.pdb
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\HMS.Messaging.pdb
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\obj\Debug\net8.0\HMS.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Nuget.Client.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.API\bin\Debug\net8.0\Nuget.MessagingUtilities.dll

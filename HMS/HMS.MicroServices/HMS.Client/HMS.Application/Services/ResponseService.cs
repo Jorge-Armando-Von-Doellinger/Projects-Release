@@ -1,18 +1,24 @@
-﻿using Nuget.MessageObject;
+﻿using Nuget.MessagingUtilities;
+using System.Text.Json;
 
 namespace HMS.Application.Services
 {
-    public static class ResponseService
+    public class ResponseService
     {
-        public Message SuccessMessage(Message messageRecieved)
+        public static Message CreateMessageResponse(Message messageRecieved, bool success, string? message = null)
         {
-            return new Message
+            string successMessage = "Operação realizada com sucesso!";
+            string errorMessage = "Houve erros durante a operação!";
+            string content = success ? successMessage : errorMessage;
+            content = message != null ? message : content;
+            return new Message()
             {
-                Content = "Operação realizada com sucesso!",
+                Content = content,
                 Destination = messageRecieved.Destination,
                 ID = messageRecieved.ID,
-                Origin = 
-            }
+                MessageFlow = messageRecieved.MessageFlow,
+                Origin = messageRecieved.Origin
+            };
         }
     }
 }

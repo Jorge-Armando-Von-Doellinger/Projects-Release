@@ -303,7 +303,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -582,22 +582,25 @@
           }
         }
       },
-      "Nuget.Clients/1.0.0": {
+      "Nuget.Client/1.0.2": {
         "type": "package",
+        "dependencies": {
+          "Nuget.MessagingUtilities": "1.0.2"
+        },
         "compile": {
-          "lib/net8.0/Nuget.Clients.dll": {}
+          "lib/net8.0/Nuget.Client.dll": {}
         },
         "runtime": {
-          "lib/net8.0/Nuget.Clients.dll": {}
+          "lib/net8.0/Nuget.Client.dll": {}
         }
       },
-      "Nuget.MessageObject/1.0.0": {
+      "Nuget.MessagingUtilities/1.0.4": {
         "type": "package",
         "compile": {
-          "lib/net8.0/Nuget.MessageObject.dll": {}
+          "lib/net8.0/Nuget.MessagingUtilities.dll": {}
         },
         "runtime": {
-          "lib/net8.0/Nuget.MessageObject.dll": {}
+          "lib/net8.0/Nuget.MessagingUtilities.dll": {}
         }
       },
       "System.Configuration.ConfigurationManager/6.0.1": {
@@ -1042,7 +1045,9 @@
           "HMS.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.7",
-          "Microsoft.Extensions.Configuration": "8.0.0"
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Nuget.Client": "1.0.2",
+          "Nuget.MessagingUtilities": "1.0.4"
         },
         "compile": {
           "bin/placeholder/HMS.Infrastructure.dll": {}
@@ -1494,10 +1499,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
-      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+      "sha512": "fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1521,7 +1526,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -1972,26 +1977,26 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Nuget.Clients/1.0.0": {
-      "sha512": "gjQeYfkXZus+t3TEHVWAIoeHz96/jF/UfsT2OwF+aF3xqkIohDvctl7G1/aWMHZ1zpiNXUXscM/e1KyXfgrb8Q==",
+    "Nuget.Client/1.0.2": {
+      "sha512": "eOEHvrHHzPIKtpD1j48t7H70aRCaj0GMUzytNcbvQy+gNbRb7t//3N8s+PxPZjT0N4zfBAi8DqlzLGPtnreI/A==",
       "type": "package",
-      "path": "nuget.clients/1.0.0",
+      "path": "nuget.client/1.0.2",
       "files": [
         ".nupkg.metadata",
-        "lib/net8.0/Nuget.Clients.dll",
-        "nuget.clients.1.0.0.nupkg.sha512",
-        "nuget.clients.nuspec"
+        "lib/net8.0/Nuget.Client.dll",
+        "nuget.client.1.0.2.nupkg.sha512",
+        "nuget.client.nuspec"
       ]
     },
-    "Nuget.MessageObject/1.0.0": {
-      "sha512": "PGJ1ExDn3ztH9QLsBM/MJMbjhXgGGN+nFYHOtgVXd5M/A6OUfgmvX0erIQ3JIel5e9sEYwU9Z7fsS/raLavZmg==",
+    "Nuget.MessagingUtilities/1.0.4": {
+      "sha512": "yzebiez4IH3zpdufKnEP8UwvqF2+ERsFvfgTZ5AyQ4+WE+O9W0XLHygC8je/ytA5FXQtBSkJRWsIT1wfQzDrTQ==",
       "type": "package",
-      "path": "nuget.messageobject/1.0.0",
+      "path": "nuget.messagingutilities/1.0.4",
       "files": [
         ".nupkg.metadata",
-        "lib/net8.0/Nuget.MessageObject.dll",
-        "nuget.messageobject.1.0.0.nupkg.sha512",
-        "nuget.messageobject.nuspec"
+        "lib/net8.0/Nuget.MessagingUtilities.dll",
+        "nuget.messagingutilities.1.0.4.nupkg.sha512",
+        "nuget.messagingutilities.nuspec"
       ]
     },
     "System.Configuration.ConfigurationManager/6.0.1": {
@@ -2872,9 +2877,9 @@
     "net8.0": [
       "HMS.Core >= 1.0.0",
       "HMS.Infrastructure >= 1.0.0",
-      "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.0",
-      "Nuget.Clients >= 1.0.0",
-      "Nuget.MessageObject >= 1.0.0"
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.1",
+      "Nuget.Client >= 1.0.2",
+      "Nuget.MessagingUtilities >= 1.0.4"
     ]
   },
   "packageFolders": {
@@ -2938,15 +2943,15 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": {
             "target": "Package",
-            "version": "[8.0.0, )"
+            "version": "[8.0.1, )"
           },
-          "Nuget.Clients": {
+          "Nuget.Client": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.2, )"
           },
-          "Nuget.MessageObject": {
+          "Nuget.MessagingUtilities": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.4, )"
           }
         },
         "imports": [

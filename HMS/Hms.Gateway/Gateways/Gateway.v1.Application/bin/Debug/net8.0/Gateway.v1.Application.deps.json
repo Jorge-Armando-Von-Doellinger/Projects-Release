@@ -1,0 +1,87 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Gateway.v1.Application/1.0.0": {
+        "dependencies": {
+          "Gateway.v1.Core": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0-preview.7.24405.7",
+          "Nuget.Client": "1.0.2",
+          "Nuget.MessagingUtilities": "1.0.4"
+        },
+        "runtime": {
+          "Gateway.v1.Application.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.0-preview.7.24405.7": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.40507"
+          }
+        }
+      },
+      "Nuget.Client/1.0.2": {
+        "dependencies": {
+          "Nuget.MessagingUtilities": "1.0.4"
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Client.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "Nuget.MessagingUtilities/1.0.4": {
+        "runtime": {
+          "lib/net8.0/Nuget.MessagingUtilities.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
+        }
+      },
+      "Gateway.v1.Core/1.0.0": {
+        "runtime": {
+          "Gateway.v1.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Gateway.v1.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.0-preview.7.24405.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZuoB/44UTW4IbYfHk0yHtZH9LdHkfEeclxvniWs90T+f9x/NQtN4556iNIKar3MASCcrD0n2AE5y/Kv6buuNIA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.0-preview.7.24405.7",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.9.0.0-preview.7.24405.7.nupkg.sha512"
+    },
+    "Nuget.Client/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eOEHvrHHzPIKtpD1j48t7H70aRCaj0GMUzytNcbvQy+gNbRb7t//3N8s+PxPZjT0N4zfBAi8DqlzLGPtnreI/A==",
+      "path": "nuget.client/1.0.2",
+      "hashPath": "nuget.client.1.0.2.nupkg.sha512"
+    },
+    "Nuget.MessagingUtilities/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yzebiez4IH3zpdufKnEP8UwvqF2+ERsFvfgTZ5AyQ4+WE+O9W0XLHygC8je/ytA5FXQtBSkJRWsIT1wfQzDrTQ==",
+      "path": "nuget.messagingutilities/1.0.4",
+      "hashPath": "nuget.messagingutilities.1.0.4.nupkg.sha512"
+    },
+    "Gateway.v1.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

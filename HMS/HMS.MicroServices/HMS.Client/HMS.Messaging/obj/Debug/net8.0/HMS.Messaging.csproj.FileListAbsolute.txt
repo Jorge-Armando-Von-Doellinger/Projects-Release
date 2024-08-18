@@ -10,3 +10,7 @@ C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Me
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Messaging\obj\Debug\net8.0\refint\HMS.Messaging.dll
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Messaging\obj\Debug\net8.0\HMS.Messaging.pdb
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Messaging\obj\Debug\net8.0\ref\HMS.Messaging.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Messaging\bin\Debug\net8.0\HMS.Core.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Messaging\bin\Debug\net8.0\HMS.Core.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Messaging\obj\Debug\net8.0\HMS.Messaging.csproj.AssemblyReference.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Messaging\obj\Debug\net8.0\HMS.Mess.BADF494F.Up2Date

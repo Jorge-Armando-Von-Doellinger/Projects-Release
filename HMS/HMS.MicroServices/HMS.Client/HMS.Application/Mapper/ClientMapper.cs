@@ -1,6 +1,6 @@
-﻿using Nuget.Clients.DTOs.Output;
-using Nuget.Clients.DTOs.Input;
-using HMS.Core.Entity;
+﻿using HMS.Core.Entity;
+using Nuget.Client.Input;
+using Nuget.Client.Output;
 
 namespace HMS.Application.Mapper
 {
@@ -40,7 +40,7 @@ namespace HMS.Application.Mapper
                 EmailAdress = client.EmailAdress,
                 PhoneNumber= client.PhoneNumber,
                 DateBirth = client.DateBirth,
-                YearsOld = client.YearsOld,
+                YearsOld = client.YearsOld
             };
         }
 
@@ -53,7 +53,7 @@ namespace HMS.Application.Mapper
             }
             return Task.FromResult(outputs);
         }
-
+        
         internal ClientEntity Map(UpdateModel updateModel)
         {
             var a =new ClientEntity
@@ -61,13 +61,12 @@ namespace HMS.Application.Mapper
                 CPF = updateModel.CPF,
                 DateBirth = updateModel.DateBirth,
                 EmailAdress = updateModel.EmailAdress,
-                Id = updateModel.ID,
+                Id = updateModel.Id,
                 Name = updateModel.Name,
                 PhoneNumber = updateModel.PhoneNumber,
                 RG = updateModel.RG,
                 YearsOld = updateModel.YearsOld
             };
-            Console.WriteLine(a.Id);
             return a;
         }
     }

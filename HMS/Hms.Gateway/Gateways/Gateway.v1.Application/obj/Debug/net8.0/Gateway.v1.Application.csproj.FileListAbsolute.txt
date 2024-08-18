@@ -1,0 +1,16 @@
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\bin\Debug\net8.0\Gateway.v1.Application.deps.json
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\bin\Debug\net8.0\Gateway.v1.Application.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\bin\Debug\net8.0\Gateway.v1.Application.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.csproj.AssemblyReference.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.AssemblyInfoInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.AssemblyInfo.cs
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.csproj.CoreCompileInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.sourcelink.json
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\refint\Gateway.v1.Application.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway.v1.Application.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\ref\Gateway.v1.Application.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\bin\Debug\net8.0\Gateway.v1.Core.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\bin\Debug\net8.0\Gateway.v1.Core.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\obj\Debug\net8.0\Gateway..460226D8.Up2Date

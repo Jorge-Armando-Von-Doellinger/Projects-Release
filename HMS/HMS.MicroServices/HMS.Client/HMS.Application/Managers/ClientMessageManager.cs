@@ -2,8 +2,8 @@
 using HMS.Core.Entity;
 using HMS.Core.Interfaces.Messaging;
 using HMS.Core.Interfaces.Repository;
-using Nuget.Clients.DTOs.Input;
-using Nuget.Clients.DTOs.Output;
+using Nuget.Client.Input;
+using Nuget.MessagingUtilities;
 
 namespace HMS.Application.Managers
 {
@@ -25,9 +25,8 @@ namespace HMS.Application.Managers
         {
             try
             {
-                var client = _dataService.Mapper.Map(input);
+                ClientEntity client = _dataService.Mapper.Map(input);
                 int rowsAffected = await _clientRepository.AddClientAsync(client);
-                bool publishSuccess = await _messagePublisher.PublishMessage(rowsAffected == 1);
                 if(rowsAffected == 1)
                     return true;
                 throw new Exception($"Houve um erro durante a adição do cliente. Linhas afetadas: {rowsAffected}");
@@ -44,7 +43,6 @@ namespace HMS.Application.Managers
             {
                 ClientEntity client = _dataService.Mapper.Map(input);
                 int rowsAffected = await _clientRepository.UpdateClientAsync(client);
-                bool publishSuccess = await _messagePublisher.PublishMessage(rowsAffected == 1);
                 if(rowsAffected == 1)
                     return true;
                 throw new Exception("Houve um erro durante a atualização do client");
@@ -60,7 +58,6 @@ namespace HMS.Application.Managers
             try
             {
                 int rowsAffected = await _clientRepository.DeleteClientAsync(new ClientEntity() { Id = ID });
-                bool publishSuccess = await _messagePublisher.PublishMessage(rowsAffected == 1);
                 if(rowsAffected == 1)
                     return true;
                 throw new Exception("Houve um erro ao excluir o cliente");
@@ -68,6 +65,19 @@ namespace HMS.Application.Managers
             catch
             {
                 throw;
+            }
+        }
+
+        internal async Task<bool> PublishResponse(Message message)
+        {
+            try
+            {
+                bool publishSuccess = await _messagePublisher.PublishMessage(message);
+                return publishSuccess;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

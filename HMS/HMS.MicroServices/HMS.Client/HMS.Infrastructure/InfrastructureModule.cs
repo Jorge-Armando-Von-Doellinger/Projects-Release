@@ -9,8 +9,8 @@ namespace HMS.Infrastructure
         public static IServiceCollection AddInfrastructureModule(this IServiceCollection services)
         {
             services
-                .AddContexts().
-                AddTransactionsServices();
+                .AddContexts()
+                .AddTransactionsServices();
             return services;
         }
 

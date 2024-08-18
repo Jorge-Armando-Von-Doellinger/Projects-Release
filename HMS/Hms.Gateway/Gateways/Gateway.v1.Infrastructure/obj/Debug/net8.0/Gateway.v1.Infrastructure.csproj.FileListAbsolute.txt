@@ -1,0 +1,13 @@
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\bin\Debug\net8.0\Gateway.v1.Infrastructure.deps.json
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\bin\Debug\net8.0\Gateway.v1.Infrastructure.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\bin\Debug\net8.0\Gateway.v1.Infrastructure.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.AssemblyInfo.cs
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.sourcelink.json
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\refint\Gateway.v1.Infrastructure.dll
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\Gateway.v1.Infrastructure.pdb
+C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Infrastructure\obj\Debug\net8.0\ref\Gateway.v1.Infrastructure.dll

@@ -51,7 +51,9 @@ namespace HMS.Infrastructure.Repository
         {
             try
             {
-                return await _context.Clients.ToListAsync();
+                return await _context.Clients
+                    .AsNoTracking()
+                    .ToListAsync();
             }
             catch
             {
@@ -63,10 +65,13 @@ namespace HMS.Infrastructure.Repository
         {
             try
             {
-                return await _context.Clients.FindAsync(ID);
+                return await _context.Clients
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(x => x.Id == ID);
             }
-            catch
+            catch(Exception ex)
             {
+                throw ex;
                 return null;
             }
         }
@@ -75,16 +80,19 @@ namespace HMS.Infrastructure.Repository
         {
             try
             {
-                return await _transactionService.ExecuteTransactionAsync(_context, async () =>
+                using(_context)
                 {
                     ClientEntity existingClient = await _context.Clients
                         .AsNoTracking()
                         .FirstOrDefaultAsync(x => x.Id == client.Id);
                     if(existingClient == default)
                         throw new Exception("Client não encontrado");
-                    client.UpdateClient(existingClient);
-                    _context.Clients.Update(client);
-                });
+                    return await _transactionService.ExecuteTransactionAsync(_context, async () =>
+                    {
+                        client.UpdateClient(existingClient);
+                        _context.Clients.Update(client);
+                    });
+                }
             }
             catch
             {

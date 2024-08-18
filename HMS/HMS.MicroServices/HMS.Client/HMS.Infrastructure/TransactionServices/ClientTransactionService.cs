@@ -6,21 +6,45 @@ namespace HMS.Infrastructure.TransactionServices
     {
         internal async Task<int> ExecuteTransactionAsync(ClientContext context, Func<Task> action)
         {
-            using(context)
-            using(var transaction = context.Database.BeginTransaction())
+            if(await HaveTransactionActive(context) == false)
+                return 0;
+            var transaction = context.Database.BeginTransaction();
+            try
             {
-                try
+                await action();
+                int rowsAffected = await context.SaveChangesAsync();
+                await transaction.CommitAsync();
+                await transaction.DisposeAsync();
+                return rowsAffected;
+            }
+            catch(Exception ex)
+            {
+                await transaction.RollbackAsync();
+                await transaction.DisposeAsync();
+                throw ex;
+            }
+
+        }
+
+        internal async Task<bool> HaveTransactionActive(ClientContext context)
+        {
+            try
+            {
+                var transaction = context.Database.CurrentTransaction;
+                Int16 count = 0;
+                while(transaction != null || count < 500)
                 {
-                    await action();
-                    var rowsAffected = await context.SaveChangesAsync();
-                    await transaction.CommitAsync();
-                    return rowsAffected;
+                    await Task.Delay(10);
+                    transaction = context.Database.CurrentTransaction;
+                    if(transaction == null)
+                        break;
+                    count++;
                 }
-                catch(Exception ex)
-                {
-                    await transaction.RollbackAsync();
-                    throw;
-                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                throw;
             }
         }
     }

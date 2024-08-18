@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Nuget.Client</id>
+    <version>1.0.1</version>
+    <title>Nuget.Client</title>
+    <authors>Jorge Von Doellinger Jr</authors>
+    <description>É um pacote para facilitar a comunicação entre aplicações!</description>
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="c531f22f2aaa6c4cbab7f6f76ff341ca5e6476aa" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Nuget.MessagingUtilities" version="1.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Debug\net8.0\Nuget.Client.dll" target="lib\net8.0\Nuget.Client.dll" />
+  </files>
+</package>
