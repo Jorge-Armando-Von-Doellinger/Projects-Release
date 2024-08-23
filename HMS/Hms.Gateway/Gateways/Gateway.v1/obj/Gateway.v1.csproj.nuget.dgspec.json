@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj": {}
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj": {
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj",
         "projectName": "Gateway.v1.Application",
-        "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj",
-        "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\obj\\",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -28,15 +28,14 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
           "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj": {
-                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj"
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj"
               }
             }
           }
@@ -85,24 +84,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj": {
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj",
         "projectName": "Gateway.v1.Core",
-        "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj",
-        "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\obj\\",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -113,7 +112,6 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
           "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
         },
         "frameworks": {
@@ -152,24 +150,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj": {
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
         "projectName": "Gateway.v1.Infrastructure",
-        "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -180,7 +178,6 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
           "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
         },
         "frameworks": {
@@ -225,24 +222,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj": {
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj",
         "projectName": "Gateway.v1.Messaging",
-        "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj",
-        "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\obj\\",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -253,15 +250,14 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
           "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj": {
-                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj"
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Core\\Gateway.v1.Core.csproj"
               }
             }
           }
@@ -314,24 +310,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj": {
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj",
         "projectName": "Gateway.v1",
-        "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj",
-        "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\obj\\",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -342,21 +338,20 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
           "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj": {
-                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj"
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj"
               },
-              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj"
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj"
               },
-              "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj": {
-                "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj"
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj"
               }
             }
           }
@@ -408,7 +403,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Client", "Nuget.Client\Nuget.Client.csproj", "{73468EAE-01B3-4962-988A-75CD6B364097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Client", "Nuget.Client\Nuget.Client.csproj", "{73468EAE-01B3-4962-988A-75CD6B364097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.MessagingUtilities", "Nuget.MessagingUtilities\Nuget.MessagingUtilities.csproj", "{68B2CF5E-D289-499A-9FC5-1CF363D696CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.MessagingUtilities", "Nuget.MessagingUtilities\Nuget.MessagingUtilities.csproj", "{68B2CF5E-D289-499A-9FC5-1CF363D696CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Response", "Nuget.Response\Nuget.Response.csproj", "{89B11ECB-CC81-447E-9DB4-0C4178D98B0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{68B2CF5E-D289-499A-9FC5-1CF363D696CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B2CF5E-D289-499A-9FC5-1CF363D696CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B2CF5E-D289-499A-9FC5-1CF363D696CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B11ECB-CC81-447E-9DB4-0C4178D98B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B11ECB-CC81-447E-9DB4-0C4178D98B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B11ECB-CC81-447E-9DB4-0C4178D98B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B11ECB-CC81-447E-9DB4-0C4178D98B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

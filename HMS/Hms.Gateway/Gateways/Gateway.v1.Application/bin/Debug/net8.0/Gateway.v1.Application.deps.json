@@ -11,7 +11,8 @@
           "Gateway.v1.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0-preview.7.24405.7",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.4"
+          "Nuget.MessagingUtilities": "1.0.7",
+          "Nuget.Response": "1.0.2"
         },
         "runtime": {
           "Gateway.v1.Application.dll": {}
@@ -27,7 +28,7 @@
       },
       "Nuget.Client/1.0.2": {
         "dependencies": {
-          "Nuget.MessagingUtilities": "1.0.4"
+          "Nuget.MessagingUtilities": "1.0.7"
         },
         "runtime": {
           "lib/net8.0/Nuget.Client.dll": {
@@ -36,17 +37,28 @@
           }
         }
       },
-      "Nuget.MessagingUtilities/1.0.4": {
+      "Nuget.MessagingUtilities/1.0.7": {
         "runtime": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {
-            "assemblyVersion": "1.0.4.0",
-            "fileVersion": "1.0.4.0"
+            "assemblyVersion": "1.0.7.0",
+            "fileVersion": "1.0.7.0"
+          }
+        }
+      },
+      "Nuget.Response/1.0.2": {
+        "runtime": {
+          "lib/net8.0/Nuget.Response.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
           }
         }
       },
       "Gateway.v1.Core/1.0.0": {
         "runtime": {
-          "Gateway.v1.Core.dll": {}
+          "Gateway.v1.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -71,12 +83,19 @@
       "path": "nuget.client/1.0.2",
       "hashPath": "nuget.client.1.0.2.nupkg.sha512"
     },
-    "Nuget.MessagingUtilities/1.0.4": {
+    "Nuget.MessagingUtilities/1.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yzebiez4IH3zpdufKnEP8UwvqF2+ERsFvfgTZ5AyQ4+WE+O9W0XLHygC8je/ytA5FXQtBSkJRWsIT1wfQzDrTQ==",
-      "path": "nuget.messagingutilities/1.0.4",
-      "hashPath": "nuget.messagingutilities.1.0.4.nupkg.sha512"
+      "sha512": "sha512-N2U0KJMGhWW8srw3/yUrfeZTCHt8oWaKFOz2v23EzCmcXkau4NIrvs41HY2PnKZnPoJx6+mrXxLYgFa2gr181w==",
+      "path": "nuget.messagingutilities/1.0.7",
+      "hashPath": "nuget.messagingutilities.1.0.7.nupkg.sha512"
+    },
+    "Nuget.Response/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U/7/SVWC+Uxu0+QFvXJqmHU0/sC6qw7dzBn0dvcy9nff+rJfErjMHNk9Y03ywzXN7wjpGkMsBI0bj0A7AB0Kcw==",
+      "path": "nuget.response/1.0.2",
+      "hashPath": "nuget.response.1.0.2.nupkg.sha512"
     },
     "Gateway.v1.Core/1.0.0": {
       "type": "project",

@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "HMS.API.Controllers.ClientController",
+    "Method": "GetClientsAsync",
+    "RelativePath": "client",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.API.Controllers.ClientController",
+    "Method": "GetClientByID",
+    "RelativePath": "client/ID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Int64",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

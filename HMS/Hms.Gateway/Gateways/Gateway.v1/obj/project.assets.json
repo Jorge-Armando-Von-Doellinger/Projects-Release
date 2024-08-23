@@ -54,13 +54,22 @@
           "lib/net8.0/Nuget.Client.dll": {}
         }
       },
-      "Nuget.MessagingUtilities/1.0.4": {
+      "Nuget.MessagingUtilities/1.0.7": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {}
         },
         "runtime": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {}
+        }
+      },
+      "Nuget.Response/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.Response.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Response.dll": {}
         }
       },
       "RabbitMQ.Client/6.8.1": {
@@ -175,7 +184,8 @@
           "Gateway.v1.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0-preview.7.24405.7",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.4"
+          "Nuget.MessagingUtilities": "1.0.7",
+          "Nuget.Response": "1.0.2"
         },
         "compile": {
           "bin/placeholder/Gateway.v1.Application.dll": {}
@@ -214,7 +224,7 @@
           "Gateway.v1.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0-preview.7.24405.7",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.4",
+          "Nuget.MessagingUtilities": "1.0.7",
           "RabbitMQ.Client": "6.8.1"
         },
         "compile": {
@@ -515,15 +525,26 @@
         "nuget.client.nuspec"
       ]
     },
-    "Nuget.MessagingUtilities/1.0.4": {
-      "sha512": "yzebiez4IH3zpdufKnEP8UwvqF2+ERsFvfgTZ5AyQ4+WE+O9W0XLHygC8je/ytA5FXQtBSkJRWsIT1wfQzDrTQ==",
+    "Nuget.MessagingUtilities/1.0.7": {
+      "sha512": "N2U0KJMGhWW8srw3/yUrfeZTCHt8oWaKFOz2v23EzCmcXkau4NIrvs41HY2PnKZnPoJx6+mrXxLYgFa2gr181w==",
       "type": "package",
-      "path": "nuget.messagingutilities/1.0.4",
+      "path": "nuget.messagingutilities/1.0.7",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.MessagingUtilities.dll",
-        "nuget.messagingutilities.1.0.4.nupkg.sha512",
+        "nuget.messagingutilities.1.0.7.nupkg.sha512",
         "nuget.messagingutilities.nuspec"
+      ]
+    },
+    "Nuget.Response/1.0.2": {
+      "sha512": "U/7/SVWC+Uxu0+QFvXJqmHU0/sC6qw7dzBn0dvcy9nff+rJfErjMHNk9Y03ywzXN7wjpGkMsBI0bj0A7AB0Kcw==",
+      "type": "package",
+      "path": "nuget.response/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.Response.dll",
+        "nuget.response.1.0.2.nupkg.sha512",
+        "nuget.response.nuspec"
       ]
     },
     "RabbitMQ.Client/6.8.1": {
@@ -703,28 +724,28 @@
       "Gateway.v1.Infrastructure >= 1.0.0",
       "Gateway.v1.Messaging >= 1.0.0",
       "Nuget.Client >= 1.0.2",
-      "Nuget.MessagingUtilities >= 1.0.4",
+      "Nuget.MessagingUtilities >= 1.0.7",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nome\\.nuget\\packages\\": {},
+    "C:\\Users\\Jorge\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj",
-      "projectName": "Gateway.v1",
-      "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.csproj",
-      "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\obj\\",
+      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.API.csproj",
+      "projectName": "Gateway.v1.API",
+      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\Gateway.v1.API.csproj",
+      "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -735,21 +756,20 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
         "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj": {
-              "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj"
+            "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj": {
+              "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Application\\Gateway.v1.Application.csproj"
             },
-            "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj"
+            "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj"
             },
-            "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj": {
-              "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj"
+            "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj": {
+              "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Messaging\\Gateway.v1.Messaging.csproj"
             }
           }
         }
@@ -775,7 +795,7 @@
           },
           "Nuget.MessagingUtilities": {
             "target": "Package",
-            "version": "[1.0.4, )"
+            "version": "[1.0.7, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -801,7 +821,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

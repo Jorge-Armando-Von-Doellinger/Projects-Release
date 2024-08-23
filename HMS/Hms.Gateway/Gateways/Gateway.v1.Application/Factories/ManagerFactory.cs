@@ -8,7 +8,7 @@ namespace Gateway.v1.Application.Factories
 {
     public sealed class ManagerFactory
     {
-        private readonly IServiceProvider _serviceProvider;
+        private IServiceProvider _serviceProvider;
         public ManagerFactory(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
@@ -17,13 +17,19 @@ namespace Gateway.v1.Application.Factories
 
         public IManager GetManager(Enum num)
         {
-            IManager manager = null;
+            
+            IManager manager = default;
             switch (num)
             {
                 case ManageFactoryEnums.ClientManager:
+                    Console.WriteLine("\n \n \n Teste1 \n \n \n");
                     manager = _serviceProvider.GetRequiredService<ClientManager>();
                     break;
+                default:
+                    throw new Exception("Enum incorreto! ManagerFactory-GetManager!");
             }
+            if (num == null)
+                Console.WriteLine("\n \n \n Null \n \n \n");
             return manager;
         }
     }

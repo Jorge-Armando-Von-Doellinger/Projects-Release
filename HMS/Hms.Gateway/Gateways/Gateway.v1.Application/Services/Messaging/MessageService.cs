@@ -1,4 +1,5 @@
 ﻿using Gateway.v1.Core.Messaging.Publisher;
+using Gateway.v1.Core.Messaging.Settings;
 using Nuget.Client.MessagingSettings;
 using Nuget.MessagingUtilities;
 using Nuget.MessagingUtilities.MessageSettings;
@@ -18,17 +19,13 @@ namespace Gateway.v1.Application.Services.Messaging
         {
             try
             {
-                //var serialized = JsonSerializer.Serialize(data);
-                var message = new Message()
-                {
-
-                    Content = data,
-                    Destination = settings.CurrentKey,
-                    ID = Guid.NewGuid(),
-                    MessageFlow = new(),
-                    Origin = "gateway"
-                };
-                message.MessageFlow.Add("gateway");
+               //var serialized = JsonSerializer.Serialize(data);
+               Console.WriteLine(GatewayMessageSettings.Key +"\n \n \n");
+                Message message = new Message();
+                    message.Configure(data,
+                    GatewayMessageSettings.Key,
+                    settings.CurrentKey,
+                    GatewayMessageSettings.Key);
                 await _messagePublisher.PublishMessage(message, settings);
                 await Task.CompletedTask;
             }

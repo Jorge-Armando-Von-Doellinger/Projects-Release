@@ -681,13 +681,22 @@
           "lib/net8.0/Nuget.Client.dll": {}
         }
       },
-      "Nuget.MessagingUtilities/1.0.4": {
+      "Nuget.MessagingUtilities/1.0.7": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {}
         },
         "runtime": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {}
+        }
+      },
+      "Nuget.Response/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.Response.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Response.dll": {}
         }
       },
       "RabbitMQ.Client/6.8.1": {
@@ -1216,7 +1225,8 @@
           "HMS.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.4"
+          "Nuget.MessagingUtilities": "1.0.7",
+          "Nuget.Response": "1.0.2"
         },
         "compile": {
           "bin/placeholder/HMS.Application.dll": {}
@@ -1244,7 +1254,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.7",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.4"
+          "Nuget.MessagingUtilities": "1.0.7"
         },
         "compile": {
           "bin/placeholder/HMS.Infrastructure.dll": {}
@@ -1261,7 +1271,7 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
           "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.4",
+          "Nuget.MessagingUtilities": "1.0.7",
           "RabbitMQ.Client": "6.8.1"
         },
         "compile": {
@@ -2540,15 +2550,26 @@
         "nuget.client.nuspec"
       ]
     },
-    "Nuget.MessagingUtilities/1.0.4": {
-      "sha512": "yzebiez4IH3zpdufKnEP8UwvqF2+ERsFvfgTZ5AyQ4+WE+O9W0XLHygC8je/ytA5FXQtBSkJRWsIT1wfQzDrTQ==",
+    "Nuget.MessagingUtilities/1.0.7": {
+      "sha512": "N2U0KJMGhWW8srw3/yUrfeZTCHt8oWaKFOz2v23EzCmcXkau4NIrvs41HY2PnKZnPoJx6+mrXxLYgFa2gr181w==",
       "type": "package",
-      "path": "nuget.messagingutilities/1.0.4",
+      "path": "nuget.messagingutilities/1.0.7",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.MessagingUtilities.dll",
-        "nuget.messagingutilities.1.0.4.nupkg.sha512",
+        "nuget.messagingutilities.1.0.7.nupkg.sha512",
         "nuget.messagingutilities.nuspec"
+      ]
+    },
+    "Nuget.Response/1.0.2": {
+      "sha512": "U/7/SVWC+Uxu0+QFvXJqmHU0/sC6qw7dzBn0dvcy9nff+rJfErjMHNk9Y03ywzXN7wjpGkMsBI0bj0A7AB0Kcw==",
+      "type": "package",
+      "path": "nuget.response/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.Response.dll",
+        "nuget.response.1.0.2.nupkg.sha512",
+        "nuget.response.nuspec"
       ]
     },
     "RabbitMQ.Client/6.8.1": {
@@ -3572,28 +3593,29 @@
       "HMS.Infrastructure >= 1.0.0",
       "HMS.Messaging >= 1.0.0",
       "Nuget.Client >= 1.0.2",
-      "Nuget.MessagingUtilities >= 1.0.4",
+      "Nuget.MessagingUtilities >= 1.0.7",
+      "Nuget.Response >= 1.0.2",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nome\\.nuget\\packages\\": {},
+    "C:\\Users\\Jorge\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\HMS.API.csproj",
+      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\HMS.API.csproj",
       "projectName": "HMS.API",
-      "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\HMS.API.csproj",
-      "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\obj\\",
+      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\HMS.API.csproj",
+      "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3604,21 +3626,20 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
         "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Application\\HMS.Application.csproj": {
-              "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Application\\HMS.Application.csproj"
+            "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Application\\HMS.Application.csproj": {
+              "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Application\\HMS.Application.csproj"
             },
-            "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj"
+            "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Infrastructure\\HMS.Infrastructure.csproj"
             },
-            "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj": {
-              "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj"
+            "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj": {
+              "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.Messaging\\HMS.Messaging.csproj"
             }
           }
         }
@@ -3644,7 +3665,11 @@
           },
           "Nuget.MessagingUtilities": {
             "target": "Package",
-            "version": "[1.0.4, )"
+            "version": "[1.0.7, )"
+          },
+          "Nuget.Response": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -3670,7 +3695,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

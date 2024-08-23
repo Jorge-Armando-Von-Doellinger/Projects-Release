@@ -4,6 +4,7 @@ using HMS.Core.Interfaces.Messaging;
 using HMS.Core.Interfaces.Repository;
 using Nuget.Client.Input;
 using Nuget.MessagingUtilities;
+using Nuget.Response;
 
 namespace HMS.Application.Managers
 {
@@ -21,50 +22,56 @@ namespace HMS.Application.Managers
             _dataService = dataService;
         }
 
-        public async Task<bool> AddClientAsync(InputModel input)
+        public async Task<Response> AddClientAsync(InputModel input)
         {
+            var response = new Response();
             try
             {
                 ClientEntity client = _dataService.Mapper.Map(input);
                 int rowsAffected = await _clientRepository.AddClientAsync(client);
                 if(rowsAffected == 1)
-                    return true;
+                    return response;
                 throw new Exception($"Houve um erro durante a adição do cliente. Linhas afetadas: {rowsAffected}");
             }
-            catch
+            catch(Exception ex) 
             {
-                throw;
+                response.CaseError(ex.Message);
+                return response;
             }
         }
 
-        public async Task<bool> UpdateClientAsync(UpdateModel input)
+        public async Task<Response> UpdateClientAsync(UpdateModel input)
         {
+            var response = new Response();
             try
             {
                 ClientEntity client = _dataService.Mapper.Map(input);
                 int rowsAffected = await _clientRepository.UpdateClientAsync(client);
                 if(rowsAffected == 1)
-                    return true;
+                    return response;
                 throw new Exception("Houve um erro durante a atualização do client");
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                response.CaseError(ex.Message);
+                return response;
             }
         }
 
-        public async Task<bool> DeleteClientAsync(long ID)
+        public async Task<Response> DeleteClientAsync(long ID)
         {
+            var response = new Response();
             try
             {
                 int rowsAffected = await _clientRepository.DeleteClientAsync(new ClientEntity() { Id = ID });
                 if(rowsAffected == 1)
-                    return true;
+                    return response;
                 throw new Exception("Houve um erro ao excluir o cliente");
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                response.CaseError(ex.Message);
+                return response;
             }
         }
 

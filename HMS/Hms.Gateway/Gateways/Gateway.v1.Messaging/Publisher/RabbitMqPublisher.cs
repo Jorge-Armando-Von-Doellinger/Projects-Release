@@ -2,6 +2,7 @@
 using Gateway.v1.Messaging.Configurator;
 using Gateway.v1.Messaging.Factory;
 using Gateway.v1.Messaging.Serializer;
+using Nuget.MessagingUtilities;
 using Nuget.MessagingUtilities.MessageSettings;
 using RabbitMQ.Client;
 using System.Text;
@@ -24,7 +25,7 @@ namespace Gateway.v1.Messaging.Publisher
         {
             try
             {
-                if(message == null || settings == null)
+                if(message == null || settings == null || message.GetType() != typeof(Message))
                     throw new NullReferenceException("Dados invealidos");
                 var dataJson = await DataSerializer.Serialize(message);
                     

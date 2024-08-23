@@ -36,9 +36,12 @@ namespace HMS.Infrastructure.Repository
         {
             try
             {
+                if(await GetClientsByIdAsync(client.Id) == null)
+                    return 0;
                 return await _transactionService.ExecuteTransactionAsync(_context, async () =>
                 {
                     await Task.FromResult(_context.Clients.Remove(client));
+                    await Task.Delay(1000);
                 });
             }
             catch(Exception ex)

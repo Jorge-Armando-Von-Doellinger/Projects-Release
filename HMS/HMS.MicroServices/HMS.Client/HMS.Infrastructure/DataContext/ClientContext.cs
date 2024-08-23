@@ -10,7 +10,7 @@ namespace HMS.Infrastructure.DataContext
         private const string SqlServerConnection = "Server=localhost,1433; " +
             "Database=ProjectsRelease; " +
             "User Id=SA; " +
-            "Password=MyStrongPassword123!; " +
+            "Password=YourStrong!Passw0rd; " +
             "TrustServerCertificate=true";
         // DESENVOLVIMENTO
         public ClientContext()

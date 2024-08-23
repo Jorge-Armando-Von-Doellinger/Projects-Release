@@ -10,3 +10,15 @@ C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Co
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\refint\HMS.Core.dll
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.pdb
 C:\Users\Nome\Documents\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\ref\HMS.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\bin\Debug\net8.0\HMS.Core.deps.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\bin\Debug\net8.0\HMS.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\bin\Debug\net8.0\HMS.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.AssemblyInfoInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.AssemblyInfo.cs
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.sourcelink.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\refint\HMS.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\HMS.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Client\HMS.Core\obj\Debug\net8.0\ref\HMS.Core.dll

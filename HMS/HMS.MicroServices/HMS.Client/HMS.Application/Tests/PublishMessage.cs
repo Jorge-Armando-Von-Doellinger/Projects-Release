@@ -1,6 +1,7 @@
 ﻿using HMS.Core.Interfaces.Messaging;
 using Microsoft.Extensions.DependencyInjection;
 using Nuget.Client.Input;
+using Nuget.Client.MessagingSettings;
 using Nuget.MessagingUtilities;
 using System.Text.Json;
 
@@ -23,14 +24,12 @@ namespace HMS.Application.Tests
                     RG = 123321,
                     YearsOld = 19
                 };
-                var response = new Message
-                {
-                    Content = inputmodel,
-                    Destination = "clients.add",
-                    ID = new Guid(),
-                    MessageFlow = new List<string>() { "clients.add" },
-                    Origin = "clients.add"
-                };
+                var addkey = new ClientMessagingSettings().AddKey;
+                var response = new Message();
+                response.Configure(inputmodel, 
+                    addkey, 
+                    addkey, 
+                    addkey);
                 var _messagePublisher = scope.ServiceProvider.GetRequiredService<IMessagePublisher>();
                 await _messagePublisher.PublishMessage(response);
             }

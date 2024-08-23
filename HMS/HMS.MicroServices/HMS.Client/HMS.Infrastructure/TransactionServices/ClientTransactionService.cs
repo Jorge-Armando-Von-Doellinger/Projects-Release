@@ -13,15 +13,16 @@ namespace HMS.Infrastructure.TransactionServices
             {
                 await action();
                 int rowsAffected = await context.SaveChangesAsync();
-                await transaction.CommitAsync();
-                await transaction.DisposeAsync();
                 return rowsAffected;
             }
             catch(Exception ex)
             {
+                throw ex;
+            }
+            finally
+            {
                 await transaction.RollbackAsync();
                 await transaction.DisposeAsync();
-                throw ex;
             }
 
         }

@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Nuget.Client.Input;
 using Nuget.Client.Output;
 using Nuget.MessagingUtilities;
+using Nuget.Response;
 using System.Text.Json;
 
 namespace HMS.Application.Managers
@@ -28,37 +29,38 @@ namespace HMS.Application.Managers
         }
 
         
-        public async Task<List<OutputModel>> GetClientsAsync()
+        public async Task<Response> GetClientsAsync()
         {
+            var response = new Response();
             try
             {
-                //await new PublishMessage().teste(scope);
-                
                 List<ClientEntity> clients = await _clientRepository.GetClientsAsync();
-                return await _dataService.Mapper.Map(clients);
+                response.Content = await _dataService.Mapper.Map(clients);
             }
-            catch
+            catch (Exception ex) 
             {
-                throw;
-                //return default;
+                response.CaseError(ex.Message);
             }
+            return response;
         }
 
         // Get não precisa de fila, ou precisa?
 
-        public async Task<OutputModel> GetClientByIdAsync(long ID)
+        public async Task<Response> GetClientByIdAsync(long ID)
         {
+            var response = new Response();
             try
             {
                 //new PublishMessage().teste(scope);
                 ClientEntity client = await _clientRepository.GetClientsByIdAsync(ID) ??
                     throw new Exception("Cliente não encontrado!");
-                return await Task.FromResult(_dataService.Mapper.Map(client));
+                response.Content = await Task.FromResult(_dataService.Mapper.Map(client));
             }
-            catch
+            catch (Exception ex)
             {
-                return default;
+                response.CaseError(ex.Message);
             }
+            return response;
         }
     }
 }

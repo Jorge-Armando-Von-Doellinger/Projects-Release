@@ -1,5 +1,6 @@
 ﻿using Gateway.v1.Application.Services.Clients;
 using Nuget.Client.Output;
+using Nuget.Response;
 
 namespace Gateway.v1.Application.Facades
 {
@@ -11,9 +12,9 @@ namespace Gateway.v1.Application.Facades
             _getClientsService = getClientsService;
         }
 
-        public async Task<List<OutputModel>> GetClient()
+        public async Task<Response> GetClient()
             => await _getClientsService.GetClientsAsync();
-        public async Task<OutputModel> GetClientByID(long ID)
+        public async Task<Response> GetClientByID(long ID)
             => await _getClientsService.GetClientByIdAsync(ID);
     }
 }

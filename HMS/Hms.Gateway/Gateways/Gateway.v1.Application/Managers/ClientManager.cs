@@ -1,10 +1,11 @@
 ﻿using Gateway.v1.Application.Facades;
 using Gateway.v1.Application.Interfaces;
-using Gateway.v1.Application.Services;
+using Gateway.v1.Application.Mappers;
 using Gateway.v1.Application.Services.Messaging;
-using Nuget.Client.Input;
+using Gateway.v1.Core.Messaging.Settings;
 using Nuget.Client.MessagingSettings;
 using Nuget.Client.Output;
+using Nuget.MessagingUtilities;
 
 namespace Gateway.v1.Application.Managers
 {
@@ -20,13 +21,14 @@ namespace Gateway.v1.Application.Managers
             _settings = settings;
         }
 
-        public async Task Add(object input)
+        public async Task<bool> Add(object input)
         {
             try
             {
                 _settings.CurrentKey = _settings.AddKey;
                 await _messageService.PublishMessage(input, _settings);
                 await Task.CompletedTask;
+                return true;
             }
             catch(Exception ex)
             {
@@ -34,16 +36,27 @@ namespace Gateway.v1.Application.Managers
             }
         }
 
-        public Task Delete(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<Output>> Get<Output>()
+        public async Task<bool> Delete(long id)
         {
             try
             {
-                return await _clientFacade.GetClient() as List<Output>;
+                _settings.CurrentKey = _settings.DeleteKey;
+                await Task.Delay(10);
+                await _messageService.PublishMessage(id, _settings);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<object> Get()
+        {
+            try
+            {
+                var response = await _clientFacade.GetClient();
+                return response;
             }
             catch(Exception ex)
             {
@@ -51,11 +64,12 @@ namespace Gateway.v1.Application.Managers
             };
         }
 
-        public async Task<Output> GetById<Output>(long ID)
+        public async Task<object> GetById(long ID)
         {
             try
             {
-                
+                var response = await _clientFacade.GetClientByID(ID); 
+                return response;
             }
             catch(Exception ex)
             {
@@ -63,9 +77,18 @@ namespace Gateway.v1.Application.Managers
             }
         }
 
-        public Task Update(object input)
+        public async Task<bool> Update(object input)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _settings.CurrentKey = _settings.UpdateKey;
+                await _messageService.PublishMessage(input, _settings);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         /*public async Task<List<OutputModel>> GetClientsAsync()

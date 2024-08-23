@@ -115,12 +115,18 @@
           "Nuget.MessagingUtilities": "1.0.4"
         },
         "runtime": {
-          "Gateway.v1.Application.dll": {}
+          "Gateway.v1.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Gateway.v1.Core/1.0.0": {
         "runtime": {
-          "Gateway.v1.Core.dll": {}
+          "Gateway.v1.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Gateway.v1.Infrastructure/1.0.0": {
@@ -128,7 +134,10 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0-preview.7.24405.7"
         },
         "runtime": {
-          "Gateway.v1.Infrastructure.dll": {}
+          "Gateway.v1.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Gateway.v1.Messaging/1.0.0": {
@@ -140,7 +149,10 @@
           "RabbitMQ.Client": "6.8.1"
         },
         "runtime": {
-          "Gateway.v1.Messaging.dll": {}
+          "Gateway.v1.Messaging.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

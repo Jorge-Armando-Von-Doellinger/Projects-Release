@@ -12,7 +12,6 @@ namespace HMS.Application
         public static IServiceCollection AddApplicationModule(this IServiceCollection services)
         {
             services
-                .AddRepositories()
                 .AddServices()
                 .AddMappers();
             return services;
@@ -30,10 +29,5 @@ namespace HMS.Application
             return services;
         }
 
-        public static IServiceCollection AddRepositories(this IServiceCollection services)
-        {
-            services.AddScoped<IClientRepository, ClientRepository>();
-            return services;
-        }
     }
 }

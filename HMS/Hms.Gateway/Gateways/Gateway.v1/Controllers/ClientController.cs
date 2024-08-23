@@ -1,4 +1,6 @@
-﻿using Gateway.v1.Application.Managers;
+﻿using Gateway.v1.Application.Enums;
+using Gateway.v1.Application.Interfaces;
+using Gateway.v1.Application.Managers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nuget.Client.Input;
@@ -9,23 +11,23 @@ namespace Gateway.v1.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly ClientManager _clientManager;
-        public ClientController(ClientManager clientManager)
+        private readonly IManager _clientManager;
+        public ClientController(Func<Enum, IManager> factory)
         {
-            _clientManager = clientManager;
+            _clientManager = factory(ManageFactoryEnums.ClientManager);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetClients()
         {
-            return Ok(await _clientManager.GetClientsAsync());
+            return Ok(await _clientManager.Get());
         }
         [HttpGet("ID")]
         public async Task<IActionResult> GetClientByID(long ID)
         {
-            try{
-                return Ok(await _clientManager.GetClientByIdAsync(ID));
-
+            try 
+            {
+                return Ok(await _clientManager.GetById(ID));
             }
             catch
             {
@@ -38,9 +40,22 @@ namespace Gateway.v1.Controllers
         {
             try
             {
-                return Accepted(_clientManager.AddClientAsync(input));
+                return Accepted(_clientManager.Add(input));
             }
             catch(Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteClient(long ID)
+        {
+            try
+            {
+                return Accepted(await _clientManager.Delete(ID));
+            }
+            catch (Exception ex)
             {
                 throw;
             }

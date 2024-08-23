@@ -57,23 +57,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nome\\.nuget\\packages\\": {},
+    "C:\\Users\\Jorge\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
       "projectName": "Gateway.v1.Infrastructure",
-      "projectPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Nome\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nome\\Documents\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\Gateway.v1.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\Hms.Gateway\\Gateways\\Gateway.v1.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -84,7 +84,6 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/Nugets": {},
         "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
       },
       "frameworks": {
@@ -129,7 +128,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

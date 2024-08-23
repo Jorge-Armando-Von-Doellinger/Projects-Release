@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Gateway.v1.Application
-build_property.ProjectDir = C:\Users\Nome\Documents\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\
+build_property.ProjectDir = C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\Hms.Gateway\Gateways\Gateway.v1.Application\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

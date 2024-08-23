@@ -11,14 +11,8 @@ namespace HMS.Application.Services
             string errorMessage = "Houve erros durante a operação!";
             string content = success ? successMessage : errorMessage;
             content = message != null ? message : content;
-            return new Message()
-            {
-                Content = content,
-                Destination = messageRecieved.Destination,
-                ID = messageRecieved.ID,
-                MessageFlow = messageRecieved.MessageFlow,
-                Origin = messageRecieved.Origin
-            };
+            messageRecieved.Content = content;
+            return messageRecieved;
         }
     }
 }

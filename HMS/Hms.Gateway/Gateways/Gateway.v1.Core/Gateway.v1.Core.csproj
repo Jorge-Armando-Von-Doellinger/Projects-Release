@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Messaging\Process\" />
+    <Compile Remove="Messaging\Process\**" />
+    <EmbeddedResource Remove="Messaging\Process\**" />
+    <None Remove="Messaging\Process\**" />
   </ItemGroup>
 
 </Project>

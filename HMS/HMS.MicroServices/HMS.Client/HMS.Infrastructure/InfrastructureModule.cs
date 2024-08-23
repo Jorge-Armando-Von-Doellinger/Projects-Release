@@ -1,4 +1,6 @@
-﻿using HMS.Infrastructure.DataContext;
+﻿using HMS.Core.Interfaces.Repository;
+using HMS.Infrastructure.DataContext;
+using HMS.Infrastructure.Repository;
 using HMS.Infrastructure.TransactionServices;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +12,7 @@ namespace HMS.Infrastructure
         {
             services
                 .AddContexts()
+                .AddRepositories()
                 .AddTransactionsServices();
             return services;
         }
@@ -23,6 +26,12 @@ namespace HMS.Infrastructure
         public static IServiceCollection AddContexts(this IServiceCollection services)
         {
             services.AddScoped<ClientContext>();
+            return services;
+        }
+
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IClientRepository, ClientRepository>();
             return services;
         }
     }
