@@ -6,6 +6,7 @@ using Gateway.v1.Core.Messaging.Settings;
 using Nuget.Client.MessagingSettings;
 using Nuget.Client.Output;
 using Nuget.MessagingUtilities;
+using Nuget.MessagingUtilities.MessageSettings;
 
 namespace Gateway.v1.Application.Managers
 {
@@ -21,14 +22,13 @@ namespace Gateway.v1.Application.Managers
             _settings = settings;
         }
 
-        public async Task<bool> Add(object input)
+        public async Task<object> Add(object input)
         {
             try
             {
                 _settings.CurrentKey = _settings.AddKey;
-                await _messageService.PublishMessage(input, _settings);
-                await Task.CompletedTask;
-                return true;
+                var message = await _messageService.PublishMessage(input, _settings);
+                return await _messageService.GetObjectAsync(_settings.ResponseBase, message.ID);
             }
             catch(Exception ex)
             {
@@ -36,7 +36,7 @@ namespace Gateway.v1.Application.Managers
             }
         }
 
-        public async Task<bool> Delete(long id)
+        public async Task<object> Delete(long id)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace Gateway.v1.Application.Managers
             }
         }
 
-        public async Task<bool> Update(object input)
+        public async Task<object> Update(object input)
         {
             try
             {

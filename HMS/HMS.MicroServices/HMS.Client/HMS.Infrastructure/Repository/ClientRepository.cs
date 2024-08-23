@@ -3,6 +3,7 @@ using HMS.Core.Interfaces.Repository;
 using HMS.Infrastructure.DataContext;
 using HMS.Infrastructure.TransactionServices;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 
 namespace HMS.Infrastructure.Repository
@@ -92,8 +93,12 @@ namespace HMS.Infrastructure.Repository
                         throw new Exception("Client não encontrado");
                     return await _transactionService.ExecuteTransactionAsync(_context, async () =>
                     {
+                        Console.WriteLine("Chegou");
                         client.UpdateClient(existingClient);
                         _context.Clients.Update(client);
+                        var teste = JsonSerializer.Serialize(client);
+                        Console.WriteLine(teste);
+                        await Task.Delay(1000);
                     });
                 }
             }

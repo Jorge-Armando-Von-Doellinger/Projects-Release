@@ -40,11 +40,24 @@ namespace Gateway.v1.Controllers
         {
             try
             {
-                return Accepted(_clientManager.Add(input));
+                return Accepted(await _clientManager.Add(input));
             }
             catch(Exception ex)
             {
                 throw;
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateClient(UpdateModel input)
+        {
+            try
+            {
+                return Ok(await _clientManager.Update(input));
+            }
+            catch (Exception ex)
+            {
+                throw;  
             }
         }
 

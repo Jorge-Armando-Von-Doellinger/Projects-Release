@@ -19,11 +19,10 @@ namespace HMS.Application.MessageProcessor
         }
         public async Task Process(Message message)
         {
+            var response = new Response();
+            var configs = new ClientMessagingSettings();
             try
             {
-
-                var configs = new ClientMessagingSettings();
-                Response response = default; 
                 switch(message.Destination)
                 {
                     case string dest when dest.ToLower() == configs.AddKey.ToLower():
@@ -43,16 +42,18 @@ namespace HMS.Application.MessageProcessor
                         break;
                     default: throw new Exception("Invalid Key Detected");
                 }
-
-                message.AddMessageFlow($"{configs.Exchange}, {configs.Queue}, {message.Destination}");
-                Message messageResponse = ResponseService.CreateMessageResponse(messageRecieved: message,
-                                                                                success: response.Success,
-                                                                                message: response.Message);
-                await _messageManager.PublishResponse(messageResponse);
             }
             catch
             {
                 throw;
+            }
+            finally
+            {
+
+                message.AddMessageFlow($"{configs.Exchange}, {configs.Queue}, {message.Destination}");
+                Message messageResponse = ResponseService.CreateMessageResponse(messageRecieved: message,                                                                                success: response.Success,
+                                                                                message: response.Message);
+                await _messageManager.PublishResponse(messageResponse);
             }
         }
     }

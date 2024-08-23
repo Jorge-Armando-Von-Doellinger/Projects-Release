@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "Gateway.v1.Controllers.ClientController",
+    "Method": "UpdateClient",
+    "RelativePath": "api/clients",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Client.Input.UpdateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Gateway.v1.Controllers.ClientController",
     "Method": "DeleteClient",
     "RelativePath": "api/clients",
     "HttpMethod": "DELETE",

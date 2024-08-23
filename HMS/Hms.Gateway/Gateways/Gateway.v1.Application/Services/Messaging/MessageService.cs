@@ -1,4 +1,5 @@
-﻿using Gateway.v1.Core.Messaging.Publisher;
+﻿using Gateway.v1.Core.Messaging.Listener;
+using Gateway.v1.Core.Messaging.Publisher;
 using Gateway.v1.Core.Messaging.Settings;
 using Nuget.Client.MessagingSettings;
 using Nuget.MessagingUtilities;
@@ -9,13 +10,15 @@ namespace Gateway.v1.Application.Services.Messaging
 {
     public sealed class MessageService
     {
-        public IMessagePublisher<IMessageSettings> _messagePublisher;
-        public MessageService(IMessagePublisher<IMessageSettings> messagePublisher)
+        public readonly IMessagePublisher<IMessageSettings> _messagePublisher;
+        public readonly IMessageListener _messageListener;
+        public MessageService(IMessagePublisher<IMessageSettings> messagePublisher, IMessageListener messageListener)
         {
             _messagePublisher = messagePublisher;
+            _messageListener = messageListener;
             // Se eu colocar um tipo em IMessageSettings, será possivel pegar os dados de todos
         }
-        public async Task PublishMessage(object data, IMessageSettings settings)
+        public async Task<Message> PublishMessage(object data, IMessageSettings settings)
         {
             try
             {
@@ -27,12 +30,16 @@ namespace Gateway.v1.Application.Services.Messaging
                     settings.CurrentKey,
                     GatewayMessageSettings.Key);
                 await _messagePublisher.PublishMessage(message, settings);
-                await Task.CompletedTask;
+                return message; 
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
+        public async Task<object> GetObjectAsync(string baseResponse, Guid messageID)
+            => await _messageListener.GetMessage(baseResponse, messageID);
+        
     }
 }

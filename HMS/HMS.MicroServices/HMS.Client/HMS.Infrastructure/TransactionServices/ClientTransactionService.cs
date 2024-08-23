@@ -7,12 +7,20 @@ namespace HMS.Infrastructure.TransactionServices
         internal async Task<int> ExecuteTransactionAsync(ClientContext context, Func<Task> action)
         {
             if(await HaveTransactionActive(context) == false)
+            {
+                Console.WriteLine("Transação ativa");
                 return 0;
+            }
             var transaction = context.Database.BeginTransaction();
             try
             {
+                Console.WriteLine("1");
+
                 await action();
+                Console.WriteLine("2");
+
                 int rowsAffected = await context.SaveChangesAsync();
+                Console.WriteLine("3");
                 return rowsAffected;
             }
             catch(Exception ex)
