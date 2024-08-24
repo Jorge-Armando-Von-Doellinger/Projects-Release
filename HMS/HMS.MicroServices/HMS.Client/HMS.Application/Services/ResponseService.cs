@@ -12,6 +12,7 @@ namespace HMS.Application.Services
             string content = success ? successMessage : errorMessage;
             content = message != null ? message : content;
             messageRecieved.Content = content;
+
             return messageRecieved;
         }
     }

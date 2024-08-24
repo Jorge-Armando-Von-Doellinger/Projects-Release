@@ -6,14 +6,14 @@
     <title>Nuget.Client</title>
     <authors>Jorge Von Doellinger Jr</authors>
     <description>É um pacote para facilitar a comunicação entre aplicações!</description>
-    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="c531f22f2aaa6c4cbab7f6f76ff341ca5e6476aa" />
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="ad3dc7eed0263af12adb76c0d2e2238cb02525d8" />
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Nuget.MessagingUtilities" version="1.0.4" exclude="Build,Analyzers" />
+        <dependency id="Nuget.MessagingUtilities" version="1.0.8" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\Nome\Documents\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Release\net8.0\Nuget.Client.dll" target="lib\net8.0\Nuget.Client.dll" />
+    <file src="C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Client\bin\Release\net8.0\Nuget.Client.dll" target="lib\net8.0\Nuget.Client.dll" />
   </files>
 </package>

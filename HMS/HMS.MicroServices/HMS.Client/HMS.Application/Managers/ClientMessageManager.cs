@@ -53,6 +53,7 @@ namespace HMS.Application.Managers
             }
             catch (Exception ex)
             {
+                throw;  
                 response.CaseError(ex.Message);
                 return response;
             }

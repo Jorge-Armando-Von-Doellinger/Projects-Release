@@ -22,10 +22,9 @@ namespace Gateway.v1.Application.Services.Messaging
         {
             try
             {
-               //var serialized = JsonSerializer.Serialize(data);
-               Console.WriteLine(GatewayMessageSettings.Key +"\n \n \n");
                 Message message = new Message();
-                    message.Configure(data,
+                    message.Configure(
+                        data,
                     GatewayMessageSettings.Key,
                     settings.CurrentKey,
                     GatewayMessageSettings.Key);

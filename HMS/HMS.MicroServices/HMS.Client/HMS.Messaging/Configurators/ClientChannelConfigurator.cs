@@ -25,10 +25,10 @@ namespace HMS.Messaging.Configurators
                 null);
             channel.QueueBind(configs.Queue,
                 configs.Exchange,
-                configs.AddKey); 
-            /*channel.QueueBind(configs.Queue,
+                configs.AddKey);
+            channel.QueueBind(configs.Queue,
                 configs.Exchange,
-                configs.UpdateKey); */
+                configs.UpdateKey);
             channel.QueueBind(configs.Queue,
                 configs.Exchange,
                 configs.DeleteKey);
@@ -38,9 +38,6 @@ namespace HMS.Messaging.Configurators
             channel.QueueBind(configs.Queue,
                 configs.Exchange,
                 configs.GetByIdKey); 
-            /*channel.QueueBind(configs.Queue,
-                configs.Exchange,
-                configs.ResponseKey);*/
             
         }
     }

@@ -24,27 +24,40 @@ namespace HMS.Messaging.Publishers
                 var clientConfig = new ClientMessagingSettings();
                 string keyResponse = configureResponse.GetResponseKey(clientConfig.ResponseBase);
 
+                Console.WriteLine(keyResponse);
+
                 string dataSerialized = JsonSerializer.Serialize(data);
+                await Task.Delay(1);
+
                 byte[] dataBytes = Encoding.UTF8.GetBytes(dataSerialized);
 
-                _channel.QueueDeclare(queue: ResponseSettings.Queue);
+                _channel.QueueDeclare(queue: ResponseSettings.Queue, 
+                    false, 
+                    false, 
+                    false,   
+                    null);
                 _channel.ExchangeDeclare(exchange: ResponseSettings.Exchange, 
-                                         type: ResponseSettings.ExchangeType);
+                                         type: ResponseSettings.ExchangeType,
+                                         false,
+                                         false,
+                                         null);
 
                 _channel.QueueBind(queue: ResponseSettings.Queue, 
                                    exchange: ResponseSettings.Exchange,
                                    routingKey: keyResponse);
+                _channel.ConfirmSelect();
                 _channel.BasicPublish(exchange: ResponseSettings.Exchange,
                     routingKey: keyResponse,
                     mandatory: false,
                     basicProperties: null,
                     body: dataBytes);
-                //await new ResponseQueueTest().ResponseQueue(_channel);
+                if(_channel.WaitForConfirms())
+                    Console.WriteLine("Teste 1"); // Trava aqui
                 return await Task.FromResult(true);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
                 return false;
             }
         }

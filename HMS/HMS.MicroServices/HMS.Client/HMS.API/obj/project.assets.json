@@ -681,7 +681,7 @@
           "lib/net8.0/Nuget.Client.dll": {}
         }
       },
-      "Nuget.MessagingUtilities/1.0.7": {
+      "Nuget.MessagingUtilities/1.0.8": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {}
@@ -1225,7 +1225,7 @@
           "HMS.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.7",
+          "Nuget.MessagingUtilities": "1.0.8",
           "Nuget.Response": "1.0.2"
         },
         "compile": {
@@ -1254,7 +1254,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.7",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.7"
+          "Nuget.MessagingUtilities": "1.0.8"
         },
         "compile": {
           "bin/placeholder/HMS.Infrastructure.dll": {}
@@ -1271,7 +1271,7 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
           "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.7",
+          "Nuget.MessagingUtilities": "1.0.8",
           "RabbitMQ.Client": "6.8.1"
         },
         "compile": {
@@ -2550,14 +2550,14 @@
         "nuget.client.nuspec"
       ]
     },
-    "Nuget.MessagingUtilities/1.0.7": {
-      "sha512": "N2U0KJMGhWW8srw3/yUrfeZTCHt8oWaKFOz2v23EzCmcXkau4NIrvs41HY2PnKZnPoJx6+mrXxLYgFa2gr181w==",
+    "Nuget.MessagingUtilities/1.0.8": {
+      "sha512": "U1ecSpJXGFdTxbUQqwojaBfN8cLjUARZQO3e6BcpO6GMdtOBuVdqqTCJzoPeWbjKIIpIcOOz0h/HeNgaFOgsCQ==",
       "type": "package",
-      "path": "nuget.messagingutilities/1.0.7",
+      "path": "nuget.messagingutilities/1.0.8",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.MessagingUtilities.dll",
-        "nuget.messagingutilities.1.0.7.nupkg.sha512",
+        "nuget.messagingutilities.1.0.8.nupkg.sha512",
         "nuget.messagingutilities.nuspec"
       ]
     },
@@ -3593,7 +3593,7 @@
       "HMS.Infrastructure >= 1.0.0",
       "HMS.Messaging >= 1.0.0",
       "Nuget.Client >= 1.0.2",
-      "Nuget.MessagingUtilities >= 1.0.7",
+      "Nuget.MessagingUtilities >= 1.0.8",
       "Nuget.Response >= 1.0.2",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -3665,7 +3665,7 @@
           },
           "Nuget.MessagingUtilities": {
             "target": "Package",
-            "version": "[1.0.7, )"
+            "version": "[1.0.8, )"
           },
           "Nuget.Response": {
             "target": "Package",

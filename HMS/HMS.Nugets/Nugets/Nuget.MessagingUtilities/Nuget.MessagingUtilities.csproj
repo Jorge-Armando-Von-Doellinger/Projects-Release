@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Nuget.MessagingUtilities</Title>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
     <Authors>Jorge Von Doellinger Jr</Authors>
     <Description>É um pacote para facilitar a comunicação entre aplicações!</Description>
     <RepositoryUrl>https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release</RepositoryUrl>

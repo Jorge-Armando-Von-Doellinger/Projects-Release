@@ -28,7 +28,10 @@ namespace Gateway.v1.Application.Managers
             {
                 _settings.CurrentKey = _settings.AddKey;
                 var message = await _messageService.PublishMessage(input, _settings);
-                return await _messageService.GetObjectAsync(_settings.ResponseBase, message.ID);
+                var data = await _messageService.GetObjectAsync(_settings.ResponseBase, message.ID);
+                if(data == null)
+                    Console.WriteLine("Client Data Add Is Null");
+                return data;
             }
             catch(Exception ex)
             {

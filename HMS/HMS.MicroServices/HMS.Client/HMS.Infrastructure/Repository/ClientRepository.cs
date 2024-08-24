@@ -22,6 +22,8 @@ namespace HMS.Infrastructure.Repository
         {
             try
             {
+                var a= JsonSerializer.Serialize(client);
+                Console.WriteLine(a);
                 return await _transactionService.ExecuteTransactionAsync(_context, async () =>
                 {
                     await _context.Clients.AddAsync(client);

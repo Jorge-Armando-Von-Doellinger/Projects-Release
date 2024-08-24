@@ -40,7 +40,7 @@ namespace Gateway.v1.Controllers
         {
             try
             {
-                return Accepted(await _clientManager.Add(input));
+                return Ok(await _clientManager.Add(input));
             }
             catch(Exception ex)
             {

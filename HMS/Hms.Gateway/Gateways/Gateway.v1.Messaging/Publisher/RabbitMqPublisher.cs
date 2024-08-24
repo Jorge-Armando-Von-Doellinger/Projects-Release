@@ -27,18 +27,21 @@ namespace Gateway.v1.Messaging.Publisher
             {
                 if(message == null || settings == null || message.GetType() != typeof(Message))
                     throw new NullReferenceException("Dados invealidos");
-                var dataJson = await DataSerializer.Serialize(message);
-                    
-                var dataBytes = Encoding.UTF8.GetBytes(dataJson);
                 if(_channel == null)
                     throw new NullReferenceException("Channel null");
+                    
                 await _channelConfigurator.Configure(_channel, settings);
-                
+                string dataJson = await DataSerializer.Serialize((Message) message);
+                byte[] dataBytes = Encoding.UTF8.GetBytes(dataJson);
+                Console.WriteLine(dataJson + " \nData Published \n");
+                _channel.ConfirmSelect();
                 _channel.BasicPublish(settings.Exchange,
                     settings.CurrentKey,
                     false,
                     null,
                     dataBytes);
+                if (_channel.WaitForConfirms())
+                    Console.WriteLine("Foi");
                 await Task.CompletedTask;
             }
             catch (Exception ex)

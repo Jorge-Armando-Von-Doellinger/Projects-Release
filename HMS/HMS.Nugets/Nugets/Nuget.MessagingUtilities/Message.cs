@@ -8,7 +8,7 @@
         }
         public void Configure(object content, string origin, string destination, string messageFlow = null)
         {
-            ID = new Guid();
+            ID = Guid.NewGuid();
             Content = content;
             Origin = origin;
             Destination = destination;

@@ -9,27 +9,24 @@ namespace HMS.Infrastructure.TransactionServices
             if(await HaveTransactionActive(context) == false)
             {
                 Console.WriteLine("Transação ativa");
-                return 0;
+                throw new Exception("Transação ativa");
             }
-            var transaction = context.Database.BeginTransaction();
+            var transaction = await context.Database.BeginTransactionAsync();
             try
             {
-                Console.WriteLine("1");
-
                 await action();
-                Console.WriteLine("2");
-
                 int rowsAffected = await context.SaveChangesAsync();
-                Console.WriteLine("3");
+                await transaction.CommitAsync();
                 return rowsAffected;
             }
             catch(Exception ex)
             {
-                throw ex;
+                await transaction.RollbackAsync();
+                return 0;
             }
             finally
             {
-                await transaction.RollbackAsync();
+                Console.WriteLine("Transaction Disposed");
                 await transaction.DisposeAsync();
             }
 

@@ -1,4 +1,5 @@
 ﻿using HMS.Core.Interfaces.Messaging;
+using HMS.Core.Json;
 using HMS.Messaging.Factorys;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,11 +32,19 @@ namespace HMS.Messaging.Listeners
                 var consumer = new EventingBasicConsumer(_channel);
                 consumer.Received += async (model, args) =>
                 {
-                    var data = Encoding.UTF8.GetString(args.Body.ToArray());
+                    string data = Encoding.UTF8.GetString(args.Body.ToArray());
                     
-                    var message = JsonSerializer.Deserialize<Message>(data);
-                    
+                    Message message = await JsonService.DeserializeAsync<Message>(data);
+                    if(message == default)
+                        Console.WriteLine("Erro ao desserializar objeto");
 
+                    Console.WriteLine(message.ID.ToString());
+                    Guid a = Guid.NewGuid();
+                    Console.WriteLine("-------------------------");
+                    var serialize = await JsonService.SerializeAsync(message);
+                    Console.WriteLine(data + " <--- Recebido \n Recebido");
+                    Console.WriteLine(serialize);
+                    Console.WriteLine("----------------------");
                     await Task.Delay(1);
                     await _messageProcessor.Process(message);
 

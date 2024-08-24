@@ -12,7 +12,7 @@
           "HMS.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.7",
+          "Nuget.MessagingUtilities": "1.0.8",
           "Nuget.Response": "1.0.2"
         },
         "runtime": {
@@ -404,7 +404,7 @@
       },
       "Nuget.Client/1.0.2": {
         "dependencies": {
-          "Nuget.MessagingUtilities": "1.0.7"
+          "Nuget.MessagingUtilities": "1.0.8"
         },
         "runtime": {
           "lib/net8.0/Nuget.Client.dll": {
@@ -413,11 +413,11 @@
           }
         }
       },
-      "Nuget.MessagingUtilities/1.0.7": {
+      "Nuget.MessagingUtilities/1.0.8": {
         "runtime": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {
-            "assemblyVersion": "1.0.7.0",
-            "fileVersion": "1.0.7.0"
+            "assemblyVersion": "1.0.8.0",
+            "fileVersion": "1.0.8.0"
           }
         }
       },
@@ -618,7 +618,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.7",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.7"
+          "Nuget.MessagingUtilities": "1.0.8"
         },
         "runtime": {
           "HMS.Infrastructure.dll": {
@@ -873,12 +873,12 @@
       "path": "nuget.client/1.0.2",
       "hashPath": "nuget.client.1.0.2.nupkg.sha512"
     },
-    "Nuget.MessagingUtilities/1.0.7": {
+    "Nuget.MessagingUtilities/1.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-N2U0KJMGhWW8srw3/yUrfeZTCHt8oWaKFOz2v23EzCmcXkau4NIrvs41HY2PnKZnPoJx6+mrXxLYgFa2gr181w==",
-      "path": "nuget.messagingutilities/1.0.7",
-      "hashPath": "nuget.messagingutilities.1.0.7.nupkg.sha512"
+      "sha512": "sha512-U1ecSpJXGFdTxbUQqwojaBfN8cLjUARZQO3e6BcpO6GMdtOBuVdqqTCJzoPeWbjKIIpIcOOz0h/HeNgaFOgsCQ==",
+      "path": "nuget.messagingutilities/1.0.8",
+      "hashPath": "nuget.messagingutilities.1.0.8.nupkg.sha512"
     },
     "Nuget.Response/1.0.2": {
       "type": "package",
