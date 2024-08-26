@@ -65,7 +65,7 @@
             },
             "Nuget.MessagingUtilities": {
               "target": "Package",
-              "version": "[1.0.8, )"
+              "version": "[1.0.9, )"
             },
             "Nuget.Response": {
               "target": "Package",

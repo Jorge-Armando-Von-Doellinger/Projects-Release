@@ -28,10 +28,10 @@ namespace Gateway.v1.Application.Managers
             {
                 _settings.CurrentKey = _settings.AddKey;
                 var message = await _messageService.PublishMessage(input, _settings);
-                var data = await _messageService.GetObjectAsync(_settings.ResponseBase, message.ID);
-                if(data == null)
+                var response = await _messageService.GetResponseAsync(_settings.ResponseBase, message.ID);
+                if(response == null)
                     Console.WriteLine("Client Data Add Is Null");
-                return data;
+                return response;
             }
             catch(Exception ex)
             {
@@ -44,9 +44,9 @@ namespace Gateway.v1.Application.Managers
             try
             {
                 _settings.CurrentKey = _settings.DeleteKey;
-                await Task.Delay(10);
-                await _messageService.PublishMessage(id, _settings);
-                return true;
+                var message = await _messageService.PublishMessage(id, _settings);
+                var response = await _messageService.GetResponseAsync(_settings.ResponseBase, message.ID);
+                return response;
             }
             catch (Exception ex)
             {
@@ -85,8 +85,9 @@ namespace Gateway.v1.Application.Managers
             try
             {
                 _settings.CurrentKey = _settings.UpdateKey;
-                await _messageService.PublishMessage(input, _settings);
-                return true;
+                var message = await _messageService.PublishMessage(input, _settings);
+                var response = await _messageService.GetResponseAsync(_settings.ResponseBase, message.ID);
+                return response;
             }
             catch (Exception ex)
             {

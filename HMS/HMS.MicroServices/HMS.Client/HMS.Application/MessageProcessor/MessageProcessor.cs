@@ -5,6 +5,7 @@ using HMS.Core.Json;
 using Nuget.Client.Input;
 using Nuget.Client.MessagingSettings;
 using Nuget.MessagingUtilities;
+using Nuget.MessagingUtilities.MessageSettings;
 using Nuget.Response;
 using System.Text.Json;
 
@@ -19,7 +20,9 @@ namespace HMS.Application.MessageProcessor
         }
         public async Task Process(Message message)
         {
+            // Tem muito o que melhorar...
             var response = new Response();
+            var configureResponse = new ConfigureResponseRoutings();
             var configs = new ClientMessagingSettings();
             try
             {
@@ -28,7 +31,7 @@ namespace HMS.Application.MessageProcessor
                     case string dest when dest.ToLower() == configs.AddKey.ToLower():
                         var inputModel = await JsonService.DeserializeAsync<InputModel>(message.Content);
                         if(inputModel != null)
-                           response = await _messageManager.AddClientAsync(inputModel);
+                            response = await _messageManager.AddClientAsync(inputModel);
                         break;
                     case string dest when dest == configs.UpdateKey:
                         var updateModel = await JsonService.DeserializeAsync<UpdateModel>(message.Content);
@@ -42,13 +45,15 @@ namespace HMS.Application.MessageProcessor
                         break;
                     default: throw new Exception("Invalid Key Detected");
                 }
-                    message.AddMessageFlow($"{configs.CurrentKey}");
-                    Message messageResponse = ResponseService.CreateMessageResponse(messageRecieved: message,                                                                                success: response.Success,
-                                                                                    message: response.Message);
-                    await _messageManager.PublishResponse(messageResponse);
+                message.AddMessageFlow($"{message.Destination}");
+                Message messageResponse = ResponseService.CreateMessageResponse(messageRecieved: message, success: response.Success,
+                                                                                message: response.Message);
+                message.AddMessageFlow(configureResponse.GetResponseKey(configs.ResponseBase));
+                await _messageManager.PublishResponse(message);
             }
             catch
             {
+                Console.WriteLine("Erro");
                 throw;
             }
         }

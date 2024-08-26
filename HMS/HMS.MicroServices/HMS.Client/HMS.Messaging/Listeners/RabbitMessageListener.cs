@@ -33,18 +33,8 @@ namespace HMS.Messaging.Listeners
                 consumer.Received += async (model, args) =>
                 {
                     string data = Encoding.UTF8.GetString(args.Body.ToArray());
-                    
-                    Message message = await JsonService.DeserializeAsync<Message>(data);
-                    if(message == default)
-                        Console.WriteLine("Erro ao desserializar objeto");
-
-                    Console.WriteLine(message.ID.ToString());
-                    Guid a = Guid.NewGuid();
-                    Console.WriteLine("-------------------------");
-                    var serialize = await JsonService.SerializeAsync(message);
-                    Console.WriteLine(data + " <--- Recebido \n Recebido");
-                    Console.WriteLine(serialize);
-                    Console.WriteLine("----------------------");
+                    var message = await JsonService.DeserializeAsync<Message>(data);
+                    Console.WriteLine(message.ID);
                     await Task.Delay(1);
                     await _messageProcessor.Process(message);
 

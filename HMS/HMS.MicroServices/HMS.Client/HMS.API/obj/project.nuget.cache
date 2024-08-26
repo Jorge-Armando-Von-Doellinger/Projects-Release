@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f91ze0Gjswg=",
+  "dgSpecHash": "cQmRuXKPFqw=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Client\\HMS.API\\HMS.API.csproj",
   "expectedPackageFiles": [
@@ -43,7 +43,7 @@
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\nuget.client\\1.0.2\\nuget.client.1.0.2.nupkg.sha512",
-    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.messagingutilities\\1.0.8\\nuget.messagingutilities.1.0.8.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.messagingutilities\\1.0.9\\nuget.messagingutilities.1.0.9.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\nuget.response\\1.0.2\\nuget.response.1.0.2.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

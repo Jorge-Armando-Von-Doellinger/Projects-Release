@@ -37,7 +37,7 @@ namespace Gateway.v1.Application.Services.Messaging
             }
         }
 
-        public async Task<object> GetObjectAsync(string baseResponse, Guid messageID)
+        public async Task<object> GetResponseAsync(string baseResponse, Guid messageID)
             => await _messageListener.GetMessage(baseResponse, messageID);
         
     }

@@ -36,6 +36,11 @@ namespace Gateway.v1.Messaging.Configurator
         {
             try
             {
+                channel.QueueDeclare(ResponseSettings.Queue,
+                    false,
+                    false,
+                    false,
+                    null);
                 channel.ExchangeDeclare(ResponseSettings.Exchange,
                     ResponseSettings.ExchangeType,
                     false,
@@ -44,11 +49,6 @@ namespace Gateway.v1.Messaging.Configurator
                 channel.QueueBind(ResponseSettings.Queue,
                                 ResponseSettings.Exchange,
                                 routingKey);
-                channel.QueueDeclare(ResponseSettings.Queue,
-                    false,
-                    false,
-                    false,
-                    null);
                 //await Task.CompletedTask;
             }
             catch (Exception ex)

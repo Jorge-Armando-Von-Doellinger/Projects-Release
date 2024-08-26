@@ -39,9 +39,9 @@ namespace Gateway.v1.Application
         }
         public static IServiceCollection AddManagers(this IServiceCollection services)
         {
-            services.AddTransient<IManager, ClientManager>();
-            services.AddTransient<ClientManager>();
-            services.AddTransient<Func<Enum, IManager>>(serviceProvider => (key) =>
+            services.AddScoped<IManager, ClientManager>();
+            services.AddScoped<ClientManager>();
+            services.AddScoped<Func<Enum, IManager>>(serviceProvider => (key) =>
             {
                 IManager manager;
                 switch (key)

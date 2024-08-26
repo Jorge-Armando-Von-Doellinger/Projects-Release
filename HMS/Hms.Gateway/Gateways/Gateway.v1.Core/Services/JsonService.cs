@@ -1,7 +1,8 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
 using System.Text.Json;
+using System.Text;
 
-namespace HMS.Core.Json
+namespace Gateway.v1.Core.Services
 {
     public sealed class JsonService
     {
@@ -9,7 +10,7 @@ namespace HMS.Core.Json
         {
             try
             {
-                using(var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
                 {
                     return await JsonSerializer.DeserializeAsync<T>(stream);
                 }
@@ -24,7 +25,7 @@ namespace HMS.Core.Json
             try
             {
                 var jsonString = jsonElement.GetRawText();
-                using(var stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString)))
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString)))
                 {
                     return await JsonSerializer.DeserializeAsync<T>(stream);
                 }
@@ -38,15 +39,13 @@ namespace HMS.Core.Json
         {
             try
             {
-                if(obj is JsonElement)
-                    return await DeserializeAsync<T>((JsonElement) obj);
-                else if(obj is T)
-                    return (T) obj;
-                else if(obj is string)
-                    return await DeserializeAsync<T>((string) obj);
+                if (obj is JsonElement)
+                    return await DeserializeAsync<T>((JsonElement)obj);
+                else if (obj is T)
+                    return (T)obj;
                 throw new Exception("Erro ao desserializar objeto....");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return default;
             }

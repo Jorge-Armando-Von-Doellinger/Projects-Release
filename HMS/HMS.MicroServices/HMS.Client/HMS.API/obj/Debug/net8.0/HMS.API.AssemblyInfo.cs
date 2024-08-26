@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad3dc7eed0263af12adb76c0d2e2238cb02525d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5aacaf1d1c37fc307425d631d9aea97cc43e9a5a")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

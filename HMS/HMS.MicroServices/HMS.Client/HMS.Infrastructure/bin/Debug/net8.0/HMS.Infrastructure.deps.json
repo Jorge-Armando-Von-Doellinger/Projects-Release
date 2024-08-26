@@ -14,7 +14,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "8.0.7",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Nuget.Client": "1.0.2",
-          "Nuget.MessagingUtilities": "1.0.8"
+          "Nuget.MessagingUtilities": "1.0.9"
         },
         "runtime": {
           "HMS.Infrastructure.dll": {}
@@ -677,7 +677,7 @@
       },
       "Nuget.Client/1.0.2": {
         "dependencies": {
-          "Nuget.MessagingUtilities": "1.0.8"
+          "Nuget.MessagingUtilities": "1.0.9"
         },
         "runtime": {
           "lib/net8.0/Nuget.Client.dll": {
@@ -686,11 +686,11 @@
           }
         }
       },
-      "Nuget.MessagingUtilities/1.0.8": {
+      "Nuget.MessagingUtilities/1.0.9": {
         "runtime": {
           "lib/net8.0/Nuget.MessagingUtilities.dll": {
-            "assemblyVersion": "1.0.8.0",
-            "fileVersion": "1.0.8.0"
+            "assemblyVersion": "1.0.9.0",
+            "fileVersion": "1.0.9.0"
           }
         }
       },
@@ -1279,12 +1279,12 @@
       "path": "nuget.client/1.0.2",
       "hashPath": "nuget.client.1.0.2.nupkg.sha512"
     },
-    "Nuget.MessagingUtilities/1.0.8": {
+    "Nuget.MessagingUtilities/1.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-U1ecSpJXGFdTxbUQqwojaBfN8cLjUARZQO3e6BcpO6GMdtOBuVdqqTCJzoPeWbjKIIpIcOOz0h/HeNgaFOgsCQ==",
-      "path": "nuget.messagingutilities/1.0.8",
-      "hashPath": "nuget.messagingutilities.1.0.8.nupkg.sha512"
+      "sha512": "sha512-FJYA5OYg2w7g6Wj+ATlosxzCuc94GKuXDE9tUAH3jD/cP0mh0cPl0i/mpka3RvGGDSgqz1SbAV1Q0Fgys1R4AA==",
+      "path": "nuget.messagingutilities/1.0.9",
+      "hashPath": "nuget.messagingutilities.1.0.9.nupkg.sha512"
     },
     "System.CodeDom/4.4.0": {
       "type": "package",

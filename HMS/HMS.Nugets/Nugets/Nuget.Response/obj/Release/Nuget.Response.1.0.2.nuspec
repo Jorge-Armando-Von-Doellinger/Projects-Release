@@ -6,7 +6,7 @@
     <title>Nuget.Response</title>
     <authors>Jorge Von Doellinger</authors>
     <description>È uma resposta entre o servidor e o cliente, com um unico objetivo, ou seja, auxiliar o receptor em caso de problemas, informar possiveis problemas, etc.</description>
-    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="ad3dc7eed0263af12adb76c0d2e2238cb02525d8" />
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="5aacaf1d1c37fc307425d631d9aea97cc43e9a5a" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>

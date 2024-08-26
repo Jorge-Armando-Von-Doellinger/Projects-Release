@@ -1,22 +1,21 @@
 ﻿using Gateway.v1.Core.Messaging.Listener;
-using Gateway.v1.Core.Messaging.Settings;
+using Gateway.v1.Core.Services;
 using Gateway.v1.Messaging.Configurator;
 using Gateway.v1.Messaging.Factory;
-using Microsoft.Extensions.Hosting;
 using Nuget.MessagingUtilities;
 using Nuget.MessagingUtilities.MessageSettings;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Channels;
 
 namespace Gateway.v1.Messaging.Listener
 {
     public sealed class MessageListener : IMessageListener
     {
-        private readonly IModel _channel;
+        private IModel _channel;
         private readonly ChannelConfigurator _channelConfigurator;
+
+        private readonly ConfigureResponseRoutings responseSettings = new ConfigureResponseRoutings();
         public MessageListener(ChannelFactory factory, ChannelConfigurator channelConfigurator)
         {
             _channel = factory.Channel;
@@ -24,49 +23,48 @@ namespace Gateway.v1.Messaging.Listener
         }
         public async Task<object> GetMessage(string baseResponse, Guid messageID)
         {
-            Message message = null;
-            Int16 count = 0;
-            while (count < 15)
+            var tcs = new TaskCompletionSource<object>();
+
+            string routingKey = responseSettings.GetResponseKey(baseResponse);
+            await _channelConfigurator.ConfigureResponse(_channel, routingKey);
+
+            var consumer = new EventingBasicConsumer(_channel);
+            consumer.Received += async (sender, args) =>
             {
-                await Task.Delay(100);
-                var responseSettings = new ConfigureResponseRoutings();
-                var consumer = new EventingBasicConsumer(_channel);
-                string routingKey = responseSettings.GetResponseKey(baseResponse);
-                Console.WriteLine(routingKey);
-                consumer.Received += async (sender, args) =>
+                if (args.RoutingKey.ToLower() == routingKey.ToLower() && args.RoutingKey == routingKey)
                 {
-                    Console.WriteLine("Recieved");
-                    if(args.RoutingKey.ToLower() == routingKey.ToLower())
+                    // Depois colocar o Id nos args
+                    var body = args.Body.ToArray();
+                    var json = Encoding.UTF8.GetString(body);
+                    var messageDesserialized = await JsonService.DeserializeAsync<Message>(json);
+                    if(messageDesserialized.ID == messageID)
                     {
-                        var body = args.Body.ToArray();
-                        var json = Encoding.UTF8.GetString(body);
-                        var messageDesserialized = JsonSerializer.Deserialize<Message>(json);
-                        
-                        Console.WriteLine($"{messageDesserialized.ID.ToString()} \n{messageID}");
-                        if(messageDesserialized.ID == messageID)
-                        {
-                            Console.WriteLine("ID encontrado");
-                            message = messageDesserialized;
-                            _channel.BasicAck(args.DeliveryTag, false);
-                        }
-                        else
-                            Console.WriteLine("ID não encontrado");
+                        tcs.SetResult(messageDesserialized);
+                        _channel.BasicAck(args.DeliveryTag, false);
                     }
                     else
-                        Console.WriteLine("routingKey errada");
-                };
-                await _channelConfigurator.ConfigureResponse(_channel, routingKey);
+                    {
+                        //_channel.BasicAck(args.DeliveryTag, false);
+                        _channel.BasicReject(args.DeliveryTag, true);
+                    }
+                }
+            };
 
-                _channel.BasicConsume(ResponseSettings.Queue,
-                    false,
-                    string.Empty,
-                    false,
-                    false,
-                    null,
-                    consumer);
-                count++;
-            }
-            return message;
+            _channel.BasicConsume(ResponseSettings.Queue,
+                false,
+                string.Empty,
+                false,
+                false,
+                null,
+                consumer);
+
+            Int16 timeout = 15000; // TIME-OUT grande, em caso de erros!
+            var timeoutTask = Task.Delay(timeout);
+            var completedTask = await Task.WhenAny(tcs.Task, timeoutTask);
+            if (completedTask == timeoutTask)
+                return default;
+            return await tcs.Task;
         }
     }
 }
+
