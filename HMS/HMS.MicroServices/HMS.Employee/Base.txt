@@ -1,0 +1,13 @@
+Servicos:
+-Add, Update, Delete e Get de empregados
+-Add, Update,Delete e Get de seus pagamentos realizados
+-Add, Update, Delete e Get de seus descontos e beneficios, 
+-Add, Update, Delete e Get de seu(s) contrato(s) com a empresa ficticia,
+-Add, Update, Delete e Get de seus exames médicos ficticios
+
+-Analise de desempenho
+-Analise de frequência
+-Analise de advertencias ---- Possivelmente ------
+-Analise do historico interno do funcionario (como aumentos no salario, promoções, etc...)
+
+- Possivelmente com funcionalidades adicionais

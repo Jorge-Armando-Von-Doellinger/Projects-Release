@@ -1,0 +1,105 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "HMS.Employee.Application/1.0.0": {
+        "dependencies": {
+          "HMS.Employee.Core": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
+          "Nuget.Employee": "0.0.2",
+          "Nuget.Response": "1.0.2"
+        },
+        "runtime": {
+          "HMS.Employee.Application.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/8.0.8": {
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "8.0.8.0",
+            "fileVersion": "8.0.824.36704"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.324.11423"
+          }
+        }
+      },
+      "Nuget.Employee/0.0.2": {
+        "runtime": {
+          "lib/net8.0/Nuget.Employee.dll": {
+            "assemblyVersion": "0.0.2.0",
+            "fileVersion": "0.0.2.0"
+          }
+        }
+      },
+      "Nuget.Response/1.0.2": {
+        "runtime": {
+          "lib/net8.0/Nuget.Response.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "HMS.Employee.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.8"
+        },
+        "runtime": {
+          "HMS.Employee.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HMS.Employee.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/8.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9mMQkZsfL1c2iifBD8MWRmwy59rvsVtR9NOezJj7+g1j4P7g49MJHd8k8faC/v7d5KuHkQ6KOQiSItvoRt9PXA==",
+      "path": "microsoft.entityframeworkcore.abstractions/8.0.8",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.1",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
+    },
+    "Nuget.Employee/0.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dix+pBlxV2iAa2jTmlESrX0QtJeX3vynEUUToB3Vpd4sgJWP82Z6IDI6whNt9JOVKl5K1yE+GUKD9QB9HHu2yg==",
+      "path": "nuget.employee/0.0.2",
+      "hashPath": "nuget.employee.0.0.2.nupkg.sha512"
+    },
+    "Nuget.Response/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U/7/SVWC+Uxu0+QFvXJqmHU0/sC6qw7dzBn0dvcy9nff+rJfErjMHNk9Y03ywzXN7wjpGkMsBI0bj0A7AB0Kcw==",
+      "path": "nuget.response/1.0.2",
+      "hashPath": "nuget.response.1.0.2.nupkg.sha512"
+    },
+    "HMS.Employee.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

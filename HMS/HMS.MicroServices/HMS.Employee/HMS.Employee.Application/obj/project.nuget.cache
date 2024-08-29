@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "0IN+dedpWeo=",
+  "dgSpecHash": "HYXPmJfIUsc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Application\\HMS.Employee.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.employee\\0.0.2\\nuget.employee.0.0.2.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.response\\1.0.2\\nuget.response.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

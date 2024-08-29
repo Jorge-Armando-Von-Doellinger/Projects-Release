@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "tIaRp3CrhTcm5LPOHP/9z2rXqhqXWW6tMolgKKKfzOI=",
-  "Source": "HMS.API",
-  "BasePath": "_content/HMS.API",
+  "Hash": "PIkzc/OypAjVW16fBbJ7Wim1MCJ56WmqsRLbY5aNQjc=",
+  "Source": "HMS.Employee.API",
+  "BasePath": "_content/HMS.Employee.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

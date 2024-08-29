@@ -1,0 +1,12 @@
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\bin\Release\net8.0\Nuget.Employee.deps.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\bin\Release\net8.0\Nuget.Employee.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\bin\Release\net8.0\Nuget.Employee.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\Nuget.Employee.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\Nuget.Employee.AssemblyInfoInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\Nuget.Employee.AssemblyInfo.cs
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\Nuget.Employee.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\Nuget.Employee.sourcelink.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\Nuget.Employee.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\refint\Nuget.Employee.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\Nuget.Employee.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\obj\Release\net8.0\ref\Nuget.Employee.dll

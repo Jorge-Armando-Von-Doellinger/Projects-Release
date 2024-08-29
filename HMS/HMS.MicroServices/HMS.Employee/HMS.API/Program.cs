@@ -1,4 +1,8 @@
 
+using HMS.Employee.API;
+using HMS.Employee.Application;
+using HMS.Employee.Infrastructure;
+
 namespace HMS.API
 {
     public class Program
@@ -13,6 +17,11 @@ namespace HMS.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services
+                .AddApiModule()
+                .AddApplicationModule()
+                .AddInfrastructureModule();
 
             var app = builder.Build();
 

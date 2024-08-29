@@ -1,11 +1,152 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Microsoft.EntityFrameworkCore.Abstractions/8.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Nuget.Employee/0.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.Employee.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Employee.dll": {}
+        }
+      },
+      "Nuget.Response/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.Response.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Response.dll": {}
+        }
+      },
+      "HMS.Employee.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.8"
+        },
+        "compile": {
+          "bin/placeholder/HMS.Employee.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HMS.Employee.Core.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Microsoft.EntityFrameworkCore.Abstractions/8.0.8": {
+      "sha512": "9mMQkZsfL1c2iifBD8MWRmwy59rvsVtR9NOezJj7+g1j4P7g49MJHd8k8faC/v7d5KuHkQ6KOQiSItvoRt9PXA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.abstractions/8.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
+        "microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+      "sha512": "fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Nuget.Employee/0.0.2": {
+      "sha512": "dix+pBlxV2iAa2jTmlESrX0QtJeX3vynEUUToB3Vpd4sgJWP82Z6IDI6whNt9JOVKl5K1yE+GUKD9QB9HHu2yg==",
+      "type": "package",
+      "path": "nuget.employee/0.0.2",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.Employee.dll",
+        "nuget.employee.0.0.2.nupkg.sha512",
+        "nuget.employee.nuspec"
+      ]
+    },
+    "Nuget.Response/1.0.2": {
+      "sha512": "U/7/SVWC+Uxu0+QFvXJqmHU0/sC6qw7dzBn0dvcy9nff+rJfErjMHNk9Y03ywzXN7wjpGkMsBI0bj0A7AB0Kcw==",
+      "type": "package",
+      "path": "nuget.response/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.Response.dll",
+        "nuget.response.1.0.2.nupkg.sha512",
+        "nuget.response.nuspec"
+      ]
+    },
+    "HMS.Employee.Core/1.0.0": {
+      "type": "project",
+      "path": "../HMS.Employee.Core/HMS.Employee.Core.csproj",
+      "msbuildProject": "../HMS.Employee.Core/HMS.Employee.Core.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "HMS.Employee.Core >= 1.0.0",
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.1",
+      "Nuget.Employee >= 0.0.2",
+      "Nuget.Response >= 1.0.2"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Jorge\\.nuget\\packages\\": {},
@@ -40,7 +181,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Core\\HMS.Employee.Core.csproj": {
+              "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Core\\HMS.Employee.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -57,6 +202,20 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": {
+            "target": "Package",
+            "version": "[8.0.1, )"
+          },
+          "Nuget.Employee": {
+            "target": "Package",
+            "version": "[0.0.2, )"
+          },
+          "Nuget.Response": {
+            "target": "Package",
+            "version": "[1.0.2, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

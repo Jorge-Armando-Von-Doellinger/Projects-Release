@@ -6,7 +6,7 @@
     <title>Nuget.MessagingUtilities</title>
     <authors>Jorge Von Doellinger Jr</authors>
     <description>É um pacote para facilitar a comunicação entre aplicações!</description>
-    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="5aacaf1d1c37fc307425d631d9aea97cc43e9a5a" />
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="b25378fc0b1caf8dac3444822f1fbb37dfb3116a" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>
