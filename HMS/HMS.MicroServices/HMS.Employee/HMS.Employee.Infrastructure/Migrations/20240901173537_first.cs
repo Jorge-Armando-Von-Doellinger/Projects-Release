@@ -6,11 +6,32 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HMS.Employee.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMigration : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Payroll",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    HourlySalary = table.Column<int>(type: "int", nullable: false),
+                    HoursWorkedInMonth = table.Column<short>(type: "smallint", nullable: false),
+                    Benefits = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TotalAmountOfBenefits = table.Column<int>(type: "int", nullable: false),
+                    Discounts_MandatoryDiscounts = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Discounts_TotalDiscounts = table.Column<int>(type: "int", nullable: false),
+                    Discounts_OtherDiscounts = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Payroll", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Employee",
                 columns: table => new
@@ -24,12 +45,18 @@ namespace HMS.Employee.Infrastructure.Migrations
                     Age = table.Column<short>(type: "smallint", nullable: false),
                     BirthDate = table.Column<DateOnly>(type: "date", nullable: false),
                     MaritalStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 8, 29, 16, 9, 28, 948, DateTimeKind.Local).AddTicks(6414)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 8, 29, 16, 9, 28, 948, DateTimeKind.Local).AddTicks(7036))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employee", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Employee_Payroll_Id",
+                        column: x => x.Id,
+                        principalTable: "Payroll",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -62,6 +89,9 @@ namespace HMS.Employee.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Employee");
+
+            migrationBuilder.DropTable(
+                name: "Payroll");
         }
     }
 }

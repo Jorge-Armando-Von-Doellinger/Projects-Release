@@ -1,11 +1,11 @@
 ﻿namespace HMS.Employee.Core.Interface.Repository
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<Entity> where Entity : class
     {
-        public Task<T> Add(T entity);
-        public Task<T> Update(T entity);
-        public Task<T> Delete(T ID);
-        public Task<List<T>> Get();
-        public Task<T> GetById(Guid ID);
+        public Task<bool> Add(Entity entity);
+        public Task<bool> Update(Entity entity);
+        public Task<bool> Delete(Entity ID);
+        public Task<List<Entity>> Get();
+        public Task<Entity> GetById(Guid ID);
     }
 }

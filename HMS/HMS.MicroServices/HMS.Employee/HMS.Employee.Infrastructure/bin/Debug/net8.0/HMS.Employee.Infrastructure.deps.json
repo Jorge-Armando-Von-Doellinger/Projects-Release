@@ -9,6 +9,7 @@
       "HMS.Employee.Infrastructure/1.0.0": {
         "dependencies": {
           "HMS.Employee.Core": "1.0.0",
+          "HMS.Employee.Messaging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
@@ -661,6 +662,14 @@
           }
         }
       },
+      "Nuget.Employee/0.0.4": {
+        "runtime": {
+          "lib/net8.0/Nuget.Employee.dll": {
+            "assemblyVersion": "0.0.4.0",
+            "fileVersion": "0.0.4.0"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -928,6 +937,17 @@
         },
         "runtime": {
           "HMS.Employee.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "HMS.Employee.Messaging/1.0.0": {
+        "dependencies": {
+          "Nuget.Employee": "0.0.4"
+        },
+        "runtime": {
+          "HMS.Employee.Messaging.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1235,6 +1255,13 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "Nuget.Employee/0.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HCGZXULOnc6MlUkNvenUi+37L8J0QVZgO7L59GgtMYhttPY7F4647Lk3N2E+c6UyUo3ISOgAVLDeCG20FMsEXg==",
+      "path": "nuget.employee/0.0.4",
+      "hashPath": "nuget.employee.0.0.4.nupkg.sha512"
+    },
     "System.CodeDom/4.4.0": {
       "type": "package",
       "serviceable": true,
@@ -1474,6 +1501,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "HMS.Employee.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HMS.Employee.Messaging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HMS.Employee.Infrastructure.Migrations.Payroll
 {
     [DbContext(typeof(PayrollContext))]
-    [Migration("20240829192650_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20240901173620_first")]
+    partial class first
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,51 @@ namespace HMS.Employee.Infrastructure.Migrations.Payroll
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("HMS.Employee.Core.Entity.Employee", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<short>("Age")
+                        .HasColumnType("smallint");
+
+                    b.Property<DateOnly>("BirthDate")
+                        .HasColumnType("date");
+
+                    b.Property<long>("CPF")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaritalStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("PIS")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employee");
+                });
 
             modelBuilder.Entity("HMS.Employee.Core.Entity.Payroll", b =>
                 {
@@ -55,11 +100,19 @@ namespace HMS.Employee.Infrastructure.Migrations.Payroll
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmployeeId");
+
                     b.ToTable("Payroll", (string)null);
                 });
 
             modelBuilder.Entity("HMS.Employee.Core.Entity.Payroll", b =>
                 {
+                    b.HasOne("HMS.Employee.Core.Entity.Employee", null)
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.OwnsOne("HMS.Employee.Core.Data.Discounts.Discount", "Discounts", b1 =>
                         {
                             b1.Property<Guid>("PayrollId")

@@ -32,7 +32,13 @@
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Employee.Inputs.Update.EmployeeUpdate",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -42,7 +48,13 @@
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -55,7 +67,39 @@
     "Parameters": [
       {
         "Name": "ID",
-        "Type": "System.Int64",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Employee.API.Controllers.PayrollControler",
+    "Method": "AddP\u00E0yroll",
+    "RelativePath": "api/Payroll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.Employee.Core.Entity.Payroll",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Employee.API.Controllers.PayrollControler",
+    "Method": "GetByEmployeeId",
+    "RelativePath": "api/Payroll/EmployeeId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
         "IsRequired": false
       }
     ],

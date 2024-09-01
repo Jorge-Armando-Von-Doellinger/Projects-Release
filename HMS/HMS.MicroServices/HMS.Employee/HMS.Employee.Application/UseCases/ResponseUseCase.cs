@@ -8,9 +8,9 @@ namespace HMS.Employee.Application.Response
         {
             return await Task.Run(() => new Nuget.Response.Response());
         }
-        internal async static Task<Nuget.Response.Response> GetResponseSuccess(string message= null, object content = null)
+        internal async static Task<Nuget.Response.Response> GetResponseSuccess(string message = null, object content = null)
         {
-            var response = await GetResponse();
+            Nuget.Response.Response response = await GetResponse();
             await Task.Run(() =>
             {
                 response.Message = message;

@@ -26,12 +26,16 @@ namespace HMS.Employee.Infrastructure.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<HMS.Employee.Core.Entity.Payroll>()
+            modelBuilder.Entity<Payroll>()
                 .ToTable("Payroll");
             modelBuilder.Entity<Payroll>()
                 .HasKey(x => x.Id);
+            modelBuilder.Entity<Payroll>()
+                .HasOne<Core.Entity.Employee>()
+                .WithMany()
+                .HasForeignKey(x => x.EmployeeId);
         }
-        DbSet<Payroll> Payroll { get; set; }
+        public DbSet<Payroll> Payroll { get; set; }
 
     }
 }

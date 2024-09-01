@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "HMS.Employee.Messaging/1.0.0": {
+        "dependencies": {
+          "Nuget.Employee": "0.0.4"
+        },
+        "runtime": {
+          "HMS.Employee.Messaging.dll": {}
+        }
+      },
+      "Nuget.Employee/0.0.4": {
+        "runtime": {
+          "lib/net8.0/Nuget.Employee.dll": {
+            "assemblyVersion": "0.0.4.0",
+            "fileVersion": "0.0.4.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HMS.Employee.Messaging/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Nuget.Employee/0.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HCGZXULOnc6MlUkNvenUi+37L8J0QVZgO7L59GgtMYhttPY7F4647Lk3N2E+c6UyUo3ISOgAVLDeCG20FMsEXg==",
+      "path": "nuget.employee/0.0.4",
+      "hashPath": "nuget.employee.0.0.4.nupkg.sha512"
+    }
+  }
+}

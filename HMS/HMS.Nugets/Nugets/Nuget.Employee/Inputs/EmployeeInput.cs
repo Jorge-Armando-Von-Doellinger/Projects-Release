@@ -1,4 +1,7 @@
-﻿namespace Nuget.Employee.Inputs
+﻿using HMS.Employee.Application.JsonConverter;
+using System.Text.Json.Serialization;
+
+namespace Nuget.Employee.Inputs
 {
     public class EmployeeInput
     {

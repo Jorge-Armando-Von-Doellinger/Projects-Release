@@ -31,7 +31,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Nuget.Employee/0.0.2": {
+      "Nuget.Employee/0.0.4": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Employee.dll": {}
@@ -112,14 +112,14 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Nuget.Employee/0.0.2": {
-      "sha512": "dix+pBlxV2iAa2jTmlESrX0QtJeX3vynEUUToB3Vpd4sgJWP82Z6IDI6whNt9JOVKl5K1yE+GUKD9QB9HHu2yg==",
+    "Nuget.Employee/0.0.4": {
+      "sha512": "HCGZXULOnc6MlUkNvenUi+37L8J0QVZgO7L59GgtMYhttPY7F4647Lk3N2E+c6UyUo3ISOgAVLDeCG20FMsEXg==",
       "type": "package",
-      "path": "nuget.employee/0.0.2",
+      "path": "nuget.employee/0.0.4",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Employee.dll",
-        "nuget.employee.0.0.2.nupkg.sha512",
+        "nuget.employee.0.0.4.nupkg.sha512",
         "nuget.employee.nuspec"
       ]
     },
@@ -144,7 +144,7 @@
     "net8.0": [
       "HMS.Employee.Core >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.1",
-      "Nuget.Employee >= 0.0.2",
+      "Nuget.Employee >= 0.0.4",
       "Nuget.Response >= 1.0.2"
     ]
   },
@@ -209,7 +209,7 @@
           },
           "Nuget.Employee": {
             "target": "Package",
-            "version": "[0.0.2, )"
+            "version": "[0.0.4, )"
           },
           "Nuget.Response": {
             "target": "Package",

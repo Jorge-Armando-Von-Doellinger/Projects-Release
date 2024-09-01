@@ -1,8 +1,9 @@
 ﻿using Nuget.Employee.Enum;
+using Nuget.Employee.Inputs.Base;
 
 namespace Nuget.Employee.Inputs
 {
-    public class ContractualInformationInput
+    public class ContractualInformationInput : BaseWithEmployeeId
     {
         public DateTime StartDate { get; set; }
         public JobTitleEnum JobTitle { get; set; } // Enum ou banco de dados dedicado

@@ -11,7 +11,7 @@
     public interface IManager<Response, Input>
     {
         Task<Response> Add(Input input);
-        Task<Response> Update(Input updateInput, Guid ID);
+        Task<Response> Update(Input updateInput);
         Task<Response> DeleteById(Guid ID);
         Task<Response> Get();
         Task<Response> GetById(Guid ID);

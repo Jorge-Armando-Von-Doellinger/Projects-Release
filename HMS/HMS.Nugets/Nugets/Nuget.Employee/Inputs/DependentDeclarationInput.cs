@@ -1,6 +1,8 @@
-﻿namespace Nuget.Employee.Inputs
+﻿using Nuget.Employee.Inputs.Base;
+
+namespace Nuget.Employee.Inputs
 {
-    public class DependentDeclarationInput
+    public class DependentDeclarationInput : BaseWithEmployeeId
     {
         public string Name { get; set; }
         public DateOnly BirthDate { get; set; }

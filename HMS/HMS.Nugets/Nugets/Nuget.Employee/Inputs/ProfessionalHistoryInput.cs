@@ -1,6 +1,8 @@
-﻿namespace Nuget.Employee.Inputs
+﻿using Nuget.Employee.Inputs.Base;
+
+namespace Nuget.Employee.Inputs
 {
-    public class ProfessionalHistoryInput
+    public class ProfessionalHistoryInput : BaseWithEmployeeId
     {
         public string PreviousExperienceSummarized { get; set; }
         public string EducationLevel { get; set; } // Enum

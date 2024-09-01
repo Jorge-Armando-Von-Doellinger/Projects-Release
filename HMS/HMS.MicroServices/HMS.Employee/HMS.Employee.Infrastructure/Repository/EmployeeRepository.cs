@@ -1,7 +1,9 @@
 ﻿using HMS.Employee.Core.Entity;
 using HMS.Employee.Core.Interface.Manager;
 using HMS.Employee.Core.Interface.Repository;
+using HMS.Employee.Core.Json;
 using HMS.Employee.Infrastructure.Context;
+using HMS.Employee.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace HMS.Employee.Infrastructure.Repository
@@ -9,18 +11,22 @@ namespace HMS.Employee.Infrastructure.Repository
     public sealed class EmployeeRepository : IRepository<Core.Entity.Employee>
     {
         private readonly EmployeeContext _context;  
-        public EmployeeRepository(EmployeeContext context)
+        private readonly TransactionService _transaction;
+        public EmployeeRepository(EmployeeContext context, TransactionService transaction)
         {
             _context = context;
+            _transaction = transaction;
         }
 
-        public async Task<Core.Entity.Employee> Add(Core.Entity.Employee entity)
+        public async Task<bool> Add(Core.Entity.Employee entity)
         {
             try
             {
-                await _context.Employee.AddAsync(entity);
-                await _context.SaveChangesAsync();
-                return entity;
+                var rowsAffected = await _transaction.Execute(_context, async () =>
+                {
+                    await _context.Employee.AddAsync(entity);
+                });
+                return rowsAffected == 1;
             }
             catch (Exception ex)
             {
@@ -28,9 +34,20 @@ namespace HMS.Employee.Infrastructure.Repository
             }
         }
 
-        public Task<Core.Entity.Employee> Delete(Core.Entity.Employee entity)
+        public async Task<bool> Delete(Core.Entity.Employee entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var rowsAffected = await _transaction.Execute(_context, async () =>
+                {
+                    await Task.Run(() => _context.Employee.Remove(entity));
+                });
+                return rowsAffected == 1;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<List<Core.Entity.Employee>> Get()
@@ -47,14 +64,35 @@ namespace HMS.Employee.Infrastructure.Repository
             }
         }
 
-        public Task<Core.Entity.Employee> GetById(Guid ID)
+        public async Task<Core.Entity.Employee> GetById(Guid ID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _context.Employee
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(x => x.Id == ID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-        public Task<Core.Entity.Employee> Update(Core.Entity.Employee entity)
+        public async Task<bool> Update(Core.Entity.Employee entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var rowsAffected = await _transaction.Execute(_context, async () =>
+                {
+                    var employee = await _context.Employee.FindAsync(entity.Id);
+                    await employee.Update(entity);
+                });
+                return rowsAffected == 1;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

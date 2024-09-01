@@ -18,10 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HMS.Employee.Core\HMS.Employee.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\HMS.Employee.Messaging\HMS.Employee.Messaging.csproj" />
   </ItemGroup>
 
 </Project>

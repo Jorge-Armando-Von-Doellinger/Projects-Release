@@ -43,15 +43,9 @@ namespace HMS.Employee.Infrastructure.Context
                 .HasIndex(x => x.PhoneNumber)
                 .IsUnique();
             modelBuilder.Entity<Core.Entity.Employee>()
-                .Property(x => x.CreatedAt)
-                .ValueGeneratedOnAdd()
-                .HasDefaultValue(DateTime.Now)
-                .IsRequired();
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .Property(x => x.UpdatedAt)
-                .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValue(DateTime.Now)
-                .IsRequired();
+                .HasOne<Payroll>()
+                .WithMany()
+                .HasForeignKey(x => x.Id);
         }
         public DbSet<Core.Entity.Employee> Employee { get; set; }
         

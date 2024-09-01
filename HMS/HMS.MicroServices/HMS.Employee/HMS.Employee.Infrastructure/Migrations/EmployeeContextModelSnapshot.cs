@@ -25,7 +25,6 @@ namespace HMS.Employee.Infrastructure.Migrations
             modelBuilder.Entity("HMS.Employee.Core.Entity.Employee", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<short>("Age")
@@ -38,9 +37,7 @@ namespace HMS.Employee.Infrastructure.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 8, 29, 16, 9, 28, 948, DateTimeKind.Local).AddTicks(6414));
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -62,9 +59,7 @@ namespace HMS.Employee.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 8, 29, 16, 9, 28, 948, DateTimeKind.Local).AddTicks(7036));
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -81,6 +76,77 @@ namespace HMS.Employee.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Employee", (string)null);
+                });
+
+            modelBuilder.Entity("HMS.Employee.Core.Entity.Payroll", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Benefits")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("HourlySalary")
+                        .HasColumnType("int");
+
+                    b.Property<short>("HoursWorkedInMonth")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("TotalAmountOfBenefits")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payroll");
+                });
+
+            modelBuilder.Entity("HMS.Employee.Core.Entity.Employee", b =>
+                {
+                    b.HasOne("HMS.Employee.Core.Entity.Payroll", null)
+                        .WithMany()
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HMS.Employee.Core.Entity.Payroll", b =>
+                {
+                    b.OwnsOne("HMS.Employee.Core.Data.Discounts.Discount", "Discounts", b1 =>
+                        {
+                            b1.Property<Guid>("PayrollId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("MandatoryDiscounts")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("OtherDiscounts")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<int>("TotalDiscounts")
+                                .HasColumnType("int");
+
+                            b1.HasKey("PayrollId");
+
+                            b1.ToTable("Payroll");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PayrollId");
+                        });
+
+                    b.Navigation("Discounts")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

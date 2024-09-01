@@ -17,6 +17,7 @@ namespace HMS.Employee.Application
         public static IServiceCollection AddManagers(this IServiceCollection services)
         {
             services.AddScoped<IManager<Nuget.Response.Response, EmployeeInput>, EmployeeManager>();
+            services.AddScoped<IManagerWithEmployeeId<Nuget.Response.Response, PayrollInput>>();
             return services;
         }
     }

@@ -14,5 +14,21 @@ namespace HMS.Employee.Core.Entity
         public DateOnly BirthDate { get; set; }
         public string MaritalStatus { get; set; }
 
+        public async Task Update(Employee UpdatedEmployee)
+        {
+            await Task.Run(() =>
+            {
+                base.Update();
+                Name = UpdatedEmployee.Name ?? Name;
+                Email = UpdatedEmployee.Email ?? Email;
+                PhoneNumber = UpdatedEmployee.PhoneNumber ?? PhoneNumber;
+                CPF = UpdatedEmployee?.CPF ?? CPF;
+                PIS = UpdatedEmployee?.PIS ?? PIS;
+                Age = UpdatedEmployee?.Age ?? Age;
+                BirthDate = UpdatedEmployee?.BirthDate ?? BirthDate;
+                MaritalStatus = UpdatedEmployee?.MaritalStatus ?? MaritalStatus;
+            });
+        }
+
     }
 }
