@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "HMS.Employee.API.Controllers.ContractController",
+    "Method": "Get",
+    "RelativePath": "api/contract",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Employee.API.Controllers.ContractController",
+    "Method": "Add",
+    "RelativePath": "api/contract",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Employee.Inputs.ContractualInformationInput\u00601[[HMS.Employee.Core.Enum.BenefitsEnum, HMS.Employee.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HMS.Employee.API.Controllers.EmployeeController",
     "Method": "GetEmployees",
     "RelativePath": "api/Employee",
@@ -75,6 +101,16 @@
   },
   {
     "ContainingType": "HMS.Employee.API.Controllers.PayrollControler",
+    "Method": "Get",
+    "RelativePath": "api/Payroll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Employee.API.Controllers.PayrollControler",
     "Method": "AddP\u00E0yroll",
     "RelativePath": "api/Payroll",
     "HttpMethod": "POST",
@@ -83,7 +119,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "HMS.Employee.Core.Entity.Payroll",
+        "Type": "Nuget.Employee.Inputs.PayrollInput\u00602[[HMS.Employee.Core.Enum.BenefitsEnum, HMS.Employee.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HMS.Employee.Core.Data.Discounts.Discount, HMS.Employee.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],

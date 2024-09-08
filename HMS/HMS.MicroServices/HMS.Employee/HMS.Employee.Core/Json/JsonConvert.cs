@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace HMS.Employee.Core.Json
 {
-    public static class JsonConverter
+    public static class JsonConvert
     {
         public static async Task<string> Serialize(object obj)
         {
@@ -11,19 +11,15 @@ namespace HMS.Employee.Core.Json
             {
                 await JsonSerializer.SerializeAsync(stream, obj);
                 stream.Position = 0;
-                using (var reader = new StreamReader(stream))
-                {
+                using (var reader = new StreamReader(stream)) 
                     return await reader.ReadToEndAsync();
-                }
             }
         }
 
         public static async Task<T> Deserialize<T>(string json)
         {
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-            {
                 return await JsonSerializer.DeserializeAsync<T>(stream);
-            }
         }
     }
 }

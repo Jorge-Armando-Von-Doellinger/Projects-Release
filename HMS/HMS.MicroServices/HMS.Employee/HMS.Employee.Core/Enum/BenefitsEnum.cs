@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace HMS.Employee.Core.Enum
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum BenefitsEnum
     {
         // Benefícios de Saúde

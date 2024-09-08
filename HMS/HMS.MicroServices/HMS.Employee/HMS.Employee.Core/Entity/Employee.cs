@@ -14,6 +14,9 @@ namespace HMS.Employee.Core.Entity
         public DateOnly BirthDate { get; set; }
         public string MaritalStatus { get; set; }
 
+        public ContractualInformation ContractualInformation { get; set; }
+        public Payroll Payroll { get; set; }
+
         public async Task Update(Employee UpdatedEmployee)
         {
             await Task.Run(() =>

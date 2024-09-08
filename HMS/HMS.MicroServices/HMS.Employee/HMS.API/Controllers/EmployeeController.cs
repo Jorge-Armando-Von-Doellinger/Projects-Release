@@ -11,8 +11,8 @@ namespace HMS.Employee.API.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly IManagerWithEmployeeId<Nuget.Response.Response, EmployeeInput> _manager;
-        public EmployeeController(IManagerWithEmployeeId<Nuget.Response.Response, EmployeeInput> manager)
+        private readonly IManager<Nuget.Response.Response, EmployeeInput> _manager;
+        public EmployeeController(IManager<Nuget.Response.Response, EmployeeInput> manager)
         {
             _manager = manager;
         }

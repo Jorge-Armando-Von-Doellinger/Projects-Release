@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "Nuget.Employee/0.0.4": {
+      "Nuget.Employee/0.0.7": {
         "runtime": {
           "Nuget.Employee.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "Nuget.Employee/0.0.4": {
+    "Nuget.Employee/0.0.7": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

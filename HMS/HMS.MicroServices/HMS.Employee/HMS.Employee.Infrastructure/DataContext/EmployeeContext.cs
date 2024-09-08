@@ -26,10 +26,18 @@ namespace HMS.Employee.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // Indicate Table
             modelBuilder.Entity<Core.Entity.Employee>()
                 .ToTable("Employee");
+
+            // Set Primary Key
             modelBuilder.Entity<Core.Entity.Employee>()
                 .HasKey(x => x.Id);
+
+            // Set ForeignKeys
+
+            // Set Columns Unique
             modelBuilder.Entity<Core.Entity.Employee>()
                 .HasIndex(x => x.PIS)
                 .IsUnique();
@@ -42,10 +50,7 @@ namespace HMS.Employee.Infrastructure.Context
             modelBuilder.Entity<Core.Entity.Employee>()
                 .HasIndex(x => x.PhoneNumber)
                 .IsUnique();
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .HasOne<Payroll>()
-                .WithMany()
-                .HasForeignKey(x => x.Id);
+
         }
         public DbSet<Core.Entity.Employee> Employee { get; set; }
         

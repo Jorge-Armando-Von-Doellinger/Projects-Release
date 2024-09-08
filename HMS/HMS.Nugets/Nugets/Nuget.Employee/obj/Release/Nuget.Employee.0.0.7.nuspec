@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Nuget.Employee</id>
+    <version>0.0.7</version>
+    <title>Nuget.Employee</title>
+    <authors>Jorge Armando Von Doellinger</authors>
+    <description>Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplicação!</description>
+    <repository type="git" url="github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="e0b8083bdec45f90dc7045ec28a5e1a35469652a" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Employee\bin\Release\net8.0\Nuget.Employee.dll" target="lib\net8.0\Nuget.Employee.dll" />
+  </files>
+</package>

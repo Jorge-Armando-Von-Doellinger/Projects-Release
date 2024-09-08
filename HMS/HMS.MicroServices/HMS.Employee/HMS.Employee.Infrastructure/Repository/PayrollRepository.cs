@@ -1,5 +1,6 @@
 ﻿using HMS.Employee.Core.Entity;
 using HMS.Employee.Core.Interface.Repository;
+using HMS.Employee.Core.Json;
 using HMS.Employee.Infrastructure.DataContext;
 using HMS.Employee.Infrastructure.MessageResponse;
 using HMS.Employee.Infrastructure.Services;
@@ -25,6 +26,8 @@ namespace HMS.Employee.Infrastructure.Repository
         {
             try
             {
+                var teste = await JsonConvert.Serialize(entity);
+                Console.WriteLine(teste);
                 int rowsAffected = await _transaction.Execute(_context, async () =>
                 {
                     await _context.Payroll.AddAsync(entity);

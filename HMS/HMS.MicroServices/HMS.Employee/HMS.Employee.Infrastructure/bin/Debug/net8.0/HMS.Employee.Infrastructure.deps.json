@@ -662,11 +662,11 @@
           }
         }
       },
-      "Nuget.Employee/0.0.4": {
+      "Nuget.Employee/0.0.7": {
         "runtime": {
           "lib/net8.0/Nuget.Employee.dll": {
-            "assemblyVersion": "0.0.4.0",
-            "fileVersion": "0.0.4.0"
+            "assemblyVersion": "0.0.7.0",
+            "fileVersion": "0.0.7.0"
           }
         }
       },
@@ -944,7 +944,7 @@
       },
       "HMS.Employee.Messaging/1.0.0": {
         "dependencies": {
-          "Nuget.Employee": "0.0.4"
+          "Nuget.Employee": "0.0.7"
         },
         "runtime": {
           "HMS.Employee.Messaging.dll": {
@@ -1255,12 +1255,12 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
-    "Nuget.Employee/0.0.4": {
+    "Nuget.Employee/0.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HCGZXULOnc6MlUkNvenUi+37L8J0QVZgO7L59GgtMYhttPY7F4647Lk3N2E+c6UyUo3ISOgAVLDeCG20FMsEXg==",
-      "path": "nuget.employee/0.0.4",
-      "hashPath": "nuget.employee.0.0.4.nupkg.sha512"
+      "sha512": "sha512-9ZtZkbT3v/CNqybpR4YaSISYulPaUA9GnVrJm8VKgxpM0AB32+zX8gPFL0e4J89ifhHgVCxDgLBQCL1pnd4yrQ==",
+      "path": "nuget.employee/0.0.7",
+      "hashPath": "nuget.employee.0.0.7.nupkg.sha512"
     },
     "System.CodeDom/4.4.0": {
       "type": "package",

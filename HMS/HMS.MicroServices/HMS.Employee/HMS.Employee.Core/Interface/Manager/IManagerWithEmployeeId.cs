@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HMS.Employee.Core.Interface.Manager
 {
-    public interface IManagerWithEmployeeId<Response, Input> : IManager<Response, Input>
+    public interface IManagerWithEmployeeId<Response, Input> : IManager<Response, Input> where Input : class
     {
         public Task<Response> GetByEmployeeId(Guid ID);
     }

@@ -21,11 +21,23 @@ namespace HMS.Employee.Infrastructure.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            //Set Table
             modelBuilder.Entity<HMS.Employee.Core.Entity.ContractualInformation>()
                 .ToTable("ContractualInformation");
+
+            // Set Primery Key
             modelBuilder.Entity<ContractualInformation>()
                 .HasKey(e => e.Id);
+
+            // Set foregnKeys
+            modelBuilder.Entity<ContractualInformation>()
+                .HasOne(x => x.Employee)
+                .WithOne(e => new Employee)
+                .HasForeignKey(e => e.EmployeeId)
+                .IsRequired();   
+
         }
-        DbSet<ContractualInformation> ContractualInformation { get; set; }
+        public DbSet<ContractualInformation> ContractualInformation { get; set; }
     }
 }

@@ -14,3 +14,7 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Emplo
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Application\obj\Debug\net8.0\refint\HMS.Employee.Application.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Application\obj\Debug\net8.0\HMS.Employee.Application.pdb
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Application\obj\Debug\net8.0\ref\HMS.Employee.Application.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Application\bin\Debug\net8.0\HMS.Employee.Infrastructure.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Application\bin\Debug\net8.0\HMS.Employee.Messaging.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Application\bin\Debug\net8.0\HMS.Employee.Infrastructure.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Application\bin\Debug\net8.0\HMS.Employee.Messaging.pdb

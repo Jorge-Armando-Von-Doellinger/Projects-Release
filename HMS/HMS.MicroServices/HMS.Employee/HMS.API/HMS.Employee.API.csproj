@@ -7,12 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nuget.Employee" Version="0.0.4" />
+    <PackageReference Include="Nuget.Employee" Version="0.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HMS.Employee.Application\HMS.Employee.Application.csproj" />
+    <ProjectReference Include="..\HMS.Employee.Core\HMS.Employee.Core.csproj" />
     <ProjectReference Include="..\HMS.Employee.Infrastructure\HMS.Employee.Infrastructure.csproj" />
   </ItemGroup>
 

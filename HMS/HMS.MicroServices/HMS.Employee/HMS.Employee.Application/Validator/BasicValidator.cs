@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HMS.Employee.Application.Validator
 {
-    public static class BasicValidator
+    public class BasicValidator
     {
         public static async Task<Nuget.Response.Response> Validate<Input>(Input input)
         {
@@ -47,6 +47,14 @@ namespace HMS.Employee.Application.Validator
                 return nullProperties.Count == 0 ? null
                     : await ResponseUseCase.GetResponseError(DefaultMessages.InvalidData, nullProperties);
             });
+        }
+
+        public static async Task<bool> IsDefaultValue<Value>(Value value)
+        {
+            var type = value.GetType();
+            if(type.IsValueType) 
+                return value.Equals(Activator.CreateInstance(type));
+            return value == null;
         }
     }
 }

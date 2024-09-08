@@ -37,6 +37,9 @@
               "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Application\\HMS.Employee.Application.csproj": {
                 "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Application\\HMS.Employee.Application.csproj"
               },
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Core\\HMS.Employee.Core.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Core\\HMS.Employee.Core.csproj"
+              },
               "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Infrastructure\\HMS.Employee.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Infrastructure\\HMS.Employee.Infrastructure.csproj"
               }
@@ -60,7 +63,7 @@
           "dependencies": {
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.4, )"
+              "version": "[0.0.7, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -122,6 +125,9 @@
             "projectReferences": {
               "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Core\\HMS.Employee.Core.csproj": {
                 "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Core\\HMS.Employee.Core.csproj"
+              },
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Infrastructure\\HMS.Employee.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Infrastructure\\HMS.Employee.Infrastructure.csproj"
               }
             }
           }
@@ -147,7 +153,7 @@
             },
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.4, )"
+              "version": "[0.0.7, )"
             },
             "Nuget.Response": {
               "target": "Package",
@@ -388,7 +394,7 @@
           "dependencies": {
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.4, )"
+              "version": "[0.0.7, )"
             }
           },
           "imports": [

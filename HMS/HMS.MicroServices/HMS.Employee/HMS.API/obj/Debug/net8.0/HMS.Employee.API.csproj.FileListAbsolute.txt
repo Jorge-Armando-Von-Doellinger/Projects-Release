@@ -63,7 +63,6 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Emplo
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.API\bin\Debug\net8.0\HMS.Employee.Application.pdb
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.API\bin\Debug\net8.0\HMS.Employee.Infrastructure.pdb
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.API\bin\Debug\net8.0\HMS.Employee.Core.pdb
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.API\obj\Debug\net8.0\HMS.Employee.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.API\obj\Debug\net8.0\staticwebassets\msbuild.HMS.Employee.API.Microsoft.AspNetCore.StaticWebAssets.props

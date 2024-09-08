@@ -14,8 +14,7 @@ namespace HMS.Employee.Infrastructure
         {
             services
                 .AddContexts()
-                .AddServices()
-                .AddRepositories();
+                .AddServices();
             return services;
         }
 
@@ -23,6 +22,7 @@ namespace HMS.Employee.Infrastructure
         {
             services.AddScoped<EmployeeContext>();
             services.AddScoped<PayrollContext>();
+            services.AddScoped<ContractualInformationContext>();
             return services;
         }
 
@@ -32,11 +32,6 @@ namespace HMS.Employee.Infrastructure
             return services;
         }
 
-        public static IServiceCollection AddRepositories(this IServiceCollection services)
-        {
-            services.AddScoped<IRepository<Core.Entity.Employee>, EmployeeRepository>();
-            services.AddScoped<IRepositoryWithEmployeeId<Payroll>, PayrollRepository>();
-            return services;
-        }
+
     }
 }
