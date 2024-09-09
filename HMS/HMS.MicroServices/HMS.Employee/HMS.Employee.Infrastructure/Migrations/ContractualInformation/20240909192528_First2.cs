@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HMS.Employee.Infrastructure.Migrations.ContractualInformation
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class First2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HMS.Employee.Infrastructure.Migrations.ContractualInformation
 {
     [DbContext(typeof(ContractualInformationContext))]
-    [Migration("20240909184641_First")]
-    partial class First
+    [Migration("20240909192528_First2")]
+    partial class First2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -17,9 +17,8 @@ namespace HMS.Employee.Core.Entity
         public string MaritalStatus { get; set; } // Enum
 
         //Contractual
-        /*public Guid ContractId { get; set; }
-        [ForeignKey("ContractId")]
-        public ContractualInformation ContractualInformation { get; set; }*/
+        public Guid ContractId { get; set; }
+        public ContractualInformation ContractualInformation { get; set; }
 
         // Payrolls
         //public Payroll Payroll { get; set; }

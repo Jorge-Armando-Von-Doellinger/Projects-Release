@@ -1,7 +1,4 @@
-﻿using HMS.Employee.Core.Entity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace HMS.Employee.Infrastructure.Context
 {
@@ -56,12 +53,12 @@ namespace HMS.Employee.Infrastructure.Context
                 .IsUnique();
 
             // Set ForeignKeys
-           /* modelBuilder.Entity<Core.Entity.Employee>()
+            modelBuilder.Entity<Core.Entity.Employee>()
                 .HasOne(e => e.ContractualInformation)
-                .WithOne() // Usa WithMany se um contrato pode ter múltiplos funcionários
-                .HasForeignKey(nameof(ContractualInformation)) // Define a chave estrangeira
-                //.OnDelete(DeleteBehavior.Restrict)
-                .IsRequired();*/
+                .WithMany() // Usa WithMany se um contrato pode ter múltiplos funcionários
+                .HasForeignKey(x => x.ContractId) // Define a chave estrangeira
+                                                               //.OnDelete(DeleteBehavior.Restrict)
+                .IsRequired();
 
 
         }

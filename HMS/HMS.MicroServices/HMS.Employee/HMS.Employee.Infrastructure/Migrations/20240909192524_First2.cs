@@ -6,11 +6,36 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HMS.Employee.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class First2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ContractualInformation",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    JobTitle = table.Column<int>(type: "int", nullable: false),
+                    ExperienceLevel = table.Column<int>(type: "int", nullable: false),
+                    Benefits = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Department = table.Column<int>(type: "int", nullable: false),
+                    HourlySalaryInDollar = table.Column<short>(type: "smallint", nullable: false),
+                    WorkingHours = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LunchTime = table.Column<TimeOnly>(type: "time", nullable: false),
+                    ContractType = table.Column<int>(type: "int", nullable: false),
+                    ProbationPeriodInMonths = table.Column<short>(type: "smallint", nullable: false),
+                    EmploymentStatus = table.Column<int>(type: "int", nullable: false),
+                    EndDay = table.Column<DateOnly>(type: "date", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContractualInformation", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Employee",
                 columns: table => new
@@ -24,13 +49,25 @@ namespace HMS.Employee.Infrastructure.Migrations
                     Age = table.Column<short>(type: "smallint", nullable: false),
                     BirthDate = table.Column<DateOnly>(type: "date", nullable: false),
                     MaritalStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContractId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employee", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Employee_ContractualInformation_ContractId",
+                        column: x => x.ContractId,
+                        principalTable: "ContractualInformation",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employee_ContractId",
+                table: "Employee",
+                column: "ContractId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employee_CPF",
@@ -62,6 +99,9 @@ namespace HMS.Employee.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Employee");
+
+            migrationBuilder.DropTable(
+                name: "ContractualInformation");
         }
     }
 }

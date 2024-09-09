@@ -22,6 +22,61 @@ namespace HMS.Employee.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("HMS.Employee.Core.Entity.ContractualInformation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Benefits")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ContractType")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Department")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmploymentStatus")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("EndDay")
+                        .HasColumnType("date");
+
+                    b.Property<int>("ExperienceLevel")
+                        .HasColumnType("int");
+
+                    b.Property<short>("HourlySalaryInDollar")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("JobTitle")
+                        .HasColumnType("int");
+
+                    b.Property<TimeOnly>("LunchTime")
+                        .HasColumnType("time");
+
+                    b.Property<short>("ProbationPeriodInMonths")
+                        .HasColumnType("smallint");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("WorkingHours")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContractualInformation");
+                });
+
             modelBuilder.Entity("HMS.Employee.Core.Entity.Employee", b =>
                 {
                     b.Property<Guid>("Id")
@@ -36,6 +91,9 @@ namespace HMS.Employee.Infrastructure.Migrations
 
                     b.Property<long>("CPF")
                         .HasColumnType("bigint");
+
+                    b.Property<Guid>("ContractId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -67,6 +125,8 @@ namespace HMS.Employee.Infrastructure.Migrations
                     b.HasIndex("CPF")
                         .IsUnique();
 
+                    b.HasIndex("ContractId");
+
                     b.HasIndex("Email")
                         .IsUnique();
 
@@ -77,6 +137,17 @@ namespace HMS.Employee.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Employee", (string)null);
+                });
+
+            modelBuilder.Entity("HMS.Employee.Core.Entity.Employee", b =>
+                {
+                    b.HasOne("HMS.Employee.Core.Entity.ContractualInformation", "ContractualInformation")
+                        .WithMany()
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContractualInformation");
                 });
 #pragma warning restore 612, 618
         }

@@ -29,13 +29,6 @@ namespace HMS.Employee.Infrastructure.DataContext
             // Set Primery Key
             modelBuilder.Entity<ContractualInformation>()
                 .HasKey(e => e.Id);
-            
-            // Set foregnKeys
-/*            modelBuilder.Entity<ContractualInformation>()
-                .HasOne(x => x.Employee)
-                .WithOne(e => e.ContractualInformation)
-                .HasForeignKey<ContractualInformation>(x => x.EmployeeId)
-                .IsRequired();  */ 
 
         }
         public DbSet<ContractualInformation> ContractualInformation { get; set; }
