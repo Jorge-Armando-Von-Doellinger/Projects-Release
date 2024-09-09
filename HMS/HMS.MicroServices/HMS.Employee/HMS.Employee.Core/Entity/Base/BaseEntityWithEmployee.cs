@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HMS.Employee.Core.Entity.Base
 {
-    public class BaseEntityWithEmployeeId : BaseEntity
+    public class BaseEntityWithEmployee : BaseEntity
     {
-        public Employee Employee { get; set; }
-        public Guid EmployeeId { get; set; }
+        //public Employee Employee { get; set; }
+        //public Guid EmployeeId { get; set; }
     }
 }

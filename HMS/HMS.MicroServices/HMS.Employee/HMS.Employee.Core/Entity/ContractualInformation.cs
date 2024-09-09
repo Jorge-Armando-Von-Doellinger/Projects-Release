@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace HMS.Employee.Core.Entity
 {
-    public sealed class ContractualInformation : BaseEntityWithEmployeeId
+    public sealed class ContractualInformation : BaseEntity
     {
         // Irei evitar o uso de banco de dados nesta parte. Se tratando de um micro-serviço pequeno, isso vai bastar!
         public DateTime StartDate { get; set; }
@@ -25,8 +25,8 @@ namespace HMS.Employee.Core.Entity
         {
             await Task.Run(() =>
             {
-                this.Replacer(contractUpdated);
                 base.Update();
+                this.Replacer(contractUpdated);
             });
         }
     }

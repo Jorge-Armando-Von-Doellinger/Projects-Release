@@ -63,11 +63,11 @@
           "dependencies": {
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.7, )"
+              "version": "[0.0.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.7.3, )"
             }
           },
           "imports": [
@@ -153,7 +153,7 @@
             },
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.7, )"
+              "version": "[0.0.8, )"
             },
             "Nuget.Response": {
               "target": "Package",
@@ -226,12 +226,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.Abstractions": {
-              "target": "Package",
-              "version": "[8.0.8, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -319,10 +313,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
-            },
-            "Microsoft.Extensions.DependencyInjection.Abstractions": {
-              "target": "Package",
-              "version": "[8.0.1, )"
             }
           },
           "imports": [
@@ -394,7 +384,7 @@
           "dependencies": {
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.7, )"
+              "version": "[0.0.8, )"
             }
           },
           "imports": [

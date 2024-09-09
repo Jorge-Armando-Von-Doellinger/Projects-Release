@@ -1,4 +1,6 @@
 ﻿using HMS.Employee.Core.Entity.Base;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HMS.Employee.Core.Entity
 {
@@ -12,10 +14,15 @@ namespace HMS.Employee.Core.Entity
         public long PIS { get; set; }
         public Int16 Age { get; set; }
         public DateOnly BirthDate { get; set; }
-        public string MaritalStatus { get; set; }
+        public string MaritalStatus { get; set; } // Enum
 
-        public ContractualInformation ContractualInformation { get; set; }
-        public Payroll Payroll { get; set; }
+        //Contractual
+        /*public Guid ContractId { get; set; }
+        [ForeignKey("ContractId")]
+        public ContractualInformation ContractualInformation { get; set; }*/
+
+        // Payrolls
+        //public Payroll Payroll { get; set; }
 
         public async Task Update(Employee UpdatedEmployee)
         {

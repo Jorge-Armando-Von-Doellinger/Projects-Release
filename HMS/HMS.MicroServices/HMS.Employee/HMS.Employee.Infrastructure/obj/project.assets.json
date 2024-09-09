@@ -579,7 +579,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -890,7 +890,7 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
-      "Nuget.Employee/0.0.7": {
+      "Nuget.Employee/0.0.8": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Employee.dll": {}
@@ -1515,9 +1515,6 @@
       "HMS.Employee.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.8"
-        },
         "compile": {
           "bin/placeholder/HMS.Employee.Core.dll": {}
         },
@@ -1529,7 +1526,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "Nuget.Employee": "0.0.7"
+          "Nuget.Employee": "0.0.8"
         },
         "compile": {
           "bin/placeholder/HMS.Employee.Messaging.dll": {}
@@ -2438,10 +2435,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
-      "sha512": "fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.1",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2465,7 +2462,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -2959,14 +2956,14 @@
         "mono.texttemplating.nuspec"
       ]
     },
-    "Nuget.Employee/0.0.7": {
-      "sha512": "9ZtZkbT3v/CNqybpR4YaSISYulPaUA9GnVrJm8VKgxpM0AB32+zX8gPFL0e4J89ifhHgVCxDgLBQCL1pnd4yrQ==",
+    "Nuget.Employee/0.0.8": {
+      "sha512": "AA49psKW/8EWPalZBUPWQzO/FawtXYRK/TaW658gY8l4pW+H51jt0kbBCjbqrFnIyr1Tz82CwW5Z38LkTsARQw==",
       "type": "package",
-      "path": "nuget.employee/0.0.7",
+      "path": "nuget.employee/0.0.8",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Employee.dll",
-        "nuget.employee.0.0.7.nupkg.sha512",
+        "nuget.employee.0.0.8.nupkg.sha512",
         "nuget.employee.nuspec"
       ]
     },
@@ -4160,8 +4157,7 @@
       "HMS.Employee.Messaging >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
-      "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
-      "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.1"
+      "Microsoft.EntityFrameworkCore.Tools >= 8.0.8"
     ]
   },
   "packageFolders": {
@@ -4235,10 +4231,6 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[8.0.8, )"
-          },
-          "Microsoft.Extensions.DependencyInjection.Abstractions": {
-            "target": "Package",
-            "version": "[8.0.1, )"
           }
         },
         "imports": [

@@ -10,4 +10,3 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Emplo
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Core\obj\Debug\net8.0\refint\HMS.Employee.Core.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Core\obj\Debug\net8.0\HMS.Employee.Core.pdb
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Core\obj\Debug\net8.0\ref\HMS.Employee.Core.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Employee\HMS.Employee.Core\obj\Debug\net8.0\HMS.Employee.Core.csproj.AssemblyReference.cache

@@ -67,7 +67,7 @@ namespace HMS.Employee.Infrastructure.Repository
             {
                 return await _context.Payroll
                     .AsNoTracking()
-                    .Where(x => x.EmployeeId == ID)
+                    /*.Where(x => x.EmployeeId == ID)*/
                     .ToListAsync();
             }
             catch (Exception ex)

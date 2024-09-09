@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tZV1v3EHNuA=",
+  "dgSpecHash": "UOQhIBYlxms=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Employee\\HMS.Employee.Core\\HMS.Employee.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

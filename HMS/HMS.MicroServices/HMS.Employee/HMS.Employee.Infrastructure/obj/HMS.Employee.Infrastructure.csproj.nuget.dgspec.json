@@ -50,12 +50,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.Abstractions": {
-              "target": "Package",
-              "version": "[8.0.8, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -143,10 +137,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
-            },
-            "Microsoft.Extensions.DependencyInjection.Abstractions": {
-              "target": "Package",
-              "version": "[8.0.1, )"
             }
           },
           "imports": [
@@ -218,7 +208,7 @@
           "dependencies": {
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.7, )"
+              "version": "[0.0.8, )"
             }
           },
           "imports": [

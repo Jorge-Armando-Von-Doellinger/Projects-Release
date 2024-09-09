@@ -13,5 +13,7 @@ namespace Nuget.Employee.Inputs
         public Int16 Age { get; set; }
         public DateOnly BirthDate { get; set; }
         public string MaritalStatus { get; set; }
+
+        public Guid ContractId { get; set; }
     }
 }

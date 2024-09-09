@@ -51,7 +51,7 @@ namespace HMS.Employee.Infrastructure.Repository
         {
             return await _context.ContractualInformation
                 .AsNoTracking()
-                .Where(x => x.EmployeeId == ID)
+                .Where(x => x.Id == ID)
                 .ToListAsync();
         }
 

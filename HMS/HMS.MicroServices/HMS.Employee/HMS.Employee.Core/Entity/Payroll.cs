@@ -5,15 +5,13 @@ using HMS.Employee.Core.Mapper;
 
 namespace HMS.Employee.Core.Entity
 {
-    public sealed class Payroll : BaseEntityWithEmployeeId
+    public sealed class Payroll : BaseEntityWithEmployee
     {
         public int HourlySalary { get; set; }
         public short HoursWorkedInMonth { get; set; }
         public int TotalAmountOfBenefits { get; set; }
         public List<BenefitsEnum>? Benefits { get; set; }
         public Discount Discounts { get; set; }
-        public ContractualInformation ContractualInformation { get; set; }
-        public Guid ContractId { get; set; }
 
         public void Update(Payroll payroll)
         {

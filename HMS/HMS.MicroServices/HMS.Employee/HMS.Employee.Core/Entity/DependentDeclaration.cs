@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace HMS.Employee.Core.Entity
 {
-    public sealed class DependentDeclaration : BaseEntityWithEmployeeId
+    public sealed class DependentDeclaration : BaseEntityWithEmployee
     {
         public string Name { get; set; }
         public DateOnly BirthDate { get; set; }

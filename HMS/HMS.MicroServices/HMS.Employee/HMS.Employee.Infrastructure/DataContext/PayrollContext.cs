@@ -34,20 +34,26 @@ namespace HMS.Employee.Infrastructure.DataContext
             //Set Primary Key
             modelBuilder.Entity<Payroll>()
                 .HasKey(x => x.Id);
-            
+            modelBuilder.Entity<Payroll>()
+                .HasIndex(x => x.Benefits)
+                .IsUnique();
 
             // Configuring foreignKeys
+            /*            modelBuilder.Entity<Payroll>()
+                            .HasOne(x => x.Employee)
+                            .WithMany()
+                            .HasForeignKey(x => x.EmployeeId)
+                            .IsRequired();
+                        modelBuilder.Entity<Payroll>()
+                            .HasOne(x => x.ContractualInformation)
+                            .WithMany()
+                            .HasForeignKey(x => x.ContractId)
+                            .OnDelete(DeleteBehavior.NoAction)
+                            .IsRequired();*/
+
+            // Set Own
             modelBuilder.Entity<Payroll>()
-                .HasOne(x => x.Employee)
-                .WithMany()
-                .HasForeignKey(x => x.EmployeeId)
-                .IsRequired();
-            modelBuilder.Entity<Payroll>()
-                .HasOne(x => x.ContractualInformation)
-                .WithMany()
-                .HasForeignKey(x => x.ContractId)
-                .OnDelete(DeleteBehavior.NoAction)
-                .IsRequired();
+                .OwnsOne(x => x.Discounts);
         }
         public DbSet<Payroll> Payroll { get; set; }
 

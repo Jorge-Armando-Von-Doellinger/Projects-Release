@@ -2,7 +2,7 @@
 
 namespace HMS.Employee.Core.Entity
 {
-    public sealed class MedicalExams : BaseEntityWithEmployeeId
+    public sealed class MedicalExams : BaseEntityWithEmployee
     {
         public string? ConditionSummary { get; set; } // Resumo da condição medica do funcionario
         public DateTime? LastExam { get; set; }

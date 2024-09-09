@@ -1,5 +1,7 @@
 ﻿using HMS.Employee.Core.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HMS.Employee.Infrastructure.Context
 {
@@ -16,6 +18,9 @@ namespace HMS.Employee.Infrastructure.Context
         public EmployeeContext()
         {
         }
+
+        public DbSet<Core.Entity.Employee> Employee { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured == false)
@@ -26,7 +31,6 @@ namespace HMS.Employee.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             // Indicate Table
             modelBuilder.Entity<Core.Entity.Employee>()
                 .ToTable("Employee");
@@ -35,7 +39,7 @@ namespace HMS.Employee.Infrastructure.Context
             modelBuilder.Entity<Core.Entity.Employee>()
                 .HasKey(x => x.Id);
 
-            // Set ForeignKeys
+
 
             // Set Columns Unique
             modelBuilder.Entity<Core.Entity.Employee>()
@@ -51,8 +55,18 @@ namespace HMS.Employee.Infrastructure.Context
                 .HasIndex(x => x.PhoneNumber)
                 .IsUnique();
 
+            // Set ForeignKeys
+           /* modelBuilder.Entity<Core.Entity.Employee>()
+                .HasOne(e => e.ContractualInformation)
+                .WithOne() // Usa WithMany se um contrato pode ter múltiplos funcionários
+                .HasForeignKey(nameof(ContractualInformation)) // Define a chave estrangeira
+                //.OnDelete(DeleteBehavior.Restrict)
+                .IsRequired();*/
+
+
         }
-        public DbSet<Core.Entity.Employee> Employee { get; set; }
+
+
         
 
     }

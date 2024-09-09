@@ -12,7 +12,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "0.0.7",
+    "version": "0.0.8",
     "restore": {
       "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.Employee\\Nuget.Employee.csproj",
       "projectName": "Nuget.Employee",

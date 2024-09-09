@@ -1,10 +1,8 @@
 ﻿using HMS.Employee.Core.Enum;
-using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace HMS.Employee.Core.Data.Discounts
 {
-    [Owned]
     public sealed class Discount
     {
         // public Dictionary<MandatoryDiscountsEnum, int> MandatoryDiscountsPercentage { get; set; } 

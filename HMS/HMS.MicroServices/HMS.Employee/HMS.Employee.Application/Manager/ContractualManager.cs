@@ -20,10 +20,11 @@ namespace HMS.Employee.Application.Manager
         public async Task<Nuget.Response.Response> Add(ContractualInformationInput<BenefitsEnum> input)
         {
             try
-            {/*
-                var contract = input.Map<ContractualInformation>();
+            {
+                var contract = input.FromObjectTo<ContractualInformation>();
+
                 if (await _repository.Add(contract))
-                    return await ResponseUseCase.GetResponseSuccess();*/
+                    return await ResponseUseCase.GetResponseSuccess();
                 return await ResponseUseCase.GetResponseError("Houve um erro durante a esta operação.");
             }
             catch (Exception ex) 
@@ -43,11 +44,6 @@ namespace HMS.Employee.Application.Manager
             try
             {
                 var contracts = await _repository.Get();
-                var teste = contracts.FirstOrDefault();
-                
-                Console.WriteLine(await JsonConvert.Serialize(teste));
-                await teste.UpdateAsync(new() { HourlySalaryInDollar = 1000});
-                Console.WriteLine(await JsonConvert.Serialize(teste));
 
                 return await ResponseUseCase.GetResponseSuccess(string.Empty, contracts);
             }

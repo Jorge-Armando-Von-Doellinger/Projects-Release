@@ -85,7 +85,7 @@ namespace HMS.Employee.Infrastructure.Repository
                 var rowsAffected = await _transaction.Execute(_context, async () =>
                 {
                     var employee = await _context.Employee.FindAsync(entity.Id);
-                    await employee.Update(entity);
+                    //await employee.Update(entity);
                 });
                 return rowsAffected == 1;
             }

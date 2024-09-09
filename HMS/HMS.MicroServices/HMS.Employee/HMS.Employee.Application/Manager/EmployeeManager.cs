@@ -3,7 +3,10 @@ using HMS.Employee.Application.Response;
 using HMS.Employee.Core.Entity;
 using HMS.Employee.Core.Interface.Manager;
 using HMS.Employee.Core.Interface.Repository;
+using HMS.Employee.Core.Json;
+using HMS.Employee.Core.Mapper;
 using Nuget.Employee.Inputs;
+using System.Diagnostics.Contracts;
 using System.Text.Json;
 
 namespace HMS.Employee.Application.Manager
@@ -19,7 +22,10 @@ namespace HMS.Employee.Application.Manager
         {
             try
             {
-                var employee = await ObjectMapper.Mapper<Core.Entity.Employee>(input);
+                var employee = ((object)input).FromObjectTo<Core.Entity.Employee>();
+                Console.WriteLine(await JsonConvert.Serialize(input));
+                Console.WriteLine(await JsonConvert.Serialize(employee));
+                await Task.Delay(1009);
                 await _repository.Add(employee);
                 return await ResponseUseCase.GetResponseSuccess();
             }
@@ -34,6 +40,7 @@ namespace HMS.Employee.Application.Manager
             try
             {
                 var employee = await ObjectMapper.Mapper<Core.Entity.Employee>(updateInput);
+
                 await _repository.Update(employee);
                 return await ResponseUseCase.GetResponseSuccess();
             }

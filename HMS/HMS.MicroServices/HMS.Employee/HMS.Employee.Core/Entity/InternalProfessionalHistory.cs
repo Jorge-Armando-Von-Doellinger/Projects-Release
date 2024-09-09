@@ -2,7 +2,7 @@
 
 namespace HMS.Employee.Core.Entity
 {
-    public sealed class InternalProfessionalHistory : BaseEntityWithEmployeeId
+    public sealed class InternalProfessionalHistory : BaseEntityWithEmployee
     {
         public string PreviousExperienceSummarized { get; set; }
         public string EducationLevel { get; set; } // Enum

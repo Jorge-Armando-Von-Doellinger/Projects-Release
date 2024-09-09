@@ -8,17 +8,17 @@
     ".NETCoreApp,Version=v8.0": {
       "HMS.Employee.Messaging/1.0.0": {
         "dependencies": {
-          "Nuget.Employee": "0.0.7"
+          "Nuget.Employee": "0.0.8"
         },
         "runtime": {
           "HMS.Employee.Messaging.dll": {}
         }
       },
-      "Nuget.Employee/0.0.7": {
+      "Nuget.Employee/0.0.8": {
         "runtime": {
           "lib/net8.0/Nuget.Employee.dll": {
-            "assemblyVersion": "0.0.7.0",
-            "fileVersion": "0.0.7.0"
+            "assemblyVersion": "0.0.8.0",
+            "fileVersion": "0.0.8.0"
           }
         }
       }
@@ -30,12 +30,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Nuget.Employee/0.0.7": {
+    "Nuget.Employee/0.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9ZtZkbT3v/CNqybpR4YaSISYulPaUA9GnVrJm8VKgxpM0AB32+zX8gPFL0e4J89ifhHgVCxDgLBQCL1pnd4yrQ==",
-      "path": "nuget.employee/0.0.7",
-      "hashPath": "nuget.employee.0.0.7.nupkg.sha512"
+      "sha512": "sha512-AA49psKW/8EWPalZBUPWQzO/FawtXYRK/TaW658gY8l4pW+H51jt0kbBCjbqrFnIyr1Tz82CwW5Z38LkTsARQw==",
+      "path": "nuget.employee/0.0.8",
+      "hashPath": "nuget.employee.0.0.8.nupkg.sha512"
     }
   }
 }

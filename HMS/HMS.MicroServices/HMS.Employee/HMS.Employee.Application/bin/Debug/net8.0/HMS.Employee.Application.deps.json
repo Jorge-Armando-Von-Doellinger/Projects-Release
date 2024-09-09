@@ -11,7 +11,7 @@
           "HMS.Employee.Core": "1.0.0",
           "HMS.Employee.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
-          "Nuget.Employee": "0.0.7",
+          "Nuget.Employee": "0.0.8",
           "Nuget.Response": "1.0.2"
         },
         "runtime": {
@@ -389,11 +389,11 @@
           }
         }
       },
-      "Nuget.Employee/0.0.7": {
+      "Nuget.Employee/0.0.8": {
         "runtime": {
           "lib/net8.0/Nuget.Employee.dll": {
-            "assemblyVersion": "0.0.7.0",
-            "fileVersion": "0.0.7.0"
+            "assemblyVersion": "0.0.8.0",
+            "fileVersion": "0.0.8.0"
           }
         }
       },
@@ -580,9 +580,6 @@
         }
       },
       "HMS.Employee.Core/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.8"
-        },
         "runtime": {
           "HMS.Employee.Core.dll": {
             "assemblyVersion": "1.0.0",
@@ -595,8 +592,7 @@
           "HMS.Employee.Core": "1.0.0",
           "HMS.Employee.Messaging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1"
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
         },
         "runtime": {
           "HMS.Employee.Infrastructure.dll": {
@@ -607,7 +603,7 @@
       },
       "HMS.Employee.Messaging/1.0.0": {
         "dependencies": {
-          "Nuget.Employee": "0.0.7"
+          "Nuget.Employee": "0.0.8"
         },
         "runtime": {
           "HMS.Employee.Messaging.dll": {
@@ -848,12 +844,12 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
-    "Nuget.Employee/0.0.7": {
+    "Nuget.Employee/0.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9ZtZkbT3v/CNqybpR4YaSISYulPaUA9GnVrJm8VKgxpM0AB32+zX8gPFL0e4J89ifhHgVCxDgLBQCL1pnd4yrQ==",
-      "path": "nuget.employee/0.0.7",
-      "hashPath": "nuget.employee.0.0.7.nupkg.sha512"
+      "sha512": "sha512-AA49psKW/8EWPalZBUPWQzO/FawtXYRK/TaW658gY8l4pW+H51jt0kbBCjbqrFnIyr1Tz82CwW5Z38LkTsARQw==",
+      "path": "nuget.employee/0.0.8",
+      "hashPath": "nuget.employee.0.0.8.nupkg.sha512"
     },
     "Nuget.Response/1.0.2": {
       "type": "package",

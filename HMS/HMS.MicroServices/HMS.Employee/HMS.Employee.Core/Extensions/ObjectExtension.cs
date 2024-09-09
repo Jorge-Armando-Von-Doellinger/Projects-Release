@@ -56,7 +56,7 @@ namespace HMS.Employee.Core.Mapper
                 var objProperties = obj.GetType().GetProperties();
                 foreach (var property in replace)
                 {
-                    var valueOnBase = typeof(BaseEntityWithEmployeeId).GetProperty(property.Name) != null;
+                    var valueOnBase = typeof(BaseEntityWithEmployee).GetProperty(property.Name) != null;
                     if (valueOnBase == false)
                     {
                         var objProperty = objProperties.FirstOrDefault(x => x.Name == property.Name);
