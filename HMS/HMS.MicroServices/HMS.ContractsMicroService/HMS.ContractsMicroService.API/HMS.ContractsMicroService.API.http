@@ -1,0 +1,6 @@
+@HMS.ContractsMicroService.API_HostAddress = http://localhost:5144
+
+GET {{HMS.ContractsMicroService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

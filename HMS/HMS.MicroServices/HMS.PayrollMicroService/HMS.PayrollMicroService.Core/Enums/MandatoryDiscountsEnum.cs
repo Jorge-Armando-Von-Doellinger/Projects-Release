@@ -6,6 +6,7 @@ namespace HMS.PayrollMicroService.Core.Enums
     public enum MandatoryDiscountsEnum
     {
         INSS, 
-        FGTS
+        FGTS,
+        IRRF
     }
 }

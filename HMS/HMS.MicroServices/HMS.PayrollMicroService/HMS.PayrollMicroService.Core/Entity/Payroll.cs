@@ -14,7 +14,7 @@ namespace HMS.PayrollMicroService.Core.Entity
         public Guid EmployeeId { get; set; }
         public int HourlySalary { get; set; } // Virá do contrato
         public short HoursWorkedInMonth { get; set; } // Virá do contrato, mas calculado junto com o mensal do funcionario
-        public List<BenefitsEnum> Benefits { get; set; } = new();// Virá do contrato
+        public List<BenefitsEnum> Benefits { get; set; } = new(); // Virá do contrato
         public int TotalAmountOfBenefits { get; set; } // Virá do contrato
         public Discount Discounts { get; set; } = new(); // Virá do contrato
 

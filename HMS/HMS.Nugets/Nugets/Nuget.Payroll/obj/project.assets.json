@@ -14,9 +14,9 @@
   "project": {
     "version": "0.0.1",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.Payroll\\Nuget.Payroll.csproj",
-      "projectName": "Nuget.Payroll",
-      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.Payroll\\Nuget.Payroll.csproj",
+      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.Payroll\\Nuget.Payment.csproj",
+      "projectName": "Nuget.Payment",
+      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.Payroll\\Nuget.Payment.csproj",
       "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.Payroll\\obj\\",
       "projectStyle": "PackageReference",

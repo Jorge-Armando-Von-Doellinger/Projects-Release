@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Nuget.Payment</id>
+    <version>0.0.1</version>
+    <title>Nuget.Payments</title>
+    <authors>Jorge Von Doellinger Jr</authors>
+    <description>É um pacote para facilitar a comunicação entre aplicações!</description>
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="382f3d132eb358538b8cfe959b45a65d3a03c87a" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.Payroll\bin\Debug\net8.0\Nuget.Payment.dll" target="lib\net8.0\Nuget.Payment.dll" />
+  </files>
+</package>

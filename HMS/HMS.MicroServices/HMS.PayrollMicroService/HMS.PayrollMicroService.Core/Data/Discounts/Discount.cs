@@ -4,6 +4,7 @@ namespace HMS.PayrollMicroService.Core.Data.Discounts
 {
     public sealed class Discount
     {
+        // Talvez fazer uma tabela de descontos seja interessante, devido aos valores de salario minimo e % dos
         public Discount()
         {
             MandatoryDiscounts = Enum.GetValues(typeof(MandatoryDiscountsEnum))

@@ -1,0 +1,13 @@
+Payment - Realizará a SIMULAÇÃO do pagamentos em geral, sendo de funcionarios (sendo automatico ou manual, como desejar) e
+	- outros pagamentos, como compras de materias, dividas, etc
+> Mensageria
+> SQL Server
+> Google Event
+
+PdfCreator - Criará um pdf com base na entidade
+> Mensageria
+> ....
+
+Notification - Irá enviar um email com base nos dados que receber!
+> Mensageria
+> ....

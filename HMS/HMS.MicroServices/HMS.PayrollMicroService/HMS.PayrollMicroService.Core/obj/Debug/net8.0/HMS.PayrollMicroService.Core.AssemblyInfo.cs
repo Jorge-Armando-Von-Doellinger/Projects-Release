@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.PayrollMicroService.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c57afb5d1216f741384f72941e937a213de050d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+382f3d132eb358538b8cfe959b45a65d3a03c87a")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.PayrollMicroService.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.PayrollMicroService.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

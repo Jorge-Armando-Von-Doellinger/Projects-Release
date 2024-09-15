@@ -1,0 +1,12 @@
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\bin\Debug\net8.0\HMS.Payment.Core.deps.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\bin\Debug\net8.0\HMS.Payment.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\bin\Debug\net8.0\HMS.Payment.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\HMS.Payment.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\HMS.Payment.Core.AssemblyInfoInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\HMS.Payment.Core.AssemblyInfo.cs
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\HMS.Payment.Core.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\HMS.Payment.Core.sourcelink.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\HMS.Payment.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\refint\HMS.Payment.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\HMS.Payment.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment.Core\obj\Debug\net8.0\ref\HMS.Payment.Core.dll

@@ -19,16 +19,19 @@ namespace HMS.PayrollMicroService.Core.Extensions
         public static List<TypeEnum> ToListEnum<TypeEnum>(this IList<string> list)
         {
             var data = list
-                .Select(s => (TypeEnum)Enum.Parse(typeof(BenefitsEnum), s))
+                .Where(s => Enum.TryParse(typeof(TypeEnum), s, out var result))
+                .Select(s => (TypeEnum)Enum.Parse(typeof(TypeEnum), s))
                 .ToList();
             return data;
         }
         public static List<TypeEnum> ToListEnum<TypeEnum>(this IList<string> list, List<TypeEnum> addRange)
         {
             var data = list
-                .Select(s => (TypeEnum)Enum.Parse(typeof(BenefitsEnum), s))
+                .Where(s => Enum.TryParse(typeof(TypeEnum), s, out var result))
+                .Select(s => (TypeEnum)Enum.Parse(typeof(TypeEnum), s))
                 .ToList();
             data.AddRange(addRange);
+            data.Sort();
             return data;
         }
     }

@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Response", "Nuget.Res
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Employee", "Nuget.Employee\Nuget.Employee.csproj", "{CD7BF92E-D752-4116-9201-70912335B7D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Payroll", "Nuget.Payroll\Nuget.Payroll.csproj", "{2AA3E385-B37B-46DC-A051-8BDF20FB188F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Payment", "Nuget.Payroll\Nuget.Payment.csproj", "{2AA3E385-B37B-46DC-A051-8BDF20FB188F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

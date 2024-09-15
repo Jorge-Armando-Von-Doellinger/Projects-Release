@@ -1,4 +1,4 @@
-﻿namespace Nuget.Payroll.Data.Discounts
+﻿namespace Nuget.Payment.Data.Discounts
 {
     public sealed class Discount
     {

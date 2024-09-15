@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("É um pacote para facilitar a comunicação entre aplicações!")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.9.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.9+4c57afb5d1216f741384f72941e937a213de050d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.9+382f3d132eb358538b8cfe959b45a65d3a03c87a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.MessagingUtilities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.MessagingUtilities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.9.0")]
