@@ -19,36 +19,11 @@ namespace HMS.Employee.Infrastructure.DataContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured == false)
-                optionsBuilder.UseSqlServer(ConnectiosTest.connectionString);
+                optionsBuilder.UseSqlServer(ConnectionTest.connectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
 
-            // Set table
-            modelBuilder.Entity<Payroll>()
-                .ToTable("Payroll");
-
-            //Set Primary Key
-            modelBuilder.Entity<Payroll>()
-                .HasKey(x => x.Id);
-            modelBuilder.Entity<Payroll>()
-                .HasIndex(x => x.Benefits)
-                .IsUnique();
-
-            // Configuring foreignKeys
-            modelBuilder.Entity<Payroll>()
-                .HasOne(x => x.Employee)
-                .WithMany()
-                .HasForeignKey(x => x.EmployeeId)
-                .IsRequired();
-
-            // Set Own
-            modelBuilder.Entity<Payroll>()
-                .OwnsOne(x => x.Discounts);
-        }
         public DbSet<Payroll> Payroll { get; set; }
 
     }

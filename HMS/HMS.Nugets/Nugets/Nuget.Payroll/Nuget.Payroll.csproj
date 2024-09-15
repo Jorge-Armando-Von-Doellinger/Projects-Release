@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>Nuget.Payroll</Title>
+	  <Version>0.0.1</Version>
+	  <Authors>Jorge Von Doellinger Jr</Authors>
+	  <Description>É um pacote para facilitar a comunicação entre aplicações!</Description>
+	  <RepositoryUrl>https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>

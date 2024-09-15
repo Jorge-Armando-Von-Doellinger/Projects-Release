@@ -9,9 +9,9 @@ namespace HMS.Employee.Infrastructure.Repository
 {
     public sealed class ContractsRepository : IRepositoryWithEmployeeId<ContractualInformation>
     {
-        private readonly ContractualInformationContext _context;
+        private readonly DefaultContext _context;
         private readonly TransactionService _transaction;
-        public ContractsRepository(ContractualInformationContext context, TransactionService transaction) 
+        public ContractsRepository(DefaultContext context, TransactionService transaction) 
         {
             _context = context;
             _transaction = transaction;
@@ -26,7 +26,7 @@ namespace HMS.Employee.Infrastructure.Repository
                     await _context.ContractualInformation.AddAsync(entity);
                 });
                 if (rowsAffected < 0) throw new TimeoutException(DefaultMessages.ErrorTransactionActive); // Sofreu time-out
-                else if (rowsAffected > 1) throw new TimeoutException(DefaultMessages.ErrorTransaction);
+                if (rowsAffected > 1) throw new TimeoutException(DefaultMessages.ErrorTransaction); // Houve um erro na transação
                 return rowsAffected == 1;
             }
             catch (Exception ex)
@@ -35,9 +35,15 @@ namespace HMS.Employee.Infrastructure.Repository
             }
         }
 
-        public Task<bool> Delete(ContractualInformation ID)
+        public async Task<bool> Delete(Guid ID)
         {
-            throw new NotImplementedException();
+            var rowsAffected = await _transaction.Execute(_context, async () =>
+            {
+                var contractual = await _context.ContractualInformation.FindAsync(ID)
+                    ?? throw new NullReferenceException("Nenhum contrato encontrado!");
+                await Task.Run(() => _context.ContractualInformation.Remove(contractual));
+            });
+            return rowsAffected == 1;
         }
 
         public async Task<List<ContractualInformation>> Get()

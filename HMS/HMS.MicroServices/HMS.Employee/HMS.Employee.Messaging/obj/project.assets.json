@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "Nuget.Employee/0.0.8": {
+      "Nuget.Employee/0.0.9": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Employee.dll": {}
@@ -14,21 +14,21 @@
     }
   },
   "libraries": {
-    "Nuget.Employee/0.0.8": {
-      "sha512": "AA49psKW/8EWPalZBUPWQzO/FawtXYRK/TaW658gY8l4pW+H51jt0kbBCjbqrFnIyr1Tz82CwW5Z38LkTsARQw==",
+    "Nuget.Employee/0.0.9": {
+      "sha512": "sJJfPc6OXCw7i0Z//wZCYDCbhg96yjq2/p5gSZit+yB7yCy9w5QZuZBKa4+hSm5JQtLBAWtJqNDAgAePLQM8+g==",
       "type": "package",
-      "path": "nuget.employee/0.0.8",
+      "path": "nuget.employee/0.0.9",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Employee.dll",
-        "nuget.employee.0.0.8.nupkg.sha512",
+        "nuget.employee.0.0.9.nupkg.sha512",
         "nuget.employee.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Nuget.Employee >= 0.0.8"
+      "Nuget.Employee >= 0.0.9"
     ]
   },
   "packageFolders": {
@@ -84,7 +84,7 @@
         "dependencies": {
           "Nuget.Employee": {
             "target": "Package",
-            "version": "[0.0.8, )"
+            "version": "[0.0.9, )"
           }
         },
         "imports": [

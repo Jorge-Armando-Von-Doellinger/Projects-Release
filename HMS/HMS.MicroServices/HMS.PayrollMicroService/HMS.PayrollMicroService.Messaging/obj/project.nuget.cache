@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yr8U7/UyN4Q=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.PayrollMicroService\\HMS.PayrollMicroService.Messaging\\HMS.PayrollMicroService.Messaging.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,6 @@
+@HMS.PayrollMicroService.API_HostAddress = http://localhost:5287
+
+GET {{HMS.PayrollMicroService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

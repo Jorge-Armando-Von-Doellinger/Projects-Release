@@ -20,9 +20,7 @@ namespace HMS.Employee.Infrastructure
 
         public static IServiceCollection AddContexts(this IServiceCollection services)
         {
-            services.AddScoped<EmployeeContext>();
-            services.AddScoped<PayrollContext>();
-            services.AddScoped<ContractualInformationContext>();
+            services.AddScoped<DefaultContext>();
             return services;
         }
 

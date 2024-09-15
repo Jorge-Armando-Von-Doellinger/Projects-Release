@@ -63,7 +63,7 @@
           "dependencies": {
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.8, )"
+              "version": "[0.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -153,7 +153,7 @@
             },
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.8, )"
+              "version": "[0.0.9, )"
             },
             "Nuget.Response": {
               "target": "Package",
@@ -384,7 +384,7 @@
           "dependencies": {
             "Nuget.Employee": {
               "target": "Package",
-              "version": "[0.0.8, )"
+              "version": "[0.0.9, )"
             }
           },
           "imports": [

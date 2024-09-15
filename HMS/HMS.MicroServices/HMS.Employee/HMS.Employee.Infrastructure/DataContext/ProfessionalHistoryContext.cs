@@ -19,7 +19,7 @@ namespace HMS.Employee.Infrastructure.DataContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured == false)
-                optionsBuilder.UseSqlServer(ConnectiosTest.connectionString);
+                optionsBuilder.UseSqlServer(ConnectionTest.connectionString);
             base.OnConfiguring(optionsBuilder);
         }
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.Employee.Messaging")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bad0c63c657102557ec4334cf5599b7db8daf89")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c57afb5d1216f741384f72941e937a213de050d")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.Employee.Messaging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.Employee.Messaging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

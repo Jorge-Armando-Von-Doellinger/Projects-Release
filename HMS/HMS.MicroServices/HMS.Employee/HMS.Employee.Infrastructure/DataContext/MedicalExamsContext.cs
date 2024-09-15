@@ -14,16 +14,17 @@ namespace HMS.Employee.Infrastructure.DataContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured == false)
-                optionsBuilder.UseSqlServer(ConnectiosTest.connectionString);
+                optionsBuilder.UseSqlServer(ConnectionTest.connectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<HMS.Employee.Core.Entity.MedicalExams>()
-                .ToTable("MedicalExams");
+
+            // Set table and Primary Key
             modelBuilder.Entity<MedicalExams>()
+                .ToTable("MedicalExams")
                 .HasKey(x => x.Id);
         }
         DbSet<MedicalExams> MedicalExams { get; set; }

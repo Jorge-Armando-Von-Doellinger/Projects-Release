@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.MessagingUtilities", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Response", "Nuget.Response\Nuget.Response.csproj", "{89B11ECB-CC81-447E-9DB4-0C4178D98B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Employee", "Nuget.Employee\Nuget.Employee.csproj", "{CD7BF92E-D752-4116-9201-70912335B7D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Employee", "Nuget.Employee\Nuget.Employee.csproj", "{CD7BF92E-D752-4116-9201-70912335B7D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Payroll", "Nuget.Payroll\Nuget.Payroll.csproj", "{2AA3E385-B37B-46DC-A051-8BDF20FB188F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CD7BF92E-D752-4116-9201-70912335B7D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7BF92E-D752-4116-9201-70912335B7D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7BF92E-D752-4116-9201-70912335B7D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA3E385-B37B-46DC-A051-8BDF20FB188F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA3E385-B37B-46DC-A051-8BDF20FB188F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA3E385-B37B-46DC-A051-8BDF20FB188F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA3E385-B37B-46DC-A051-8BDF20FB188F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

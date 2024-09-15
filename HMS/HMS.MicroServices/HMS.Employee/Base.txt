@@ -11,3 +11,8 @@ Servicos:
 -Analise do historico interno do funcionario (como aumentos no salario, promoções, etc...)
 
 - Possivelmente com funcionalidades adicionais
+
+Micro-servicos :
+-Payroll -> Realiza a simulação do pagamento, juntamente a um email de confirmação do pagamento!
+-Employee -> Cadastra um novo empregado, desde que já haja um contrato pré-estabelecido entre a empresa e o possivel funcionario!
+-Contract -> Armazena contratos da empresa, sendo tanto de funcionario, quanto de negocios em geral!

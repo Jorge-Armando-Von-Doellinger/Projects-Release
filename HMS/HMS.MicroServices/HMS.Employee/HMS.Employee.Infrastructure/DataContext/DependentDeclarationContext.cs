@@ -14,7 +14,7 @@ namespace HMS.Employee.Infrastructure.DataContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured == false)
-                optionsBuilder.UseSqlServer(ConnectiosTest.connectionString);
+                optionsBuilder.UseSqlServer(ConnectionTest.connectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
@@ -22,9 +22,9 @@ namespace HMS.Employee.Infrastructure.DataContext
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<HMS.Employee.Core.Entity.DependentDeclaration>()
-                .ToTable("DependentDeclaration");
-            modelBuilder.Entity<DependentDeclaration>()
+                .ToTable("DependentDeclaration")
                 .HasKey(e => e.Id);
+
             modelBuilder.Entity<DependentDeclaration>()
                 .HasIndex(x => x.CPF)
                 .IsUnique();

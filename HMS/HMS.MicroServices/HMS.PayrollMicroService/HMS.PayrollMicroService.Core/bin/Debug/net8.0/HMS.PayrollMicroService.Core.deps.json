@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "HMS.PayrollMicroService.Core/1.0.0": {
+        "runtime": {
+          "HMS.PayrollMicroService.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HMS.PayrollMicroService.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

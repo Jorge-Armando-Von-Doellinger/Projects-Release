@@ -1,0 +1,12 @@
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\HMS.PayrollMicroService.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\HMS.PayrollMicroService.Core.AssemblyInfoInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\HMS.PayrollMicroService.Core.AssemblyInfo.cs
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\HMS.PayrollMicroService.Core.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\HMS.PayrollMicroService.Core.sourcelink.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\bin\Debug\net8.0\HMS.PayrollMicroService.Core.deps.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\bin\Debug\net8.0\HMS.PayrollMicroService.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\bin\Debug\net8.0\HMS.PayrollMicroService.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\HMS.PayrollMicroService.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\refint\HMS.PayrollMicroService.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\HMS.PayrollMicroService.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.PayrollMicroService\HMS.PayrollMicroService.Core\obj\Debug\net8.0\ref\HMS.PayrollMicroService.Core.dll

@@ -15,9 +15,9 @@ namespace HMS.Employee.Infrastructure.Repository
 {
     public sealed class PayrollRepository : IRepositoryWithEmployeeId<Payroll>
     {
-        private readonly PayrollContext _context;
+        private readonly DefaultContext _context;
         private readonly TransactionService _transaction;
-        public PayrollRepository(PayrollContext context, TransactionService transaction)
+        public PayrollRepository(DefaultContext context, TransactionService transaction)
         {
             _context = context;    
             _transaction = transaction;
@@ -42,9 +42,22 @@ namespace HMS.Employee.Infrastructure.Repository
             }
         }
 
-        public Task<bool> Delete(Payroll ID)
+        public async Task<bool> Delete(Guid ID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var rowsAffected = await _transaction.Execute(_context, async () =>
+                {
+                    var payroll = await _context.Payroll.FindAsync(ID)
+                        ?? throw new Exception("Nenhuma folha de pagamento encontrada!");
+                    await Task.Run(() => _context.Remove(payroll));
+                });
+                return rowsAffected == 1;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<List<Payroll>> Get()
@@ -67,7 +80,7 @@ namespace HMS.Employee.Infrastructure.Repository
             {
                 return await _context.Payroll
                     .AsNoTracking()
-                    /*.Where(x => x.EmployeeId == ID)*/
+                    .Where(x => x.EmployeeId == ID)
                     .ToListAsync();
             }
             catch (Exception ex)

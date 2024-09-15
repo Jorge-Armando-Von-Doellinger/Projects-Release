@@ -20,51 +20,11 @@ namespace HMS.Employee.Infrastructure.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (optionsBuilder.IsConfigured == false)
-                optionsBuilder.UseSqlServer(ConnectiosTest.connectionString);
             base.OnConfiguring(optionsBuilder);
+            if (optionsBuilder.IsConfigured == false)
+                optionsBuilder.UseSqlServer(ConnectionTest.connectionString);
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            // Indicate Table
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .ToTable("Employee");
-
-            // Set Primary Key
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .HasKey(x => x.Id);
-
-
-
-            // Set Columns Unique
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .HasIndex(x => x.PIS)
-                .IsUnique();
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .HasIndex(x => x.CPF)
-                .IsUnique();
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .HasIndex(x => x.Email)
-                .IsUnique();
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .HasIndex(x => x.PhoneNumber)
-                .IsUnique();
-
-            // Set ForeignKeys
-            modelBuilder.Entity<Core.Entity.Employee>()
-                .HasOne(e => e.ContractualInformation)
-                .WithMany() // Usa WithMany se um contrato pode ter múltiplos funcionários
-                .HasForeignKey(x => x.ContractId) // Define a chave estrangeira
-                                                               //.OnDelete(DeleteBehavior.Restrict)
-                .IsRequired();
-
-
-        }
-
-
-        
 
     }
 }

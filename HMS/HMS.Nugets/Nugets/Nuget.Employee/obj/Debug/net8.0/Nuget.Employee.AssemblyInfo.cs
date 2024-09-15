@@ -15,11 +15,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplic" +
     "ação!\r\n")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.8.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.8+e98771f2dcc7a712a3fbca64f59985bf1e9e0ee8")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.9.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.9+4c57afb5d1216f741384f72941e937a213de050d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Employee")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Employee")]
-[assembly: System.Reflection.AssemblyVersionAttribute("0.0.8.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.0.9.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "github.com/Jorge-Armando-Von-Doellinger/Projects-Release")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

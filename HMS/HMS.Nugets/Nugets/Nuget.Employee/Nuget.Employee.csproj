@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Nuget.Employee</Title>
-    <Version>0.0.8</Version>
+    <Version>0.0.9</Version>
     <Authors>Jorge Armando Von Doellinger</Authors>
     <Description>Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplicação!
 </Description>

@@ -1,6 +1,4 @@
 ﻿using HMS.Employee.Core.Entity.Base;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HMS.Employee.Core.Entity
 {

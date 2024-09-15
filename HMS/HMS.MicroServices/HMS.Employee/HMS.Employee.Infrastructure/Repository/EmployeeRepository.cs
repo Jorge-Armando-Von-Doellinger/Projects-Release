@@ -3,6 +3,7 @@ using HMS.Employee.Core.Interface.Manager;
 using HMS.Employee.Core.Interface.Repository;
 using HMS.Employee.Core.Json;
 using HMS.Employee.Infrastructure.Context;
+using HMS.Employee.Infrastructure.DataContext;
 using HMS.Employee.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,9 @@ namespace HMS.Employee.Infrastructure.Repository
 {
     public sealed class EmployeeRepository : IRepository<Core.Entity.Employee>
     {
-        private readonly EmployeeContext _context;  
+        private readonly DefaultContext _context;  
         private readonly TransactionService _transaction;
-        public EmployeeRepository(EmployeeContext context, TransactionService transaction)
+        public EmployeeRepository(DefaultContext context, TransactionService transaction)
         {
             _context = context;
             _transaction = transaction;
@@ -34,13 +35,15 @@ namespace HMS.Employee.Infrastructure.Repository
             }
         }
 
-        public async Task<bool> Delete(Core.Entity.Employee entity)
+        public async Task<bool> Delete(Guid ID)
         {
             try
             {
                 var rowsAffected = await _transaction.Execute(_context, async () =>
                 {
-                    await Task.Run(() => _context.Employee.Remove(entity));
+                    var employee = await _context.Employee.FindAsync(ID)
+                        ?? throw new NullReferenceException("Nenhum contrato encontrado!");
+                    await Task.Run(() => _context.Employee.Remove(employee));
                 });
                 return rowsAffected == 1;
             }
