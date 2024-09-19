@@ -1,0 +1,2 @@
+Caso já exista um horario correspondentes como que o empregado precisa, automaticamente será atribuido o valor de WorkHoursId para um já existente!
+ 

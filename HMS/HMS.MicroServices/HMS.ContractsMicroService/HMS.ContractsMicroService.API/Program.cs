@@ -1,4 +1,8 @@
 
+using HMS.ContractsMicroService.API.Module;
+using HMS.ContractsMicroService.Application;
+using HMS.ContractsMicroService.Infrastructure;
+
 namespace HMS.ContractsMicroService.API
 {
     public class Program
@@ -13,6 +17,11 @@ namespace HMS.ContractsMicroService.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services
+                .AddApiModule()
+                .AddApplicationModule()
+                .AddInfrastructureModule();
 
             var app = builder.Build();
 

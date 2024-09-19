@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplic" +
     "ação!\r\n")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.9.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.9+382f3d132eb358538b8cfe959b45a65d3a03c87a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.9+9fda3a1197dc113e5fe5419f5b7fb2a7fe4382ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Employee")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Employee")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.9.0")]
