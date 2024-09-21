@@ -1,5 +1,6 @@
 ﻿using HMS.ContractsMicroService.Core.Json;
 using System.Collections;
+using System.Net.Http.Headers;
 using System.Net.WebSockets;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -24,9 +25,17 @@ namespace HMS.ContractsMicroService.Core.Extensions
 
         internal static void CustomForEach<T>(this T[] array, Action<T, int> action)
         {
-            for (int i = 0; i <= array.Length; i++)
+            try
             {
-                action(array[i], i);
+                for (int i = 0; i < array.Length ; i++)
+                {
+                    action(array[i], i);
+                }
+
+            }
+            catch
+            {
+                throw;
             }
         }
 
@@ -46,16 +55,20 @@ namespace HMS.ContractsMicroService.Core.Extensions
         }
         public static object FromTo(this object obj, Type type)
         {
-            var target = Activator.CreateInstance(type);
+            var target = Activator.CreateInstance(type)
+                ?? throw new Exception("Null");
             obj .GetType() //
                 .GetProperties()
                 .CustomForEach((prop, index) =>
             {
                 var propTarget = type.GetProperty(prop.Name);
+                if (propTarget == null) return;
                 var valueIsValid = prop.TryGetValue(obj, out var result);
                 if (valueIsValid == false) return;
+                var a = result ?? throw new Exception("prop ressult \n \n \n");
                 if (result.GetType() != propTarget.PropertyType) //
                 {
+                    Console.WriteLine("Types diferentes");
                     if (propTarget.PropertyType.IsEnum)
                         result = result.ChangeTypeToEnum(propTarget.PropertyType);
                     else if (propTarget.PropertyType.IsEnumerable() && prop.PropertyType.IsEnumerable())

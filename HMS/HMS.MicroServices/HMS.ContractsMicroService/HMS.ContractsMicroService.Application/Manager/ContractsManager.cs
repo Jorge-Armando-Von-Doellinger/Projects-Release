@@ -22,22 +22,15 @@ namespace HMS.ContractsMicroService.Application.Manager
         {
             try
             {
-                //var hoursExistent = await _workHoursManager.FindByWorkHours(input.WorkHours);
-                /*if(hoursExistent != null)
+                var hoursExistent = await _workHoursManager.FindByWorkHours(input.WorkHours);
+                if (hoursExistent != null)
                 {
-                    //input.WorkHoursID = hoursExistent.ID;
-                    //input.WorkHours = null;
-                    Console.WriteLine(hoursExistent.ID);
-                    Console.WriteLine("     NAO NULO     ");
-                }*/
-
-                var w = new WorkHours() { EntryTime = TimeOnly.FromDateTime(DateTime.Now.AddHours(1)) };
-                input.WorkHours = w.FromTo<WorkHoursInput>();
-                var e = await Task.Run(() => input.FromTo<EmployeeContract>());
-                e.Update(new EmployeeContract { WorkHours = w });
-                await Task.Delay(5000);
-                Console.WriteLine(await JsonManipulation.Serialize(e) + "Batata");
-                await _repository.AddAsync(e);
+                    input.WorkHoursID = hoursExistent.ID;
+                    input.WorkHours = null;
+                }
+                var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
+                //Console.WriteLine(await JsonManipulation.Serialize(e) + "Batata");
+                await _repository.AddAsync(employeeContract);
             }
             catch (Exception ex) 
             {
