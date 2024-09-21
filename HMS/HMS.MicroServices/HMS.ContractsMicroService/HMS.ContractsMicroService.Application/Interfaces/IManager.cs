@@ -10,9 +10,9 @@
     }
     public interface IManager<TInput, TOutput>
     {
-        Task Add(TInput entity);
+        Task Add(TInput input);
         Task Delete(Guid entityId);
-        Task Update(TInput entity);
+        Task Update(TInput input);
         Task<TOutput> GetById(Guid entityId);
         Task<List<TOutput>> GetAll();
     }

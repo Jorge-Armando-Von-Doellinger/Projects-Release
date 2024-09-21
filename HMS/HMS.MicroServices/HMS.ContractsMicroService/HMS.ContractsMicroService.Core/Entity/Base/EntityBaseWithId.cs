@@ -2,6 +2,6 @@
 {
     public class EntityBaseWithId : EntityBase
     {
-        public Guid ID { get; set; }
+        public Guid ID { get; set; } = Guid.NewGuid();
     }
 }

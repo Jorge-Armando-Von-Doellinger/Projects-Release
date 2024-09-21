@@ -1,5 +1,6 @@
 ﻿using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
+using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Infrastructure.Context;
 using HMS.ContractsMicroService.Infrastructure.Messages;
 using HMS.ContractsMicroService.Infrastructure.Services;
@@ -20,6 +21,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 
         public async Task AddAsync(EmployeeContract entity)
         {
+            Console.WriteLine(entity.JobTitle);
             await _transaction.Execute(_context, async () =>
             {   
                 await _context.Entry(entity).Context.AddAsync(entity);

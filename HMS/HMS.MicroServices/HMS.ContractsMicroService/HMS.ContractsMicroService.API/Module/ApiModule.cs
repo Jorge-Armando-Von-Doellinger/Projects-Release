@@ -14,6 +14,7 @@ namespace HMS.ContractsMicroService.API.Module
         public static IServiceCollection AddManager(this IServiceCollection services)
         {
             services.AddScoped<IEmployeeContractManager, ContractsManager>();
+            services.AddScoped<IWorkHoursManager, WorkHoursManager>();
             return services;
         }
     }

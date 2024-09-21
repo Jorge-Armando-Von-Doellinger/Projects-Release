@@ -723,7 +723,7 @@
           }
         }
       },
-      "Nuget.Contracts/0.0.1": {
+      "Nuget.Contracts/0.0.2": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Contracts.dll": {}
@@ -2323,14 +2323,14 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
-    "Nuget.Contracts/0.0.1": {
-      "sha512": "DUa61tN9ElXh6ykodpgrej1EOkoKf/zip3GTes58JiZRZLoVJ0SDuhPWRBA7rEhf5EkrJQJLJdTt28fTE+xvIA==",
+    "Nuget.Contracts/0.0.2": {
+      "sha512": "It/9mUX3ljVm67DKmsVXBIyKH6CFJ/fsed5olZrlLXV3yD7mnoCqKYCl9jr1Bvh6rY3GPEoMgP91HIVTXoTebA==",
       "type": "package",
-      "path": "nuget.contracts/0.0.1",
+      "path": "nuget.contracts/0.0.2",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Contracts.dll",
-        "nuget.contracts.0.0.1.nupkg.sha512",
+        "nuget.contracts.0.0.2.nupkg.sha512",
         "nuget.contracts.nuspec"
       ]
     },
@@ -3298,7 +3298,7 @@
       "HMS.ContractsMicroService.Core >= 1.0.0",
       "HMS.ContractsMicroService.Infrastructure >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
-      "Nuget.Contracts >= 0.0.1"
+      "Nuget.Contracts >= 0.0.2"
     ]
   },
   "packageFolders": {
@@ -3365,7 +3365,7 @@
           },
           "Nuget.Contracts": {
             "target": "Package",
-            "version": "[0.0.1, )"
+            "version": "[0.0.2, )"
           }
         },
         "imports": [

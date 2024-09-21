@@ -11,7 +11,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         public DateTime StartDate { get; set; }
         public JobTitleEnum JobTitle { get; set; } // Simucação de um banco de dados dedicado
         public ExperienceLevel ExperienceLevel { get; set; }
-        public List<BenefitsEnum> Benefits { get; set; } // Simulacão de beneficios que podem estar armazenados em um banco de dados
+        public List<BenefitsEnum> Benefits { get; set; } = new();// Simulacão de beneficios que podem estar armazenados em um banco de dados
         public DepartmentEnum Department { get; set; } //Enum ou um banco de dados dedicado
         public short HourlySalaryInDollar { get; set; } // Praticamente ninguem recebe +32k/hora
         public WorkHours WorkHours { get; set; } // Ex: 08:00-Inicio, 11:00-Almoco, 16h-Saida ; Seria melhor criar um banco de dados, talvez

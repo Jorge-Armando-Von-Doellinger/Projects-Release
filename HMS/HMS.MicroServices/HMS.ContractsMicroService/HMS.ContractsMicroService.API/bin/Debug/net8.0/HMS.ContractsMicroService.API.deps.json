@@ -10,7 +10,7 @@
         "dependencies": {
           "HMS.ContractsMicroService.Application": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Nuget.Contracts": "0.0.1",
+          "Nuget.Contracts": "0.0.2",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -447,11 +447,11 @@
           }
         }
       },
-      "Nuget.Contracts/0.0.1": {
+      "Nuget.Contracts/0.0.2": {
         "runtime": {
           "lib/net8.0/Nuget.Contracts.dll": {
-            "assemblyVersion": "0.0.1.0",
-            "fileVersion": "0.0.1.0"
+            "assemblyVersion": "0.0.2.0",
+            "fileVersion": "0.0.2.0"
           }
         }
       },
@@ -697,7 +697,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "HMS.ContractsMicroService.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Nuget.Contracts": "0.0.1"
+          "Nuget.Contracts": "0.0.2"
         },
         "runtime": {
           "HMS.ContractsMicroService.Application.dll": {
@@ -1030,12 +1030,12 @@
       "path": "mongodb.libmongocrypt/1.11.0",
       "hashPath": "mongodb.libmongocrypt.1.11.0.nupkg.sha512"
     },
-    "Nuget.Contracts/0.0.1": {
+    "Nuget.Contracts/0.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DUa61tN9ElXh6ykodpgrej1EOkoKf/zip3GTes58JiZRZLoVJ0SDuhPWRBA7rEhf5EkrJQJLJdTt28fTE+xvIA==",
-      "path": "nuget.contracts/0.0.1",
-      "hashPath": "nuget.contracts.0.0.1.nupkg.sha512"
+      "sha512": "sha512-It/9mUX3ljVm67DKmsVXBIyKH6CFJ/fsed5olZrlLXV3yD7mnoCqKYCl9jr1Bvh6rY3GPEoMgP91HIVTXoTebA==",
+      "path": "nuget.contracts/0.0.2",
+      "hashPath": "nuget.contracts.0.0.2.nupkg.sha512"
     },
     "SharpCompress/0.30.1": {
       "type": "package",

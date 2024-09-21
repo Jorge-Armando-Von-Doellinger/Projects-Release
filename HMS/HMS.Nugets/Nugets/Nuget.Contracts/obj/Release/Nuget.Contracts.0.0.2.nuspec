@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Nuget.Contracts</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <title>Nuget.Contracts</title>
     <authors>Jorge Armando Von Doellinger</authors>
     <description>Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplicação!</description>

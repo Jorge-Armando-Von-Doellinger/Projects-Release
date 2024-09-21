@@ -17,7 +17,7 @@ namespace HMS.ContractsMicroService.Infrastructure
         public static IServiceCollection AddContexts(this IServiceCollection services)
         {
             services.AddScoped<ContractContext>();
-            services.AddScoped<ContractContext>();
+            services.AddScoped<WorkHoursContext>();
             return services;
         }
 

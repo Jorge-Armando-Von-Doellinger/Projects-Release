@@ -9,6 +9,7 @@ namespace HMS.ContractsMicroService.Core.Json
         {
             using (var stream = new MemoryStream())
             {
+                await JsonSerializer.SerializeAsync(stream, obj);
                 stream.Position = 0;
                 using (var reader = new StreamReader(stream))
                 {

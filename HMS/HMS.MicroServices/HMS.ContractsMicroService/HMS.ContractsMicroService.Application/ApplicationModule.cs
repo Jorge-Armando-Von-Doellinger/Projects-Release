@@ -16,6 +16,7 @@ namespace HMS.ContractsMicroService.Application
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IEmployeeContractRepository, EmployeeContractRepository>();
+            services.AddScoped<IWorkHoursRepository, WorkHoursRepository>();
             return services;
         }
     }

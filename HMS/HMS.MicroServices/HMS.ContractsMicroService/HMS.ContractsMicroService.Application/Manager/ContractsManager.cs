@@ -2,24 +2,32 @@
 using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
+using HMS.ContractsMicroService.Core.Json;
 using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {
     public sealed class ContractsManager : IEmployeeContractManager
     {
+        private readonly IWorkHoursManager _workHoursManager;
         private readonly IEmployeeContractRepository _repository;
 
-        public ContractsManager(IEmployeeContractRepository repository)
+        public ContractsManager(IEmployeeContractRepository repository, IWorkHoursManager workHoursManager)
         {
             _repository = repository;
+            _workHoursManager = workHoursManager;   
         }
 
-        public async Task Add(EmployeeContractInput entity)
+        public async Task Add(EmployeeContractInput input)
         {
             try
             {
-                await _repository.AddAsync(entity.FromTo<EmployeeContract>());
+                var hoursExistent = await _workHoursManager.FindByWorkHours(input.WorkHours);
+                if(hoursExistent != null)
+                    input.WorkHoursID = hoursExistent.ID;
+                //Console.WriteLine(hoursExistent.ID);
+                var e = await Task.Run(() => input.FromTo<EmployeeContract>());
+                await _repository.AddAsync(e);
             }
             catch (Exception ex) 
             {
@@ -56,11 +64,11 @@ namespace HMS.ContractsMicroService.Application.Manager
             return await _repository.GetAsync();
         }
 
-        public async Task Update(EmployeeContractInput entity)
+        public async Task Update(EmployeeContractInput input)
         {
             try
             {
-                await _repository.UpdateAsync(entity.FromTo<EmployeeContract>());
+                await _repository.UpdateAsync(input.FromTo<EmployeeContract>());
             }
             catch (Exception ex)
             {
