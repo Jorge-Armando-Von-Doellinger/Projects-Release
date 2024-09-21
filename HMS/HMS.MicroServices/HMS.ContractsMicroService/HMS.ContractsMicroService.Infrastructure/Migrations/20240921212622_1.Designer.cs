@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HMS.ContractsMicroService.Infrastructure.Migrations
 {
     [DbContext(typeof(ContractContext))]
-    [Migration("20240918172619_1")]
+    [Migration("20240921212622_1")]
     partial class _1
     {
         /// <inheritdoc />
@@ -68,7 +68,8 @@ namespace HMS.ContractsMicroService.Infrastructure.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("WorkHoursID")
+                    b.Property<Guid?>("WorkHoursID")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ID");

@@ -22,12 +22,6 @@ namespace HMS.ContractsMicroService.Application.Manager
         {
             try
             {
-                var hoursExistent = await _workHoursManager.FindByWorkHours(input.WorkHours);
-                if (hoursExistent != null)
-                {
-                    input.WorkHoursID = hoursExistent.ID;
-                    input.WorkHours = null;
-                }
                 var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
                 //Console.WriteLine(await JsonManipulation.Serialize(e) + "Batata");
                 await _repository.AddAsync(employeeContract);

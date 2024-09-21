@@ -65,7 +65,8 @@ namespace HMS.ContractsMicroService.Infrastructure.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("WorkHoursID")
+                    b.Property<Guid?>("WorkHoursID")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ID");
