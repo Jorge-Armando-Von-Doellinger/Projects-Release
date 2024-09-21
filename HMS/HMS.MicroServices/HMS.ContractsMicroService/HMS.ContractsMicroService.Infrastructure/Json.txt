@@ -1,0 +1,21 @@
+{
+  "startDate": "2024-09-21T17:18:27.565Z",
+  "jobTitle": 5,
+  "experienceLevel": 1,
+  "benefits": [
+    0
+  ],
+  "department": 0,
+  "hourlySalaryInDollar": 0,
+  "workHours": {
+    "entryTime": "08:00:00",
+    "intervalStartTime": "12:00:00",
+    "intervalEndTime": "16:00:00",
+    "exitTime": "21:00:00"
+  },
+
+  "contractType": 2,
+  "probationPeriodInMonths": 3,
+  "employmentStatus": 1,
+  "endDay": "2025-12-25"
+}

@@ -43,6 +43,8 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         {
             return await _context.EmployeeContract
                 .AsNoTracking()
+                .Include(X => X.WorkHours)
+                .OrderBy(X => X.UpdatedAt)
                 .ToListAsync();
         }
 
@@ -50,13 +52,20 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         {
             return await _context.EmployeeContract
                 .AsNoTracking()
+                .Include(X => X.WorkHours)
                 .FirstOrDefaultAsync(c => c.ID == entityId)
                     ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
         }
 
-        public Task UpdateAsync(EmployeeContract entity)
+        public async Task UpdateAsync(EmployeeContract entity)
         {
-            throw new NotImplementedException();
+            await _transaction.Execute(_context, async () =>
+            {
+                var employeeContract = await _context.EmployeeContract.AsNoTracking()
+                .Where(x => x.ID == entity.ID)
+                .FirstOrDefaultAsync()
+                    ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
+            });
         }
     }
 }

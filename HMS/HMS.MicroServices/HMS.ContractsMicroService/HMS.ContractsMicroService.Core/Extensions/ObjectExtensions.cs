@@ -8,7 +8,29 @@ namespace HMS.ContractsMicroService.Core.Extensions
 {
     public static class ObjectExtensions
     {
-        public static TTarget FromTo<TTarget>(this object obj) where TTarget : new ()
+        internal static TEntity Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace) where TEntity : notnull
+        {
+            obj.GetType().GetProperties()
+                .CustomForEach((property, index) =>
+                {
+                    var valueIsValid = valuesToReplace.GetType().GetProperty(property.Name)
+                    .TryGetValue(obj, out var result);
+                    if(valueIsValid == false || result == default) return;
+                    Console.WriteLine(result + " Resultado!      " + property.Name);
+                    property.SetValue(obj, result);
+                });
+            return obj;
+        }
+
+        internal static void CustomForEach<T>(this T[] array, Action<T, int> action)
+        {
+            for (int i = 0; i <= array.Length; i++)
+            {
+                action(array[i], i);
+            }
+        }
+
+        public static TTarget FromTo<TTarget>(this object obj) where TTarget : new()
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
 
@@ -17,35 +39,36 @@ namespace HMS.ContractsMicroService.Core.Extensions
             var objType = obj.GetType();
             var targetType = typeof(TTarget);
             var target = (TTarget)obj.FromTo(targetType);
-            if(target == null)
+            if (target == null)
                 throw new ArgumentNullException("Erro null");
-            return target;        
+            return target;
             //return target;
         }
         public static object FromTo(this object obj, Type type)
         {
             var target = Activator.CreateInstance(type);
-            var objType = obj.GetType();
-            foreach (var prop in objType.GetProperties())
+            obj .GetType() //
+                .GetProperties()
+                .CustomForEach((prop, index) =>
             {
                 var propTarget = type.GetProperty(prop.Name);
-                if (propTarget == null || propTarget.CanWrite == false) continue;
-                var value = prop.GetValue(obj);
-                if (value == null) continue;
-                if (value.GetType() != propTarget.PropertyType)
+                var valueIsValid = prop.TryGetValue(obj, out var result);
+                if (valueIsValid == false) return;
+                if (result.GetType() != propTarget.PropertyType) //
                 {
                     if (propTarget.PropertyType.IsEnum)
-                        value = value.ChangeTypeToEnum(propTarget.PropertyType);
-                    else if(propTarget.PropertyType.IsEnumerable() && prop.PropertyType.IsEnumerable())
-                        value = value.ChangeListToListEnum(propTarget.PropertyType);
-                    else if(propTarget.PropertyType.IsClass)
-                        value = value.FromTo(propTarget.PropertyType);
+                        result = result.ChangeTypeToEnum(propTarget.PropertyType);
+                    else if (propTarget.PropertyType.IsEnumerable() && prop.PropertyType.IsEnumerable())
+                        result = result.ChangeListToListEnum(propTarget.PropertyType);
+                    else if (propTarget.PropertyType.IsClass)
+                        result = result.FromTo(propTarget.PropertyType);
                 }
-                propTarget.SetValue(target, value);
-                //Console.WriteLine(/*JsonManipulation.Serialize(target).Result + "Bataa" + */$"{value.GetType().Name} {target.GetType().Name}");
-            }
+                propTarget.SetValue(target, result);
+            });
+            //Console.WriteLine(/*JsonManipulation.Serialize(target).Result + "Bataa" + */$"{value.GetType().Name} {target.GetType().Name}");
             return target;
         }
+        
 
         private static object ChangeListToListEnum(this object value, Type targetType)
         {

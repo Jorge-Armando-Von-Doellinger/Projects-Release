@@ -1,5 +1,6 @@
 ﻿using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Core.Enums;
+using HMS.ContractsMicroService.Core.Extensions;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
@@ -21,5 +22,11 @@ namespace HMS.ContractsMicroService.Core.Entity
         public short ProbationPeriodInMonths { get; set; }
         public EmploymentStatusEnum EmploymentStatus { get; set; } // Enum
         public DateOnly EndDay { get; set; }
+
+        public void Update(EmployeeContract valuesToReplace)
+        {
+            base.Update();
+            this.Replacer(valuesToReplace);
+        }
     }
 }
