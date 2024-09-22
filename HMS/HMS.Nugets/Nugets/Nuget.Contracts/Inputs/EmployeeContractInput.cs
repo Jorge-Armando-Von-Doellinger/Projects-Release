@@ -9,7 +9,7 @@
         public int Department { get; set; } //Enum ou um banco de dados dedicado
         public short HourlySalaryInDollar { get; set; } // Praticamente ninguem recebe +32k/hora
         //public WorkHoursInput WorkHours { get; set; } = null;
-        public Guid? WorkHoursID { get; set; } // API irá preencher automaticamente, caso haja uma WorkHour correspondente!
+        public Guid WorkHoursID { get; set; } // API irá preencher automaticamente, caso haja uma WorkHour correspondente!
         public short ContractType { get; set; } // Enum
         public short ProbationPeriodInMonths { get; set; }
         public short EmploymentStatus { get; set; } // Enum

@@ -14,14 +14,16 @@ namespace HMS.ContractsMicroService.Application.Manager
         {
             _repository = repository;
         }
-        public Task Add(WorkHoursInput entity)
+        public async Task Add(WorkHoursInput entity)
         {
-            throw new NotImplementedException();
+            var existingHourst = await FindByWorkHours(entity);
+            if (existingHourst == null)
+                await _repository.AddAsync(entity.FromTo<WorkHours>());
         }
 
-        public Task Delete(Guid entityId)
+        public async Task Delete(Guid entityId)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(entityId);
         }
 
         public Task<WorkHours> FindByWorkHours(WorkHoursInput input)
@@ -29,19 +31,19 @@ namespace HMS.ContractsMicroService.Application.Manager
             return _repository.FindWorkHours(input.FromTo<WorkHours>());
         }
 
-        public Task<List<WorkHours>> GetAll()
+        public async Task<List<WorkHours>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAsync();
         }
 
         public Task<WorkHours> GetById(Guid entityId)
         {
-            throw new NotImplementedException();
+            return _repository.GetByIdAsync(entityId);
         }
 
-        public Task Update(WorkHoursInput entity)
+        public async Task Update(WorkHoursInput entity)
         {
-            throw new NotImplementedException();
+            await _repository.UpdateAsync(entity.FromTo<WorkHours>());
         }
     }
 }

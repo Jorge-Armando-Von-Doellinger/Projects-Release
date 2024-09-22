@@ -40,5 +40,31 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHours",
+    "Method": "GetWorkHours",
+    "RelativePath": "api/WorkHours",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHours",
+    "Method": "AddWorkHours",
+    "RelativePath": "api/WorkHours",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Contracts.Inputs.WorkHoursInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

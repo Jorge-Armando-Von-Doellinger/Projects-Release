@@ -1,27 +1,37 @@
 ﻿using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Infrastructure.Context;
+using HMS.ContractsMicroService.Infrastructure.Messages;
+using HMS.ContractsMicroService.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
-using ZstdSharp.Unsafe;
 
 namespace HMS.ContractsMicroService.Infrastructure.Repository
 {
     public sealed class WorkHoursRepository : IWorkHoursRepository
     {
         private readonly WorkHoursContext _context;
+        private readonly TransactionService _transaction;
 
-        public WorkHoursRepository(WorkHoursContext context)
+        public WorkHoursRepository(WorkHoursContext context, TransactionService transaction)
         {
             _context = context;
+            _transaction = transaction;
         }
-        public Task AddAsync(WorkHours entity)
+        public async Task AddAsync(WorkHours entity)
         {
-            throw new NotImplementedException();
+            await _transaction.Execute(_context, async () =>
+            {
+                await _context.WorkHours.AddAsync(entity);
+            });
         }
 
-        public Task DeleteAsync(Guid entityId)
+        public async Task DeleteAsync(Guid entityId)
         {
-            throw new NotImplementedException();
+            await _transaction.Execute(_context, async () =>
+            {
+                var workHours = await this.GetByIdAsync(entityId);
+                await Task.Run(() => _context.WorkHours.Remove(workHours));
+            });
         }
 
         public async Task<WorkHours> FindWorkHours(WorkHours workHours)
@@ -36,19 +46,28 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             return workHoursFiltered.FirstOrDefault();
         }
 
-        public Task<List<WorkHours>> GetAsync()
+        public async Task<List<WorkHours>> GetAsync()
         {
-            throw new NotImplementedException();
+            return await _context.WorkHours
+                .AsNoTracking()
+                .ToListAsync();
         }
 
-        public Task<WorkHours> GetByIdAsync(Guid entityId)
+        public async Task<WorkHours> GetByIdAsync(Guid entityId)
         {
-            throw new NotImplementedException();
+            return await _context.WorkHours.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.ID == entityId)
+                    ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
         }
 
-        public Task UpdateAsync(WorkHours entity)
+        public async Task UpdateAsync(WorkHours entity)
         {
-            throw new NotImplementedException();
+            await _transaction.Execute(_context, async () =>
+            {
+                var workHours = await this.GetByIdAsync(entity.ID);
+                workHours.Update(entity);
+                _context.WorkHours.Update(workHours);
+            });
         }
     }
 }
