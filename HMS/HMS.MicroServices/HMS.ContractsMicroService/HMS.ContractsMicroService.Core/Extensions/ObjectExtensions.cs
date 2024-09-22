@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Net.Http.Headers;
 using System.Net.WebSockets;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -9,6 +10,36 @@ namespace HMS.ContractsMicroService.Core.Extensions
 {
     public static class ObjectExtensions
     {
+        public static bool HaveAPropertyDefault<TObject>(this TObject obj)
+        {
+            bool isDefault = false;
+            var defaultInstance = Activator.CreateInstance(obj.GetType());
+            var properties = typeof(TObject)
+                .GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            properties
+                .CustomForEach((prop, index, token) =>
+                {
+                    var valueGetSuccess = prop.TryGetValue(obj, out var value);
+                    if (valueGetSuccess == false) return;
+                    var currentValue = prop.GetValue(obj);
+                    var defaultValue = prop.GetValue(defaultInstance);
+
+                    Console.WriteLine((currentValue == default) + "---- Default");
+                    if (Equals(currentValue, defaultValue))
+                    {
+                        if(prop.PropertyType.IsEnum == false)
+                        {
+                            isDefault = true;
+                            token.Cancel();
+                        }
+                        return;
+                    }
+                });
+            return isDefault;
+        }
+
+
+
         internal static TEntity Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace) where TEntity : notnull
         {
             obj.GetType().GetProperties()
@@ -17,7 +48,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
                     var valueIsValid = valuesToReplace.GetType().GetProperty(property.Name)
                     .TryGetValue(obj, out var result);
                     if(valueIsValid == false || result == default) return;
-                    Console.WriteLine(result + " Resultado!      " + property.Name);
                     property.SetValue(obj, result);
                 });
             return obj;
@@ -39,6 +69,27 @@ namespace HMS.ContractsMicroService.Core.Extensions
             }
         }
 
+        internal static void CustomForEach<T>(this T[] array, Action<T, int, CancellationTokenSource> action)
+        {
+            try
+            {
+                var token = new CancellationTokenSource();
+                
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (token.IsCancellationRequested)
+                    {
+                        break;
+                    }
+                    action(array[i], i, token);
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public static TTarget FromTo<TTarget>(this object obj) where TTarget : new()
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
@@ -68,7 +119,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 var a = result ?? throw new Exception("prop ressult \n \n \n");
                 if (result.GetType() != propTarget.PropertyType) //
                 {
-                    Console.WriteLine("Types diferentes");
                     if (propTarget.PropertyType.IsEnum)
                         result = result.ChangeTypeToEnum(propTarget.PropertyType);
                     else if (propTarget.PropertyType.IsEnumerable() && prop.PropertyType.IsEnumerable())

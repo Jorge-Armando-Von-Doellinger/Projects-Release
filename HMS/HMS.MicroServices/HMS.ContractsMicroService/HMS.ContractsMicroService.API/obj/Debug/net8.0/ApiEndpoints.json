@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
+    "Method": "UpdateContract",
+    "RelativePath": "api/Contract",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
     "Method": "GetContractById",
     "RelativePath": "api/Contract/ID",
     "HttpMethod": "GET",

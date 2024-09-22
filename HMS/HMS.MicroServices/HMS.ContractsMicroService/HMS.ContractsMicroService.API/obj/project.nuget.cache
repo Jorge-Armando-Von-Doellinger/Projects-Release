@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O8T1/uO84n8=",
+  "dgSpecHash": "MW90EEraW3M=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.ContractsMicroService\\HMS.ContractsMicroService.API\\HMS.ContractsMicroService.API.csproj",
   "expectedPackageFiles": [
@@ -47,7 +47,6 @@
     "C:\\Users\\Jorge\\.nuget\\packages\\mongodb.driver.core\\2.28.0\\mongodb.driver.core.2.28.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\mongodb.libmongocrypt\\1.11.0\\mongodb.libmongocrypt.1.11.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\nuget.contracts\\0.0.5\\nuget.contracts.0.0.5.nupkg.sha512",
-    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.response\\1.0.2\\nuget.response.1.0.2.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

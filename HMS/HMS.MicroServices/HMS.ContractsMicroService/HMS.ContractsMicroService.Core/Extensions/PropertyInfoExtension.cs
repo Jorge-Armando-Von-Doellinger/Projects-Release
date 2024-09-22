@@ -23,5 +23,11 @@ namespace HMS.ContractsMicroService.Core.Extensions
             }
             
         }
+        internal static object GetDefaultValue(this PropertyInfo prop)
+        {
+            if (prop.CanRead)
+                return prop.GetValue(Activator.CreateInstance(prop.DeclaringType));
+            return null;
+        }
     }
 }

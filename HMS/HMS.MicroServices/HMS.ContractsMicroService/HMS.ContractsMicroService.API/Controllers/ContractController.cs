@@ -1,5 +1,6 @@
 ﻿using HMS.ContractsMicroService.Application.Interfaces;
 using HMS.ContractsMicroService.Core.Entity;
+using HMS.ContractsMicroService.Core.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nuget.Contracts.Inputs;
@@ -20,6 +21,7 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetContracts()
             => Ok(await _manager.GetAll());
+
         [HttpGet("ID")]
         public async Task<IActionResult> GetContractById(Guid ID)
         {
@@ -38,7 +40,23 @@ namespace HMS.ContractsMicroService.API.Controllers
         {
             try
             {
+                if(contract.HaveAPropertyDefault())
+                    Console.WriteLine(" \n Tem valores default \n");
                 await _manager.Add(contract);
+                return Accepted();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateContract(EmployeeContractInput input)
+        {
+            try
+            {
+                await _manager.Update(input);
                 return Accepted();
             }
             catch (Exception ex)

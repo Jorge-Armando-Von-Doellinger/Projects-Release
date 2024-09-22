@@ -732,15 +732,6 @@
           "lib/net8.0/Nuget.Contracts.dll": {}
         }
       },
-      "Nuget.Response/1.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/Nuget.Response.dll": {}
-        },
-        "runtime": {
-          "lib/net8.0/Nuget.Response.dll": {}
-        }
-      },
       "SharpCompress/0.30.1": {
         "type": "package",
         "compile": {
@@ -2343,17 +2334,6 @@
         "nuget.contracts.nuspec"
       ]
     },
-    "Nuget.Response/1.0.2": {
-      "sha512": "U/7/SVWC+Uxu0+QFvXJqmHU0/sC6qw7dzBn0dvcy9nff+rJfErjMHNk9Y03ywzXN7wjpGkMsBI0bj0A7AB0Kcw==",
-      "type": "package",
-      "path": "nuget.response/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        "lib/net8.0/Nuget.Response.dll",
-        "nuget.response.1.0.2.nupkg.sha512",
-        "nuget.response.nuspec"
-      ]
-    },
     "SharpCompress/0.30.1": {
       "sha512": "XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
       "type": "package",
@@ -3318,8 +3298,7 @@
       "HMS.ContractsMicroService.Core >= 1.0.0",
       "HMS.ContractsMicroService.Infrastructure >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
-      "Nuget.Contracts >= 0.0.5",
-      "Nuget.Response >= 1.0.2"
+      "Nuget.Contracts >= 0.0.5"
     ]
   },
   "packageFolders": {
@@ -3387,10 +3366,6 @@
           "Nuget.Contracts": {
             "target": "Package",
             "version": "[0.0.5, )"
-          },
-          "Nuget.Response": {
-            "target": "Package",
-            "version": "[1.0.2, )"
           }
         },
         "imports": [

@@ -65,10 +65,6 @@
             "Nuget.Contracts": {
               "target": "Package",
               "version": "[0.0.5, )"
-            },
-            "Nuget.Response": {
-              "target": "Package",
-              "version": "[1.0.2, )"
             }
           },
           "imports": [
