@@ -19,7 +19,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         [Required]
         public Guid WorkHoursID { get; set; } 
         public ContractTypeEnum ContractType { get; set; } // Enum
-        public short ProbationPeriodInMonths { get; set; }
+        public sbyte ProbationPeriodInMonths { get; set; }
         public EmploymentStatusEnum EmploymentStatus { get; set; } // Enum
         public DateOnly EndDay { get; set; }
 

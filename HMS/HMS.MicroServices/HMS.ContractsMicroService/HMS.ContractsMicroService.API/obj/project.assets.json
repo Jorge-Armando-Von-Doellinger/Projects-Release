@@ -747,13 +747,22 @@
           }
         }
       },
-      "Nuget.Contracts/0.0.4": {
+      "Nuget.Contracts/0.0.5": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Contracts.dll": {}
         },
         "runtime": {
           "lib/net8.0/Nuget.Contracts.dll": {}
+        }
+      },
+      "Nuget.Response/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.Response.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Response.dll": {}
         }
       },
       "SharpCompress/0.30.1": {
@@ -1291,7 +1300,8 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "HMS.ContractsMicroService.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Nuget.Contracts": "0.0.4"
+          "Nuget.Contracts": "0.0.5",
+          "Nuget.Response": "1.0.2"
         },
         "compile": {
           "bin/placeholder/HMS.ContractsMicroService.Application.dll": {}
@@ -2674,15 +2684,26 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
-    "Nuget.Contracts/0.0.4": {
-      "sha512": "nFFa2Heh7Jm7Ac/Otf36iAvC4AG5lmHYv+2x3D6edmHjvpRcPWIExamHgvEMYVZ9aDSPG4zWEbGCXTS1GzaOQw==",
+    "Nuget.Contracts/0.0.5": {
+      "sha512": "59cKi26FGvPgstw2fAckylNGOrwRYPUVFopDdABd3JRaWSXibFZxykTnCH19CAVk+MNKQ56bRBBLjUYUzcETSA==",
       "type": "package",
-      "path": "nuget.contracts/0.0.4",
+      "path": "nuget.contracts/0.0.5",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Contracts.dll",
-        "nuget.contracts.0.0.4.nupkg.sha512",
+        "nuget.contracts.0.0.5.nupkg.sha512",
         "nuget.contracts.nuspec"
+      ]
+    },
+    "Nuget.Response/1.0.2": {
+      "sha512": "U/7/SVWC+Uxu0+QFvXJqmHU0/sC6qw7dzBn0dvcy9nff+rJfErjMHNk9Y03ywzXN7wjpGkMsBI0bj0A7AB0Kcw==",
+      "type": "package",
+      "path": "nuget.response/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.Response.dll",
+        "nuget.response.1.0.2.nupkg.sha512",
+        "nuget.response.nuspec"
       ]
     },
     "SharpCompress/0.30.1": {
@@ -3734,7 +3755,7 @@
     "net8.0": [
       "HMS.ContractsMicroService.Application >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
-      "Nuget.Contracts >= 0.0.4",
+      "Nuget.Contracts >= 0.0.5",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -3799,7 +3820,7 @@
           },
           "Nuget.Contracts": {
             "target": "Package",
-            "version": "[0.0.4, )"
+            "version": "[0.0.5, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

@@ -3,6 +3,7 @@ using HMS.ContractsMicroService.Core.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nuget.Contracts.Inputs;
+using System.Linq.Expressions;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
@@ -21,13 +22,29 @@ namespace HMS.ContractsMicroService.API.Controllers
             => Ok(await _manager.GetAll());
         [HttpGet("ID")]
         public async Task<IActionResult> GetContractById(Guid ID)
-            => Ok(await _manager.GetById(ID));
+        {
+            try
+            {
+                return Ok(await _manager.GetById(ID));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddContract(EmployeeContractInput contract)
         {
-            await _manager.Add(contract);
-            return Accepted();
+            try
+            {
+                await _manager.Add(contract);
+                return Accepted();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

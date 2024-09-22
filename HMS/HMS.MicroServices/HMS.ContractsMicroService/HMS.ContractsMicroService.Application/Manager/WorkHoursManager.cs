@@ -19,12 +19,13 @@ namespace HMS.ContractsMicroService.Application.Manager
             var existingHourst = await FindByWorkHours(entity);
             if (existingHourst == null)
                 await _repository.AddAsync(entity.FromTo<WorkHours>());
+            
         }
 
         public async Task Delete(Guid entityId)
         {
             await _repository.DeleteAsync(entityId);
-        }
+        } 
 
         public Task<WorkHours> FindByWorkHours(WorkHoursInput input)
         {

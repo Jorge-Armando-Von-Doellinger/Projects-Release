@@ -4,6 +4,7 @@ using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Core.Json;
 using Nuget.Contracts.Inputs;
+using Nuget.Response;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {
@@ -18,13 +19,14 @@ namespace HMS.ContractsMicroService.Application.Manager
             _workHoursManager = workHoursManager;   
         }
 
-        public async Task Add(EmployeeContractInput input)
+        public async Task<Response> Add(EmployeeContractInput input)
         {
             try
             {
+                
                 var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
-                //Console.WriteLine(await JsonManipulation.Serialize(e) + "Batata");
                 await _repository.AddAsync(employeeContract);
+                return;
             }
             catch (Exception ex) 
             {

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HMS.ContractsMicroService.Infrastructure.Migrations.WorkHours
 {
     [DbContext(typeof(WorkHoursContext))]
-    [Migration("20240921212625_1")]
+    [Migration("20240922182353_1")]
     partial class _1
     {
         /// <inheritdoc />
