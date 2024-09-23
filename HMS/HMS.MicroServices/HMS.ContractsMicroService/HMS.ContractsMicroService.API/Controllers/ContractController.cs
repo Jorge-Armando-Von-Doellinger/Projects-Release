@@ -1,15 +1,14 @@
-﻿using HMS.ContractsMicroService.Application.Interfaces;
-using HMS.ContractsMicroService.Core.Entity;
+﻿using HMS.ContractsMicroService.API.Attributes;
+using HMS.ContractsMicroService.Application.Interfaces;
 using HMS.ContractsMicroService.Core.Extensions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nuget.Contracts.Inputs;
-using System.Linq.Expressions;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ValidateModel]
     public class ContractController : ControllerBase
     {
         private readonly IEmployeeContractManager _manager;
@@ -40,8 +39,8 @@ namespace HMS.ContractsMicroService.API.Controllers
         {
             try
             {
-                if(contract.HaveAPropertyDefault())
-                    Console.WriteLine(" \n Tem valores default \n");
+                /*if (contract.HaveAPropertyDefault(out var nameOfPropertiesDefault))
+                    Console.WriteLine($" \n {nameOfPropertiesDefault.First()} Tem valores default \n");*/
                 await _manager.Add(contract);
                 return Accepted();
             }

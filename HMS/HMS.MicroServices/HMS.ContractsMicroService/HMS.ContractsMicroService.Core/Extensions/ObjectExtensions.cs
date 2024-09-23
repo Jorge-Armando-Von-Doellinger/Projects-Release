@@ -10,32 +10,27 @@ namespace HMS.ContractsMicroService.Core.Extensions
 {
     public static class ObjectExtensions
     {
-        public static bool HaveAPropertyDefault<TObject>(this TObject obj)
+        public static bool HaveAPropertyDefault<TObject>(this TObject obj, out List<string> nameOfPropertiesDefault)
         {
-            bool isDefault = false;
+            // TypeOf não funciona, devido ser um type object no ValidateModelAttribute
             var defaultInstance = Activator.CreateInstance(obj.GetType());
-            var properties = typeof(TObject)
-                .GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            properties
-                .CustomForEach((prop, index, token) =>
-                {
-                    var valueGetSuccess = prop.TryGetValue(obj, out var value);
-                    if (valueGetSuccess == false) return;
-                    var currentValue = prop.GetValue(obj);
-                    var defaultValue = prop.GetValue(defaultInstance);
+            var properties = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var nameOfDefaults = new List<string>();
 
-                    Console.WriteLine((currentValue == default) + "---- Default");
-                    if (Equals(currentValue, defaultValue))
-                    {
-                        if(prop.PropertyType.IsEnum == false)
-                        {
-                            isDefault = true;
-                            token.Cancel();
-                        }
-                        return;
-                    }
-                });
-            return isDefault;
+            foreach (var prop in properties)
+            {
+
+                var valueGetSuccess = prop.TryGetValue(obj, out var value);
+                if (valueGetSuccess == false) continue;
+                var currentValue = prop.GetValue(obj);
+                var defaultValue = prop.GetValue(defaultInstance);
+
+                if (Equals(currentValue, defaultValue))
+                    if (prop.PropertyType.IsEnum == false)
+                        nameOfDefaults.Add(prop.Name);
+            }
+            nameOfPropertiesDefault = nameOfDefaults;
+            return nameOfDefaults.Count > 0;
         }
 
 
@@ -79,6 +74,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 {
                     if (token.IsCancellationRequested)
                     {
+                        Console.WriteLine("Canewlado?");
                         break;
                     }
                     action(array[i], i, token);
