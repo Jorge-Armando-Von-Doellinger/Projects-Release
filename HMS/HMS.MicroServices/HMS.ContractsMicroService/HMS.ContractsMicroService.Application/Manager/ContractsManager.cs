@@ -4,6 +4,7 @@ using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Core.Json;
 using Nuget.Contracts.Inputs;
+using Nuget.Contracts.Outputs;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {
@@ -43,11 +44,12 @@ namespace HMS.ContractsMicroService.Application.Manager
             }
         }
 
-        public async Task<EmployeeContract> GetById(Guid entityId)
+        public async Task<EmployeeContractOutput> GetById(Guid entityId)
         {
             try
             {
-                return await _repository.GetByIdAsync(entityId);
+                var contract = await _repository.GetByIdAsync(entityId);
+                return contract.FromTo<EmployeeContractOutput>();
             }
             catch (Exception ex)
             {
@@ -55,9 +57,10 @@ namespace HMS.ContractsMicroService.Application.Manager
             }
         }
 
-        public async Task<List<EmployeeContract>> GetAll()
+        public async Task<List<EmployeeContractOutput>> GetAll()
         {
-            return await _repository.GetAsync();
+            var contracts = await _repository.GetAsync();
+            return contracts.FromTo<List<EmployeeContractOutput>>();
         }
 
         public async Task Update(EmployeeContractInput input)

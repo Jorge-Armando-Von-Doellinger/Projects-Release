@@ -61,7 +61,7 @@
             },
             "Nuget.Contracts": {
               "target": "Package",
-              "version": "[0.0.7, )"
+              "version": "[1.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -151,7 +151,7 @@
             },
             "Nuget.Contracts": {
               "target": "Package",
-              "version": "[0.0.7, )"
+              "version": "[1.0.2, )"
             }
           },
           "imports": [

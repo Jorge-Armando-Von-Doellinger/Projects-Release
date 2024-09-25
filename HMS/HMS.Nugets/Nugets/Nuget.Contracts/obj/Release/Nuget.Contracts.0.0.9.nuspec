@@ -6,7 +6,7 @@
     <title>Nuget.Contracts</title>
     <authors>Jorge Armando Von Doellinger</authors>
     <description>Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplicação!</description>
-    <repository type="git" url="github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="9fda3a1197dc113e5fe5419f5b7fb2a7fe4382ec" />
+    <repository type="git" url="github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="6405da3a4e30312654266265ee93516e5e9f0d0a" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>

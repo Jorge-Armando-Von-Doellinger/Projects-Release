@@ -1,5 +1,7 @@
-﻿using HMS.ContractsMicroService.Core.Json;
+﻿using HMS.ContractsMicroService.Core.Enums;
+using HMS.ContractsMicroService.Core.Json;
 using System.Collections;
+using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net.WebSockets;
 using System.Reflection;
@@ -89,19 +91,17 @@ namespace HMS.ContractsMicroService.Core.Extensions
         public static TTarget FromTo<TTarget>(this object obj) where TTarget : new()
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-
-            //var target = new TTarget();
-
             var objType = obj.GetType();
             var targetType = typeof(TTarget);
             var target = (TTarget)obj.FromTo(targetType);
             if (target == null)
                 throw new ArgumentNullException("Erro null");
             return target;
-            //return target;
+
         }
         public static object FromTo(this object obj, Type type)
         {
+            Console.WriteLine(type);
             var target = Activator.CreateInstance(type)
                 ?? throw new Exception("Null");
             obj .GetType() //
@@ -112,22 +112,52 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 if (propTarget == null) return;
                 var valueIsValid = prop.TryGetValue(obj, out var result);
                 if (valueIsValid == false) return;
-                var a = result ?? throw new Exception("prop ressult \n \n \n");
-                if (result.GetType() != propTarget.PropertyType) //
+                
+                if (prop.PropertyType != propTarget.PropertyType) // PROP.PROPERTYTYPE
                 {
-                    if (propTarget.PropertyType.IsEnum)
+                    /*if (propTarget.PropertyType.IsEnum)
                         result = result.ChangeTypeToEnum(propTarget.PropertyType);
                     else if (propTarget.PropertyType.IsEnumerable() && prop.PropertyType.IsEnumerable())
                         result = result.ChangeListToListEnum(propTarget.PropertyType);
+                    else if (propTarget.PropertyType == typeof(string))
+                    {
+                        var listString = new List<string>();
+                    if (result.GetType().IsEnumerable())
+                        {
+                            foreach (var item in (IList)result)
+                                listString.Add(item.ToString());
+                        result = string.Join(", ", listString);
+                        }
+                    result = result.ToString();
+                    }
                     else if (propTarget.PropertyType.IsClass)
+                    {
+                        Console.WriteLine($"Teste 2 {propTarget.PropertyType}");
                         result = result.FromTo(propTarget.PropertyType);
+                    }*/
+                    result = ChangeType(result, propTarget.PropertyType) ?? result;
                 }
+                Console.WriteLine(result.GetType());
                 propTarget.SetValue(target, result);
             });
             //Console.WriteLine(/*JsonManipulation.Serialize(target).Result + "Bataa" + */$"{value.GetType().Name} {target.GetType().Name}");
             return target;
         }
         
+        public static object ChangeType(this object obj, Type destine)
+        {
+            if(destine.IsEnum) return obj.ChangeTypeToEnum(destine);
+            /*if (obj.GetType().IsEnumEnumerable() && destine.IsEnumEnumerable())
+            {
+                Console.WriteLine(obj.GetType());
+                return obj.ChangeListToListEnum(destine);
+            }*/
+            if(obj.GetType().IsEnum && destine == typeof(string)) return obj.ToString();
+            if (obj.GetType().IsEnumEnumerable() && destine == typeof(string)) return obj.FromString();
+            if(obj.GetType().IsClass && destine.IsClass) return obj.FromTo(destine);
+            return null;
+
+        }
 
         private static object ChangeListToListEnum(this object value, Type targetType)
         {
@@ -185,6 +215,18 @@ namespace HMS.ContractsMicroService.Core.Extensions
                     return null;
             //return default;
             throw new Exception("Object and type destine isn't compatible");
+        }
+
+        public static object FromString(this object listEnum)
+        {
+            if (!listEnum.GetType().IsEnumerable() && !listEnum.GetType().IsEnumEnumerable())
+                return default;
+            var list = new List<string>();
+            foreach (var itemEnum in (IList)listEnum)
+            {
+                list.Add(itemEnum.ToString());
+            }
+            return string.Join(", ", list);
         }
 
         private static bool TryParseToInt32(this object obj, out int value)

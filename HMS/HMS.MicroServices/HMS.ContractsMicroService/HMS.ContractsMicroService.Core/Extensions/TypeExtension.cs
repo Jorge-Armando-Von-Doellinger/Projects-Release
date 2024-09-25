@@ -11,5 +11,9 @@ namespace HMS.ContractsMicroService.Core.Extensions
                       i.GetGenericTypeDefinition() == typeof(ICollection<>) ||
                       i.GetGenericTypeDefinition() == typeof(IList<>)));
         }
+        public static bool IsEnumEnumerable(this Type type)
+        {
+            return IsEnumerable(type) && type.GetGenericArguments()[0].IsEnum;
+        }
     }
 }

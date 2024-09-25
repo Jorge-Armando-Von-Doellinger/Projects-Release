@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("È uma resposta entre o servidor e o cliente, com um unico objetivo, ou seja, auxi" +
     "liar o receptor em caso de problemas, informar possiveis problemas, etc.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.3.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.3+2e55176016a40c403a76808f2598eee0093f10f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.3+6405da3a4e30312654266265ee93516e5e9f0d0a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Response")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Response")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.3.0")]

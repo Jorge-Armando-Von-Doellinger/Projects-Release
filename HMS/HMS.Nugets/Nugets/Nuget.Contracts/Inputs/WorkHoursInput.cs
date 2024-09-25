@@ -1,6 +1,6 @@
 ﻿namespace Nuget.Contracts.Inputs
 {
-    public sealed class WorkHoursInput
+    public class WorkHoursInput
     {
         public TimeOnly EntryTime { get; set; }
         public TimeOnly IntervalStartTime { get; set; }
