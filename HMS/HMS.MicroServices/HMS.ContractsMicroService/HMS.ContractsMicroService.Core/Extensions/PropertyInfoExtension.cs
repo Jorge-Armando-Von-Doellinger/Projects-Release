@@ -9,10 +9,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             result = null;
             try
             {
-                if(propertyInfo.CanWrite == false)
-                {
-                    return false;
-                }
+                if(propertyInfo.CanWrite == false) return false;
                 if (propertyInfo == null) return false;
                 var value = propertyInfo.GetValue(obj);
                 if (value == null) return false;

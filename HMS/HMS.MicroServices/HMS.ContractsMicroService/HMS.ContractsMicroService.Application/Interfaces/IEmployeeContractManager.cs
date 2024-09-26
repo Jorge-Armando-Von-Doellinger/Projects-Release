@@ -4,7 +4,7 @@ using Nuget.Contracts.Outputs;
 
 namespace HMS.ContractsMicroService.Application.Interfaces
 {
-    public interface IEmployeeContractManager : IManager<EmployeeContractInput, Nuget.Contracts.Outputs.EmployeeContractOutput>
+    public interface IEmployeeContractManager : IManager<EmployeeContractInput, EmployeeContractUpdateInput ,EmployeeContractOutput>
     {
 
     }

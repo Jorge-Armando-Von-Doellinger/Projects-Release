@@ -13,7 +13,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
                       i.GetGenericTypeDefinition() == typeof(ICollection<>) ||
                       i.GetGenericTypeDefinition() == typeof(IList<>)));
         }
-        public static bool IsEnumEnumerable(this Type type)
+        internal static bool IsEnumEnumerable(this Type type)
         {
             var arguments = type.GetGenericArguments();
             return IsEnumerable(type) && (arguments.Length > 0) switch
@@ -23,7 +23,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             };
         }
 
-        public static bool IsNumberEnumerable(this Type type)
+        internal static bool IsNumberEnumerable(this Type type)
         {
             var arguments = type.GetGenericArguments();
             return IsEnumerable(type) && (arguments.Length > 0) switch
@@ -36,5 +36,12 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 false => false
             };
         }
+
+        internal static IList MakeGenericList(this Type type)
+        {
+            var typeList = typeof(List<>).MakeGenericType(type);
+            return (IList) Activator.CreateInstance(typeList);
+        }
+
     }
 }

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HMS.ContractsMicroService.API.props" />
+</Project>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qqn9HbxbL92pv34rOkUvAbMJKgbTeunGmi4KbC+Ma/M=",
+  "Source": "HMS.ContractsMicroService.API",
+  "BasePath": "_content/HMS.ContractsMicroService.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

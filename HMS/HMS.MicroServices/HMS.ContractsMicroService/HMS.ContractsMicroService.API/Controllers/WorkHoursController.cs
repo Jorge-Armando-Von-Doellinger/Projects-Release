@@ -1,4 +1,5 @@
-﻿using HMS.ContractsMicroService.Application.Interfaces;
+﻿using HMS.ContractsMicroService.API.Attributes;
+using HMS.ContractsMicroService.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nuget.Contracts.Inputs;
@@ -7,11 +8,13 @@ namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/WorkHours")]
     [ApiController]
-    public class WorkHours : ControllerBase
+    [ValidateModel]
+    [HandlerExceptionFilter]
+    public class WorkHoursController : ControllerBase
     {
         private readonly IWorkHoursManager _manager;
 
-        public WorkHours(IWorkHoursManager manager)
+        public WorkHoursController(IWorkHoursManager manager)
         {
             _manager = manager;
         }
@@ -19,10 +22,21 @@ namespace HMS.ContractsMicroService.API.Controllers
         public async Task<IActionResult> GetWorkHours()
             => Ok(await _manager.GetAll());
 
+        [HttpGet("ID")]
+        public async Task<IActionResult> GetByID(Guid ID)
+            => Ok(await _manager.GetById(ID));
+
         [HttpPost]
         public async Task<IActionResult> AddWorkHours(WorkHoursInput input)
         {
             await _manager.Add(input);
+            return Accepted();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(WorkHoursUpdateInput input)
+        {
+            await _manager.Update(input);
             return Accepted();
         }
     }

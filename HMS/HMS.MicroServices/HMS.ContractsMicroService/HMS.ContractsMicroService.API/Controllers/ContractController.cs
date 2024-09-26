@@ -8,7 +8,8 @@ namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[ValidateModel]
+    [ValidateModel]
+    [HandlerExceptionFilter]
     public class ContractController : ControllerBase
     {
         private readonly IEmployeeContractManager _manager;
@@ -24,37 +25,29 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpGet("ID")]
         public async Task<IActionResult> GetContractById(Guid ID)
         {
-            try
-            {
-                return Ok(await _manager.GetById(ID));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            return Ok(await _manager.GetById(ID));
         }
 
         [HttpPost]
         public async Task<IActionResult> AddContract(EmployeeContractInput contract)
         {
-                /*if (contract.HaveAPropertyDefault(out var nameOfPropertiesDefault))
-                    Console.WriteLine($" \n {nameOfPropertiesDefault.First()} Tem valores default \n");*/
-                await _manager.Add(contract);
-                return Accepted();
+            await _manager.Add(contract);
+            return Accepted();
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateContract(EmployeeContractInput input)
+        public async Task<IActionResult> UpdateContract(EmployeeContractUpdateInput input)
         {
-            try
-            {
-                await _manager.Update(input);
-                return Accepted();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            await _manager.Update(input);
+            return Accepted();
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteContract(Guid ContractID)
+        {
+            await _manager.Delete(ContractID);
+            return Accepted();
+        }
+            
     }
 }

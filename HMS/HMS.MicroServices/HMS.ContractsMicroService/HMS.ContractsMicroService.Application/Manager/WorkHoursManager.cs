@@ -10,6 +10,7 @@ namespace HMS.ContractsMicroService.Application.Manager
     {
         private readonly IWorkHoursRepository _repository;
 
+
         public WorkHoursManager(IWorkHoursRepository repository)
         {
             _repository = repository;
@@ -18,7 +19,7 @@ namespace HMS.ContractsMicroService.Application.Manager
         {
             var existingHourst = await FindByWorkHours(entity);
             if (existingHourst == null)
-                await _repository.AddAsync(entity.FromTo<WorkHours>());
+                await _repository.AddAsync(await Task.Run(() => entity.FromTo<WorkHours>()));
             
         }
 
@@ -27,9 +28,9 @@ namespace HMS.ContractsMicroService.Application.Manager
             await _repository.DeleteAsync(entityId);
         } 
 
-        public Task<WorkHours> FindByWorkHours(WorkHoursInput input)
+        public async Task<WorkHours> FindByWorkHours(WorkHoursInput input)
         {
-            return _repository.FindWorkHours(input.FromTo<WorkHours>());
+            return await _repository.FindWorkHours(await Task.Run(() => input.FromTo<WorkHours>()));
         }
 
         public async Task<List<WorkHours>> GetAll()
@@ -42,9 +43,9 @@ namespace HMS.ContractsMicroService.Application.Manager
             return _repository.GetByIdAsync(entityId);
         }
 
-        public async Task Update(WorkHoursInput entity)
+        public async Task Update(WorkHoursUpdateInput entity)
         {
-            await _repository.UpdateAsync(entity.FromTo<WorkHours>());
+            await _repository.UpdateAsync(await Task.Run(() => entity.FromTo<WorkHours>()));
         }
     }
 }

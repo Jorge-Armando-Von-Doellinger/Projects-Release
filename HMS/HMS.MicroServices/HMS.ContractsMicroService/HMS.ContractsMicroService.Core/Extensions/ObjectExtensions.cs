@@ -37,17 +37,18 @@ namespace HMS.ContractsMicroService.Core.Extensions
 
 
 
-        internal static TEntity Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace) where TEntity : notnull
+        internal static void Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace) where TEntity : notnull
         {
             obj.GetType().GetProperties()
                 .CustomForEach((property, index) =>
                 {
-                    var valueIsValid = valuesToReplace.GetType().GetProperty(property.Name)
-                    .TryGetValue(obj, out var result);
-                    if(valueIsValid == false || result == default) return;
+                    var replaceProp = valuesToReplace.GetType().GetProperty(property.Name);
+                    var valueIsValid = replaceProp.TryGetValue(valuesToReplace, out var result);
+                    Console.WriteLine(valueIsValid);
+                    if(valueIsValid == false) return;
+                    Console.WriteLine(result + " Result");
                     property.SetValue(obj, result);
                 });
-            return obj;
         }
 
         internal static void CustomForEach<T>(this T[] array, Action<T, int> action)
@@ -111,37 +112,8 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 if (propTarget == null) return;
                 var valueIsValid = prop.TryGetValue(obj, out var result);
                 if (valueIsValid == false) return;
-                if (prop.PropertyType != propTarget.PropertyType) // PROP.PROPERTYTYPE
-                {
-                    /*if (propTarget.PropertyType.IsEnum)
-                        result = result.ChangeTypeToEnum(propTarget.PropertyType);
-                    else if (propTarget.PropertyType.IsEnumerable() && prop.PropertyType.IsEnumerable())
-                        result = result.ChangeListToListEnum(propTarget.PropertyType);
-                    else if (propTarget.PropertyType == typeof(string))
-                    {
-                        var listString = new List<string>();
-                    if (result.GetType().IsEnumerable())
-                        {
-                            foreach (var item in (IList)result)
-                                listString.Add(item.ToString());
-                        result = string.Join(", ", listString);
-                        }
-                    result = result.ToString();
-                    }
-                    else if (propTarget.PropertyType.IsClass)
-                    {
-                        Console.WriteLine($"Teste 2 {propTarget.PropertyType}");
-                        result = result.FromTo(propTarget.PropertyType);
-                    }*/
-                    if (result.GetType().IsEnumerable())
-                    {
-                        foreach(var a in (IList)result)
-                        {
-                            Console.WriteLine(a  + " enumeravek");
-                        }
-                    } // PEGOU OS VALORES
-                    result = ChangeType(result, propTarget.PropertyType) ?? 0;
-                }
+                if (prop.PropertyType != propTarget.PropertyType) 
+                    result = ChangeType(result, propTarget.PropertyType) ?? result;
                 propTarget.SetValue(target, result);
             });
             return target;
@@ -161,34 +133,35 @@ namespace HMS.ContractsMicroService.Core.Extensions
         private static object ChangeListToListEnum(this object value, Type targetType)
         {
             if (value == null) throw new ArgumentNullException(nameof(value));
-            if (targetType.IsGenericType && typeof(List<>).IsAssignableFrom(targetType.GetGenericTypeDefinition()))
+            if (targetType.IsEnumEnumerable())
             {
                 var itemType = targetType.GetGenericArguments()[0];
                 if (itemType.IsEnum == false) throw new InvalidOperationException($"Target type {targetType} is not a list of enums.");
-                var typeList = typeof(List<>).MakeGenericType(itemType);
-                var targetList = (IList)Activator.CreateInstance(typeList);
+                //var typeList = typeof(List<>).MakeGenericType(itemType);
+                var targetList = itemType.MakeGenericList();
 
                 if (value is IEnumerable sourceList)
-                {
-                    foreach (var item in sourceList)
-                    {
-                        if (item.GetType() == typeof(string))
-                            targetList.Add(ConvertValue(item, itemType));
-                        else if( item.TryParseToInt32(out int result))
-                        {
-                            if (Enum.IsDefined(itemType, result))
-                                targetList.Add(Enum.ToObject(itemType, result));
-                        }
-                        else 
-                            throw new InvalidOperationException($"Invalid type {item.GetType()} for conversion to {itemType}");
-                    }
-                }
+                    foreach (var item in sourceList)                
+                        AddValueToListEnum(item, itemType, targetList);
                 return targetList;
 
             }
             throw new InvalidOperationException($"Target type {targetType} is not a list type.");
         }
 
+        private static void AddValueToListEnum(this object value, Type itemType, IList targetList)
+        {
+            if (value.GetType() == typeof(string))
+                targetList.Add(ConvertValue(value, itemType));
+            else if (value.TryParseToInt32(out int result))
+            {
+                if (Enum.IsDefined(itemType, result))
+                    targetList.Add(Enum.ToObject(itemType, result));
+            }
+            else
+                throw new InvalidOperationException($"Invalid type {value.GetType()} for conversion to {itemType}");
+        }
+        
         public static object ConvertValue(object value, Type typeTarget)
         {
             if(typeTarget.IsEnum)

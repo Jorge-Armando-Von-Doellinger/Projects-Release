@@ -65,6 +65,11 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
                 .Where(x => x.ID == entity.ID)
                 .FirstOrDefaultAsync()
                     ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
+                employeeContract.Update(entity);
+                await Task.Delay(1000);
+                Console.WriteLine(await JsonManipulation.Serialize(employeeContract));
+                Console.WriteLine(await JsonManipulation.Serialize(entity));
+                _context.EmployeeContract.Update(employeeContract);
             });
         }
     }

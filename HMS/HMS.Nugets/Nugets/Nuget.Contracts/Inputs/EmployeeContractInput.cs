@@ -2,7 +2,7 @@
 
 namespace Nuget.Contracts.Inputs
 {
-    public sealed class EmployeeContractInput
+    public class EmployeeContractInput
     {
         public EmployeeContractInput()
         {

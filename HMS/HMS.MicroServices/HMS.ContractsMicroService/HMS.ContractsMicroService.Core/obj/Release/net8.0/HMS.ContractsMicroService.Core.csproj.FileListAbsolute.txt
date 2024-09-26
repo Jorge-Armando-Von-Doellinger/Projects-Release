@@ -1,0 +1,12 @@
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\bin\Release\net8.0\HMS.ContractsMicroService.Core.deps.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\bin\Release\net8.0\HMS.ContractsMicroService.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\bin\Release\net8.0\HMS.ContractsMicroService.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\HMS.ContractsMicroService.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\HMS.ContractsMicroService.Core.AssemblyInfoInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\HMS.ContractsMicroService.Core.AssemblyInfo.cs
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\HMS.ContractsMicroService.Core.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\HMS.ContractsMicroService.Core.sourcelink.json
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\HMS.ContractsMicroService.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\refint\HMS.ContractsMicroService.Core.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\HMS.ContractsMicroService.Core.pdb
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.Core\obj\Release\net8.0\ref\HMS.ContractsMicroService.Core.dll

@@ -3,6 +3,7 @@ using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Core.Json;
+using HMS.ContractsMicroService.Infrastructure.Messages;
 using Nuget.Contracts.Inputs;
 using Nuget.Contracts.Outputs;
 
@@ -21,58 +22,32 @@ namespace HMS.ContractsMicroService.Application.Manager
 
         public async Task Add(EmployeeContractInput input)
         {
-            try
-            {
-                var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
-                await _repository.AddAsync(employeeContract);
-            }
-            catch (Exception ex) 
-            {
-                throw;
-            }
+            if (await _workHoursManager.GetById(input.WorkHoursID) == null)
+                throw new Exception(MessageRecords.KeyNotFounded);
+            var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
+            await _repository.AddAsync(employeeContract);
         }
 
         public async Task Delete(Guid entityId)
         {
-            try
-            {
-                await _repository.DeleteAsync(entityId);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            await _repository.DeleteAsync(entityId);
         }
 
         public async Task<EmployeeContractOutput> GetById(Guid entityId)
         {
-            try
-            {
-                var contract = await _repository.GetByIdAsync(entityId);
-                return contract.FromTo<EmployeeContractOutput>();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            var contract = await _repository.GetByIdAsync(entityId);
+            return await Task.Run(() => contract.FromTo<EmployeeContractOutput>());
         }
 
         public async Task<List<EmployeeContractOutput>> GetAll()
         {
             var contracts = await _repository.GetAsync();
-            return contracts.FromTo<List<EmployeeContractOutput>>();
+            return await Task.Run(() => contracts.FromTo<List<EmployeeContractOutput>>());
         }
 
-        public async Task Update(EmployeeContractInput input)
+        public async Task Update(EmployeeContractUpdateInput input)
         {
-            try
-            {
-                await _repository.UpdateAsync(input.FromTo<EmployeeContract>());
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            await _repository.UpdateAsync(await Task.Run(() => input.FromTo<EmployeeContract>()));
         }
     }
 }
