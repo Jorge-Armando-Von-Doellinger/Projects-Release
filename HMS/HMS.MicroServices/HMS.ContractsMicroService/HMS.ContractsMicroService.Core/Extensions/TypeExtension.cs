@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Net.Http.Headers;
+using System.Reflection.Metadata.Ecma335;
 
 namespace HMS.ContractsMicroService.Core.Extensions
 {
@@ -13,7 +15,26 @@ namespace HMS.ContractsMicroService.Core.Extensions
         }
         public static bool IsEnumEnumerable(this Type type)
         {
-            return IsEnumerable(type) && type.GetGenericArguments()[0].IsEnum;
+            var arguments = type.GetGenericArguments();
+            return IsEnumerable(type) && (arguments.Length > 0) switch
+            {
+                true => arguments[0].IsEnum,
+                false => false
+            };
+        }
+
+        public static bool IsNumberEnumerable(this Type type)
+        {
+            var arguments = type.GetGenericArguments();
+            return IsEnumerable(type) && (arguments.Length > 0) switch
+            {
+                true => 
+                arguments[0] == typeof(sbyte) 
+                || arguments[0] == typeof(short) 
+                || arguments[0] == typeof(int)
+                || arguments[0] == typeof(long),
+                false => false
+            };
         }
     }
 }

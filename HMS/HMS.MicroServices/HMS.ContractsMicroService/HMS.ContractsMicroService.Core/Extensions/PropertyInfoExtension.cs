@@ -10,7 +10,9 @@ namespace HMS.ContractsMicroService.Core.Extensions
             try
             {
                 if(propertyInfo.CanWrite == false)
-                Console.WriteLine($"TRY GET VALUE \n OBJECT: {propertyInfo.Name} CAN RIGHT: {propertyInfo.CanWrite}");
+                {
+                    return false;
+                }
                 if (propertyInfo == null) return false;
                 var value = propertyInfo.GetValue(obj);
                 if (value == null) return false;

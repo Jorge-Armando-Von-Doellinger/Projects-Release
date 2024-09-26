@@ -101,7 +101,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
         }
         public static object FromTo(this object obj, Type type)
         {
-            Console.WriteLine(type);
             var target = Activator.CreateInstance(type)
                 ?? throw new Exception("Null");
             obj .GetType() //
@@ -112,7 +111,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 if (propTarget == null) return;
                 var valueIsValid = prop.TryGetValue(obj, out var result);
                 if (valueIsValid == false) return;
-                
                 if (prop.PropertyType != propTarget.PropertyType) // PROP.PROPERTYTYPE
                 {
                     /*if (propTarget.PropertyType.IsEnum)
@@ -135,26 +133,27 @@ namespace HMS.ContractsMicroService.Core.Extensions
                         Console.WriteLine($"Teste 2 {propTarget.PropertyType}");
                         result = result.FromTo(propTarget.PropertyType);
                     }*/
-                    result = ChangeType(result, propTarget.PropertyType) ?? result;
+                    if (result.GetType().IsEnumerable())
+                    {
+                        foreach(var a in (IList)result)
+                        {
+                            Console.WriteLine(a  + " enumeravek");
+                        }
+                    } // PEGOU OS VALORES
+                    result = ChangeType(result, propTarget.PropertyType) ?? 0;
                 }
-                Console.WriteLine(result.GetType());
                 propTarget.SetValue(target, result);
             });
-            //Console.WriteLine(/*JsonManipulation.Serialize(target).Result + "Bataa" + */$"{value.GetType().Name} {target.GetType().Name}");
             return target;
         }
         
         public static object ChangeType(this object obj, Type destine)
         {
             if(destine.IsEnum) return obj.ChangeTypeToEnum(destine);
-            /*if (obj.GetType().IsEnumEnumerable() && destine.IsEnumEnumerable())
-            {
-                Console.WriteLine(obj.GetType());
-                return obj.ChangeListToListEnum(destine);
-            }*/
-            if(obj.GetType().IsEnum && destine == typeof(string)) return obj.ToString();
-            if (obj.GetType().IsEnumEnumerable() && destine == typeof(string)) return obj.FromString();
-            if(obj.GetType().IsClass && destine.IsClass) return obj.FromTo(destine);
+            else if (obj.GetType().IsNumberEnumerable() && destine.IsEnumEnumerable()) return obj.ChangeListToListEnum(destine);
+            else if (obj.GetType().IsEnum && destine == typeof(string)) return obj.ToString();
+            else if (obj.GetType().IsEnumEnumerable() && destine == typeof(string)) return obj.ListEnumFromString();
+            else if(obj.GetType().IsClass && destine.IsClass) return obj.FromTo(destine);
             return null;
 
         }
@@ -165,8 +164,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             if (targetType.IsGenericType && typeof(List<>).IsAssignableFrom(targetType.GetGenericTypeDefinition()))
             {
                 var itemType = targetType.GetGenericArguments()[0];
-                if (itemType.IsEnum == false)
-                    throw new InvalidOperationException($"Target type {targetType} is not a list of enums.");
+                if (itemType.IsEnum == false) throw new InvalidOperationException($"Target type {targetType} is not a list of enums.");
                 var typeList = typeof(List<>).MakeGenericType(itemType);
                 var targetList = (IList)Activator.CreateInstance(typeList);
 
@@ -174,9 +172,14 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 {
                     foreach (var item in sourceList)
                     {
-                        if (item.GetType() == typeof(string) || item.TryParseToInt32(out var result))
+                        if (item.GetType() == typeof(string))
                             targetList.Add(ConvertValue(item, itemType));
-                        else
+                        else if( item.TryParseToInt32(out int result))
+                        {
+                            if (Enum.IsDefined(itemType, result))
+                                targetList.Add(Enum.ToObject(itemType, result));
+                        }
+                        else 
                             throw new InvalidOperationException($"Invalid type {item.GetType()} for conversion to {itemType}");
                     }
                 }
@@ -188,7 +191,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
 
         public static object ConvertValue(object value, Type typeTarget)
         {
-            Console.WriteLine(typeTarget);
             if(typeTarget.IsEnum)
                 return value.ChangeTypeToEnum(typeTarget);
             if (typeTarget.IsGenericType && typeof(List<>).IsAssignableFrom(typeTarget.GetGenericTypeDefinition()))
@@ -206,7 +208,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
             {
                 if (Enum.TryParse(type, obj.ToString(), out var result))
                     return result;
-                Console.WriteLine("Teste \n \n \n");
             }
             else if(obj.TryParseToInt32(out var value))
                 if(Enum.IsDefined(type, value))
@@ -217,7 +218,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             throw new Exception("Object and type destine isn't compatible");
         }
 
-        public static object FromString(this object listEnum)
+        public static object ListEnumFromString(this object listEnum)
         {
             if (!listEnum.GetType().IsEnumerable() && !listEnum.GetType().IsEnumEnumerable())
                 return default;

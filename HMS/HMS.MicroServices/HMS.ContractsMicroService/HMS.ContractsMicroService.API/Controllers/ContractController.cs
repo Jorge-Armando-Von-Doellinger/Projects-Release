@@ -8,7 +8,7 @@ namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [ValidateModel]
+    //[ValidateModel]
     public class ContractController : ControllerBase
     {
         private readonly IEmployeeContractManager _manager;
@@ -37,17 +37,10 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddContract(EmployeeContractInput contract)
         {
-            try
-            {
                 /*if (contract.HaveAPropertyDefault(out var nameOfPropertiesDefault))
                     Console.WriteLine($" \n {nameOfPropertiesDefault.First()} Tem valores default \n");*/
                 await _manager.Add(contract);
                 return Accepted();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
         }
 
         [HttpPut]
