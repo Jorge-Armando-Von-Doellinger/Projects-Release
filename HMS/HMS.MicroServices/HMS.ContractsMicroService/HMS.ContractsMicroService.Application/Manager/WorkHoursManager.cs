@@ -3,6 +3,7 @@ using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using Nuget.Contracts.Inputs;
+using Nuget.Contracts.Outputs;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {
@@ -28,19 +29,22 @@ namespace HMS.ContractsMicroService.Application.Manager
             await _repository.DeleteAsync(entityId);
         } 
 
-        public async Task<WorkHours> FindByWorkHours(WorkHoursInput input)
+        public async Task<WorkHoursOutput> FindByWorkHours(WorkHoursInput input)
         {
-            return await _repository.FindWorkHours(await Task.Run(() => input.FromTo<WorkHours>()));
+            var workHours =  await _repository.FindWorkHours(await Task.Run(() => input.FromTo<WorkHours>()));
+            return await Task.Run(() =>workHours.FromTo<WorkHoursOutput>());
         }
 
-        public async Task<List<WorkHours>> GetAll()
+        public async Task<WorkHoursOutput[]> GetAll()
         {
-            return await _repository.GetAsync();
+            var workhours = await _repository.GetAsync();
+            return await Task.Run(() =>  workhours.FromToArray<WorkHoursOutput>());
         }
 
-        public Task<WorkHours> GetById(Guid entityId)
+        public async Task<WorkHoursOutput> GetById(Guid entityId)
         {
-            return _repository.GetByIdAsync(entityId);
+            var workhours =  await _repository.GetByIdAsync(entityId);
+            return await Task.Run(() => workhours.FromTo<WorkHoursOutput>());
         }
 
         public async Task Update(WorkHoursUpdateInput entity)

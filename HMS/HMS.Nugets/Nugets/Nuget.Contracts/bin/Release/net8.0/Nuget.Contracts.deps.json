@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "Nuget.Contracts/ 1.0.3 ": {
+      "Nuget.Contracts/ 1.0.4 ": {
         "runtime": {
           "Nuget.Contracts.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "Nuget.Contracts/ 1.0.3 ": {
+    "Nuget.Contracts/ 1.0.4 ": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

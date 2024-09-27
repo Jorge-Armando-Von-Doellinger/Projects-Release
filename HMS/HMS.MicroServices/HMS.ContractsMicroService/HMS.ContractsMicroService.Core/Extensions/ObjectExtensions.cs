@@ -1,12 +1,5 @@
-﻿using HMS.ContractsMicroService.Core.Enums;
-using HMS.ContractsMicroService.Core.Json;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Net.WebSockets;
+﻿using System.Collections;
 using System.Reflection;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace HMS.ContractsMicroService.Core.Extensions
 {
@@ -35,7 +28,19 @@ namespace HMS.ContractsMicroService.Core.Extensions
             return nameOfDefaults.Count > 0;
         }
 
-
+        public static TObject[] FromToArray<TObject>(this object[] objArray)
+        {
+            var targetItemType = typeof(TObject);
+            var target = Array.CreateInstance(targetItemType, objArray.Length);
+            int count = 0;
+            foreach (var item in objArray)
+            {
+                var obj = item.FromTo(targetItemType);
+                target.SetValue(obj, count);
+                count++;
+            }
+            return (TObject[]) target;
+        }
 
         internal static void Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace) where TEntity : notnull
         {
@@ -43,15 +48,15 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 .CustomForEach((property, index) =>
                 {
                     var replaceProp = valuesToReplace.GetType().GetProperty(property.Name);
+                    if (replaceProp == null) return;
                     var valueIsValid = replaceProp.TryGetValue(valuesToReplace, out var result);
                     Console.WriteLine(valueIsValid);
                     if(valueIsValid == false) return;
-                    Console.WriteLine(result + " Result");
                     property.SetValue(obj, result);
                 });
         }
 
-        internal static void CustomForEach<T>(this T[] array, Action<T, int> action)
+        private static void CustomForEach<T>(this T[] array, Action<T, int> action)
         {
             try
             {
@@ -67,7 +72,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             }
         }
 
-        internal static void CustomForEach<T>(this T[] array, Action<T, int, CancellationTokenSource> action)
+        private static void CustomForEach<T>(this T[] array, Action<T, int, CancellationTokenSource> action)
         {
             try
             {
@@ -100,7 +105,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             return target;
 
         }
-        public static object FromTo(this object obj, Type type)
+        public static object FromTo(this object obj, Type type, Type? typeToIgnore = null)
         {
             var target = Activator.CreateInstance(type)
                 ?? throw new Exception("Null");
@@ -110,6 +115,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             {
                 var propTarget = type.GetProperty(prop.Name);
                 if (propTarget == null) return;
+                if (propTarget.DeclaringType == typeToIgnore) return;
                 var valueIsValid = prop.TryGetValue(obj, out var result);
                 if (valueIsValid == false) return;
                 if (prop.PropertyType != propTarget.PropertyType) 
@@ -119,7 +125,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             return target;
         }
         
-        public static object ChangeType(this object obj, Type destine)
+        private static object ChangeType(this object obj, Type destine)
         {
             if(destine.IsEnum) return obj.ChangeTypeToEnum(destine);
             else if (obj.GetType().IsNumberEnumerable() && destine.IsEnumEnumerable()) return obj.ChangeListToListEnum(destine);
@@ -162,7 +168,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 throw new InvalidOperationException($"Invalid type {value.GetType()} for conversion to {itemType}");
         }
         
-        public static object ConvertValue(object value, Type typeTarget)
+        private static object ConvertValue(object value, Type typeTarget)
         {
             if(typeTarget.IsEnum)
                 return value.ChangeTypeToEnum(typeTarget);
@@ -191,7 +197,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             throw new Exception("Object and type destine isn't compatible");
         }
 
-        public static object ListEnumFromString(this object listEnum)
+        private static object ListEnumFromString(this object listEnum)
         {
             if (!listEnum.GetType().IsEnumerable() && !listEnum.GetType().IsEnumEnumerable())
                 return default;

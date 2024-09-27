@@ -27,6 +27,5 @@ namespace HMS.ContractsMicroService.Core.Extensions
         }
 
 
-
     }
 }

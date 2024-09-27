@@ -1,5 +1,6 @@
 ﻿using HMS.ContractsMicroService.Application.Interfaces;
 using HMS.ContractsMicroService.Core.Entity;
+using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Core.Json;
@@ -39,15 +40,18 @@ namespace HMS.ContractsMicroService.Application.Manager
             return await Task.Run(() => contract.FromTo<EmployeeContractOutput>());
         }
 
-        public async Task<List<EmployeeContractOutput>> GetAll()
+        public async Task<EmployeeContractOutput[]> GetAll()
         {
             var contracts = await _repository.GetAsync();
-            return await Task.Run(() => contracts.FromTo<List<EmployeeContractOutput>>());
+            //contracts.FromTo<EmployeeContractOutput[]>();
+            return await Task.Run(() => contracts.FromToArray<EmployeeContractOutput>());
         }
 
         public async Task Update(EmployeeContractUpdateInput input)
         {
-            await _repository.UpdateAsync(await Task.Run(() => input.FromTo<EmployeeContract>()));
+            if (await _workHoursManager.GetById(input.WorkHoursID) == null)
+                throw new Exception(MessageRecords.KeyNotFounded);
+            await _repository.UpdateAsync(await Task.Run(() => (EmployeeContract) input.FromTo(typeof(EmployeeContract), typeof(EntityBase))));
         }
     }
 }

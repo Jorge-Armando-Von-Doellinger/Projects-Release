@@ -46,11 +46,10 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             return workHoursFiltered.FirstOrDefault();
         }
 
-        public async Task<List<WorkHours>> GetAsync()
+        public async Task<WorkHours[]> GetAsync()
         {
             return await _context.WorkHours
-                .AsNoTracking()
-                .ToListAsync();
+                .AsNoTracking().ToArrayAsync();
         }
 
         public async Task<WorkHours> GetByIdAsync(Guid entityId)

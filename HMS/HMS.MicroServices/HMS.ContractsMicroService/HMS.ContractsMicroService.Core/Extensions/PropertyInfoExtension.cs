@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections;
+using System.Reflection;
 
 namespace HMS.ContractsMicroService.Core.Extensions
 {
@@ -9,10 +10,11 @@ namespace HMS.ContractsMicroService.Core.Extensions
             result = null;
             try
             {
-                if(propertyInfo.CanWrite == false) return false;
                 if (propertyInfo == null) return false;
+                if(propertyInfo.CanWrite == false) return false;
                 var value = propertyInfo.GetValue(obj);
                 if (value == null) return false;
+                if(value == GetDefaultValue(propertyInfo)) return false;
                 result = value;
                 return true;
             }

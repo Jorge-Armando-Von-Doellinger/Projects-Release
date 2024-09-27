@@ -9,7 +9,7 @@ namespace Nuget.Contracts.Inputs
             JobTitle = -1;
             ExperienceLevel = -1;
             Department = -1;
-            HourlySalaryInDollar = -1;
+            HourlySalaryInDollar = 0;
             ContractType = -1;
             ProbationPeriodInMonths = -1;
             EmploymentStatus = -1;

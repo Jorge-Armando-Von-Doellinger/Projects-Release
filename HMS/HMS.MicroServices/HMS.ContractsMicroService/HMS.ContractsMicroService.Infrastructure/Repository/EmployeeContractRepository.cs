@@ -39,13 +39,13 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             });
         }
 
-        public async Task<List<EmployeeContract>> GetAsync()
+        public async Task<EmployeeContract[]> GetAsync()
         {
             return await _context.EmployeeContract
                 .AsNoTracking()
                 .Include(X => X.WorkHours)
                 .OrderBy(X => X.UpdatedAt)
-                .ToListAsync();
+                .ToArrayAsync();
         }
 
         public async Task<EmployeeContract> GetByIdAsync(Guid entityId)

@@ -8,8 +8,8 @@ namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [ValidateModel]
-    [HandlerExceptionFilter]
+    //[ValidateModel]
+    //[HandlerExceptionFilter]
     public class ContractController : ControllerBase
     {
         private readonly IEmployeeContractManager _manager;
