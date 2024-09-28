@@ -24,7 +24,7 @@ namespace HMS.ContractsMicroService.Application.Manager
             
         }
 
-        public async Task Delete(Guid entityId)
+        public async Task Delete(string entityId)
         {
             await _repository.DeleteAsync(entityId);
         } 
@@ -35,13 +35,13 @@ namespace HMS.ContractsMicroService.Application.Manager
             return await Task.Run(() =>workHours.FromTo<WorkHoursOutput>());
         }
 
-        public async Task<WorkHoursOutput[]> GetAll()
+        public async Task<List<WorkHoursOutput>> GetAll()
         {
             var workhours = await _repository.GetAsync();
-            return await Task.Run(() =>  workhours.FromToArray<WorkHoursOutput>());
+            return await Task.Run(() =>  workhours.FromTo<List<WorkHoursOutput>>());
         }
 
-        public async Task<WorkHoursOutput> GetById(Guid entityId)
+        public async Task<WorkHoursOutput> GetById(string entityId)
         {
             var workhours =  await _repository.GetByIdAsync(entityId);
             return await Task.Run(() => workhours.FromTo<WorkHoursOutput>());

@@ -1,19 +1,39 @@
-﻿using HMS.ContractsMicroService.Infrastructure.Messages;
+﻿using HMS.ContractsMicroService.Infrastructure.Interfaces;
+using HMS.ContractsMicroService.Infrastructure.Messages;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 
 namespace HMS.ContractsMicroService.Infrastructure.Services
 {
-    public sealed class TransactionService
+    public sealed class TransactionService : ITransaction<IMongoClient>
     {
         public TransactionService()
         {
 
         }
 
-        internal async Task Execute(DbContext context, Func<Task> action)
+        public async Task Execute(IMongoClient client, Func<Task> func)
         {
-            await HasTransactionActive(context);
+            var session = await client.StartSessionAsync();
+            try
+            {
+                await Task.Run(() =>session.StartTransaction());
+                await func();
+                await session.CommitTransactionAsync();
+            }
+            catch
+            {
+                await session.AbortTransactionAsync();
+            }
+            finally
+            {
+                await Task.Run(() => session.Dispose());
+            }
+        }
+
+        /*internal async Task ExecuteSql(DbContext context, Func<Task> action)
+        {
+            await HasTransactionActiveSql(context);
             var transaction = await context.Database.BeginTransactionAsync();
             try
             {
@@ -32,7 +52,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
             }
         }
 
-        private async Task HasTransactionActive(DbContext context)
+        private async Task HasTransactionActiveSql(DbContext context)
         {
             var transactionTask = Task.Run(async () =>
             {
@@ -44,6 +64,6 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
             var timeoutTask = Task.Delay(3000);
             if (await Task.WhenAny(transactionTask, timeoutTask) == timeoutTask)
                 throw new TimeoutException(MessageRecords.Timeout);
-        }
+        }*/
     }
 }

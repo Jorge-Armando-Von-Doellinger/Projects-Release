@@ -23,7 +23,7 @@ namespace HMS.ContractsMicroService.API.Controllers
             => Ok(await _manager.GetAll());
 
         [HttpGet("ID")]
-        public async Task<IActionResult> GetContractById(Guid ID)
+        public async Task<IActionResult> GetContractById(string ID)
         {
             return Ok(await _manager.GetById(ID));
         }
@@ -43,7 +43,7 @@ namespace HMS.ContractsMicroService.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteContract(Guid ContractID)
+        public async Task<IActionResult> DeleteContract(string ContractID)
         {
             await _manager.Delete(ContractID);
             return Accepted();

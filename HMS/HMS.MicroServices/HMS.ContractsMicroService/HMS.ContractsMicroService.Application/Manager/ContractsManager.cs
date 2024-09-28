@@ -23,33 +23,33 @@ namespace HMS.ContractsMicroService.Application.Manager
 
         public async Task Add(EmployeeContractInput input)
         {
-            if (await _workHoursManager.GetById(input.WorkHoursID) == null)
+            if (await _workHoursManager.GetById(input.WorkHoursID.ToString()) == null)
                 throw new Exception(MessageRecords.KeyNotFounded);
             var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
             await _repository.AddAsync(employeeContract);
         }
 
-        public async Task Delete(Guid entityId)
+        public async Task Delete(string entityId)
         {
             await _repository.DeleteAsync(entityId);
         }
 
-        public async Task<EmployeeContractOutput> GetById(Guid entityId)
+        public async Task<EmployeeContractOutput> GetById(string entityId)
         {
             var contract = await _repository.GetByIdAsync(entityId);
             return await Task.Run(() => contract.FromTo<EmployeeContractOutput>());
         }
 
-        public async Task<EmployeeContractOutput[]> GetAll()
+        public async Task<List<EmployeeContractOutput>> GetAll()
         {
             var contracts = await _repository.GetAsync();
             //contracts.FromTo<EmployeeContractOutput[]>();
-            return await Task.Run(() => contracts.FromToArray<EmployeeContractOutput>());
+            return await Task.Run(() => contracts.FromTo<List<EmployeeContractOutput>>());
         }
 
         public async Task Update(EmployeeContractUpdateInput input)
         {
-            if (await _workHoursManager.GetById(input.WorkHoursID) == null)
+            if (await _workHoursManager.GetById(input.WorkHoursID.ToString()) == null) // ARrumar
                 throw new Exception(MessageRecords.KeyNotFounded);
             await _repository.UpdateAsync(await Task.Run(() => (EmployeeContract) input.FromTo(typeof(EmployeeContract), typeof(EntityBase))));
         }

@@ -1,76 +1,67 @@
 ﻿using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
-using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Infrastructure.Context;
+using HMS.ContractsMicroService.Infrastructure.Interfaces;
 using HMS.ContractsMicroService.Infrastructure.Messages;
-using HMS.ContractsMicroService.Infrastructure.Services;
-using Microsoft.EntityFrameworkCore;
+using HMS.ContractsMicroService.Infrastructure.Mongo.Utilities;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.IdGenerators;
+using MongoDB.Driver;
 
 namespace HMS.ContractsMicroService.Infrastructure.Repository
 {
     public sealed class EmployeeContractRepository : IEmployeeContractRepository
     {
-        private readonly ContractContext _context;
-        private readonly TransactionService _transaction;
+        private readonly MongoContext _context;
+        private readonly IMongoCollection<EmployeeContract> _collection;
+        private readonly ITransaction<IMongoClient> _transaction;
 
-        public EmployeeContractRepository(ContractContext context, TransactionService transaction)
+        public EmployeeContractRepository(MongoContext context, ITransaction<IMongoClient> transaction)
         {
             _context = context;
+            _collection = context.GetEmployeeContractsCollection();
             _transaction = transaction;
         }
 
         public async Task AddAsync(EmployeeContract entity)
         {
-            Console.WriteLine(entity.JobTitle);
-            await _transaction.Execute(_context, async () =>
-            {   
-                await _context.Entry(entity).Context.AddAsync(entity);
-            });
-        }
-
-        public async Task DeleteAsync(Guid entityId)
-        {
-            await _transaction.Execute(_context, async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async () =>
             {
-                var contract = _context.EmployeeContract
-                .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.ID == entityId)
-                    ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
+                await _collection.InsertOneAsync(entity);
             });
         }
 
-        public async Task<EmployeeContract[]> GetAsync()
+        public async Task DeleteAsync(string entityId)
         {
-            return await _context.EmployeeContract
-                .AsNoTracking()
-                .Include(X => X.WorkHours)
-                .OrderBy(X => X.UpdatedAt)
-                .ToArrayAsync();
+            await _transaction.Execute(_context.GetMongoClient(), async () =>
+            {
+                //var filter = new FilterDefinition<EmployeeContract>().;
+                //var contract = await _collection.DeleteOne()
+            });
         }
 
-        public async Task<EmployeeContract> GetByIdAsync(Guid entityId)
+        public async Task<List<EmployeeContract>> GetAsync()
         {
-            return await _context.EmployeeContract
-                .AsNoTracking()
-                .Include(X => X.WorkHours)
-                .FirstOrDefaultAsync(c => c.ID == entityId)
-                    ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
+            var contractsCursor = await _collection.FindAsync(FilterDefinition<EmployeeContract>.Empty);
+            return await contractsCursor.ToListAsync();
+        }
+
+        public async Task<EmployeeContract> GetByIdAsync(string entityId)
+        {
+
+            var data = await _collection.FindAsync(MongoUtilities.GetFilterID<EmployeeContract>(entityId));
+            return await data.FirstOrDefaultAsync();
         }
 
         public async Task UpdateAsync(EmployeeContract entity)
         {
-            await _transaction.Execute(_context, async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async () =>
             {
-                var employeeContract = await _context.EmployeeContract.AsNoTracking()
-                .Where(x => x.ID == entity.ID)
-                .FirstOrDefaultAsync()
-                    ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
-                employeeContract.Update(entity);
-                await Task.Delay(1000);
-                Console.WriteLine(await JsonManipulation.Serialize(employeeContract));
-                Console.WriteLine(await JsonManipulation.Serialize(entity));
-                _context.EmployeeContract.Update(employeeContract);
+                var filter = MongoUtilities.GetFilterID<EmployeeContract>(entity.ID);
+                var a = _collection.ReplaceOneAsync(filter, entity);
             });
         }
+
+
     }
 }

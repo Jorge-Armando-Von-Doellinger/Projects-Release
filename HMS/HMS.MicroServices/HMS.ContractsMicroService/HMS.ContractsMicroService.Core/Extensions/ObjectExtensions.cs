@@ -5,6 +5,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
 {
     public static class ObjectExtensions
     {
+        // Publics or Internal
         public static bool HaveAPropertyDefault<TObject>(this TObject obj, out List<string> nameOfPropertiesDefault)
         {
             // TypeOf não funciona, devido ser um type object no ValidateModelAttribute
@@ -28,7 +29,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             return nameOfDefaults.Count > 0;
         }
 
-        public static TObject[] FromToArray<TObject>(this object[] objArray)
+        public static TObject[] FromTo<TObject>(this object[] objArray)
         {
             var targetItemType = typeof(TObject);
             var target = Array.CreateInstance(targetItemType, objArray.Length);
@@ -50,26 +51,45 @@ namespace HMS.ContractsMicroService.Core.Extensions
                     var replaceProp = valuesToReplace.GetType().GetProperty(property.Name);
                     if (replaceProp == null) return;
                     var valueIsValid = replaceProp.TryGetValue(valuesToReplace, out var result);
+
                     if(valueIsValid == false) return;
                     property.SetValue(obj, result);
                 });
         }
 
-        private static void CustomForEach<T>(this T[] array, Action<T, int> action)
+        public static TTarget FromTo<TTarget>(this object obj) where TTarget : new()
         {
-            try
-            {
-                for (int i = 0; i < array.Length ; i++)
-                {
-                    action(array[i], i);
-                }
+            if (obj == null) throw new ArgumentNullException(nameof(obj));
+            var objType = obj.GetType();
+            var targetType = typeof(TTarget);
+            var target = (TTarget)obj.FromTo(targetType);
+            if (target == null)
+                throw new ArgumentNullException("Erro null");
+            return target;
 
-            }
-            catch
-            {
-                throw;
-            }
         }
+        
+        public static object FromTo(this object obj, Type type, Type? typeToIgnore = null)
+        {
+            var target = Activator.CreateInstance(type)
+                ?? throw new Exception("Null");
+            obj .GetType() //
+                .GetProperties()
+                .CustomForEach((prop, index) =>
+            {
+                var propTarget = type.GetProperty(prop.Name);
+                if (propTarget == null) return;
+                if (propTarget.DeclaringType == typeToIgnore) return;
+                var valueIsValid = prop.TryGetValue(obj, out var result);
+                if (valueIsValid == false) return;
+                if (prop.PropertyType != propTarget.PropertyType) 
+                    result = ChangeType(result, propTarget.PropertyType) ?? result;
+                propTarget.SetValue(target, result);
+            });
+            return target;
+        }
+
+        // Privates
 
         private static void CustomForEach<T>(this T[] array, Action<T, int, CancellationTokenSource> action)
         {
@@ -93,37 +113,23 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 throw;
             }
         }
-        public static TTarget FromTo<TTarget>(this object obj) where TTarget : new()
-        {
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
-            var objType = obj.GetType();
-            var targetType = typeof(TTarget);
-            var target = (TTarget)obj.FromTo(targetType);
-            if (target == null)
-                throw new ArgumentNullException("Erro null");
-            return target;
-
-        }
-        public static object FromTo(this object obj, Type type, Type? typeToIgnore = null)
-        {
-            var target = Activator.CreateInstance(type)
-                ?? throw new Exception("Null");
-            obj .GetType() //
-                .GetProperties()
-                .CustomForEach((prop, index) =>
-            {
-                var propTarget = type.GetProperty(prop.Name);
-                if (propTarget == null) return;
-                if (propTarget.DeclaringType == typeToIgnore) return;
-                var valueIsValid = prop.TryGetValue(obj, out var result);
-                if (valueIsValid == false) return;
-                if (prop.PropertyType != propTarget.PropertyType) 
-                    result = ChangeType(result, propTarget.PropertyType) ?? result;
-                propTarget.SetValue(target, result);
-            });
-            return target;
-        }
         
+        private static void CustomForEach<T>(this T[] array, Action<T, int> action)
+        {
+            try
+            {
+                for (int i = 0; i < array.Length ; i++)
+                {
+                    action(array[i], i);
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         private static object ChangeType(this object obj, Type destine)
         {
             if(destine.IsEnum) return obj.ChangeTypeToEnum(destine);

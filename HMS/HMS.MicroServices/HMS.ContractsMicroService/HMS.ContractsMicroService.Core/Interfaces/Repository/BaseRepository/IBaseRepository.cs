@@ -6,8 +6,8 @@ namespace HMS.ContractsMicroService.Core.Interfaces.Repository.BaseRepository
     {
         Task AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);
-        Task DeleteAsync(Guid entityId);
-        Task<TEntity> GetByIdAsync(Guid entityId);
-        Task<TEntity[]> GetAsync();
+        Task DeleteAsync(string entityId);
+        Task<TEntity> GetByIdAsync(string entityId);
+        Task<List<TEntity>> GetAsync();
     }
 }

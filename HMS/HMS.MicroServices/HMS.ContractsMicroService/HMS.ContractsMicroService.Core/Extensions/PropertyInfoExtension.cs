@@ -20,7 +20,8 @@ namespace HMS.ContractsMicroService.Core.Extensions
                     null => false,
                     not null => Equals(value, GetDefaultValue(propertyInfo)) || // Verifica se é igual, caso seja um tipo de valor (int,string, etc)
                     ( (propertyInfo.PropertyType.IsList() ) && 
-                    ListExtensions.SequenceEquals((IList)value, (IList)GetDefaultValue(propertyInfo)))
+                    ListExtensions.SequenceEquals((IList)value, (IList)GetDefaultValue(propertyInfo))),
+                    //not null => false
                     // Verifica se é Enumeravel e se são iguais
                 };
                 if(_ == true) return false;
