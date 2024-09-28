@@ -50,7 +50,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
                     var replaceProp = valuesToReplace.GetType().GetProperty(property.Name);
                     if (replaceProp == null) return;
                     var valueIsValid = replaceProp.TryGetValue(valuesToReplace, out var result);
-                    Console.WriteLine(valueIsValid);
                     if(valueIsValid == false) return;
                     property.SetValue(obj, result);
                 });

@@ -25,7 +25,18 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 return default;
             }
         }
-
+        internal static bool SequenceEquals(this IList list1, IList list2)
+        {
+            if(list1.Count != list2.Count) return false;
+            if(list1 == null || list2 == null) return false;
+                // Se passar por todos e todos forem iguais, retorno true
+            for( int i = 0; i < list1.Count; i++ )
+            {
+                if (Equals(list1[i], list2[i]) == false)
+                    return false;
+            }
+            return true;
+        }
 
     }
 }

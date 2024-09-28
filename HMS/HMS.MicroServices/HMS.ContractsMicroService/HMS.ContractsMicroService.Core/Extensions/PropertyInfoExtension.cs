@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HMS.ContractsMicroService.Core.Enums;
+using System.Collections;
 using System.Reflection;
 
 namespace HMS.ContractsMicroService.Core.Extensions
@@ -14,7 +15,21 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 if(propertyInfo.CanWrite == false) return false;
                 var value = propertyInfo.GetValue(obj);
                 if (value == null) return false;
-                if(value == GetDefaultValue(propertyInfo)) return false;
+                var _ = value switch
+                {
+                    null => false,
+                    not null => Equals(value, GetDefaultValue(propertyInfo)) || // Verifica se é igual, caso seja um tipo de valor (int,string, etc)
+                    ( (propertyInfo.PropertyType.IsList() ) && 
+                    ListExtensions.SequenceEquals((IList)value, (IList)GetDefaultValue(propertyInfo)))
+                    // Verifica se é Enumeravel e se são iguais
+                };
+                if(_ == true) return false;
+/*                if(Equals(value, GetDefaultValue(propertyInfo)))
+                    return false;
+                if(propertyInfo.PropertyType.IsEnumerable())
+                    if(ListExtensions.SequenceEquals((IList) value, (IList) GetDefaultValue(propertyInfo)))
+                        return false;*/
+
                 result = value;
                 return true;
             }
@@ -28,6 +43,8 @@ namespace HMS.ContractsMicroService.Core.Extensions
         {
             if (prop.CanRead)
                 return prop.GetValue(Activator.CreateInstance(prop.DeclaringType));
+            Console.WriteLine(prop.DeclaringType + "    type");
+            Console.WriteLine("\n Null");
             return null;
         }
     }
