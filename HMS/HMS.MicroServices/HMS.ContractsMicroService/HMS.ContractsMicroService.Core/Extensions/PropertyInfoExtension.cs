@@ -15,24 +15,21 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 if(propertyInfo.CanWrite == false) return false;
                 var value = propertyInfo.GetValue(obj);
                 if (value == null) return false;
-                var _ = value switch
+
+                var valueIsEqualsOrDefault = Equals(value, GetDefaultValue(propertyInfo)) 
+                    || value.GetType().IsEnum == false;
+                var valueIsListAndDefault = propertyInfo.PropertyType.IsList() &&
+                    ListExtensions.SequenceEquals((IList)value, (IList) GetDefaultValue(propertyInfo));
+                
+                var isValid = value switch
                 {
                     null => false,
-                    not null => Equals(value, GetDefaultValue(propertyInfo)) || // Verifica se é igual, caso seja um tipo de valor (int,string, etc)
-                    ( (propertyInfo.PropertyType.IsList() ) && 
-                    ListExtensions.SequenceEquals((IList)value, (IList)GetDefaultValue(propertyInfo))),
-                    //not null => false
-                    // Verifica se é Enumeravel e se são iguais
+                    not null => valueIsEqualsOrDefault == false || valueIsListAndDefault == false
+                    // not null => verifica se são default
+                    // se forem Enums, serão ignorados, mas se forem List<Enum>, serão lidos e conferidos!
                 };
-                if(_ == true) return false;
-/*                if(Equals(value, GetDefaultValue(propertyInfo)))
-                    return false;
-                if(propertyInfo.PropertyType.IsEnumerable())
-                    if(ListExtensions.SequenceEquals((IList) value, (IList) GetDefaultValue(propertyInfo)))
-                        return false;*/
-
-                result = value;
-                return true;
+                result = isValid ? value : null;
+                return isValid;
             }
             catch
             {

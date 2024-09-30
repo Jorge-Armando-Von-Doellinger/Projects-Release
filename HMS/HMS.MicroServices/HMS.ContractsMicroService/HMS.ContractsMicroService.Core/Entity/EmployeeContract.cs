@@ -25,6 +25,7 @@ namespace HMS.ContractsMicroService.Core.Entity
 
         public void Update(EmployeeContract valuesToReplace)
         {
+            
             base.Update();
             this.Replacer(valuesToReplace);
         }

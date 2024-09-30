@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics.Metrics;
 using System.Reflection;
 
 namespace HMS.ContractsMicroService.Core.Extensions
@@ -59,12 +60,11 @@ namespace HMS.ContractsMicroService.Core.Extensions
 
         public static TTarget FromTo<TTarget>(this object obj) where TTarget : new()
         {
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
+            ArgumentNullException.ThrowIfNull(obj);
             var objType = obj.GetType();
             var targetType = typeof(TTarget);
             var target = (TTarget)obj.FromTo(targetType);
-            if (target == null)
-                throw new ArgumentNullException("Erro null");
+            ArgumentNullException.ThrowIfNull(target);
             return target;
 
         }
@@ -73,19 +73,17 @@ namespace HMS.ContractsMicroService.Core.Extensions
         {
             var target = Activator.CreateInstance(type)
                 ?? throw new Exception("Null");
-            obj .GetType() //
-                .GetProperties()
-                .CustomForEach((prop, index) =>
+            foreach(var prop in obj.GetType().GetProperties())
             {
                 var propTarget = type.GetProperty(prop.Name);
-                if (propTarget == null) return;
-                if (propTarget.DeclaringType == typeToIgnore) return;
+                if (propTarget == null) continue;
+                if (propTarget.DeclaringType == typeToIgnore) continue;
                 var valueIsValid = prop.TryGetValue(obj, out var result);
-                if (valueIsValid == false) return;
-                if (prop.PropertyType != propTarget.PropertyType) 
-                    result = ChangeType(result, propTarget.PropertyType) ?? result;
+                if (valueIsValid == false) continue;
+                if (prop.PropertyType != propTarget.PropertyType)
+                    result = ChangeType(result, propTarget.PropertyType, out var result1) ? result1 : result;
                 propTarget.SetValue(target, result);
-            });
+            };
             return target;
         }
 
@@ -130,14 +128,16 @@ namespace HMS.ContractsMicroService.Core.Extensions
             }
         }
 
-        private static object ChangeType(this object obj, Type destine)
+        private static bool ChangeType(this object obj, Type destine, out object result)
         {
-            if(destine.IsEnum) return obj.ChangeTypeToEnum(destine);
-            else if (obj.GetType().IsNumberEnumerable() && destine.IsEnumEnumerable()) return obj.ChangeListToListEnum(destine);
-            else if (obj.GetType().IsEnum && destine == typeof(string)) return obj.ToString();
-            else if (obj.GetType().IsEnumEnumerable() && destine == typeof(string)) return obj.ListEnumFromString();
-            else if(obj.GetType().IsClass && destine.IsClass) return obj.FromTo(destine);
-            return null;
+            result = null;
+            if(destine.IsEnum) result = obj.ChangeTypeToEnum(destine);
+            else if (obj.GetType().IsNumberEnumerable() && destine.IsEnumEnumerable()) result = obj.ChangeListToListEnum(destine);
+            else if (obj.GetType().IsEnum && destine == typeof(string)) result = obj.ToString();
+            else if (obj.GetType().IsEnumEnumerable() && destine == typeof(string)) result = obj.ListEnumFromString();
+            else if(obj.GetType().IsClass && destine.IsClass) result = obj.FromTo(destine);
+            else return false;
+            return true;
 
         }
 

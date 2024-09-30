@@ -19,10 +19,10 @@ namespace HMS.ContractsMicroService.API.Controllers
             _manager = manager;
         }
         [HttpGet]
-        public async Task<IActionResult> GetWorkHours()
+           public async Task<IActionResult> GetWorkHours()
             => Ok(await _manager.GetAll());
 
-        [HttpGet("ID")]
+        [HttpGet("{ID}")]
         public async Task<IActionResult> GetByID(string ID)
             => Ok(await _manager.GetById(ID));
 
@@ -37,6 +37,13 @@ namespace HMS.ContractsMicroService.API.Controllers
         public async Task<IActionResult> Update(WorkHoursUpdateInput input)
         {
             await _manager.Update(input);
+            return Accepted();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string ID)
+        {
+            await _manager.Delete(ID);
             return Accepted();
         }
     }

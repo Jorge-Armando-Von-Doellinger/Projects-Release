@@ -25,6 +25,7 @@ namespace HMS.ContractsMicroService.Application.Manager
         {
             if (await _workHoursManager.GetById(input.WorkHoursID) == null)
                 throw new Exception(MessageRecords.KeyNotFounded);
+
             var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
             await _repository.AddAsync(employeeContract);
         }

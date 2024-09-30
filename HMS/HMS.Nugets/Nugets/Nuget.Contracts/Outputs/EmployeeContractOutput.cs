@@ -11,7 +11,7 @@
             ContractType = string.Empty;
             EmploymentStatus = string.Empty;
         }
-        public Guid ID { get; set; }
+        public string ID { get; set; }
         public WorkHoursOutput WorkHours { get; set; }
         public DateTime StartDate { get; set; }
         public string JobTitle { get; set; }// Simucação de um banco de dados dedicado

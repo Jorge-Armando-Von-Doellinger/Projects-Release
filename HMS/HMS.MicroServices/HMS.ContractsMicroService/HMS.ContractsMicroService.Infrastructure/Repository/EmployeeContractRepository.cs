@@ -2,8 +2,11 @@
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Infrastructure.Context;
 using HMS.ContractsMicroService.Infrastructure.Interfaces;
+using HMS.ContractsMicroService.Infrastructure.Messages;
 using HMS.ContractsMicroService.Infrastructure.Mongo.Utilities;
 using MongoDB.Driver;
+using SharpCompress.Common;
+using System.ComponentModel;
 
 namespace HMS.ContractsMicroService.Infrastructure.Repository
 {
@@ -20,9 +23,15 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             _transaction = transaction;
         }
 
+        private async Task<bool> IdAlredyExist(string ID)
+        {
+            var doc = await _collection.FindAsync(MongoUtilities.GetFilterID<EmployeeContract>(ID));
+            return await doc.FirstOrDefaultAsync() != null;
+        }
+
         public async Task AddAsync(EmployeeContract entity)
         {
-            if(await GetByIdAsync(entity.ID) != null)
+            if(await IdAlredyExist(entity.ID))
                 entity.RecreateID();
             await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
@@ -46,17 +55,19 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 
         public async Task<EmployeeContract> GetByIdAsync(string entityId)
         {
-
             var data = await _collection.FindAsync(MongoUtilities.EmployeeContractFilterID(entityId));
-            return await data.FirstOrDefaultAsync();
+            return await data.FirstOrDefaultAsync()
+                ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
         }
 
         public async Task UpdateAsync(EmployeeContract entity)
         {
+            var contract = await GetByIdAsync(entity.ID);
+            contract.Update(entity);
             await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
-                var filter = MongoUtilities.EmployeeContractFilterID(entity.ID);
-                await _collection.ReplaceOneAsync(session, filter, entity);
+                var filter = MongoUtilities.EmployeeContractFilterID(contract.ID);
+                await _collection.ReplaceOneAsync(session, filter, contract);
             });
         }
 

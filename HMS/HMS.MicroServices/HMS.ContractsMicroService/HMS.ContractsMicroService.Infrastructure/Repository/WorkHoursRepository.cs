@@ -6,6 +6,7 @@ using HMS.ContractsMicroService.Infrastructure.Messages;
 using HMS.ContractsMicroService.Infrastructure.Mongo.Utilities;
 using HMS.ContractsMicroService.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Linq.Expressions;
 
@@ -26,10 +27,8 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task AddAsync(WorkHours entity)
         {
 
-            var docs = await _collection.FindAsync(MongoUtilities.GetFilterID<WorkHours>(entity.ID));
-            if (await docs.AnyAsync())
+            if (await IdAlredyExist(entity.ID))
                 entity.RecreateID();
-            Console.WriteLine(entity.ID);
             await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
                 await _collection.InsertOneAsync(session, entity);
@@ -57,6 +56,12 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             return workHoursFiltered.FirstOrDefault();*/
         }
 
+        private async Task<bool> IdAlredyExist(string ID)
+        {
+            var doc = await _collection.FindAsync(MongoUtilities.WorkHoursFilterID(ID));
+            return await doc.FirstOrDefaultAsync() != null;
+        }
+
         public async Task<List<WorkHours>> GetAsync()
         {
             var data = await _collection.FindAsync(FilterDefinition<WorkHours>.Empty);
@@ -73,6 +78,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task UpdateAsync(WorkHours entity)
         {
             var workHours = await GetByIdAsync(entity.ID);
+            workHours.Update(entity);
             await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
                 workHours.Update(entity);

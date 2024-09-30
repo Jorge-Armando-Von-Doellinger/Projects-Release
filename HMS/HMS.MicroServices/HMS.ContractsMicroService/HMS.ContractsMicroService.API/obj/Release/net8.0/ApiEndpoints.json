@@ -50,7 +50,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "ContractID",
+        "Name": "ID",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -60,7 +60,7 @@
   {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
     "Method": "GetContractById",
-    "RelativePath": "api/Contract/ID",
+    "RelativePath": "api/Contract/{ID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -68,7 +68,7 @@
       {
         "Name": "ID",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -117,9 +117,9 @@
   },
   {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
-    "Method": "GetByID",
-    "RelativePath": "api/WorkHours/ID",
-    "HttpMethod": "GET",
+    "Method": "Delete",
+    "RelativePath": "api/WorkHours",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -127,6 +127,22 @@
         "Name": "ID",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
+    "Method": "GetByID",
+    "RelativePath": "api/WorkHours/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
