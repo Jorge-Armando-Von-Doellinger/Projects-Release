@@ -30,18 +30,17 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             if (await docs.AnyAsync())
                 entity.RecreateID();
             Console.WriteLine(entity.ID);
-            await _transaction.Execute(_context.GetMongoClient(), async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
-                await _collection.InsertOneAsync(entity);
-                Console.WriteLine("adwasdw");
+                await _collection.InsertOneAsync(session, entity);
             });
         }
 
         public async Task DeleteAsync(string entityId)
         {
-            await _transaction.Execute(_context.GetMongoClient(), async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
-                await _collection.DeleteOneAsync(MongoUtilities.WorkHoursFilterID(entityId));
+                await _collection.DeleteOneAsync(session, MongoUtilities.WorkHoursFilterID(entityId));
             });
         }
 
@@ -74,10 +73,10 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task UpdateAsync(WorkHours entity)
         {
             var workHours = await GetByIdAsync(entity.ID);
-            await _transaction.Execute(_context.GetMongoClient(), async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
                 workHours.Update(entity);
-                await _collection.ReplaceOneAsync(MongoUtilities.WorkHoursFilterID(entity.ID), workHours);
+                await _collection.ReplaceOneAsync(session, MongoUtilities.WorkHoursFilterID(entity.ID), workHours);
             });
         }
     }

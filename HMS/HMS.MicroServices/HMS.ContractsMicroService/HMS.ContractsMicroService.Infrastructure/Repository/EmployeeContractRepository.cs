@@ -24,17 +24,17 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         {
             if(await GetByIdAsync(entity.ID) != null)
                 entity.RecreateID();
-            await _transaction.Execute(_context.GetMongoClient(), async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
-                await _collection.InsertOneAsync(entity);
+                await _collection.InsertOneAsync(session, entity);
             });
         }
 
         public async Task DeleteAsync(string entityId)
         {
-            await _transaction.Execute(_context.GetMongoClient(), async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
-                await _collection.DeleteOneAsync(MongoUtilities.EmployeeContractFilterID(entityId));
+                await _collection.DeleteOneAsync(session, MongoUtilities.EmployeeContractFilterID(entityId));
             });
         }
 
@@ -53,10 +53,10 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 
         public async Task UpdateAsync(EmployeeContract entity)
         {
-            await _transaction.Execute(_context.GetMongoClient(), async () =>
+            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
             {
                 var filter = MongoUtilities.EmployeeContractFilterID(entity.ID);
-                await _collection.ReplaceOneAsync(filter, entity);
+                await _collection.ReplaceOneAsync(session, filter, entity);
             });
         }
 

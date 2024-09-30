@@ -12,18 +12,18 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
 
         }
 
-        public async Task Execute(IMongoClient client, Func<Task> func)
+        public async Task Execute(IMongoClient client, Func<IClientSessionHandle, Task> func)
         {
             var session = await client.StartSessionAsync();
             try
             {
                 session.StartTransaction();
-                await func();
+                await func(session);
                 await session.CommitTransactionAsync();
             }
             catch
             {
-                if(session.IsInTransaction)
+                if (session.IsInTransaction)
                     await session.AbortTransactionAsync();
                 throw;
             }
