@@ -1,7 +1,7 @@
 ﻿namespace Nuget.Contracts.Inputs
 {
-    public sealed class WorkHoursUpdateInput
+    public sealed class WorkHoursUpdateInput : WorkHoursInput
     {
-        public Guid ID { get; set; }
+        public string ID { get; set; } = string.Empty;
     }
 }

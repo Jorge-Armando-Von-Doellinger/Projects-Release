@@ -17,17 +17,19 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
             var session = await client.StartSessionAsync();
             try
             {
-                await Task.Run(() =>session.StartTransaction());
+                session.StartTransaction();
                 await func();
                 await session.CommitTransactionAsync();
             }
             catch
             {
-                await session.AbortTransactionAsync();
+                if(session.IsInTransaction)
+                    await session.AbortTransactionAsync();
+                throw;
             }
             finally
             {
-                await Task.Run(() => session.Dispose());
+                session.Dispose();
             }
         }
 

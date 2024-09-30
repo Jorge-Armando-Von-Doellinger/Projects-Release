@@ -1,4 +1,5 @@
 ﻿using HMS.ContractsMicroService.Core.Entity;
+using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Infrastructure.Messages;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -14,11 +15,24 @@ namespace HMS.ContractsMicroService.Infrastructure.Mongo.Utilities
             return ID;
         }
 
-        internal static FilterDefinition<TEntity> GetFilterID<TEntity>(string entityId)
+        internal static FilterDefinition<T> GetFilterID<T>(string entityId)
         {
-            return Builders<TEntity>
+            return Builders<T>
                 .Filter
-                .Eq("_id", GetObjectId(entityId));
+                .Eq("_id", entityId);
+        }
+
+        internal static FilterDefinition<WorkHours> WorkHoursFilterID(string entityId)
+        {
+            return Builders<WorkHours>
+                .Filter
+                .Eq( x => x.ID, entityId);
+        }
+        internal static FilterDefinition<EmployeeContract> EmployeeContractFilterID(string entityId)
+        {
+            return Builders<EmployeeContract>
+                .Filter
+                .Eq(x => x.ID, entityId);
         }
     }
 }

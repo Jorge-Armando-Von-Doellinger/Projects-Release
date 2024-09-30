@@ -17,7 +17,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         public short HourlySalaryInDollar { get; set; } // Praticamente ninguem recebe +32k/hora
         public WorkHours WorkHours { get; set; } // Ex: 08:00-Inicio, 11:00-Almoco, 16h-Saida ; Seria melhor criar um banco de dados, talvez
         [Required]
-        public Guid WorkHoursID { get; set; } 
+        public string WorkHoursID { get; set; } = string.Empty;
         public ContractTypeEnum ContractType { get; set; } // Enum
         public sbyte ProbationPeriodInMonths { get; set; }
         public EmploymentStatusEnum EmploymentStatus { get; set; } // Enum

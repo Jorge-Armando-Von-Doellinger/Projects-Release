@@ -1,4 +1,5 @@
 ﻿using HMS.ContractsMicroService.Core.Entity;
+using HMS.ContractsMicroService.Core.Entity.Base;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
@@ -15,9 +16,17 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
 
         private void RegisterEntityId()
         {
+            if (BsonClassMap.IsClassMapRegistered(typeof(EmployeeContract)) || BsonClassMap.IsClassMapRegistered(typeof(EntityBaseWithId)))
+                return;
             BsonClassMap.RegisterClassMap<EmployeeContract>(cm =>
             {
                 cm.AutoMap();
+                cm.SetIgnoreExtraElements(true);
+            });
+            BsonClassMap.RegisterClassMap<EntityBaseWithId>(cm =>
+            {
+                cm.AutoMap();
+                cm.SetIgnoreExtraElements(true);
                 cm.MapIdProperty(x => x.ID);
             });
         }

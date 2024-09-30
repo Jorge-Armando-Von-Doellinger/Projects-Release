@@ -23,7 +23,7 @@ namespace HMS.ContractsMicroService.Application.Manager
 
         public async Task Add(EmployeeContractInput input)
         {
-            if (await _workHoursManager.GetById(input.WorkHoursID.ToString()) == null)
+            if (await _workHoursManager.GetById(input.WorkHoursID) == null)
                 throw new Exception(MessageRecords.KeyNotFounded);
             var employeeContract = await Task.Run(() => input.FromTo<EmployeeContract>());
             await _repository.AddAsync(employeeContract);
@@ -43,13 +43,12 @@ namespace HMS.ContractsMicroService.Application.Manager
         public async Task<List<EmployeeContractOutput>> GetAll()
         {
             var contracts = await _repository.GetAsync();
-            //contracts.FromTo<EmployeeContractOutput[]>();
             return await Task.Run(() => contracts.FromTo<List<EmployeeContractOutput>>());
         }
 
         public async Task Update(EmployeeContractUpdateInput input)
         {
-            if (await _workHoursManager.GetById(input.WorkHoursID.ToString()) == null) // ARrumar
+            if (await _workHoursManager.GetById(input.WorkHoursID) == null) // ARrumar
                 throw new Exception(MessageRecords.KeyNotFounded);
             await _repository.UpdateAsync(await Task.Run(() => (EmployeeContract) input.FromTo(typeof(EmployeeContract), typeof(EntityBase))));
         }

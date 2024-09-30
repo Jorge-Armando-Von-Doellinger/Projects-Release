@@ -51,7 +51,7 @@
     "Parameters": [
       {
         "Name": "ContractID",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -67,7 +67,7 @@
     "Parameters": [
       {
         "Name": "ID",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -125,7 +125,7 @@
     "Parameters": [
       {
         "Name": "ID",
-        "Type": "System.Guid",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

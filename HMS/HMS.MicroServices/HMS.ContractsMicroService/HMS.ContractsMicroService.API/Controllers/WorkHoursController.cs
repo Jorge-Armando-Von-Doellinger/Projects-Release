@@ -8,8 +8,8 @@ namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/WorkHours")]
     [ApiController]
-    [ValidateModel]
-    [HandlerExceptionFilter]
+    //[ValidateModel]
+    //[HandlerExceptionFilter]
     public class WorkHoursController : ControllerBase
     {
         private readonly IWorkHoursManager _manager;
@@ -23,7 +23,7 @@ namespace HMS.ContractsMicroService.API.Controllers
             => Ok(await _manager.GetAll());
 
         [HttpGet("ID")]
-        public async Task<IActionResult> GetByID(Guid ID)
+        public async Task<IActionResult> GetByID(string ID)
             => Ok(await _manager.GetById(ID));
 
         [HttpPost]

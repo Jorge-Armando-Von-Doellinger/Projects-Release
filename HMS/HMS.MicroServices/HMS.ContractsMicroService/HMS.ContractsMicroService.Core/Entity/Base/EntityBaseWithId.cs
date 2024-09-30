@@ -2,6 +2,9 @@
 {
     public class EntityBaseWithId : EntityBase
     {
-        public string ID { get; set; } = string.Empty;
+        public string ID { get; set; } = "Guid.NewGuid().ToString()";
+
+        public void RecreateID()
+            => ID = Guid.NewGuid().ToString();
     }
 }

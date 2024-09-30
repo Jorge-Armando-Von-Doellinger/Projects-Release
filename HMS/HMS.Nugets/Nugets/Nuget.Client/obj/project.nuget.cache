@@ -3,6 +3,8 @@
   "dgSpecHash": "g1FnJ24NHnA=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.Client\\Nuget.Client.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.messagingutilities\\1.0.9\\nuget.messagingutilities.1.0.9.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -18,10 +18,7 @@ namespace HMS.ContractsMicroService.Application.Manager
         }
         public async Task Add(WorkHoursInput entity)
         {
-            var existingHourst = await FindByWorkHours(entity);
-            if (existingHourst == null)
-                await _repository.AddAsync(await Task.Run(() => entity.FromTo<WorkHours>()));
-            
+            await _repository.AddAsync(await Task.Run(() => entity.FromTo<WorkHours>()));
         }
 
         public async Task Delete(string entityId)
@@ -32,7 +29,7 @@ namespace HMS.ContractsMicroService.Application.Manager
         public async Task<WorkHoursOutput> FindByWorkHours(WorkHoursInput input)
         {
             var workHours =  await _repository.FindWorkHours(await Task.Run(() => input.FromTo<WorkHours>()));
-            return await Task.Run(() =>workHours.FromTo<WorkHoursOutput>());
+            return await Task.Run(() => workHours.FromTo<WorkHoursOutput>());
         }
 
         public async Task<List<WorkHoursOutput>> GetAll()

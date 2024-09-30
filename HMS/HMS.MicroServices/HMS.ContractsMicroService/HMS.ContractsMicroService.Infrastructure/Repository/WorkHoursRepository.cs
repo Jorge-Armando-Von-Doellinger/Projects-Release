@@ -7,6 +7,7 @@ using HMS.ContractsMicroService.Infrastructure.Mongo.Utilities;
 using HMS.ContractsMicroService.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
+using System.Linq.Expressions;
 
 namespace HMS.ContractsMicroService.Infrastructure.Repository
 {
@@ -19,14 +20,20 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public WorkHoursRepository(MongoContext context, ITransaction<IMongoClient> transaction)
         {
             _context = context;
-            var a = context.GetEmployeeContractsCollection();
+            _collection = context.GetWorkHoursCollection();
             _transaction = transaction;
         }
         public async Task AddAsync(WorkHours entity)
         {
+
+            var docs = await _collection.FindAsync(MongoUtilities.GetFilterID<WorkHours>(entity.ID));
+            if (await docs.AnyAsync())
+                entity.RecreateID();
+            Console.WriteLine(entity.ID);
             await _transaction.Execute(_context.GetMongoClient(), async () =>
             {
                 await _collection.InsertOneAsync(entity);
+                Console.WriteLine("adwasdw");
             });
         }
 
@@ -34,20 +41,21 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         {
             await _transaction.Execute(_context.GetMongoClient(), async () =>
             {
-                await _collection.DeleteOneAsync(MongoUtilities.GetFilterID<WorkHours>(entityId));
+                await _collection.DeleteOneAsync(MongoUtilities.WorkHoursFilterID(entityId));
             });
         }
 
         public async Task<WorkHours> FindWorkHours(WorkHours workHours)
         {
 
-            var workHoursFiltered = await _context.WorkHours
+            return default;
+            /*var workHoursFiltered = await _context.WorkHours
                 .Where(x => x.EntryTime == workHours.EntryTime &&
                                         x.IntervalStartTime == workHours.IntervalStartTime &&
                                         x.IntervalEndTime == workHours.IntervalEndTime &&
                                         x.ExitTime == workHours.ExitTime)
                 .ToListAsync();
-            return workHoursFiltered.FirstOrDefault();
+            return workHoursFiltered.FirstOrDefault();*/
         }
 
         public async Task<List<WorkHours>> GetAsync()
@@ -58,7 +66,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 
         public async Task<WorkHours> GetByIdAsync(string entityId)
         {
-            var data = await _collection.FindAsync(MongoUtilities.GetFilterID<WorkHours>(entityId));
+            var data = await _collection.FindAsync(MongoUtilities.WorkHoursFilterID(entityId));
             return await data.FirstOrDefaultAsync()
                 ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
         }
@@ -69,7 +77,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             await _transaction.Execute(_context.GetMongoClient(), async () =>
             {
                 workHours.Update(entity);
-                await _collection.ReplaceOneAsync(MongoUtilities.GetFilterID<WorkHours>(entity.ID), workHours);
+                await _collection.ReplaceOneAsync(MongoUtilities.WorkHoursFilterID(entity.ID), workHours);
             });
         }
     }

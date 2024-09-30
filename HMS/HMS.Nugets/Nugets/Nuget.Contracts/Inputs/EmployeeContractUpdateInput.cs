@@ -2,6 +2,6 @@
 {
     public sealed class EmployeeContractUpdateInput : EmployeeContractInput
     {
-        public Guid ID { get; set; }
+        public string ID { get; set; }
     }
 }
