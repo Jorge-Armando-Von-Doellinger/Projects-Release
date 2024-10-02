@@ -49,7 +49,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 
         public async Task<List<EmployeeContract>> GetAsync()
         {
-            var contractsCursor = await _collection.FindAsync(FilterDefinition<EmployeeContract>.Empty);
+            var contractsCursor = await _collection.FindAsync(P => true);
             return await contractsCursor.ToListAsync();
         }
 

@@ -27,8 +27,8 @@ namespace Nuget.Client.MessagingSettings
         public string AddKey { get; }
         public string UpdateKey { get; }
         public string? GetKey { get; }
+        public string? GetByIdKey { get; }  
         public string DeleteKey { get; }
-        public string? GetByIdKey { get; }
         public string ResponseBase { get; }
         public string CurrentKey { get; set; }
     }
