@@ -1,6 +1,5 @@
 ﻿using HMS.ContractsMicroService.Infrastructure.Interfaces;
 using HMS.ContractsMicroService.Infrastructure.Messages;
-using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 
 namespace HMS.ContractsMicroService.Infrastructure.Services

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("\r\n\t\t  Feito para comunicação entre camadas e, principalmente, entre o gateway e a" +
     " aplicação!\r\n\t  ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute(" 1.0.6  +f140d1eb541323c8fa8a3466ee63ea6faee3e289")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute(" 1.0.6  +c37fc34d791e5d281b9995bc3ed58d9efdabfb2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Contracts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Contracts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.6.0")]

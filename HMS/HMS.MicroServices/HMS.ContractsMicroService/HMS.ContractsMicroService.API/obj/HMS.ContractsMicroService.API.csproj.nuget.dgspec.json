@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Nuget.Consul.UserDefinition": {
+              "target": "Package",
+              "version": "[0.0.0, )"
+            },
             "Nuget.Contracts": {
               "target": "Package",
               "version": "[1.0.6, )"

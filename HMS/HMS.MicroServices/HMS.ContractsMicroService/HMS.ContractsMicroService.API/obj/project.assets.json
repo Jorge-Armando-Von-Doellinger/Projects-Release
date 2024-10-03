@@ -248,6 +248,15 @@
           }
         }
       },
+      "Nuget.Consul.UserDefinition/0.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.Consul.UserDefinition.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.Consul.UserDefinition.dll": {}
+        }
+      },
       "Nuget.Contracts/1.0.6": {
         "type": "package",
         "compile": {
@@ -1027,6 +1036,17 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
+    "Nuget.Consul.UserDefinition/0.0.0": {
+      "sha512": "BJGmAD+Cyuaj/Rj0EOgDT84KGghmSTf6XbwEKzzklvImWJhcief1MOb7L111FYA4CEQbzOmK8wG/ug7aGC9WPA==",
+      "type": "package",
+      "path": "nuget.consul.userdefinition/0.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.Consul.UserDefinition.dll",
+        "nuget.consul.userdefinition.0.0.0.nupkg.sha512",
+        "nuget.consul.userdefinition.nuspec"
+      ]
+    },
     "Nuget.Contracts/1.0.6": {
       "sha512": "UJxaUthSNFZeGGlc5IAsx6hKpT1X1uGQb4VGxYKAh/WiTxTpbym13wOGJAsSPZinlQRYblh19CRw13Tlztzt1Q==",
       "type": "package",
@@ -1381,6 +1401,7 @@
     "net8.0": [
       "HMS.ContractsMicroService.Application >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
+      "Nuget.Consul.UserDefinition >= 0.0.0",
       "Nuget.Contracts >= 1.0.6",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -1443,6 +1464,10 @@
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[8.0.0, )"
+          },
+          "Nuget.Consul.UserDefinition": {
+            "target": "Package",
+            "version": "[0.0.0, )"
           },
           "Nuget.Contracts": {
             "target": "Package",

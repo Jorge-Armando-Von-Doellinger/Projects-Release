@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Nuget.Consul.UserDefinition</id>
+    <version>0.0.0</version>
+    <title>Nuget.Consul.UserDefinition</title>
+    <authors>Jorge Armando Von Doellinger</authors>
+    <description>Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplicação!</description>
+    <repository type="git" url="github.com/Jorge-Armaclear&#xD;&#xA;&#x9;aando-Von-Doellinger/Projects-Release" commit="c37fc34d791e5d281b9995bc3ed58d9efdabfb2f" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.UserDefinition\bin\Release\net8.0\Nuget.Consul.UserDefinition.dll" target="lib\net8.0\Nuget.Consul.UserDefinition.dll" />
+  </files>
+</package>

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("É um pacote para facilitar a comunicação entre aplicações!")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+6405da3a4e30312654266265ee93516e5e9f0d0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+c37fc34d791e5d281b9995bc3ed58d9efdabfb2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Payment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Payment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.1.0")]

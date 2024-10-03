@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Nuget.Consul.UserDefinition</Title>
+    <Version>0.0.0</Version>
+    <Authors>Jorge Armando Von Doellinger</Authors>
+    <Description>
+		    Feito para comunicação entre camadas e, principalmente, entre o gateway e a aplicação!
+    </Description>
+    <RepositoryUrl>github.com/Jorge-Armaclear
+	aando-Von-Doellinger/Projects-Release</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>

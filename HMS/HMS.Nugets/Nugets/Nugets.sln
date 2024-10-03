@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Employee", "Nuget.Emp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Payment", "Nuget.Payroll\Nuget.Payment.csproj", "{2AA3E385-B37B-46DC-A051-8BDF20FB188F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Contracts", "Nuget.Contracts\Nuget.Contracts.csproj", "{AE6FF9E7-3D21-4478-B0BB-0419B12C0D76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Contracts", "Nuget.Contracts\Nuget.Contracts.csproj", "{AE6FF9E7-3D21-4478-B0BB-0419B12C0D76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Consul.UserDefinition", "Nuget.UserDefinition\Nuget.Consul.UserDefinition.csproj", "{5910064A-3B07-4E4E-8AEF-925932D86353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{AE6FF9E7-3D21-4478-B0BB-0419B12C0D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE6FF9E7-3D21-4478-B0BB-0419B12C0D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE6FF9E7-3D21-4478-B0BB-0419B12C0D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5910064A-3B07-4E4E-8AEF-925932D86353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5910064A-3B07-4E4E-8AEF-925932D86353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5910064A-3B07-4E4E-8AEF-925932D86353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5910064A-3B07-4E4E-8AEF-925932D86353}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,6 @@ using HMS.ContractsMicroService.Infrastructure.Interfaces;
 using HMS.ContractsMicroService.Infrastructure.Messages;
 using HMS.ContractsMicroService.Infrastructure.Mongo.Utilities;
 using HMS.ContractsMicroService.Infrastructure.Services;
-using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Linq.Expressions;

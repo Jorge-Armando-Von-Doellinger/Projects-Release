@@ -15,11 +15,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("È uma resposta entre o servidor e o cliente, com um unico objetivo, ou seja, auxi" +
     "liar o receptor em caso de problemas, informar possiveis problemas, etc.")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+4c57afb5d1216f741384f72941e937a213de050d")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.3.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.3+c37fc34d791e5d281b9995bc3ed58d9efdabfb2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Response")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Response")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.3.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

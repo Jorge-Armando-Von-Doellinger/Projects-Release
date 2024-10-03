@@ -1,7 +1,9 @@
 
 using HMS.ContractsMicroService.API.Module;
 using HMS.ContractsMicroService.Application;
+using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Infrastructure;
+using Nuget.UserDefinition;
 
 namespace HMS.ContractsMicroService.API
 {
@@ -18,6 +20,10 @@ namespace HMS.ContractsMicroService.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Environment.ApplicationName = "Batata";
+            var consulDefinition = builder.Configuration.GetSection("UserDefinitions")
+                .Get<UserDefinition>();
+
             builder.Services
                 .AddApiModule()
                 .AddApplicationModule()
@@ -26,7 +32,7 @@ namespace HMS.ContractsMicroService.API
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment() || true)
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();

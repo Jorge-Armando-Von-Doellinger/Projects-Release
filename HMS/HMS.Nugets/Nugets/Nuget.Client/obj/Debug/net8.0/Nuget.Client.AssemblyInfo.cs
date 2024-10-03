@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(" É um pacote para facilitar a comunicação entre aplicações! ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+4c57afb5d1216f741384f72941e937a213de050d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+c37fc34d791e5d281b9995bc3ed58d9efdabfb2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]

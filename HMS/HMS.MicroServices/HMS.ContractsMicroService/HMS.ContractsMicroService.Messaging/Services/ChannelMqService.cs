@@ -18,7 +18,7 @@ namespace HMS.ContractsMicroService.Messaging.Messaging
             };
             var connection = factory.CreateConnection();
             _channel = connection.CreateModel();
-        }]
+        }
         internal void ConfigureResponseChannel()
         {
 
