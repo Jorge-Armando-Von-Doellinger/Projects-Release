@@ -19,6 +19,7 @@ namespace HMS.ContractsMicroService.Infrastructure
         public static IServiceCollection AddContexts(this IServiceCollection services)
         {
             services.AddScoped<MongoContext>();
+            services.AddScoped<ConsulContext>();
             return services;
         }
 

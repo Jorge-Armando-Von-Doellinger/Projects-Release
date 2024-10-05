@@ -121,6 +121,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Consul": {
+              "target": "Package",
+              "version": "[1.7.14.4, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -128,6 +132,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.29.0, )"
+            },
+            "Nuget.Settings": {
+              "target": "Package",
+              "version": "[0.0.4, )"
             }
           },
           "imports": [

@@ -13,14 +13,14 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Jorge Armando Von Doellinger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute("\r\n\t\t    Feito para comunicação entre camadas e, principalmente, entre o gateway e" +
-    " a aplicação!\r\n    ")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("\r\n\t\t    Feito para ajudar a registrar as configurações sensiveis e/ou que precisa" +
+    "m ser modificadas de forma dinamica\r\n    ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.0+c37fc34d791e5d281b9995bc3ed58d9efdabfb2f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.0+1193df2b806a6e4709c284d41a75ed2413eb5ba7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Consul.UserDefinition")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Consul.UserDefinition")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.0.0")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "github.com/Jorge-Armaclear\r\n\taando-Von-Doellinger/Projects-Release")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", " github.com/Jorge-Armando-Von-Doellinger/Projects-Release ")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 

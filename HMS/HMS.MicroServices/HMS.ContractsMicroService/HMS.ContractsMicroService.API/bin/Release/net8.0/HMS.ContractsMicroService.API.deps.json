@@ -9,9 +9,11 @@
       "HMS.ContractsMicroService.API/1.0.0": {
         "dependencies": {
           "HMS.ContractsMicroService.Application": "1.0.0",
+          "HMS.ContractsMicroService.Infrastructure": "1.0.0",
+          "HMS.ContractsMicroService.Messaging": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Nuget.Consul.UserDefinition": "0.0.0",
           "Nuget.Contracts": "1.0.6",
+          "Nuget.Settings": "0.0.4",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -37,6 +39,18 @@
           }
         }
       },
+      "Consul/1.7.14.4": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Consul.dll": {
+            "assemblyVersion": "1.7.14.4",
+            "fileVersion": "1.7.14.4"
+          }
+        }
+      },
       "DnsClient/1.6.1": {
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0"
@@ -48,7 +62,13 @@
           }
         }
       },
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {},
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
@@ -56,6 +76,7 @@
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {},
       "Microsoft.Extensions.Logging.Abstractions/2.0.0": {},
+      "Microsoft.Extensions.Primitives/8.0.0": {},
       "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.OpenApi/1.2.3": {
         "runtime": {
@@ -141,11 +162,11 @@
           }
         }
       },
-      "Nuget.Consul.UserDefinition/0.0.0": {
+      "Newtonsoft.Json/13.0.1": {
         "runtime": {
-          "lib/net8.0/Nuget.Consul.UserDefinition.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
           }
         }
       },
@@ -154,6 +175,26 @@
           "lib/net8.0/Nuget.Contracts.dll": {
             "assemblyVersion": "1.0.6.0",
             "fileVersion": "1.0.6.0"
+          }
+        }
+      },
+      "Nuget.Settings/0.0.4": {
+        "runtime": {
+          "lib/net8.0/Nuget.Settings.dll": {
+            "assemblyVersion": "0.0.4.0",
+            "fileVersion": "0.0.4.0"
+          }
+        }
+      },
+      "RabbitMQ.Client/6.8.1": {
+        "dependencies": {
+          "System.Memory": "4.5.5",
+          "System.Threading.Channels": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.8.1.0"
           }
         }
       },
@@ -221,6 +262,7 @@
         }
       },
       "System.Security.Principal.Windows/5.0.0": {},
+      "System.Threading.Channels/7.0.0": {},
       "ZstdSharp.Port/0.7.3": {
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {
@@ -253,12 +295,29 @@
       },
       "HMS.ContractsMicroService.Infrastructure/1.0.0": {
         "dependencies": {
+          "Consul": "1.7.14.4",
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "MongoDB.Driver": "2.29.0"
+          "MongoDB.Driver": "2.29.0",
+          "Nuget.Settings": "0.0.4"
         },
         "runtime": {
           "HMS.ContractsMicroService.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "HMS.ContractsMicroService.Messaging/1.0.0": {
+        "dependencies": {
+          "HMS.ContractsMicroService.Core": "1.0.0",
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Nuget.Settings": "0.0.4",
+          "RabbitMQ.Client": "6.8.1"
+        },
+        "runtime": {
+          "HMS.ContractsMicroService.Messaging.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -286,6 +345,13 @@
       "path": "awssdk.securitytoken/3.7.100.14",
       "hashPath": "awssdk.securitytoken.3.7.100.14.nupkg.sha512"
     },
+    "Consul/1.7.14.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0+vCXo9I0sSJJfFafBN1VGtu/Ya1Sw26fmmGDX3TdYZRq7ScXjZC8tvMIcrxNpxwyWN+e7sxn/aZ9XiZHS4LCw==",
+      "path": "consul/1.7.14.4",
+      "hashPath": "consul.1.7.14.4.nupkg.sha512"
+    },
     "DnsClient/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -293,12 +359,26 @@
       "path": "dnsclient/1.6.1",
       "hashPath": "dnsclient.1.6.1.nupkg.sha512"
     },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Ckb5EDBUNJdFWyajfXzUIMRkhf52fHZOQuuZg/oiu8y7zDCVwD0iHhew6MnThjHmevanpxL3f5ci2TtHQEN6bw==",
       "path": "microsoft.extensions.apidescription.server/6.0.5",
       "hashPath": "microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3KuSxeHoNYdxVYfg2IRZCThcrlJ1XJqIXkAWikCsbm5C/bCjv7G0WoKDyuR98Q+T607QT2Zl5GsbGRkENcV2yQ==",
+      "path": "microsoft.extensions.caching.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/8.0.0": {
       "type": "package",
@@ -320,6 +400,13 @@
       "sha512": "sha512-6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
       "path": "microsoft.extensions.logging.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
+      "path": "microsoft.extensions.primitives/8.0.0",
+      "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "type": "package",
@@ -370,12 +457,12 @@
       "path": "mongodb.libmongocrypt/1.12.0",
       "hashPath": "mongodb.libmongocrypt.1.12.0.nupkg.sha512"
     },
-    "Nuget.Consul.UserDefinition/0.0.0": {
+    "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BJGmAD+Cyuaj/Rj0EOgDT84KGghmSTf6XbwEKzzklvImWJhcief1MOb7L111FYA4CEQbzOmK8wG/ug7aGC9WPA==",
-      "path": "nuget.consul.userdefinition/0.0.0",
-      "hashPath": "nuget.consul.userdefinition.0.0.0.nupkg.sha512"
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
     "Nuget.Contracts/1.0.6": {
       "type": "package",
@@ -383,6 +470,20 @@
       "sha512": "sha512-UJxaUthSNFZeGGlc5IAsx6hKpT1X1uGQb4VGxYKAh/WiTxTpbym13wOGJAsSPZinlQRYblh19CRw13Tlztzt1Q==",
       "path": "nuget.contracts/1.0.6",
       "hashPath": "nuget.contracts.1.0.6.nupkg.sha512"
+    },
+    "Nuget.Settings/0.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zJsrUDQ5wtfenuJBte/1//IFvT3awY14pMcvfHpBliwukND96hByXVf5PJ4gKtgEg/dQLqaEJbw9cErNlpZwKg==",
+      "path": "nuget.settings/0.0.4",
+      "hashPath": "nuget.settings.0.0.4.nupkg.sha512"
+    },
+    "RabbitMQ.Client/6.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jNsmGgmCNw2S/NzskeN2ijtGywtH4Sk/G6jWUTD5sY9SrC27Xz6BsLIiB8hdsfjeyWCa4j4GvCIGkpE8wrjU1Q==",
+      "path": "rabbitmq.client/6.8.1",
+      "hashPath": "rabbitmq.client.6.8.1.nupkg.sha512"
     },
     "SharpCompress/0.30.1": {
       "type": "package",
@@ -461,6 +562,13 @@
       "path": "system.security.principal.windows/5.0.0",
       "hashPath": "system.security.principal.windows.5.0.0.nupkg.sha512"
     },
+    "System.Threading.Channels/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
+      "path": "system.threading.channels/7.0.0",
+      "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
+    },
     "ZstdSharp.Port/0.7.3": {
       "type": "package",
       "serviceable": true,
@@ -479,6 +587,11 @@
       "sha512": ""
     },
     "HMS.ContractsMicroService.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HMS.ContractsMicroService.Messaging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

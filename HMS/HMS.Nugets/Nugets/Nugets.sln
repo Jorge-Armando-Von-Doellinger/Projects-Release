@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Payment", "Nuget.Payr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Contracts", "Nuget.Contracts\Nuget.Contracts.csproj", "{AE6FF9E7-3D21-4478-B0BB-0419B12C0D76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuget.Consul.UserDefinition", "Nuget.UserDefinition\Nuget.Consul.UserDefinition.csproj", "{5910064A-3B07-4E4E-8AEF-925932D86353}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuget.Settings", "Nuget.UserDefinition\Nuget.Settings.csproj", "{5910064A-3B07-4E4E-8AEF-925932D86353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

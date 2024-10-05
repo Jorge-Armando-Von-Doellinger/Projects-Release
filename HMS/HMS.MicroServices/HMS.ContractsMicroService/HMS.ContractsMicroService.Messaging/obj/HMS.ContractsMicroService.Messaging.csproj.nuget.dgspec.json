@@ -121,9 +121,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Extensions.Caching.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Nuget.Settings": {
+              "target": "Package",
+              "version": "[0.0.4, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

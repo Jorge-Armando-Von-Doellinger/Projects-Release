@@ -1,9 +1,10 @@
-
+using Consul;
 using HMS.ContractsMicroService.API.Module;
+using HMS.ContractsMicroService.API.Services;
 using HMS.ContractsMicroService.Application;
 using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Infrastructure;
-using Nuget.UserDefinition;
+using HMS.ContractsMicroService.Messaging;
 
 namespace HMS.ContractsMicroService.API
 {
@@ -20,14 +21,19 @@ namespace HMS.ContractsMicroService.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Environment.ApplicationName = "Batata";
-            var consulDefinition = builder.Configuration.GetSection("UserDefinitions")
-                .Get<UserDefinition>();
+            //builder.Environment.ApplicationName = "Contracts";
+            
+            //builder.Environment.
+
+            //ServiceDiscovery.Register(null);
+
+            builder.Services.AddMemoryCache();
 
             builder.Services
                 .AddApiModule()
                 .AddApplicationModule()
-                .AddInfrastructureModule();
+                .AddInfrastructureModule()
+                .AddMessagingModule();
 
             var app = builder.Build();
 

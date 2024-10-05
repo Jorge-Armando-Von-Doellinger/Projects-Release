@@ -74,6 +74,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.SettingsController",
+    "Method": "AddSettings",
+    "RelativePath": "api/Settings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consulSettings",
+        "Type": "Nuget.Settings.AppSettings",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.SettingsController",
+    "Method": "GetSettingsCache",
+    "RelativePath": "api/Settings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "Add",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
     "Method": "GetWorkHours",
     "RelativePath": "api/WorkHours",

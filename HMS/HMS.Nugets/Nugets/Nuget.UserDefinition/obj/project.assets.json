@@ -12,11 +12,11 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "0.0.0",
+    "version": "0.0.4",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.UserDefinition\\Nuget.Consul.UserDefinition.csproj",
-      "projectName": "Nuget.Consul.UserDefinition",
-      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.UserDefinition\\Nuget.Consul.UserDefinition.csproj",
+      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.UserDefinition\\Nuget.Settings.csproj",
+      "projectName": "Nuget.Settings",
+      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.UserDefinition\\Nuget.Settings.csproj",
       "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.Nugets\\Nugets\\Nuget.UserDefinition\\obj\\",
       "projectStyle": "PackageReference",

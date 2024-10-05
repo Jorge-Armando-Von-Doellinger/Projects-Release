@@ -2,6 +2,7 @@
 using HMS.ContractsMicroService.Application.Interfaces;
 using HMS.ContractsMicroService.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.API.Controllers
@@ -13,6 +14,7 @@ namespace HMS.ContractsMicroService.API.Controllers
     public class ContractController : ControllerBase
     {
         private readonly IEmployeeContractManager _manager;
+        private readonly IMemoryCache _cache;
 
         public ContractController(IEmployeeContractManager manager)
         {
@@ -21,7 +23,7 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetContracts()
             => Ok(await _manager.GetAll());
-
+         
         [HttpGet("{ID}")]
         public async Task<IActionResult> GetContractById(string ID)
         {
