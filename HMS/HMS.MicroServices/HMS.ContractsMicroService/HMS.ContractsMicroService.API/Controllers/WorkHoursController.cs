@@ -1,5 +1,5 @@
 ﻿using HMS.ContractsMicroService.API.Attributes;
-using HMS.ContractsMicroService.Application.Interfaces;
+using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nuget.Contracts.Inputs;

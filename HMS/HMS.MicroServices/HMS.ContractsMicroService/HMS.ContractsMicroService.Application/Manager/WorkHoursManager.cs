@@ -1,4 +1,4 @@
-﻿using HMS.ContractsMicroService.Application.Interfaces;
+﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;

@@ -1,5 +1,5 @@
 ﻿using HMS.ContractsMicroService.API.Attributes;
-using HMS.ContractsMicroService.Application.Interfaces;
+using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;

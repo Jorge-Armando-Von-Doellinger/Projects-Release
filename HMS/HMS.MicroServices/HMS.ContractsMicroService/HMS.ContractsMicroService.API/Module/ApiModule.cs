@@ -1,5 +1,5 @@
 ﻿using HMS.ContractsMicroService.API.Services.Hosted;
-using HMS.ContractsMicroService.Application.Interfaces;
+using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Manager;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
 using HMS.ContractsMicroService.Core.Interfaces.Settings;
