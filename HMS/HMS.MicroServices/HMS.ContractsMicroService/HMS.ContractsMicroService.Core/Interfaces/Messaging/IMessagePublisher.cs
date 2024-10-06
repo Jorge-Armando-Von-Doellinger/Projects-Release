@@ -1,8 +1,8 @@
 ﻿namespace HMS.ContractsMicroService.Core.Interfaces.Messaging
 {
-    public interface IMessagePublisher
+    public interface IMessagePublisher<Settings> where Settings : class
     {
-        Task Publish(object data);
+        Task Publish(object data, Settings settings);
         Task PublishResponse(object data);
     }
 }

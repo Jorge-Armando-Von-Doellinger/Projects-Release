@@ -2,6 +2,7 @@
 using HMS.ContractsMicroService.Infrastructure.Services;
 using Microsoft.Extensions.Caching.Memory;
 using Nuget.Settings;
+using Nuget.Settings.Data;
 using System.Text.Json;
 
 namespace HMS.ContractsMicroService.API.Services.Hosted
@@ -10,14 +11,12 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
     {
         private readonly IDiscoveryService _discoveryService;
         private readonly IHostEnvironment _configuration;
-        private readonly IMemoryCache _cache;
 
-        public StartupSettingsService(IServiceProvider serviceProvider, IHostEnvironment configuration, IMemoryCache cache)
+        public StartupSettingsService(IServiceProvider serviceProvider, IHostEnvironment configuration)
         {
             var service = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<IDiscoveryService>();
             _discoveryService = service;
             _configuration = configuration;
-            _cache = cache;
         }
 
         private async Task GetSettings()
@@ -25,7 +24,7 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
             try
             {
                 var settings = await _discoveryService.Get<AppSettings>(_configuration.ApplicationName);
-                _cache.Set("settings", settings);
+                new SettingsService().SetCurrentSettings(settings);
             }
             catch
             {

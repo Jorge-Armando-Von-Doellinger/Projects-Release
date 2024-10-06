@@ -180,11 +180,11 @@
           }
         }
       },
-      "Nuget.Settings/0.0.2": {
+      "Nuget.Settings/0.0.6": {
         "runtime": {
           "lib/net8.0/Nuget.Settings.dll": {
-            "assemblyVersion": "0.0.2.0",
-            "fileVersion": "0.0.2.0"
+            "assemblyVersion": "0.0.6.0",
+            "fileVersion": "0.0.6.0"
           }
         }
       },
@@ -236,7 +236,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "MongoDB.Driver": "2.29.0",
-          "Nuget.Settings": "0.0.2"
+          "Nuget.Settings": "0.0.6"
         },
         "runtime": {
           "HMS.ContractsMicroService.Infrastructure.dll": {
@@ -365,12 +365,12 @@
       "path": "nuget.contracts/1.0.6",
       "hashPath": "nuget.contracts.1.0.6.nupkg.sha512"
     },
-    "Nuget.Settings/0.0.2": {
+    "Nuget.Settings/0.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LP+zjishN31pIEAcgKlC67MZDMHcJzSu3VldS2piAzAWjJXD4w+aD9+bEjrJnvdoqaENIr5FBE+5Bri7RAigEQ==",
-      "path": "nuget.settings/0.0.2",
-      "hashPath": "nuget.settings.0.0.2.nupkg.sha512"
+      "sha512": "sha512-gqfh+xUSBFDeE0FzuSz+G8Z258gq6Ol659CvCrwnhMOfPeo+P6A0bUe7ebrlR1J3PYjivCbXMbGIE3kn98GeAQ==",
+      "path": "nuget.settings/0.0.6",
+      "hashPath": "nuget.settings.0.0.6.nupkg.sha512"
     },
     "SharpCompress/0.30.1": {
       "type": "package",

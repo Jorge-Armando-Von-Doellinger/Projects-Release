@@ -1,4 +1,4 @@
-﻿namespace HMS.ContractsMicroService.Application.Interfaces
+﻿namespace HMS.ContractsMicroService.Application.Interfaces.Managers
 {
     public interface IManager<TEntity>
     {
@@ -16,7 +16,7 @@
         Task<TOutput> GetById(string entityId);
         Task<List<TOutput>> GetAll();
     }
-    public interface IManager<TInput, TUpdateInput,TOutput>
+    public interface IManager<TInput, TUpdateInput, TOutput>
     {
         Task Add(TInput input);
         Task Delete(string entityId);

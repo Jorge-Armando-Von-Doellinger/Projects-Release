@@ -71,7 +71,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.4, )"
+              "version": "[0.0.6, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -315,7 +315,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.4, )"
+              "version": "[0.0.6, )"
             }
           },
           "imports": [
@@ -399,7 +399,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.4, )"
+              "version": "[0.0.6, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

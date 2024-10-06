@@ -1,6 +1,6 @@
 ﻿namespace Nuget.Settings.ServiceDiscovery
 {
-    public sealed class ConsulSettings
+    public class ConsulSettings
     {
         public string ServiceId { get; set; }
         public string ServiceName { get; set; }

@@ -2,6 +2,6 @@
 {
     public interface IMessageListener
     {
-        Task Listener();
+        Task StartListener();
     }
 }

@@ -2,41 +2,55 @@
 using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Services;
+using Nuget.Settings;
+using Nuget.Settings.Messaging;
 using RabbitMQ.Client;
 using System.Text;
 
 namespace HMS.ContractsMicroService.Messaging.Publisher
 {
-    public sealed class MessagePubisher : IMessagePublisher
+    public sealed class MessagePubisher : IMessagePublisher<RabbitMqSettings>
     {
-        private readonly CacheSettingsService _cache;
         private readonly IModel _messaging;
 
-        public MessagePubisher(ConnectMessaging messaging, CacheSettingsService cache)
+        public MessagePubisher(ConnectMessaging messaging)
         {
-            _cache = cache;
-            _messaging = Task.Run(() => messaging.Connect()).Result;
-        }
-        public async Task Publish(object data)
+            _messaging = messaging.Connect();
+        }   
+        public async Task Publish(object data, RabbitMqSettings settings)
         {
-            var settings = _cache.GetMessagingSettings();
             using (_messaging)
             {
-                var objJson = await JsonManipulation.Serialize(data);
-                var objBytes = Encoding.UTF8.GetBytes(objJson);
-                Console.WriteLine(settings.Exchange);
-                Console.WriteLine(settings.ResponseKey);
-                _messaging.BasicPublish(settings.Exchange, 
+                var bytes = await GetDataBytes(data);
+                _messaging.BasicPublish(settings.Exchange,
                     settings.ResponseKey,
-                    false, 
+                    false,
                     null,
-                    objBytes);
+                    bytes);
             }
         }
 
-        public Task PublishResponse(object data)
+        private async Task<byte[]> GetDataBytes(object data)
         {
-            throw new NotImplementedException();
+            var objJson = await JsonManipulation.Serialize(data);
+            var objBytes = Encoding.UTF8.GetBytes(objJson);
+            return objBytes;
+        }
+
+        public async Task PublishResponse(object data)
+        {
+            using (_messaging)
+            {
+                RabbitMqSettings settings = AppSettings.CurrentSettings.RabbitMq;
+                ArgumentNullException.ThrowIfNull(settings);
+
+                var bytes = await GetDataBytes(data);
+                _messaging.BasicPublish(settings.Exchange,
+                    settings.ResponseKey,
+                    false, 
+                    null,
+                    bytes);
+            }
         }
     }
 }

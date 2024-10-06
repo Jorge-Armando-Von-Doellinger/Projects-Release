@@ -1,7 +1,8 @@
 ﻿namespace Nuget.Settings.Messaging
 {
-    public sealed class RabbitMqSettings
+    public class RabbitMqSettings
     {
+        public string CurrentKey { get; set; }
         public string HostName { get; set; }
         public int Port { get; set; }
         public string Queue { get; set; }

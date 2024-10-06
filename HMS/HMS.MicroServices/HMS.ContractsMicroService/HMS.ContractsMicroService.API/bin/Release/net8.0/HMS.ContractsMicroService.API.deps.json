@@ -13,7 +13,7 @@
           "HMS.ContractsMicroService.Messaging": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Nuget.Contracts": "1.0.6",
-          "Nuget.Settings": "0.0.4",
+          "Nuget.Settings": "0.0.5",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -178,11 +178,11 @@
           }
         }
       },
-      "Nuget.Settings/0.0.4": {
+      "Nuget.Settings/0.0.5": {
         "runtime": {
           "lib/net8.0/Nuget.Settings.dll": {
-            "assemblyVersion": "0.0.4.0",
-            "fileVersion": "0.0.4.0"
+            "assemblyVersion": "0.0.5.0",
+            "fileVersion": "0.0.5.0"
           }
         }
       },
@@ -299,7 +299,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "MongoDB.Driver": "2.29.0",
-          "Nuget.Settings": "0.0.4"
+          "Nuget.Settings": "0.0.5"
         },
         "runtime": {
           "HMS.ContractsMicroService.Infrastructure.dll": {
@@ -313,7 +313,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Nuget.Settings": "0.0.4",
+          "Nuget.Settings": "0.0.5",
           "RabbitMQ.Client": "6.8.1"
         },
         "runtime": {
@@ -471,12 +471,12 @@
       "path": "nuget.contracts/1.0.6",
       "hashPath": "nuget.contracts.1.0.6.nupkg.sha512"
     },
-    "Nuget.Settings/0.0.4": {
+    "Nuget.Settings/0.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zJsrUDQ5wtfenuJBte/1//IFvT3awY14pMcvfHpBliwukND96hByXVf5PJ4gKtgEg/dQLqaEJbw9cErNlpZwKg==",
-      "path": "nuget.settings/0.0.4",
-      "hashPath": "nuget.settings.0.0.4.nupkg.sha512"
+      "sha512": "sha512-dz+ZeuQkhu3Bjc4bQ6L9EvNfPSo6nb6BFM6WR5diWTuNi400yM2Zy2jnYX3wNp7uSrmKhF3ufG5e88oKMiwL4Q==",
+      "path": "nuget.settings/0.0.5",
+      "hashPath": "nuget.settings.0.0.5.nupkg.sha512"
     },
     "RabbitMQ.Client/6.8.1": {
       "type": "package",

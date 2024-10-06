@@ -259,7 +259,7 @@
           }
         }
       },
-      "Nuget.Settings/0.0.4": {
+      "Nuget.Settings/0.0.6": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Settings.dll": {}
@@ -805,14 +805,14 @@
         "packageIcon.png"
       ]
     },
-    "Nuget.Settings/0.0.4": {
-      "sha512": "zJsrUDQ5wtfenuJBte/1//IFvT3awY14pMcvfHpBliwukND96hByXVf5PJ4gKtgEg/dQLqaEJbw9cErNlpZwKg==",
+    "Nuget.Settings/0.0.6": {
+      "sha512": "gqfh+xUSBFDeE0FzuSz+G8Z258gq6Ol659CvCrwnhMOfPeo+P6A0bUe7ebrlR1J3PYjivCbXMbGIE3kn98GeAQ==",
       "type": "package",
-      "path": "nuget.settings/0.0.4",
+      "path": "nuget.settings/0.0.6",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Settings.dll",
-        "nuget.settings.0.0.4.nupkg.sha512",
+        "nuget.settings.0.0.6.nupkg.sha512",
         "nuget.settings.nuspec"
       ]
     },
@@ -1070,7 +1070,7 @@
       "HMS.ContractsMicroService.Core >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
       "MongoDB.Driver >= 2.29.0",
-      "Nuget.Settings >= 0.0.4"
+      "Nuget.Settings >= 0.0.6"
     ]
   },
   "packageFolders": {
@@ -1142,7 +1142,7 @@
           },
           "Nuget.Settings": {
             "target": "Package",
-            "version": "[0.0.4, )"
+            "version": "[0.0.6, )"
           }
         },
         "imports": [
