@@ -11,7 +11,8 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Nuget.Settings": "0.0.6",
+          "Nuget.MessagingUtilities": "1.0.9",
+          "Nuget.Settings": "0.0.9",
           "RabbitMQ.Client": "6.8.1"
         },
         "runtime": {
@@ -45,11 +46,19 @@
           }
         }
       },
-      "Nuget.Settings/0.0.6": {
+      "Nuget.MessagingUtilities/1.0.9": {
+        "runtime": {
+          "lib/net8.0/Nuget.MessagingUtilities.dll": {
+            "assemblyVersion": "1.0.9.0",
+            "fileVersion": "1.0.9.0"
+          }
+        }
+      },
+      "Nuget.Settings/0.0.9": {
         "runtime": {
           "lib/net8.0/Nuget.Settings.dll": {
-            "assemblyVersion": "0.0.6.0",
-            "fileVersion": "0.0.6.0"
+            "assemblyVersion": "0.0.9.0",
+            "fileVersion": "0.0.9.0"
           }
         }
       },
@@ -104,12 +113,19 @@
       "path": "microsoft.extensions.primitives/8.0.0",
       "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
     },
-    "Nuget.Settings/0.0.6": {
+    "Nuget.MessagingUtilities/1.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gqfh+xUSBFDeE0FzuSz+G8Z258gq6Ol659CvCrwnhMOfPeo+P6A0bUe7ebrlR1J3PYjivCbXMbGIE3kn98GeAQ==",
-      "path": "nuget.settings/0.0.6",
-      "hashPath": "nuget.settings.0.0.6.nupkg.sha512"
+      "sha512": "sha512-FJYA5OYg2w7g6Wj+ATlosxzCuc94GKuXDE9tUAH3jD/cP0mh0cPl0i/mpka3RvGGDSgqz1SbAV1Q0Fgys1R4AA==",
+      "path": "nuget.messagingutilities/1.0.9",
+      "hashPath": "nuget.messagingutilities.1.0.9.nupkg.sha512"
+    },
+    "Nuget.Settings/0.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jNVGBGfzeET5leCY9wIE7DZS8mcTBHHIzXOTfwWNKzc265CkwgPrT+Q40HlY3GF44g371AWnI9b3SUlGzYWH2g==",
+      "path": "nuget.settings/0.0.9",
+      "hashPath": "nuget.settings.0.0.9.nupkg.sha512"
     },
     "RabbitMQ.Client/6.8.1": {
       "type": "package",

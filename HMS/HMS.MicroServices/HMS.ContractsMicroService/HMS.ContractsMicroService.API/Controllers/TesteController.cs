@@ -1,6 +1,9 @@
 ﻿using HMS.ContractsMicroService.Core.Interfaces.Messaging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Nuget.Contracts.Inputs;
+using Nuget.Settings;
+using Nuget.Settings.Messaging;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
@@ -8,16 +11,19 @@ namespace HMS.ContractsMicroService.API.Controllers
     [ApiController]
     public class TesteController : ControllerBase
     {
-        private readonly IMessagePublisher _publisher;
-        public TesteController(IMessagePublisher publisher)
+        private readonly IMessagePublisher<RabbitMqSettings> _publisher;
+        public TesteController(IMessagePublisher<RabbitMqSettings> publisher)
         {
             _publisher = publisher;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(EmployeeContractInput input)
         {
-            await _publisher.Publish("Batata Quente");
+            var settings = AppSettings.CurrentSettings.RabbitMq;
+            settings.CurrentKey = settings.AddKey;
+            Console.WriteLine(settings.CurrentKey);
+            await _publisher.Publish(input, settings);
             return Accepted();
         }
     }

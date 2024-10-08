@@ -1,7 +1,9 @@
-﻿namespace HMS.ContractsMicroService.Core.Interfaces.Messaging
+﻿using HMS.ContractsMicroService.Core.Data;
+
+namespace HMS.ContractsMicroService.Core.Interfaces.Messaging
 {
     public interface IMessageProcessor
     {
-        Task Process<T>(T message);
+        Task Process(MessagingData data);
     }
 }

@@ -53,7 +53,16 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Nuget.Settings/0.0.6": {
+      "Nuget.MessagingUtilities/1.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Nuget.MessagingUtilities.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Nuget.MessagingUtilities.dll": {}
+        }
+      },
+      "Nuget.Settings/0.0.9": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Settings.dll": {}
@@ -209,14 +218,25 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Nuget.Settings/0.0.6": {
-      "sha512": "gqfh+xUSBFDeE0FzuSz+G8Z258gq6Ol659CvCrwnhMOfPeo+P6A0bUe7ebrlR1J3PYjivCbXMbGIE3kn98GeAQ==",
+    "Nuget.MessagingUtilities/1.0.9": {
+      "sha512": "FJYA5OYg2w7g6Wj+ATlosxzCuc94GKuXDE9tUAH3jD/cP0mh0cPl0i/mpka3RvGGDSgqz1SbAV1Q0Fgys1R4AA==",
       "type": "package",
-      "path": "nuget.settings/0.0.6",
+      "path": "nuget.messagingutilities/1.0.9",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net8.0/Nuget.MessagingUtilities.dll",
+        "nuget.messagingutilities.1.0.9.nupkg.sha512",
+        "nuget.messagingutilities.nuspec"
+      ]
+    },
+    "Nuget.Settings/0.0.9": {
+      "sha512": "jNVGBGfzeET5leCY9wIE7DZS8mcTBHHIzXOTfwWNKzc265CkwgPrT+Q40HlY3GF44g371AWnI9b3SUlGzYWH2g==",
+      "type": "package",
+      "path": "nuget.settings/0.0.9",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Settings.dll",
-        "nuget.settings.0.0.6.nupkg.sha512",
+        "nuget.settings.0.0.9.nupkg.sha512",
         "nuget.settings.nuspec"
       ]
     },
@@ -300,7 +320,8 @@
       "HMS.ContractsMicroService.Core >= 1.0.0",
       "Microsoft.Extensions.Caching.Abstractions >= 8.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.0",
-      "Nuget.Settings >= 0.0.6",
+      "Nuget.MessagingUtilities >= 1.0.9",
+      "Nuget.Settings >= 0.0.9",
       "RabbitMQ.Client >= 6.8.1"
     ]
   },
@@ -367,9 +388,13 @@
             "target": "Package",
             "version": "[8.0.0, )"
           },
+          "Nuget.MessagingUtilities": {
+            "target": "Package",
+            "version": "[1.0.9, )"
+          },
           "Nuget.Settings": {
             "target": "Package",
-            "version": "[0.0.6, )"
+            "version": "[0.0.9, )"
           },
           "RabbitMQ.Client": {
             "target": "Package",

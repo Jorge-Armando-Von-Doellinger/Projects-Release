@@ -106,7 +106,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

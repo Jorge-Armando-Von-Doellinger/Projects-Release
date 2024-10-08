@@ -15,12 +15,12 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("\r\n\t\t    Feito para ajudar a registrar as configurações sensiveis e/ou que precisa" +
     "m ser modificadas de forma dinamica\r\n    ")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.6 +08a87f21a5c41a2041e89d522c44880fdb82bb3c")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.9.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.9+e4b5fb92064ea02c5577362bfeb57e5453042fcd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nuget.Settings")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nuget.Settings")]
-[assembly: System.Reflection.AssemblyVersionAttribute("0.0.6.0")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", " github.com/Jorge-Armando-Von-Doellinger/Projects-Release ")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.0.9.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 

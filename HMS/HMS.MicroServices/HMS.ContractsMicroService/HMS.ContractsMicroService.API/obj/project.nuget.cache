@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "t4hUTd2Uze4=",
+  "dgSpecHash": "clrQcwke86Q=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.ContractsMicroService\\HMS.ContractsMicroService.API\\HMS.ContractsMicroService.API.csproj",
   "expectedPackageFiles": [
@@ -24,7 +24,8 @@
     "C:\\Users\\Jorge\\.nuget\\packages\\mongodb.libmongocrypt\\1.12.0\\mongodb.libmongocrypt.1.12.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\nuget.contracts\\1.0.6\\nuget.contracts.1.0.6.nupkg.sha512",
-    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.settings\\0.0.6\\nuget.settings.0.0.6.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.messagingutilities\\1.0.9\\nuget.messagingutilities.1.0.9.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.settings\\0.0.9\\nuget.settings.0.0.9.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",

@@ -13,8 +13,10 @@ namespace HMS.ContractsMicroService.Messaging.Connect
             
         }
 
-        internal IModel Connect()
+        public IModel Connect()
         {
+            if (AppSettings.CurrentSettings == null) throw new Exception("BVatata");
+            
             var settings = AppSettings.CurrentSettings.RabbitMq;
             if(settings == null) throw new InvalidOperationException("Messaging settings not founded");
             var factory = new ConnectionFactory()

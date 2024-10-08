@@ -65,6 +65,10 @@
             "Nuget.Contracts": {
               "target": "Package",
               "version": "[1.0.6, )"
+            },
+            "Nuget.MessagingUtilities": {
+              "target": "Package",
+              "version": "[1.0.9, )"
             }
           },
           "imports": [
@@ -218,7 +222,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.6, )"
+              "version": "[0.0.9, )"
             }
           },
           "imports": [

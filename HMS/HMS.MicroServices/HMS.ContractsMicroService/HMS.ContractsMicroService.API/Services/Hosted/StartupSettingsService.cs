@@ -1,8 +1,8 @@
-﻿using HMS.ContractsMicroService.Core.Interfaces.Settings;
+﻿using HMS.ContractsMicroService.API.Services.Data;
+using HMS.ContractsMicroService.Core.Interfaces.Settings;
 using HMS.ContractsMicroService.Infrastructure.Services;
 using Microsoft.Extensions.Caching.Memory;
 using Nuget.Settings;
-using Nuget.Settings.Data;
 using System.Text.Json;
 
 namespace HMS.ContractsMicroService.API.Services.Hosted
@@ -24,7 +24,9 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
             try
             {
                 var settings = await _discoveryService.Get<AppSettings>(_configuration.ApplicationName);
-                new SettingsService().SetCurrentSettings(settings);
+                AppSettings.SetCurrentSettings(settings);
+                
+                SettingsStartupState.SetSettingsCompleted();
             }
             catch
             {

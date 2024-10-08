@@ -23,6 +23,7 @@ namespace HMS.ContractsMicroService.Application.Manager
 
         public async Task Add(EmployeeContractInput input)
         {
+            Console.WriteLine(input.HourlySalaryInDollar);
             if (await _workHoursManager.GetById(input.WorkHoursID) == null)
                 throw new Exception(MessageRecords.KeyNotFounded);
 

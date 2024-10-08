@@ -5,13 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>Nuget.Consul.UserDefinition</Title>
-    <Version>0.0.6 </Version>
+    <Title>Nuget.AppSettings</Title>
+    <Version>0.0.9</Version>
     <Authors>Jorge Armando Von Doellinger</Authors>
     <Description>
 		    Feito para ajudar a registrar as configurações sensiveis e/ou que precisam ser modificadas de forma dinamica
     </Description>
-    <RepositoryUrl> github.com/Jorge-Armando-Von-Doellinger/Projects-Release </RepositoryUrl>
+    <RepositoryUrl>https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

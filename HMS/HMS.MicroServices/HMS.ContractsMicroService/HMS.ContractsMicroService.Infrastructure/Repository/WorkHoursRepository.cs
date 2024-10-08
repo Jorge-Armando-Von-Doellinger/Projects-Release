@@ -26,6 +26,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task AddAsync(WorkHours entity)
         {
 
+            Console.WriteLine("Adicionado?");
             if (await IdAlredyExist(entity.ID))
                 entity.RecreateID();
             await _transaction.Execute(_context.GetMongoClient(), async (session) =>
@@ -45,19 +46,16 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task<WorkHours> FindWorkHours(WorkHours workHours)
         {
 
-            return default;
-            /*var workHoursFiltered = await _context.WorkHours
-                .Where(x => x.EntryTime == workHours.EntryTime &&
-                                        x.IntervalStartTime == workHours.IntervalStartTime &&
-                                        x.IntervalEndTime == workHours.IntervalEndTime &&
-                                        x.ExitTime == workHours.ExitTime)
-                .ToListAsync();
-            return workHoursFiltered.FirstOrDefault();*/
+            var data = await _collection.FindAsync(x => x.EntryTime == workHours.EntryTime &&
+                x.ExitTime == workHours.ExitTime && 
+                x.IntervalStartTime == workHours.IntervalStartTime &&
+                x.IntervalEndTime == workHours.IntervalEndTime);
+            return await data.FirstOrDefaultAsync();
         }
 
         private async Task<bool> IdAlredyExist(string ID)
         {
-            var doc = await _collection.FindAsync(MongoUtilities.WorkHoursFilterID(ID));
+            var doc = await _collection.FindAsync(x => x.ID == ID);
             return await doc.FirstOrDefaultAsync() != null;
         }
 
