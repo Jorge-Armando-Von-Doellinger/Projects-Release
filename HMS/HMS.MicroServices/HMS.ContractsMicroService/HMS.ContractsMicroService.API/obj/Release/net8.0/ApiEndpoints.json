@@ -116,6 +116,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "Update",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Contracts.Inputs.EmployeeContractUpdateInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "Delete",
+    "RelativePath": "api/Teste/{ID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
     "Method": "GetWorkHours",
     "RelativePath": "api/WorkHours",

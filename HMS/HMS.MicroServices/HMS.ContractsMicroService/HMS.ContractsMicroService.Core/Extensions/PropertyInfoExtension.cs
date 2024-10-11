@@ -41,8 +41,6 @@ namespace HMS.ContractsMicroService.Core.Extensions
         {
             if (prop.CanRead)
                 return prop.GetValue(Activator.CreateInstance(prop.DeclaringType));
-            Console.WriteLine(prop.DeclaringType + "    type");
-            Console.WriteLine("\n Null");
             return null;
         }
     }

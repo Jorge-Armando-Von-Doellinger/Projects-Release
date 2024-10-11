@@ -79,6 +79,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 if (propTarget == null) continue;
                 if (propTarget.DeclaringType == typeToIgnore) continue;
                 var valueIsValid = prop.TryGetValue(obj, out var result);
+
                 if (valueIsValid == false) continue;
                 if (prop.PropertyType != propTarget.PropertyType)
                     result = ChangeType(result, propTarget.PropertyType, out var result1) ? result1 : result;

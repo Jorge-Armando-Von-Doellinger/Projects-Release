@@ -127,7 +127,7 @@
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.1, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
@@ -135,7 +135,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.9, )"
+              "version": "[1.0.2, )"
             }
           },
           "imports": [

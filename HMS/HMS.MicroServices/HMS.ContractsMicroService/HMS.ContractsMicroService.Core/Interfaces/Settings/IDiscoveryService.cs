@@ -2,9 +2,9 @@
 {
     public interface IDiscoveryService
     {
-        Task<T> Get<T>(string myAppName);
-        Task Register(object settings, string myAppName);
-        Task Put(object settings, string myAppName);
-        Task Delete(string myAppName);
+        Task<T> Get<T>();
+        Task Register(object settings);
+        Task Put(object settings);
+        Task Delete();
     }
 }

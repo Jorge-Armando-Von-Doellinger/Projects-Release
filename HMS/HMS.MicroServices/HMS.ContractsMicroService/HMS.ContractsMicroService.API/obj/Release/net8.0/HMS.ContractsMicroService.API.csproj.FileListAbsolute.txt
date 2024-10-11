@@ -58,3 +58,5 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Contr
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.Messaging.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.Messaging.pdb
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Nuget.MessagingUtilities.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

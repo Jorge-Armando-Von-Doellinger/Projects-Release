@@ -69,10 +69,10 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection/8.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
@@ -88,7 +88,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -259,7 +259,7 @@
           }
         }
       },
-      "Nuget.Settings/0.0.9": {
+      "Nuget.Settings/1.0.2": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Settings.dll": {}
@@ -547,10 +547,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection/8.0.0": {
-      "sha512": "V8S3bsm50ig6JSyrbcJJ8bW2b9QLGouz+G1miK3UTaOWmMtFwNNNzUf4AleyDWUmTrWMLNnFSLEQtxmxgNQnNQ==",
+    "Microsoft.Extensions.DependencyInjection/8.0.1": {
+      "sha512": "BmANAnR5Xd4Oqw7yQ75xOAYODybZQRzdeNucg7kS5wWKd2PNnMdYtJ2Vciy0QLylRmv42DGl5+AFL9izA6F1Rw==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection/8.0.0",
+      "path": "microsoft.extensions.dependencyinjection/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -574,15 +574,15 @@
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
-        "microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
-      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "sha512": "3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -606,7 +606,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -805,14 +805,14 @@
         "packageIcon.png"
       ]
     },
-    "Nuget.Settings/0.0.9": {
-      "sha512": "jNVGBGfzeET5leCY9wIE7DZS8mcTBHHIzXOTfwWNKzc265CkwgPrT+Q40HlY3GF44g371AWnI9b3SUlGzYWH2g==",
+    "Nuget.Settings/1.0.2": {
+      "sha512": "UqPRON3D/kz7yrQsfa0VplMjconHdDg/vrnSUd3SpOf4XMfPXOvZXGBRIt/DOQikYJxJqHiUpjJec1ZXNk6y8Q==",
       "type": "package",
-      "path": "nuget.settings/0.0.9",
+      "path": "nuget.settings/1.0.2",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Settings.dll",
-        "nuget.settings.0.0.9.nupkg.sha512",
+        "nuget.settings.1.0.2.nupkg.sha512",
         "nuget.settings.nuspec"
       ]
     },
@@ -1068,9 +1068,9 @@
     "net8.0": [
       "Consul >= 1.7.14.4",
       "HMS.ContractsMicroService.Core >= 1.0.0",
-      "Microsoft.Extensions.DependencyInjection >= 8.0.0",
+      "Microsoft.Extensions.DependencyInjection >= 8.0.1",
       "MongoDB.Driver >= 2.29.0",
-      "Nuget.Settings >= 0.0.9"
+      "Nuget.Settings >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -1134,7 +1134,7 @@
           },
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
-            "version": "[8.0.0, )"
+            "version": "[8.0.1, )"
           },
           "MongoDB.Driver": {
             "target": "Package",
@@ -1142,7 +1142,7 @@
           },
           "Nuget.Settings": {
             "target": "Package",
-            "version": "[0.0.9, )"
+            "version": "[1.0.2, )"
           }
         },
         "imports": [

@@ -10,7 +10,7 @@
         "dependencies": {
           "HMS.ContractsMicroService.Core": "1.0.0",
           "HMS.ContractsMicroService.Infrastructure": "1.0.0",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Nuget.Contracts": "1.0.6",
           "Nuget.MessagingUtilities": "1.0.9"
         },
@@ -61,22 +61,22 @@
         }
       },
       "Microsoft.CSharp/4.7.0": {},
-      "Microsoft.Extensions.DependencyInjection/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection/8.0.1": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.1024.46610"
           }
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.1024.46610"
           }
         }
       },
@@ -189,11 +189,11 @@
           }
         }
       },
-      "Nuget.Settings/0.0.9": {
+      "Nuget.Settings/1.0.2": {
         "runtime": {
           "lib/net8.0/Nuget.Settings.dll": {
-            "assemblyVersion": "0.0.9.0",
-            "fileVersion": "0.0.9.0"
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
           }
         }
       },
@@ -243,9 +243,9 @@
         "dependencies": {
           "Consul": "1.7.14.4",
           "HMS.ContractsMicroService.Core": "1.0.0",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "MongoDB.Driver": "2.29.0",
-          "Nuget.Settings": "0.0.9"
+          "Nuget.Settings": "1.0.2"
         },
         "runtime": {
           "HMS.ContractsMicroService.Infrastructure.dll": {
@@ -297,19 +297,19 @@
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyInjection/8.0.0": {
+    "Microsoft.Extensions.DependencyInjection/8.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-V8S3bsm50ig6JSyrbcJJ8bW2b9QLGouz+G1miK3UTaOWmMtFwNNNzUf4AleyDWUmTrWMLNnFSLEQtxmxgNQnNQ==",
-      "path": "microsoft.extensions.dependencyinjection/8.0.0",
-      "hashPath": "microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512"
+      "sha512": "sha512-BmANAnR5Xd4Oqw7yQ75xOAYODybZQRzdeNucg7kS5wWKd2PNnMdYtJ2Vciy0QLylRmv42DGl5+AFL9izA6F1Rw==",
+      "path": "microsoft.extensions.dependencyinjection/8.0.1",
+      "hashPath": "microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
-      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
       "type": "package",
@@ -381,12 +381,12 @@
       "path": "nuget.messagingutilities/1.0.9",
       "hashPath": "nuget.messagingutilities.1.0.9.nupkg.sha512"
     },
-    "Nuget.Settings/0.0.9": {
+    "Nuget.Settings/1.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jNVGBGfzeET5leCY9wIE7DZS8mcTBHHIzXOTfwWNKzc265CkwgPrT+Q40HlY3GF44g371AWnI9b3SUlGzYWH2g==",
-      "path": "nuget.settings/0.0.9",
-      "hashPath": "nuget.settings.0.0.9.nupkg.sha512"
+      "sha512": "sha512-UqPRON3D/kz7yrQsfa0VplMjconHdDg/vrnSUd3SpOf4XMfPXOvZXGBRIt/DOQikYJxJqHiUpjJec1ZXNk6y8Q==",
+      "path": "nuget.settings/1.0.2",
+      "hashPath": "nuget.settings.1.0.2.nupkg.sha512"
     },
     "SharpCompress/0.30.1": {
       "type": "package",

@@ -10,9 +10,9 @@
         "dependencies": {
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
           "Nuget.MessagingUtilities": "1.0.9",
-          "Nuget.Settings": "0.0.9",
+          "Nuget.Settings": "1.0.2",
           "RabbitMQ.Client": "6.8.1"
         },
         "runtime": {
@@ -30,11 +30,11 @@
           }
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.1024.46610"
           }
         }
       },
@@ -54,11 +54,11 @@
           }
         }
       },
-      "Nuget.Settings/0.0.9": {
+      "Nuget.Settings/1.0.2": {
         "runtime": {
           "lib/net8.0/Nuget.Settings.dll": {
-            "assemblyVersion": "0.0.9.0",
-            "fileVersion": "0.0.9.0"
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
           }
         }
       },
@@ -99,12 +99,12 @@
       "path": "microsoft.extensions.caching.abstractions/8.0.0",
       "hashPath": "microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
-      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/8.0.0": {
       "type": "package",
@@ -120,12 +120,12 @@
       "path": "nuget.messagingutilities/1.0.9",
       "hashPath": "nuget.messagingutilities.1.0.9.nupkg.sha512"
     },
-    "Nuget.Settings/0.0.9": {
+    "Nuget.Settings/1.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jNVGBGfzeET5leCY9wIE7DZS8mcTBHHIzXOTfwWNKzc265CkwgPrT+Q40HlY3GF44g371AWnI9b3SUlGzYWH2g==",
-      "path": "nuget.settings/0.0.9",
-      "hashPath": "nuget.settings.0.0.9.nupkg.sha512"
+      "sha512": "sha512-UqPRON3D/kz7yrQsfa0VplMjconHdDg/vrnSUd3SpOf4XMfPXOvZXGBRIt/DOQikYJxJqHiUpjJec1ZXNk6y8Q==",
+      "path": "nuget.settings/1.0.2",
+      "hashPath": "nuget.settings.1.0.2.nupkg.sha512"
     },
     "RabbitMQ.Client/6.8.1": {
       "type": "package",

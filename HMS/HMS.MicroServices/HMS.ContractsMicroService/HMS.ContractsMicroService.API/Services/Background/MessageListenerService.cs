@@ -19,18 +19,12 @@ namespace HMS.ContractsMicroService.API.Services.Background
         {
             await SettingsStartupState.AwaitSettingsCompletionAsync();
 
-            Console.WriteLine("Listening" +"");
-            //while (!stoppingToken.IsCancellationRequested)
-            //{
-                await _listener.Value.StartListener(async (data) =>
-                {
-                    Console.WriteLine("A");
-                    await _processor.Value.Process(data);
-                });
-                //  await Task.Delay(100);
-            //}
-            
-            
+            Console.WriteLine("Listening" + "");
+            await _listener.Value.StartListener(async (data) =>
+            {
+                await _processor.Value.Process(data);
+            });
+            stoppingToken.ThrowIfCancellationRequested();
         }
     }
 }

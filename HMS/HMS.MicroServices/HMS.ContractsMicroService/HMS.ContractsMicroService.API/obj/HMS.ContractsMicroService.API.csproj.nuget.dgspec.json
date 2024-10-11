@@ -63,7 +63,7 @@
           "dependencies": {
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.1, )"
             },
             "Nuget.Contracts": {
               "target": "Package",
@@ -71,11 +71,11 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.9, )"
+              "version": "[1.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.8.1, )"
             }
           },
           "imports": [
@@ -157,7 +157,7 @@
           "dependencies": {
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.1, )"
             },
             "Nuget.Contracts": {
               "target": "Package",
@@ -311,7 +311,7 @@
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.1, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
@@ -319,7 +319,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.9, )"
+              "version": "[1.0.2, )"
             }
           },
           "imports": [
@@ -399,7 +399,7 @@
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.2, )"
             },
             "Nuget.MessagingUtilities": {
               "target": "Package",
@@ -407,7 +407,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[0.0.9, )"
+              "version": "[1.0.2, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

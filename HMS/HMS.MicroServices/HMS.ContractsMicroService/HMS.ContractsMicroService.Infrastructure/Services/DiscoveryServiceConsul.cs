@@ -14,27 +14,34 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
         {
             _context = context;
         }
-        public async Task Delete(string myAppName)
+        public async Task Delete()
         {
-            await _context.DeleteAsync(myAppName);
+            await _context.DeleteAsync();
         }
 
-        public async Task<T> Get<T>(string myAppName)
+        public async Task<T> Get<T>()
         {
-            return await _context.GetSettings<T>(myAppName);
+            try
+            {
+                return await _context.GetSettings<T>();
+            }
+            catch
+            {
+                return default;
+            }
         }
 
-        public async Task Put(object settings, string myAppName)
+        public async Task Put(object settings)
         {
             // Devido ao metodo inserir e atualizar
-            await Register(settings, myAppName);
+            await Register(settings);
         }
 
-        public async Task Register(object settings, string myAppName)
+        public async Task Register(object settings)
         {
             var dataJson = await JsonManipulation.Serialize(settings);
             var dataBytes = Encoding.UTF8.GetBytes(dataJson);
-            await _context.InsertOrUpdate(dataBytes, myAppName);
+            await _context.InsertOrUpdate(dataBytes);
         }
     }
 }

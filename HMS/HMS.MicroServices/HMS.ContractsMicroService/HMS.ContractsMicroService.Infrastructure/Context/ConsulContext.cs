@@ -1,6 +1,7 @@
 ﻿using Consul;
 using HMS.ContractsMicroService.Core.Json;
 using Newtonsoft.Json;
+using Nuget.Settings;
 using System.Text;
 
 namespace HMS.ContractsMicroService.Infrastructure.Context
@@ -13,15 +14,19 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             _client = new ConsulClient();
         }
 
-        private string GetDefaultKey(string appName) => $"hms/microservices/{appName}/settings";
+        private string GetDefaultKey() => AppSettings.CurrentSettings.Consul.KvKey /*?? $"hms/microservices/{appName}/settings"*/;
 
-        public async Task InsertOrUpdate(byte[] dataBytes, string appName)
+        public async Task InsertOrUpdate(byte[] dataBytes)
         {
             try
             {
-                var kvKey = GetDefaultKey(appName);
+                var kvKey = GetDefaultKey();
                 var kvPair = new KVPair(kvKey) { Value = dataBytes };
-                await _client.KV.Put(kvPair);
+                var putSuccess = await _client.KV.Put(kvPair);
+                if (!putSuccess.Response)
+                {
+                    Console.WriteLine("Falha ao inserir ou atualizar o par chave-valor no Consul.");
+                }
                 Console.WriteLine("-----------------------\n KvKey REGISTRADA COM SUCESSO! \n -------------------------------");
             }
             catch (Exception ex)
@@ -36,12 +41,11 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             throw new InvalidOperationException(message);
         }
 
-        public async Task DeleteAsync(string appName)
+        public async Task DeleteAsync()
         {
             try
             {
-                var kvKey = GetDefaultKey(appName);
-                await _client.KV.Delete(kvKey);
+                await _client.KV.Delete(GetDefaultKey());
                 Console.WriteLine("-----------------------\n KvKey DELETADA COM SUCESSO! \n -------------------------------");
             }
             catch(Exception ex)
@@ -50,9 +54,9 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             }
         }
 
-        public async Task<T> GetSettings<T>(string appName)
+        public async Task<T> GetSettings<T>()
         {
-            var kvKey = GetDefaultKey(appName);
+            var kvKey = GetDefaultKey();
             var data = await _client.KV.Get(kvKey);
             var json = Encoding.UTF8.GetString(data.Response?.Value);
             var obj = await JsonManipulation.Deserialize<T>(json);

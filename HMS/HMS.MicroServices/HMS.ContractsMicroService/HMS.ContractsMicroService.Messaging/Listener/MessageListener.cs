@@ -4,7 +4,6 @@ using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Nuget.Settings;
-using Nuget.Settings.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -27,23 +26,19 @@ namespace HMS.ContractsMicroService.Messaging.Listener
             var consumer = new EventingBasicConsumer(_model);
             consumer.Received += async (model, ea) =>
             {
-                Console.WriteLine(ea.RoutingKey.ToString());
                 var bytes = ea.Body.ToArray();
                 var data = Encoding.UTF8.GetString(bytes);
+                var messagingData = new MessagingData();
                 try
                 {
-                    Console.WriteLine("Processando");
-                    var messagingData = new MessagingData();
                     messagingData.SetData(data, ea.RoutingKey.ToString());
                     await action(messagingData);
                     _model.BasicAck(ea.DeliveryTag, false);
                 }
                 catch(Exception ex) 
                 {
-                    /*throw;*/
                     Console.WriteLine(ex.Message);
-                    _model.BasicNack(ea.DeliveryTag, false, false);
-                    Console.WriteLine("Erro ao processar a mensagem!");
+                    _model.BasicNack(ea.DeliveryTag, false, true);
                 }
             };
             _model.BasicConsume(settings.Queue, false, consumer );

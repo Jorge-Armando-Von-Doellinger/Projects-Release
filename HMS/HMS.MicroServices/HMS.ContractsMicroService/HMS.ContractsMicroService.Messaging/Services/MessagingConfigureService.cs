@@ -11,10 +11,7 @@ namespace HMS.ContractsMicroService.Messaging.Services
             if(setAllKeys == true)
                 QueueBindAllKeys(settings, model);
             else
-            model.QueueBind(settings.Queue, settings.Exchange, settings.CurrentKey);
-
-            /*model.QueueDeclare(settings.Queue, true, false, false, null);
-            model.ExchangeDeclare(settings.Exchange, settings.TypeExchange, true, false,null);*/
+                model.QueueBind(settings.Queue, settings.Exchange, settings.CurrentKey);
             return Task.CompletedTask;
         }
 

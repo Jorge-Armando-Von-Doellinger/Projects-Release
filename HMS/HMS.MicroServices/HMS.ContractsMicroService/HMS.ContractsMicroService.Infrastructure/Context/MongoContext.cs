@@ -8,9 +8,9 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
     public sealed class MongoContext
     {
         private IMongoClient _client;
-        public MongoContext()
+        public MongoContext(IMongoClient client)
         {
-            SetMongoClient();
+            _client = client;
             RegisterEntityId();
         }
 
@@ -31,10 +31,6 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             });
         }
 
-        private void SetMongoClient()
-        {
-            _client = new MongoClient("mongodb://localhost:27017");
-        }
         
         internal IMongoClient GetMongoClient()
         {

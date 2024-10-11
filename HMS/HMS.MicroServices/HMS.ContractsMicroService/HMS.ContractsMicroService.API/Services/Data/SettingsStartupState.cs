@@ -2,8 +2,12 @@
 
 namespace HMS.ContractsMicroService.API.Services.Data
 {
-    public static class SettingsStartupState
+    public class SettingsStartupState
     {
+        public SettingsStartupState()
+        {
+           
+        }
         private static readonly TaskCompletionSource<bool> _taskCompletionSource = new();
 
         internal static void SetSettingsCompleted()

@@ -22,8 +22,23 @@ namespace HMS.ContractsMicroService.API.Controllers
         {
             var settings = AppSettings.CurrentSettings.RabbitMq;
             settings.CurrentKey = settings.AddKey;
-            Console.WriteLine(settings.CurrentKey);
             await _publisher.Publish(input, settings);
+            return Accepted();
+        }
+        [HttpPut]
+        public async Task<IActionResult> Update(EmployeeContractUpdateInput input)
+        {
+            var settings = AppSettings.CurrentSettings.RabbitMq;
+            settings.CurrentKey = settings.UpdateKey;
+            await _publisher.Publish(input, settings);
+            return Accepted();
+        }
+        [HttpDelete("{ID}")]
+        public async Task<IActionResult> Delete(string ID)
+        {
+            var settings = AppSettings.CurrentSettings.RabbitMq;
+            settings.CurrentKey = settings.DeleteKey;
+            await _publisher.Publish(ID, settings);
             return Accepted();
         }
     }
