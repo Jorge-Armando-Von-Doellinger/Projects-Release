@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Nuget.MessagingUtilities</id>
+    <version>2.0.4</version>
+    <title>Nuget.MessagingUtilities</title>
+    <authors>Jorge Von Doellinger Jr</authors>
+    <description>É um pacote para facilitar a comunicação entre aplicações!</description>
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="d20dbe9188dfe05ae7642aa9c9b83c4a6acd6a1a" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.MessagingUtilities\bin\Release\net8.0\Nuget.MessagingUtilities.dll" target="lib\net8.0\Nuget.MessagingUtilities.dll" />
+  </files>
+</package>

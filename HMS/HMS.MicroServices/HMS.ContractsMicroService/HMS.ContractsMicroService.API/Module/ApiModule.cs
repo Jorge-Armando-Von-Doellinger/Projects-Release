@@ -15,10 +15,7 @@ namespace HMS.ContractsMicroService.API.Module
         public static IServiceCollection AddApiModule(this IServiceCollection services)
         {
             services
-                .AddServices()
-                .AddManager()
-                .AddHostedServices()
-                .AddMessageProcessors();
+                .AddHostedServices();
             return services;
         }
 
@@ -29,25 +26,5 @@ namespace HMS.ContractsMicroService.API.Module
             return services;
         }
 
-        private static IServiceCollection AddServices(this IServiceCollection services)
-        {
-            services.AddScoped<IDiscoveryService, DiscoveryServiceConsul>();
-            return services;
-        }
-
-        private static IServiceCollection AddManager(this IServiceCollection services)
-        {
-            services.AddScoped<IEmployeeContractManager, ContractsManager>();
-            services.AddScoped<IWorkHoursManager, WorkHoursManager>();
-            return services;
-        }
-
-        private static IServiceCollection AddMessageProcessors(this IServiceCollection services)
-        {
-            services.AddTransient(provider => new Lazy<IMessageListener>(() => provider.GetRequiredService<IMessageListener>()));
-            services.AddTransient(provider => new Lazy<IMessageProcessor>(() => provider.GetRequiredService<IMessageProcessor>()));
-            services.AddSingleton<IMessageProcessor, MessageProcessor>();
-            return services;
-        }
     }
 }

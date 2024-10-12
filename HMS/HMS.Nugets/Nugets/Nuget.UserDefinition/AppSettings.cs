@@ -10,6 +10,7 @@ namespace Nuget.Settings
         public RabbitMqSettings? RabbitMq { get; set; }
         public ConsulSettings? Consul { get; set; }
         public MongoDbSettings? MongoDb { get; set; }
+        public string ApplicationName { get; set; } 
 
         public static void SetCurrentSettings(AppSettings settings)
         {

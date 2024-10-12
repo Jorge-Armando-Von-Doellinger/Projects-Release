@@ -41,6 +41,7 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
             {
                 Console.WriteLine("Erro ao processar mensagem!");
                 Console.WriteLine($" --> Mensagem: {ex.Message}");
+                throw;
             }
         }
     }

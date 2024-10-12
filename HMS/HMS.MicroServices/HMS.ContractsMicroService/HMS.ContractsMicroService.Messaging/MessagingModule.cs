@@ -1,4 +1,5 @@
 ﻿using HMS.ContractsMicroService.Core.Interfaces.Messaging;
+using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Listener;
 using HMS.ContractsMicroService.Messaging.Publisher;
@@ -18,9 +19,10 @@ namespace HMS.ContractsMicroService.Messaging
                 .AddServices();
             return services;
         }
+
         private static IServiceCollection AddConnections(this IServiceCollection services)
         {
-            services.AddScoped<ConnectMessaging>();
+            services.AddSingleton<ConnectMessaging>();
             return services;
         }
 

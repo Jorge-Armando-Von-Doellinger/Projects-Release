@@ -71,7 +71,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[1.0.2, )"
+              "version": "[1.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -165,7 +165,7 @@
             },
             "Nuget.MessagingUtilities": {
               "target": "Package",
-              "version": "[1.0.9, )"
+              "version": "[2.0.4, )"
             }
           },
           "imports": [
@@ -319,7 +319,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[1.0.2, )"
+              "version": "[1.0.3, )"
             }
           },
           "imports": [
@@ -403,11 +403,11 @@
             },
             "Nuget.MessagingUtilities": {
               "target": "Package",
-              "version": "[1.0.9, )"
+              "version": "[2.0.4, )"
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[1.0.2, )"
+              "version": "[1.0.3, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

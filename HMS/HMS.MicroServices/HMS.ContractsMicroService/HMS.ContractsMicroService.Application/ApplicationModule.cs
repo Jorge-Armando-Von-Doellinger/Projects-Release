@@ -1,4 +1,8 @@
-﻿using HMS.ContractsMicroService.Core.Interfaces.Repository;
+﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
+using HMS.ContractsMicroService.Application.Manager;
+using HMS.ContractsMicroService.Application.Messaging.Processor;
+using HMS.ContractsMicroService.Core.Interfaces.Messaging;
+using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Infrastructure.Repository;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,14 +13,23 @@ namespace HMS.ContractsMicroService.Application
         public static IServiceCollection AddApplicationModule(this IServiceCollection services)
         {
             services
-                .AddRepositories();
+                .AddManagers()
+                .AddMessageProcessors();
             return services;
         }
 
-        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        private static IServiceCollection AddManagers(this IServiceCollection services)
         {
-            services.AddScoped<IEmployeeContractRepository, EmployeeContractRepository>();
-            services.AddScoped<IWorkHoursRepository, WorkHoursRepository>();
+            services.AddScoped<IEmployeeContractManager, ContractsManager>();
+            services.AddScoped<IWorkHoursManager, WorkHoursManager>();
+            return services;
+        }
+
+        private static IServiceCollection AddMessageProcessors(this IServiceCollection services)
+        {
+            services.AddTransient(provider => new Lazy<IMessageListener>(() => provider.GetRequiredService<IMessageListener>()));
+            services.AddTransient(provider => new Lazy<IMessageProcessor>(() => provider.GetRequiredService<IMessageProcessor>()));
+            services.AddSingleton<IMessageProcessor, MessageProcessor>();
             return services;
         }
     }

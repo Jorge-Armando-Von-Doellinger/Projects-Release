@@ -30,8 +30,8 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
                 var settings = await _discoveryService.Get<AppSettings>()
                     ?? _configuration.GetSection("DefaultAppSettings").Get<AppSettings>()
                     ?? throw new InvalidDataException("Nenhuma configuração pode ser encontrada e/ou utilizada.");
+                //----------------------------------
                 AppSettings.SetCurrentSettings(settings); // Registra as configurações padrões do app
-                
                 await _discoveryService.Put(settings); // Registra as configurações no consul
                 SettingsStartupState.SetSettingsCompleted(); // Permite que os outros servicos que necessitam dessas configurações
                                                              // possam inicar seu trabalho
@@ -39,7 +39,6 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
             catch(Exception ex)
             {
                 Console.WriteLine("--------------------\n"+ex.Message+"\n------------------------");
-                Console.WriteLine("------------------");
                 Console.WriteLine("Erro ao configurar o app!");
             }
         }

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Nuget.AppSettings</Title>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Jorge Armando Von Doellinger</Authors>
     <Description>
 		    Feito para ajudar a registrar as configurações sensiveis e/ou que precisam ser modificadas de forma dinamica
