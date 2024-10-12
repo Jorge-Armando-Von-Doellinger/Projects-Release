@@ -1,55 +1,44 @@
 ﻿using HMS.ContractsMicroService.API.Attributes;
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
-using HMS.ContractsMicroService.Core.Extensions;
+using HMS.ContractsMicroService.Core.Entity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Contract")]
     [ApiController]
-    //[ValidateModel]
-    //[HandlerExceptionFilter]
+    [ValidateModel]
+    [HandlerExceptionFilter]
     public class ContractController : ControllerBase
     {
-        private readonly IEmployeeContractManager _manager;
-        private readonly IMemoryCache _cache;
+        private readonly IContractManager _manager;
 
-        public ContractController(IEmployeeContractManager manager)
+        public ContractController(IContractManager manager)
         {
             _manager = manager;
         }
-        [HttpGet]
-        public async Task<IActionResult> GetContracts()
-            => Ok(await _manager.GetAll());
-         
-        [HttpGet("{ID}")]
-        public async Task<IActionResult> GetContractById(string ID)
-        {
-            return Ok(await _manager.GetById(ID));
-        }
 
+        [HttpGet]
+        public async Task<IActionResult> GetContracts() => Ok(await _manager.GetAll());
+        [HttpGet("{ID}")]
+        public async Task<IActionResult> GetContractById(string ID) => Ok(await _manager.GetById(ID));
         [HttpPost]
-        public async Task<IActionResult> AddContract(EmployeeContractInput contract)
+        public async Task<IActionResult> AddContract(Contract contract)
         {
             await _manager.Add(contract);
             return Accepted();
         }
-
         [HttpPut]
-        public async Task<IActionResult> UpdateContract(EmployeeContractUpdateInput input)
+        public async Task<IActionResult> UpdateContract(Contract contract)
         {
-            await _manager.Update(input);
+            await _manager.Update(contract);
             return Accepted();
         }
-
-        [HttpDelete]
+        [HttpDelete("{ID}")]
         public async Task<IActionResult> DeleteContract(string ID)
         {
             await _manager.Delete(ID);
             return Accepted();
         }
-            
     }
 }

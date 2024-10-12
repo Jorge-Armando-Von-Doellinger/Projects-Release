@@ -31,12 +31,6 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             });
         }
 
-        
-        internal IMongoClient GetMongoClient()
-        {
-            return _client;
-        }
-
         internal IMongoCollection<EmployeeContract> GetEmployeeContractsCollection()
         {
             var name = "EmployeeContracts";
@@ -49,10 +43,10 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             return _client.GetDatabase(name).GetCollection<WorkHours>(name);
         }
 
-        internal IMongoCollection<object> GetGeneralContractCollection()
+        internal IMongoCollection<Contract> GetGeneralContractCollection()
         {
             var name = "GeneralContracts";
-            return _client.GetDatabase(name).GetCollection<object>(name);
+            return _client.GetDatabase(name).GetCollection<Contract>(name);
         }
     }
 }

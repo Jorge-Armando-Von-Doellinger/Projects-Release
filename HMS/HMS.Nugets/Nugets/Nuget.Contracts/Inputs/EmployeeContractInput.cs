@@ -1,4 +1,5 @@
-﻿using System.Threading.Channels;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Threading.Channels;
 
 namespace Nuget.Contracts.Inputs
 {
@@ -14,6 +15,7 @@ namespace Nuget.Contracts.Inputs
             ProbationPeriodInMonths = -1;
             EmploymentStatus = -1;
         }
+        
         public DateTime StartDate { get; set; }
         public short JobTitle { get; set; }// Simucação de um banco de dados dedicado
         public sbyte ExperienceLevel { get; set; } 

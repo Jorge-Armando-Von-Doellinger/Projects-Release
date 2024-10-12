@@ -12,28 +12,24 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 {
     public sealed class EmployeeContractRepository : IEmployeeContractRepository
     {
-        private readonly MongoContext _context;
         private readonly IMongoCollection<EmployeeContract> _collection;
-        private readonly ITransaction<IMongoClient> _transaction;
+        private readonly ITransaction _transaction;
 
-        public EmployeeContractRepository(MongoContext context, ITransaction<IMongoClient> transaction)
+        public EmployeeContractRepository(MongoContext context, ITransaction transaction)
         {
-            _context = context;
             _collection = context.GetEmployeeContractsCollection();
             _transaction = transaction;
         }
 
         private async Task<bool> IdAlredyExist(string ID)
         {
-            var doc = await _collection.FindAsync(MongoUtilities.GetFilterID<EmployeeContract>(ID));
+            var doc = await _collection.FindAsync(doc => doc.ID == ID);
             return await doc.FirstOrDefaultAsync() != null;
         }
 
         public async Task AddAsync(EmployeeContract entity)
         {
-            if(await IdAlredyExist(entity.ID))
-                entity.RecreateID();
-            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
+            await _transaction.Execute(async (session) =>
             {
                 await _collection.InsertOneAsync(session, entity);
             });
@@ -41,9 +37,9 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 
         public async Task DeleteAsync(string entityId)
         {
-            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
+            await _transaction.Execute(async (session) =>
             {
-                await _collection.DeleteOneAsync(session, MongoUtilities.EmployeeContractFilterID(entityId));
+                await _collection.DeleteOneAsync(session, doc => doc.ID == entityId);
             });
         }
 
@@ -55,7 +51,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
 
         public async Task<EmployeeContract> GetByIdAsync(string entityId)
         {
-            var data = await _collection.FindAsync(MongoUtilities.EmployeeContractFilterID(entityId));
+            var data = await _collection.FindAsync(doc => doc.ID == entityId);
             return await data.FirstOrDefaultAsync()
                 ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
         }
@@ -64,10 +60,11 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         {
             var contract = await GetByIdAsync(entity.ID);
             contract.Update(entity);
-            await _transaction.Execute(_context.GetMongoClient(), async (session) =>
+            await _transaction.Execute(async (session) =>
             {
-                var filter = MongoUtilities.EmployeeContractFilterID(contract.ID);
-                await _collection.ReplaceOneAsync(session, filter, contract);
+                await _collection.ReplaceOneAsync(session,
+                    doc => doc.ID == entity.ID,
+                    contract);
             });
         }
 

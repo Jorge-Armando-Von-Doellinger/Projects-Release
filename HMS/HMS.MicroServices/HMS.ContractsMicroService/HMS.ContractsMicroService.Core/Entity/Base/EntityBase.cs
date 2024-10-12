@@ -2,12 +2,12 @@
 {
     public class EntityBase
     {
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         protected void Update()
         {
-            UpdatedAt = DateTime.Now;
+            UpdatedAt = DateTime.UtcNow;
         }
     }
 }

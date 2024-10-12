@@ -18,8 +18,6 @@ namespace HMS.ContractsMicroService.API.Services.Background
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             await SettingsStartupState.AwaitSettingsCompletionAsync();
-
-            Console.WriteLine("Listening" + "");
             await _listener.Value.StartListener(async (data) =>
             {
                 await _processor.Value.Process(data);

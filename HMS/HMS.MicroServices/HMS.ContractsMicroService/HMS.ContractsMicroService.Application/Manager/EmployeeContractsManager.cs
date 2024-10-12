@@ -10,12 +10,12 @@ using Nuget.Contracts.Outputs;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {
-    public sealed class ContractsManager : IEmployeeContractManager
+    public sealed class EmployeeContractsManager : IEmployeeContractManager 
     {
         private readonly IWorkHoursManager _workHoursManager;
         private readonly IEmployeeContractRepository _repository;
 
-        public ContractsManager(IEmployeeContractRepository repository, IWorkHoursManager workHoursManager)
+        public EmployeeContractsManager(IEmployeeContractRepository repository, IWorkHoursManager workHoursManager)
         {
             _repository = repository;
             _workHoursManager = workHoursManager;   

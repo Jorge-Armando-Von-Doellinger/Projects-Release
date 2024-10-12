@@ -4,16 +4,18 @@ using MongoDB.Driver;
 
 namespace HMS.ContractsMicroService.Infrastructure.Services
 {
-    public sealed class TransactionService : ITransaction<IMongoClient>
+    public sealed class TransactionService : ITransaction
     {
-        public TransactionService()
-        {
+        private readonly IMongoClient _client;
 
+        public TransactionService(IMongoClient client)
+        {
+            _client = client;
         }
 
-        public async Task Execute(IMongoClient client, Func<IClientSessionHandle, Task> func)
+        public async Task Execute(Func<IClientSessionHandle, Task> func)
         {
-            var session = await client.StartSessionAsync();
+            var session = await _client.StartSessionAsync();
             try
             {
                 session.StartTransaction();

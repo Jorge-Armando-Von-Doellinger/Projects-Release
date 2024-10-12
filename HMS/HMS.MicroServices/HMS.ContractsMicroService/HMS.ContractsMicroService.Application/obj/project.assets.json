@@ -259,7 +259,7 @@
           }
         }
       },
-      "Nuget.Contracts/1.0.6": {
+      "Nuget.Contracts/1.0.9": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Contracts.dll": {}
@@ -840,14 +840,14 @@
         "packageIcon.png"
       ]
     },
-    "Nuget.Contracts/1.0.6": {
-      "sha512": "UJxaUthSNFZeGGlc5IAsx6hKpT1X1uGQb4VGxYKAh/WiTxTpbym13wOGJAsSPZinlQRYblh19CRw13Tlztzt1Q==",
+    "Nuget.Contracts/1.0.9": {
+      "sha512": "wIqzxK1651mtbCS0mtDIKJFhDljRsFD+D+thuFy/U74F4NwBUvBcK0xpvaSMIuIi0jMy5J8m5trlVDbwawYyqA==",
       "type": "package",
-      "path": "nuget.contracts/1.0.6",
+      "path": "nuget.contracts/1.0.9",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Contracts.dll",
-        "nuget.contracts.1.0.6.nupkg.sha512",
+        "nuget.contracts.1.0.9.nupkg.sha512",
         "nuget.contracts.nuspec"
       ]
     },
@@ -1131,7 +1131,7 @@
       "HMS.ContractsMicroService.Core >= 1.0.0",
       "HMS.ContractsMicroService.Infrastructure >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.1",
-      "Nuget.Contracts >= 1.0.6",
+      "Nuget.Contracts >= 1.0.9",
       "Nuget.MessagingUtilities >= 2.0.4"
     ]
   },
@@ -1199,7 +1199,7 @@
           },
           "Nuget.Contracts": {
             "target": "Package",
-            "version": "[1.0.6, )"
+            "version": "[1.0.9, )"
           },
           "Nuget.MessagingUtilities": {
             "target": "Package",

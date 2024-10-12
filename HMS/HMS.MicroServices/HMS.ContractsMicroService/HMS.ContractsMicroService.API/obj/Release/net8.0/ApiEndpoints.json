@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "contract",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
+        "Type": "HMS.ContractsMicroService.Core.Entity.Contract",
         "IsRequired": true
       }
     ],
@@ -34,8 +34,24 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractUpdateInput",
+        "Name": "contract",
+        "Type": "HMS.ContractsMicroService.Core.Entity.Contract",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
+    "Method": "GetContractById",
+    "RelativePath": "api/Contract/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -44,7 +60,65 @@
   {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
     "Method": "DeleteContract",
-    "RelativePath": "api/Contract",
+    "RelativePath": "api/Contract/{ID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "GetEmployeeContracts",
+    "RelativePath": "api/Contract/Employee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "AddContract",
+    "RelativePath": "api/Contract/Employee",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contract",
+        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "UpdateContract",
+    "RelativePath": "api/Contract/Employee",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "Nuget.Contracts.Inputs.EmployeeContractUpdateInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "DeleteContract",
+    "RelativePath": "api/Contract/Employee",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -58,9 +132,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
     "Method": "GetContractById",
-    "RelativePath": "api/Contract/{ID}",
+    "RelativePath": "api/Contract/Employee/{ID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -97,54 +171,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
-    "Method": "Add",
-    "RelativePath": "api/Teste",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
-    "Method": "Update",
-    "RelativePath": "api/Teste",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractUpdateInput",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
-    "Method": "Delete",
-    "RelativePath": "api/Teste/{ID}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "ID",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {

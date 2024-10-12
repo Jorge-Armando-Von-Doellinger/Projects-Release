@@ -20,7 +20,8 @@ namespace HMS.ContractsMicroService.Application
 
         private static IServiceCollection AddManagers(this IServiceCollection services)
         {
-            services.AddScoped<IEmployeeContractManager, ContractsManager>();
+            services.AddScoped<IContractManager, ContractManager>();
+            services.AddScoped<IEmployeeContractManager, EmployeeContractsManager>();
             services.AddScoped<IWorkHoursManager, WorkHoursManager>();
             return services;
         }

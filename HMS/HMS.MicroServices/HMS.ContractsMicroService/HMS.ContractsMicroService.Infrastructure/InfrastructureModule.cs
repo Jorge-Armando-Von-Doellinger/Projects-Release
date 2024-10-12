@@ -24,6 +24,7 @@ namespace HMS.ContractsMicroService.Infrastructure
         }
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
+            services.AddScoped<IContractRepository, ContractRepository>();
             services.AddScoped<IEmployeeContractRepository, EmployeeContractRepository>();
             services.AddScoped<IWorkHoursRepository, WorkHoursRepository>();
             return services;
@@ -47,7 +48,7 @@ namespace HMS.ContractsMicroService.Infrastructure
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IDiscoveryService, DiscoveryServiceConsul>();
-            services.AddScoped<ITransaction<IMongoClient>, TransactionService>();
+            services.AddScoped<ITransaction, TransactionService>();
             return services;
         }
     }

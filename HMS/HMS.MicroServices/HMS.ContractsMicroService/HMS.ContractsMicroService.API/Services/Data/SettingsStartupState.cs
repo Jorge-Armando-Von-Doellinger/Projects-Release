@@ -6,7 +6,7 @@ namespace HMS.ContractsMicroService.API.Services.Data
     {
         public SettingsStartupState()
         {
-           
+           _taskCompletionSource.SetResult(false);
         }
         private static readonly TaskCompletionSource<bool> _taskCompletionSource = new();
 
@@ -17,7 +17,9 @@ namespace HMS.ContractsMicroService.API.Services.Data
 
         internal static Task AwaitSettingsCompletionAsync()
         {
-            return _taskCompletionSource.Task;
+            if(_taskCompletionSource.Task.IsCompleted)
+                return _taskCompletionSource.Task;
+            return Task.Delay(Timeout.Infinite);
         }
     }
 }

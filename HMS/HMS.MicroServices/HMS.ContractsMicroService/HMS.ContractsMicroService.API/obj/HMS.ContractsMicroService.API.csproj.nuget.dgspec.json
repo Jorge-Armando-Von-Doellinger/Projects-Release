@@ -67,7 +67,7 @@
             },
             "Nuget.Contracts": {
               "target": "Package",
-              "version": "[1.0.6, )"
+              "version": "[1.0.9, )"
             },
             "Nuget.Settings": {
               "target": "Package",
@@ -161,7 +161,7 @@
             },
             "Nuget.Contracts": {
               "target": "Package",
-              "version": "[1.0.6, )"
+              "version": "[1.0.9, )"
             },
             "Nuget.MessagingUtilities": {
               "target": "Package",
