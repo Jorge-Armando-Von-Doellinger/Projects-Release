@@ -1,6 +1,9 @@
 ﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Entity;
+using HMS.ContractsMicroService.Core.Entity.Base;
+using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
+using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {
@@ -12,8 +15,9 @@ namespace HMS.ContractsMicroService.Application.Manager
         {
             _repository = repository;
         }
-        public async Task Add(Contract entity)
+        public async Task Add(ContractInput input)
         {
+            var entity = input.FromTo<Contract>();
             await _repository.AddAsync(entity);
         }
 
@@ -22,19 +26,25 @@ namespace HMS.ContractsMicroService.Application.Manager
             await _repository.DeleteAsync(entityId);
         }
 
-        public async Task<List<Contract>> GetAll()
+        public async Task<List<ContractUpdateInput>> GetAll()
         {
-            return await _repository.GetAsync();
+            var contracts = await _repository.GetAsync();
+            return contracts.FromTo<List<ContractUpdateInput>>();
         }
 
-        public async Task<Contract> GetById(string entityId)
+        public async Task<ContractUpdateInput> GetById(string entityId)
         {
-            return await _repository.GetByIdAsync(entityId);
+            var contract = await _repository.GetByIdAsync(entityId);
+            return contract.FromTo<ContractUpdateInput>();
         }
 
-        public async Task Update(Contract entity)
+        public async Task Update(ContractUpdateInput input)
         {
-            var currentContract = await GetById(entity.ID);
+            Console.WriteLine(input.ID);
+            var entity = input.FromTo<Contract>(typeof(EntityBase));
+            Console.WriteLine(entity.ID);
+            var currentContract = await _repository.GetByIdAsync(entity.ID);
+            Console.WriteLine((currentContract == null) + " Impossivel");
             currentContract.Update(entity);
             await _repository.UpdateAsync(currentContract);
         }

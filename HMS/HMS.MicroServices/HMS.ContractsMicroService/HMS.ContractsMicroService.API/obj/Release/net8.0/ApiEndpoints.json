@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "contract",
-        "Type": "HMS.ContractsMicroService.Core.Entity.Contract",
+        "Type": "Nuget.Contracts.Inputs.ContractInput",
         "IsRequired": true
       }
     ],
@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "contract",
-        "Type": "HMS.ContractsMicroService.Core.Entity.Contract",
+        "Type": "Nuget.Contracts.Inputs.ContractUpdateInput",
         "IsRequired": true
       }
     ],

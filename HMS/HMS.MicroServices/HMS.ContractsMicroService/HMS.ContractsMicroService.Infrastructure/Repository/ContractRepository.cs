@@ -2,6 +2,7 @@
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Infrastructure.Context;
 using HMS.ContractsMicroService.Infrastructure.Interfaces;
+using HMS.ContractsMicroService.Infrastructure.Messages;
 using MongoDB.Driver;
 
 namespace HMS.ContractsMicroService.Infrastructure.Repository
@@ -41,7 +42,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task<Contract> GetByIdAsync(string entityId)
         {
             var contract = await _collection.FindAsync(doc => doc.ID == entityId);
-            return await contract.FirstOrDefaultAsync();
+            return await contract.FirstOrDefaultAsync() ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded); 
         }
 
         public async Task UpdateAsync(Contract entity)

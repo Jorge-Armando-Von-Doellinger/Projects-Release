@@ -2,13 +2,14 @@
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Entity;
 using Microsoft.AspNetCore.Mvc;
+using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/Contract")]
     [ApiController]
     [ValidateModel]
-    [HandlerExceptionFilter]
+    //[HandlerExceptionFilter]
     public class ContractController : ControllerBase
     {
         private readonly IContractManager _manager;
@@ -23,13 +24,13 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpGet("{ID}")]
         public async Task<IActionResult> GetContractById(string ID) => Ok(await _manager.GetById(ID));
         [HttpPost]
-        public async Task<IActionResult> AddContract(Contract contract)
+        public async Task<IActionResult> AddContract(ContractInput contract)
         {
             await _manager.Add(contract);
             return Accepted();
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateContract(Contract contract)
+        public async Task<IActionResult> UpdateContract(ContractUpdateInput contract)
         {
             await _manager.Update(contract);
             return Accepted();

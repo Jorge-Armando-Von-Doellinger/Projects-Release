@@ -17,10 +17,11 @@ namespace HMS.ContractsMicroService.Core.Entity
         public string HiredAddress { get; set; }
         //Assunto
         public string Subject { get; set; }
+        private decimal _amount;
         public decimal Amount
         {
-            get => Amount;
-            set => Math.Round(value, 2);
+            get => _amount;
+            set => _amount = Math.Round(value, 2);
         }
         public string PaymentMethod { get; set; } // As opções vão vir do micro servico de pagamento
         public DateTime StartDate { get; set; }
@@ -32,6 +33,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         public void Update(Contract valuesToReplace)
         {
             base.Update();
+            if(valuesToReplace == null) Console.WriteLine( "awdwasdd");
             this.Replacer(valuesToReplace);
         }
     }

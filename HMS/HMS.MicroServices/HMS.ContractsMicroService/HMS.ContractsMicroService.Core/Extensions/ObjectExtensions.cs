@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Diagnostics.Metrics;
 using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace HMS.ContractsMicroService.Core.Extensions
 {
@@ -58,12 +59,12 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 });
         }
 
-        public static TTarget FromTo<TTarget>(this object obj) where TTarget : new()
+        public static TTarget FromTo<TTarget>(this object obj, Type? typeToIgnore = null) where TTarget : new()
         {
             ArgumentNullException.ThrowIfNull(obj);
             var objType = obj.GetType();
             var targetType = typeof(TTarget);
-            var target = (TTarget)obj.FromTo(targetType);
+            var target = (TTarget)obj.FromTo(targetType, typeToIgnore);
             ArgumentNullException.ThrowIfNull(target);
             return target;
 
@@ -71,16 +72,20 @@ namespace HMS.ContractsMicroService.Core.Extensions
         
         public static object FromTo(this object obj, Type type, Type? typeToIgnore = null)
         {
-            var target = Activator.CreateInstance(type)
+            var target = FormatterServices.GetUninitializedObject(type)
                 ?? throw new Exception("Null");
             foreach(var prop in obj.GetType().GetProperties())
             {
                 var propTarget = type.GetProperty(prop.Name);
                 if (propTarget == null) continue;
-                if (propTarget.DeclaringType == typeToIgnore) continue;
+                
+                if (propTarget.DeclaringType == typeToIgnore) 
+                {
+                    continue;
+                }   
                 var valueIsValid = prop.TryGetValue(obj, out var result);
-
                 if (valueIsValid == false) continue;
+                if (result.GetType().GetProperty(propTarget.Name)?.DeclaringType?.BaseType == typeToIgnore) continue;
                 if (prop.PropertyType != propTarget.PropertyType)
                     result = ChangeType(result, propTarget.PropertyType, out var result1) ? result1 : result;
                 propTarget.SetValue(target, result);
