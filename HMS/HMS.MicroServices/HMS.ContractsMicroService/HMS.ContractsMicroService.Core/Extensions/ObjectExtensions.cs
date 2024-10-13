@@ -45,18 +45,19 @@ namespace HMS.ContractsMicroService.Core.Extensions
             return (TObject[]) target;
         }
 
-        internal static void Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace) where TEntity : notnull
+        internal static void Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace, bool ignoreInheritedValues) 
+            where TEntity : class
         {
-            obj.GetType().GetProperties()
-                .CustomForEach((property, index) =>
-                {
-                    var replaceProp = valuesToReplace.GetType().GetProperty(property.Name);
-                    if (replaceProp == null) return;
-                    var valueIsValid = replaceProp.TryGetValue(valuesToReplace, out var result);
-
-                    if(valueIsValid == false) return;
-                    property.SetValue(obj, result);
-                });
+            if(obj == null) return;
+            foreach (var property in obj.GetType().GetProperties())
+            {
+                var replaceProp = valuesToReplace.GetType().GetProperty(property.Name);
+                if (replaceProp == null) continue;
+                if (replaceProp.DeclaringType != obj.GetType() && ignoreInheritedValues) continue;
+                var valueIsValid = replaceProp.TryGetValue(valuesToReplace, out var result);
+                if (valueIsValid == false) continue;
+                property.SetValue(obj, result);
+            };
         }
 
         public static TTarget FromTo<TTarget>(this object obj, Type? typeToIgnore = null) where TTarget : new()
@@ -72,8 +73,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
         
         public static object FromTo(this object obj, Type type, Type? typeToIgnore = null)
         {
-            var target = FormatterServices.GetUninitializedObject(type)
-                ?? throw new Exception("Null");
+            var target = Activator.CreateInstance(type) ?? throw new Exception("Null");
             foreach(var prop in obj.GetType().GetProperties())
             {
                 var propTarget = type.GetProperty(prop.Name);
@@ -85,7 +85,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 }   
                 var valueIsValid = prop.TryGetValue(obj, out var result);
                 if (valueIsValid == false) continue;
-                if (result.GetType().GetProperty(propTarget.Name)?.DeclaringType?.BaseType == typeToIgnore) continue;
+                if (result?.GetType().GetProperty(propTarget.Name)?.DeclaringType?.BaseType == typeToIgnore) continue;
                 if (prop.PropertyType != propTarget.PropertyType)
                     result = ChangeType(result, propTarget.PropertyType, out var result1) ? result1 : result;
                 propTarget.SetValue(target, result);

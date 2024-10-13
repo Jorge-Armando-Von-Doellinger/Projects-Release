@@ -23,7 +23,8 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
             {
                 { settings.AddKey, new AddEmployeeHandler(_contractManager) },
                 { settings.UpdateKey, new UpdateEmployeeHandler(_contractManager) },
-                { settings.DeleteKey, new DeleteEmployeeHandler(_contractManager) }
+                { settings.DeleteKey, new DeleteEmployeeHandler(_contractManager) },
+                { settings. }
             };
             
         }

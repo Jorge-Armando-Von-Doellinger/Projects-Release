@@ -27,7 +27,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         {
             
             base.Update();
-            this.Replacer(valuesToReplace);
+            this.Replacer(valuesToReplace, true);
         }
     }
 }

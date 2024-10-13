@@ -34,7 +34,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         {
             base.Update();
             if(valuesToReplace == null) Console.WriteLine( "awdwasdd");
-            this.Replacer(valuesToReplace);
+            this.Replacer(valuesToReplace, true);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         public void Update(WorkHours valuesToUpdate)
         {
             base.Update();
-            this.Replacer(valuesToUpdate);
+            this.Replacer(valuesToUpdate, true);
         }
     }
 }
