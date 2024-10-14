@@ -1,6 +1,6 @@
 ﻿namespace Nuget.Settings.Database
 {
-    public class MongoDbSettings
+    public interface IMongoDbSettings
     {
         public string ConnectionString { get; set; }
     }

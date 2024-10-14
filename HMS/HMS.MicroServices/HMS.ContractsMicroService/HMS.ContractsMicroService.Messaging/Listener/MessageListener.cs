@@ -19,18 +19,19 @@ namespace HMS.ContractsMicroService.Messaging.Listener
     public sealed class MessageListener : IMessageListener
     {
         private readonly IModel _model;
-        private readonly IMessagePublisher<RabbitMqSettings> _publisher;
-        private static readonly JsonSerializerOptions jsonOptions = new () { IncludeFields = true };
-        public MessageListener(ConnectMessaging connect, IServiceProvider provider)
+        private readonly IMessagePublisher<Dictionary<string, IMessagingSystem>> _publisher;
+        private readonly JsonSerializerOptions jsonOptions = new () { IncludeFields = true };
+        private readonly Dictionary<string, IMessagingSystem> _settings;
+
+        public MessageListener(ConnectMessaging connect, IServiceProvider provider, Dictionary<string, IMessagingSystem> settings)
         {
-            _publisher = provider.CreateScope().ServiceProvider.GetRequiredService<IMessagePublisher<RabbitMqSettings>>();
+            _publisher = provider.CreateScope().ServiceProvider.GetRequiredService<IMessagePublisher<Dictionary<string, IMessagingSystem>>>();
             _model = connect.Connect();
+            _settings = settings;
         }
         public async Task StartListener(Func<MessagingData, Task> action)
         {
-            var settings = AppSettings.CurrentSettings!.RabbitMq;
-            ArgumentNullException.ThrowIfNull(settings);
-            await MessagingConfigureService.ConfigureQueue(_model, settings, true);
+            MessagingConfigureService.ConfigureAllQueues(_model, _settings);
             var consumer = new EventingBasicConsumer(_model);
             consumer.Received += async (model, ea) =>
             {
@@ -56,13 +57,17 @@ namespace HMS.ContractsMicroService.Messaging.Listener
                 }
                 catch(Exception ex) 
                 {
-                    settings.CurrentKey = ea.RoutingKey;
+                    var settings = _settings.FirstOrDefault(x => x.Value.GetKeys().Contains() == ea.RoutingKey)
                     message.AddAttempt();
                     _model.BasicReject(ea.DeliveryTag, false);
                     await _publisher.Publish(message, settings);
                 }
             };
-            _model.BasicConsume(settings.Queue, false, consumer );
+            var settings = _settings.Values.ToList();
+            foreach (var setting in settings)
+            {
+                _model.BasicConsume(setting.Queue, false, consumer );
+            }
         }
 
         private Message GetMessageByBytes(byte[] bytes)

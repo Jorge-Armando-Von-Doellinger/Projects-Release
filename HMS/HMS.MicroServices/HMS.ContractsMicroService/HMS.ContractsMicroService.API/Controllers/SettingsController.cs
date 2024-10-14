@@ -24,7 +24,7 @@ namespace HMS.ContractsMicroService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddSettings(AppSettings consulSettings)
+        public async Task<IActionResult> AddSettings(IAppSettings consulSettings)
         {
             await _serviceDiscovery.Put(consulSettings);
             return Accepted();

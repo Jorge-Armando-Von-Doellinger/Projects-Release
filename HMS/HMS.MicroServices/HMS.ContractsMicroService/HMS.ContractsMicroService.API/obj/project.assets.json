@@ -336,7 +336,7 @@
           "lib/net8.0/Nuget.MessagingUtilities.dll": {}
         }
       },
-      "Nuget.Settings/1.0.3": {
+      "Nuget.Settings/1.0.7": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Settings.dll": {}
@@ -557,7 +557,8 @@
           "HMS.ContractsMicroService.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Nuget.Contracts": "1.0.9",
-          "Nuget.MessagingUtilities": "2.0.4"
+          "Nuget.MessagingUtilities": "2.0.4",
+          "Nuget.Settings": "1.0.7"
         },
         "compile": {
           "bin/placeholder/HMS.ContractsMicroService.Application.dll": {}
@@ -584,7 +585,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "MongoDB.Driver": "2.29.0",
-          "Nuget.Settings": "1.0.3"
+          "Nuget.Settings": "1.0.7"
         },
         "compile": {
           "bin/placeholder/HMS.ContractsMicroService.Infrastructure.dll": {}
@@ -601,7 +602,7 @@
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
           "Nuget.MessagingUtilities": "2.0.4",
-          "Nuget.Settings": "1.0.3",
+          "Nuget.Settings": "1.0.7",
           "RabbitMQ.Client": "6.8.1"
         },
         "compile": {
@@ -1358,14 +1359,14 @@
         "nuget.messagingutilities.nuspec"
       ]
     },
-    "Nuget.Settings/1.0.3": {
-      "sha512": "53Q2T2qR695ZVMsKgjmY0X708KEv4KhPWKfL6K0eA0LsUFFUiCbGnSqWOnBX3RcbrSnEb+1Fm3ydZFYnhWmapw==",
+    "Nuget.Settings/1.0.7": {
+      "sha512": "eGd9U4Oyk4ek6ezcs/iUB2UzCI4dkxFSE8LMop+wauSxxut5p9nm3c3RtailERjWPDSl3EaNwLaXxhqDCeVf7g==",
       "type": "package",
-      "path": "nuget.settings/1.0.3",
+      "path": "nuget.settings/1.0.7",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Settings.dll",
-        "nuget.settings.1.0.3.nupkg.sha512",
+        "nuget.settings.1.0.7.nupkg.sha512",
         "nuget.settings.nuspec"
       ]
     },
@@ -1787,7 +1788,7 @@
       "HMS.ContractsMicroService.Messaging >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.1",
       "Nuget.Contracts >= 1.0.9",
-      "Nuget.Settings >= 1.0.3",
+      "Nuget.Settings >= 1.0.7",
       "Swashbuckle.AspNetCore >= 6.8.1"
     ]
   },
@@ -1862,7 +1863,7 @@
           },
           "Nuget.Settings": {
             "target": "Package",
-            "version": "[1.0.3, )"
+            "version": "[1.0.7, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

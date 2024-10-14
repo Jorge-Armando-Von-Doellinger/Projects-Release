@@ -10,48 +10,50 @@ using System.Text;
 
 namespace HMS.ContractsMicroService.Messaging.Publisher
 {
-    public sealed class MessagePubisher : IMessagePublisher<RabbitMqSettings>
+    public sealed class MessagePubisher : IMessagePublisher<IMessagingSystem>
     {
         private readonly IModel _model;
-        
+
         public MessagePubisher(ConnectMessaging messaging)
         {
             _model = messaging.Connect();
         }
-        public async Task Publish(object data, RabbitMqSettings settings)
+
+        public async Task Publish(object data, IMessagingSystem settings)
         {
-            var appSettings = AppSettings.CurrentSettings;
+            var appSettings = IAppSettings.CurrentSettings;
             if(data.GetType() != typeof(Message))
-                data = new Message(data, appSettings.ApplicationName, settings.CurrentKey);
+                data = new Message(data, appSettings.ApplicationName, settings.AddKey);
 
             var bytes = await GetDataBytes(data);
 
-            await MessagingConfigureService.ConfigureQueue(_model, settings, true);
+            MessagingConfigureService.ConfigureQueue(_model, settings);
+
             _model.BasicPublish(settings.Exchange,
-                settings.CurrentKey,
+                settings.AddKey,
                 false,
             null,
                 bytes);
         }
 
-        private async Task<byte[]> GetDataBytes(object data)
-        {
-            var objJson = await JsonManipulation.Serialize(data);
-            var objBytes = Encoding.UTF8.GetBytes(objJson);
-            return objBytes;
-        }
 
-        public async Task PublishResponse(object data)
+        public async Task PublishResponse(object data, IMessagingSystem settings)
         {
-            RabbitMqSettings settings = AppSettings.CurrentSettings.RabbitMq;
             ArgumentNullException.ThrowIfNull(settings);
-            await MessagingConfigureService.ConfigureQueue(_model, settings, true);
+            MessagingConfigureService.ConfigureQueue(_model, settings);
             var bytes = await GetDataBytes(data);
             _model.BasicPublish(settings.Exchange,
                 settings.ResponseKey,
                 false,
                 null,
                 bytes);
+        }
+
+        private async Task<byte[]> GetDataBytes(object data)
+        {
+            string objJson = await JsonManipulation.Serialize(data);
+            byte[] objBytes = Encoding.UTF8.GetBytes(objJson);
+            return objBytes;
         }
     }
 }

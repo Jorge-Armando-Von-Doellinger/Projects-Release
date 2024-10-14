@@ -4,17 +4,13 @@ using Nuget.Settings.ServiceDiscovery;
 
 namespace Nuget.Settings
 {
-    public sealed class AppSettings
+    public interface IAppSettings
     {
-        public static AppSettings? CurrentSettings { get; private set; } = null;
-        public RabbitMqSettings? RabbitMq { get; set; }
-        public ConsulSettings? Consul { get; set; }
-        public MongoDbSettings? MongoDb { get; set; }
-        public string ApplicationName { get; set; } 
-
-        public static void SetCurrentSettings(AppSettings settings)
-        {
-            CurrentSettings = settings;
-        }
+        static IAppSettings? CurrentSettings { get; protected set; } = null;
+        IRabbitMqSettings? RabbitMq { get; }
+        ConsulSettings? Consul { get; }
+        IMongoDbSettings? MongoDb { get; }
+        Dictionary<string, IMessagingSystem> MessagingSystem { get; }
+        string ApplicationName { get; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Manager;
 using HMS.ContractsMicroService.Application.Messaging.Processor;
+using HMS.ContractsMicroService.Application.Settings;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Infrastructure.Repository;
 using Microsoft.Extensions.DependencyInjection;
+using Nuget.Settings;
 
 namespace HMS.ContractsMicroService.Application
 {
@@ -13,6 +15,7 @@ namespace HMS.ContractsMicroService.Application
         public static IServiceCollection AddApplicationModule(this IServiceCollection services)
         {
             services
+                .AddSettings()
                 .AddManagers()
                 .AddMessageProcessors();
             return services;
@@ -31,6 +34,12 @@ namespace HMS.ContractsMicroService.Application
             services.AddTransient(provider => new Lazy<IMessageListener>(() => provider.GetRequiredService<IMessageListener>()));
             services.AddTransient(provider => new Lazy<IMessageProcessor>(() => provider.GetRequiredService<IMessageProcessor>()));
             services.AddSingleton<IMessageProcessor, MessageProcessor>();
+            return services;
+        }
+
+        private static IServiceCollection AddSettings(this IServiceCollection services)
+        {
+            services.AddSingleton<IAppSettings, AppSettings>();
             return services;
         }
     }

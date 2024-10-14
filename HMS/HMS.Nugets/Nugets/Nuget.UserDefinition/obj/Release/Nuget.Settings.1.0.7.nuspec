@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Nuget.Settings</id>
+    <version>1.0.7</version>
+    <title>Nuget.AppSettings</title>
+    <authors>Jorge Armando Von Doellinger</authors>
+    <description>Feito para ajudar a registrar as configurações sensiveis e/ou que precisam ser modificadas de forma dinamica</description>
+    <repository type="git" url="https://github.com/Jorge-Armando-Von-Doellinger/Projects-Release" commit="14c0f117df91d4b73b08008a696501a21135a7d5" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.Nugets\Nugets\Nuget.UserDefinition\bin\Release\net8.0\Nuget.Settings.dll" target="lib\net8.0\Nuget.Settings.dll" />
+  </files>
+</package>

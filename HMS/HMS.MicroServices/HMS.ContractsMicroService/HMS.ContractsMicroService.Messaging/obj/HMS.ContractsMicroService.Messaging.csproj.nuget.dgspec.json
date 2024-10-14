@@ -135,7 +135,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[1.0.3, )"
+              "version": "[1.0.7, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

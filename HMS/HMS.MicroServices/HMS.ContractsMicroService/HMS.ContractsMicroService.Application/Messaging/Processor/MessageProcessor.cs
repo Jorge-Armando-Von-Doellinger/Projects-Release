@@ -12,19 +12,22 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
     public sealed class MessageProcessor : IMessageProcessor
     {
         private readonly Dictionary<string, IMessageHandler> _EmployeeHandler;
-        private IEmployeeContractManager _contractManager;
+        private IEmployeeContractManager _employeeContract;
+        private IContractManager _contractManager;
         public MessageProcessor(IServiceProvider provider)
         {
-            var service = provider.CreateScope().ServiceProvider.GetRequiredService<IEmployeeContractManager>();
-            _contractManager = service; 
-            var settings = AppSettings.CurrentSettings.RabbitMq;
+            var service = provider.CreateScope().ServiceProvider; ;
+            _contractManager = service.GetRequiredService<IContractManager>(); 
+            _employeeContract = service.GetRequiredService<IEmployeeContractManager>();
+            var settings = IAppSettings.CurrentSettings.MessagingSystem;
 
+            // Já que é um projeto exemplo, terão types possiveis de entrada para a mesma rota
             _EmployeeHandler = new()
             {
-                { settings.AddKey, new AddEmployeeHandler(_contractManager) },
+                { settings.AddKey, new AddContractHandler(_contractManager) },
+                { settings.AddKey, new AddContractHandler(_employeeContract) },
                 { settings.UpdateKey, new UpdateEmployeeHandler(_contractManager) },
-                { settings.DeleteKey, new DeleteEmployeeHandler(_contractManager) },
-                { settings. }
+                { settings.DeleteKey, new DeleteEmployeeHandler(_contractManager) }
             };
             
         }

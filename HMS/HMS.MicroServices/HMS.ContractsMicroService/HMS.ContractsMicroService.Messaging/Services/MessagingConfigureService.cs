@@ -7,20 +7,15 @@ namespace HMS.ContractsMicroService.Messaging.Services
     internal sealed class MessagingConfigureService
     {
         private static bool _asConfigured = false;
-        internal static Task ConfigureQueue(IModel model, RabbitMqSettings settings, bool? setAllKeys)
+        internal static void ConfigureQueue(IModel model, IMessagingSystem settings)
         {
-            if(_asConfigured) return Task.CompletedTask;
-            if(setAllKeys == true)
-                QueueBindAllKeys(settings, model);
-            else
-                model.QueueBind(settings.Queue, settings.Exchange, settings.CurrentKey);
-            _asConfigured = true;
-            return Task.CompletedTask;
+            model.QueueBind(settings.Queue, settings.Exchange, settings.CurrentKey);
         }
 
-        private static void QueueBindAllKeys(RabbitMqSettings settings, IModel model)
+        internal static void ConfigureAllQueues(IModel model, Dictionary<string, IMessagingSystem> settings)
         {
-            model.QueueBind(settings.Queue, settings.Exchange, "contract.#");
+            foreach(var value in settings.Values)
+                model.QueueBind(value.Queue, value.Exchange, value.CurrentKey);
         }
     }
 }
