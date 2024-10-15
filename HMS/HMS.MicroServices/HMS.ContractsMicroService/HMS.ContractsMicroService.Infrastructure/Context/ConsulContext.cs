@@ -14,7 +14,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             _client = new ConsulClient();
         }
 
-        private string GetDefaultKey() => AppSettings.CurrentSettings.Consul.KvKey /*?? $"hms/microservices/{appName}/settings"*/;
+        private string GetDefaultKey() => IAppSettings.CurrentSettings.Consul.KvKey /*?? $"hms/microservices/{appName}/settings"*/;
 
         public async Task InsertOrUpdate(byte[] dataBytes)
         {

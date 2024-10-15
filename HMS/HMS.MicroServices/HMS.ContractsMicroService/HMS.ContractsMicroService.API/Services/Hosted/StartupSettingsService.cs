@@ -1,12 +1,8 @@
-﻿using Consul;
-using HMS.ContractsMicroService.API.Services.Data;
+﻿using HMS.ContractsMicroService.API.Services.Data;
 using HMS.ContractsMicroService.Application.Settings;
 using HMS.ContractsMicroService.Core.Interfaces.Settings;
-using HMS.ContractsMicroService.Infrastructure.Services;
 using Microsoft.Extensions.Caching.Memory;
 using Nuget.Settings;
-using Nuget.Settings.Messaging;
-using System.Text.Json;
 
 namespace HMS.ContractsMicroService.API.Services.Hosted
 {
@@ -39,7 +35,7 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
                     ?? throw new InvalidDataException("Nenhuma configuração pode ser encontrada e/ou utilizada.");
                 Console.WriteLine(settings.ApplicationName);
                 //----------------------------------
-                AppSettings.SetCurrentSettings(settings); // Registra as configurações padrões do app
+                _settings.SetCurrentSettings(settings); // Registra as configurações padrões do app
                 await _discoveryService.Put(settings); // Registra as configurações no consul
                 SettingsStartupState.SetSettingsCompleted(); // Permite que os outros servicos que necessitam dessas configurações
                                                              // possam inicar seu trabalho

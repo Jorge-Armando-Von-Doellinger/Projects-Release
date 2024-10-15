@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oIl/x5n5tx8=",
+  "dgSpecHash": "9A+J+e+H3VU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.ContractsMicroService\\HMS.ContractsMicroService.Messaging\\HMS.ContractsMicroService.Messaging.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\nuget.messagingutilities\\2.0.4\\nuget.messagingutilities.2.0.4.nupkg.sha512",
-    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.settings\\1.0.7\\nuget.settings.1.0.7.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\nuget.settings\\2.0.0\\nuget.settings.2.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"

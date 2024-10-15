@@ -19,13 +19,13 @@ namespace HMS.ContractsMicroService.Messaging.Listener
     public sealed class MessageListener : IMessageListener
     {
         private readonly IModel _model;
-        private readonly IMessagePublisher<Dictionary<string, IMessagingSystem>> _publisher;
+        private readonly IMessagePublisher<IMessagingSystem> _publisher;
         private readonly JsonSerializerOptions jsonOptions = new () { IncludeFields = true };
         private readonly Dictionary<string, IMessagingSystem> _settings;
 
         public MessageListener(ConnectMessaging connect, IServiceProvider provider, Dictionary<string, IMessagingSystem> settings)
         {
-            _publisher = provider.CreateScope().ServiceProvider.GetRequiredService<IMessagePublisher<Dictionary<string, IMessagingSystem>>>();
+            _publisher = provider.CreateScope().ServiceProvider.GetRequiredService<IMessagePublisher<IMessagingSystem>>();
             _model = connect.Connect();
             _settings = settings;
         }
@@ -57,10 +57,11 @@ namespace HMS.ContractsMicroService.Messaging.Listener
                 }
                 catch(Exception ex) 
                 {
-                    var settings = _settings.FirstOrDefault(x => x.Value.GetKeys().Contains() == ea.RoutingKey)
+                    var settings = _settings
+                    .FirstOrDefault(x => x.Value.GetKeys().Contains(ea.RoutingKey));
                     message.AddAttempt();
                     _model.BasicReject(ea.DeliveryTag, false);
-                    await _publisher.Publish(message, settings);
+                    await _publisher.Publish(message, settings.Value);
                 }
             };
             var settings = _settings.Values.ToList();

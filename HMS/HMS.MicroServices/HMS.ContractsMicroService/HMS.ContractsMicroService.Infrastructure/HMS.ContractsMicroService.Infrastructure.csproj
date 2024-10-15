@@ -10,7 +10,7 @@
     <PackageReference Include="Consul" Version="1.7.14.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="MongoDB.Driver" Version="2.29.0" />
-    <PackageReference Include="Nuget.Settings" Version="1.0.7" />
+    <PackageReference Include="Nuget.Settings" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

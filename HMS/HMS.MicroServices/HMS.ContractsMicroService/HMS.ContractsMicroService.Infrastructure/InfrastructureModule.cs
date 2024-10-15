@@ -33,7 +33,7 @@ namespace HMS.ContractsMicroService.Infrastructure
         {
             services.AddSingleton<IMongoClient, MongoClient>(sp =>
             {
-                return new(AppSettings.CurrentSettings.MongoDb.ConnectionString);
+                return new(IAppSettings.CurrentSettings.MongoDb.ConnectionString);
             });
             return services;
         }

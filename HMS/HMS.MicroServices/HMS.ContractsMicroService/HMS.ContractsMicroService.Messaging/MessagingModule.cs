@@ -15,8 +15,7 @@ namespace HMS.ContractsMicroService.Messaging
         {
             services
                 .AddConnections()
-                .AddMessaging()
-                .AddServices();
+                .AddMessaging();
             return services;
         }
 
@@ -29,12 +28,7 @@ namespace HMS.ContractsMicroService.Messaging
         private static IServiceCollection AddMessaging(this IServiceCollection services)
         {
             services.AddSingleton<IMessageListener, MessageListener>();
-            services.AddScoped<IMessagePublisher<RabbitMqSettings>, MessagePubisher>();
-            return services;
-        }
-        private static IServiceCollection AddServices(this IServiceCollection services)
-        {
-            services.AddScoped<CacheSettingsService>();
+            services.AddScoped<IMessagePublisher<IMessagingSystem>, MessagePubisher>();
             return services;
         }
     }

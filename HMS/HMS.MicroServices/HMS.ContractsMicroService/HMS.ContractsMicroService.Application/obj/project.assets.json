@@ -277,7 +277,7 @@
           "lib/net8.0/Nuget.MessagingUtilities.dll": {}
         }
       },
-      "Nuget.Settings/1.0.7": {
+      "Nuget.Settings/2.0.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Nuget.Settings.dll": {}
@@ -412,7 +412,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "MongoDB.Driver": "2.29.0",
-          "Nuget.Settings": "1.0.7"
+          "Nuget.Settings": "2.0.0"
         },
         "compile": {
           "bin/placeholder/HMS.ContractsMicroService.Infrastructure.dll": {}
@@ -862,14 +862,14 @@
         "nuget.messagingutilities.nuspec"
       ]
     },
-    "Nuget.Settings/1.0.7": {
-      "sha512": "eGd9U4Oyk4ek6ezcs/iUB2UzCI4dkxFSE8LMop+wauSxxut5p9nm3c3RtailERjWPDSl3EaNwLaXxhqDCeVf7g==",
+    "Nuget.Settings/2.0.0": {
+      "sha512": "KmhBsDDlvUNyhrIMWvkx8NlMVpSHcG+81s45Ihs9oZ4F/Lddl7w77sN3BHG4nWGGMTnJRte1ocV4mC2fzGEtkw==",
       "type": "package",
-      "path": "nuget.settings/1.0.7",
+      "path": "nuget.settings/2.0.0",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/Nuget.Settings.dll",
-        "nuget.settings.1.0.7.nupkg.sha512",
+        "nuget.settings.2.0.0.nupkg.sha512",
         "nuget.settings.nuspec"
       ]
     },
@@ -1133,7 +1133,7 @@
       "Microsoft.Extensions.DependencyInjection >= 8.0.1",
       "Nuget.Contracts >= 1.0.9",
       "Nuget.MessagingUtilities >= 2.0.4",
-      "Nuget.Settings >= 1.0.7"
+      "Nuget.Settings >= 2.0.0"
     ]
   },
   "packageFolders": {
@@ -1208,7 +1208,7 @@
           },
           "Nuget.Settings": {
             "target": "Package",
-            "version": "[1.0.7, )"
+            "version": "[2.0.0, )"
           }
         },
         "imports": [

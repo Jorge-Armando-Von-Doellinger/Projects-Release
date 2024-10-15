@@ -72,7 +72,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[1.0.7, )"
+              "version": "[2.0.0, )"
             }
           },
           "imports": [
@@ -226,7 +226,7 @@
             },
             "Nuget.Settings": {
               "target": "Package",
-              "version": "[1.0.7, )"
+              "version": "[2.0.0, )"
             }
           },
           "imports": [

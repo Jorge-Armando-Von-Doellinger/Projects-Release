@@ -1,7 +1,6 @@
 ﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Interfaces.Messaging;
 using Nuget.Contracts.Inputs;
-using ZstdSharp.Unsafe;
 
 namespace HMS.ContractsMicroService.Application.Handlers
 {

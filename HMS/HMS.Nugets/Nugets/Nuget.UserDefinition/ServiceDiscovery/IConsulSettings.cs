@@ -1,6 +1,6 @@
 ﻿namespace Nuget.Settings.ServiceDiscovery
 {
-    public interface ConsulSettings
+    public interface IConsulSettings
     {
         public string KvKey { get; }
         public string ServiceId { get; }

@@ -3,15 +3,15 @@ using Nuget.Settings;
 using Nuget.Settings.Database;
 using Nuget.Settings.Messaging;
 using Nuget.Settings.ServiceDiscovery;
-using System.Runtime.CompilerServices;
 
 namespace HMS.ContractsMicroService.Application.Settings
 {
     public class AppSettings : IAppSettings
     {
+        public static IAppSettings CurrentSettings { get; private set; } 
         public IRabbitMqSettings? RabbitMq { get; set; }
 
-        public ConsulSettings? Consul { get; set; }
+        public IConsulSettings? Consul { get; set; }
 
         public IMongoDbSettings? MongoDb { get; set; }
 
@@ -19,9 +19,14 @@ namespace HMS.ContractsMicroService.Application.Settings
 
         public Dictionary<string, IMessagingSystem> MessagingSystem { get; set; }
 
-        public static void SetCurrentSettings(IAppSettings settings)
+        public void SetCurrentSettings(IAppSettings settings)
         {
-            IAppSettings.CurrentSettings = settings;
+            CurrentSettings = settings;
+        }
+
+        public void SetCurrentSettings()
+        {
+            
         }
     }
     public static class AppSettingsExtensions
@@ -31,7 +36,6 @@ namespace HMS.ContractsMicroService.Application.Settings
             if (settings == null) throw new NullReferenceException("Settings can't be null");
             bool success = settings.MessagingSystem.TryGetValue(key.ToString(), out var messagingSystem);
             return success ? messagingSystem : null;
-
         }
     }
 }

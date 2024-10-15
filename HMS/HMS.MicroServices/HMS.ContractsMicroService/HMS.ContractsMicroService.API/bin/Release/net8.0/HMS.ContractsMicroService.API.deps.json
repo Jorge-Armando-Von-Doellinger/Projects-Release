@@ -13,8 +13,8 @@
           "HMS.ContractsMicroService.Messaging": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Nuget.Contracts": "1.0.9",
-          "Nuget.Settings": "1.0.3",
-          "Swashbuckle.AspNetCore": "6.8.1"
+          "Nuget.Settings": "1.0.9",
+          "Swashbuckle.AspNetCore": "6.9.0"
         },
         "runtime": {
           "HMS.ContractsMicroService.API.dll": {}
@@ -199,11 +199,11 @@
           }
         }
       },
-      "Nuget.Settings/1.0.3": {
+      "Nuget.Settings/1.0.9": {
         "runtime": {
           "lib/net8.0/Nuget.Settings.dll": {
-            "assemblyVersion": "1.0.3.0",
-            "fileVersion": "1.0.3.0"
+            "assemblyVersion": "1.0.9.0",
+            "fileVersion": "1.0.9.0"
           }
         }
       },
@@ -235,41 +235,41 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore/6.8.1": {
+      "Swashbuckle.AspNetCore/6.9.0": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
-          "Swashbuckle.AspNetCore.Swagger": "6.8.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.8.1",
-          "Swashbuckle.AspNetCore.SwaggerUI": "6.8.1"
+          "Swashbuckle.AspNetCore.Swagger": "6.9.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.9.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.9.0"
         }
       },
-      "Swashbuckle.AspNetCore.Swagger/6.8.1": {
+      "Swashbuckle.AspNetCore.Swagger/6.9.0": {
         "dependencies": {
           "Microsoft.OpenApi": "1.6.14"
         },
         "runtime": {
           "lib/net8.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "assemblyVersion": "6.8.1.0",
-            "fileVersion": "6.8.1.756"
+            "assemblyVersion": "6.9.0.0",
+            "fileVersion": "6.9.0.799"
           }
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerGen/6.8.1": {
+      "Swashbuckle.AspNetCore.SwaggerGen/6.9.0": {
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "6.8.1"
+          "Swashbuckle.AspNetCore.Swagger": "6.9.0"
         },
         "runtime": {
           "lib/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "assemblyVersion": "6.8.1.0",
-            "fileVersion": "6.8.1.756"
+            "assemblyVersion": "6.9.0.0",
+            "fileVersion": "6.9.0.799"
           }
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/6.8.1": {
+      "Swashbuckle.AspNetCore.SwaggerUI/6.9.0": {
         "runtime": {
           "lib/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "assemblyVersion": "6.8.1.0",
-            "fileVersion": "6.8.1.756"
+            "assemblyVersion": "6.9.0.0",
+            "fileVersion": "6.9.0.799"
           }
         }
       },
@@ -298,7 +298,8 @@
           "HMS.ContractsMicroService.Infrastructure": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Nuget.Contracts": "1.0.9",
-          "Nuget.MessagingUtilities": "2.0.4"
+          "Nuget.MessagingUtilities": "2.0.4",
+          "Nuget.Settings": "1.0.9"
         },
         "runtime": {
           "HMS.ContractsMicroService.Application.dll": {
@@ -321,7 +322,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "MongoDB.Driver": "2.29.0",
-          "Nuget.Settings": "1.0.3"
+          "Nuget.Settings": "1.0.9"
         },
         "runtime": {
           "HMS.ContractsMicroService.Infrastructure.dll": {
@@ -336,7 +337,7 @@
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
           "Nuget.MessagingUtilities": "2.0.4",
-          "Nuget.Settings": "1.0.3",
+          "Nuget.Settings": "1.0.9",
           "RabbitMQ.Client": "6.8.1"
         },
         "runtime": {
@@ -501,12 +502,12 @@
       "path": "nuget.messagingutilities/2.0.4",
       "hashPath": "nuget.messagingutilities.2.0.4.nupkg.sha512"
     },
-    "Nuget.Settings/1.0.3": {
+    "Nuget.Settings/1.0.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-53Q2T2qR695ZVMsKgjmY0X708KEv4KhPWKfL6K0eA0LsUFFUiCbGnSqWOnBX3RcbrSnEb+1Fm3ydZFYnhWmapw==",
-      "path": "nuget.settings/1.0.3",
-      "hashPath": "nuget.settings.1.0.3.nupkg.sha512"
+      "sha512": "sha512-6vhR9QIH+8aHJp42054KPYgyxHBIg1lIP0qp4PoIc0yF+nYTYiN9mSbXsCMJg9BihvvSxn0W/0yATjW82YjPnw==",
+      "path": "nuget.settings/1.0.9",
+      "hashPath": "nuget.settings.1.0.9.nupkg.sha512"
     },
     "RabbitMQ.Client/6.8.1": {
       "type": "package",
@@ -529,33 +530,33 @@
       "path": "snappier/1.0.0",
       "hashPath": "snappier.1.0.0.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore/6.8.1": {
+    "Swashbuckle.AspNetCore/6.9.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JN6ccH37QKtNOwBrvSxc+jBYIB+cw6RlZie2IKoJhjjf6HzBH+2kPJCpxmJ5EHIqmxvq6aQG+0A8XklGx9rAxA==",
-      "path": "swashbuckle.aspnetcore/6.8.1",
-      "hashPath": "swashbuckle.aspnetcore.6.8.1.nupkg.sha512"
+      "sha512": "sha512-lvI+XHF21tkwXd2nDCLGJsdhdUYsY3Ax2fWUlvw81Oa6EedtnIAf5tThy8ZnPcz/9/TwsLgjgtX9ifOCIjbEPA==",
+      "path": "swashbuckle.aspnetcore/6.9.0",
+      "hashPath": "swashbuckle.aspnetcore.6.9.0.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.Swagger/6.8.1": {
+    "Swashbuckle.AspNetCore.Swagger/6.9.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eOkdM4bsWBU5Ty3kWbyq5O9L+05kZT0vOdGh4a92vIb/LLQGQTPLRHXuJdnUBNIPNC8XfKWfSbtRfqzI6nnbqw==",
-      "path": "swashbuckle.aspnetcore.swagger/6.8.1",
-      "hashPath": "swashbuckle.aspnetcore.swagger.6.8.1.nupkg.sha512"
+      "sha512": "sha512-P316kpxx5DnDvJwNWW8iTAXkh9DVenAxFGe9v4OUS0gil+vitH7F1feXhCtVeHN/616EFNTMh4pV2lcr9kkw/w==",
+      "path": "swashbuckle.aspnetcore.swagger/6.9.0",
+      "hashPath": "swashbuckle.aspnetcore.swagger.6.9.0.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerGen/6.8.1": {
+    "Swashbuckle.AspNetCore.SwaggerGen/6.9.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TjBPxsN0HeJzxEXZYeDXBNNMSyhg+TYXtkbwX+Cn8GH/y5ZeoB/chw0p71kRo5tR2sNshbKwL24T6f9pTF9PHg==",
-      "path": "swashbuckle.aspnetcore.swaggergen/6.8.1",
-      "hashPath": "swashbuckle.aspnetcore.swaggergen.6.8.1.nupkg.sha512"
+      "sha512": "sha512-FjeMR3fBzwVc5plfYjoHw9ptf8SOWMupvO9X35J5EgzT3L9dRqSxa+cBKzL8PwCyemY0xNrggQSB5+MFWx1axg==",
+      "path": "swashbuckle.aspnetcore.swaggergen/6.9.0",
+      "hashPath": "swashbuckle.aspnetcore.swaggergen.6.9.0.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/6.8.1": {
+    "Swashbuckle.AspNetCore.SwaggerUI/6.9.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lpEszYJ7vZaTTE5Dp8MrsbSHrgDfjhDMjzW1qOA1Xs1Dnj3ZRBJAcPZUTsa5Bva+nLaw91JJ8OI8FkSg8hhIyA==",
-      "path": "swashbuckle.aspnetcore.swaggerui/6.8.1",
-      "hashPath": "swashbuckle.aspnetcore.swaggerui.6.8.1.nupkg.sha512"
+      "sha512": "sha512-0OxlWBFLl2gUESZX/K7QCTz9KctKy0VxHTvLIBcyWGD4z/fv5MCMW02qzYGcReLJr4yBnNDRzApKtLh6oBpe9A==",
+      "path": "swashbuckle.aspnetcore.swaggerui/6.9.0",
+      "hashPath": "swashbuckle.aspnetcore.swaggerui.6.9.0.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

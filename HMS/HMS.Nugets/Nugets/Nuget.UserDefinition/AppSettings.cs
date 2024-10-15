@@ -8,9 +8,10 @@ namespace Nuget.Settings
     {
         static IAppSettings? CurrentSettings { get; protected set; } = null;
         IRabbitMqSettings? RabbitMq { get; }
-        ConsulSettings? Consul { get; }
+        IConsulSettings? Consul { get; }
         IMongoDbSettings? MongoDb { get; }
         Dictionary<string, IMessagingSystem> MessagingSystem { get; }
         string ApplicationName { get; }
+        void SetCurrentSettings(IAppSettings settings);
     }
 }
