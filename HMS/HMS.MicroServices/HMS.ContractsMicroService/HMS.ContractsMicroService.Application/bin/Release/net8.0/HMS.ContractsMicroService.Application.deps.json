@@ -13,7 +13,7 @@
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Nuget.Contracts": "1.0.9",
           "Nuget.MessagingUtilities": "2.0.4",
-          "Nuget.Settings": "1.0.9"
+          "Nuget.Settings": "2.0.0"
         },
         "runtime": {
           "HMS.ContractsMicroService.Application.dll": {}
@@ -190,11 +190,11 @@
           }
         }
       },
-      "Nuget.Settings/1.0.9": {
+      "Nuget.Settings/2.0.0": {
         "runtime": {
           "lib/net8.0/Nuget.Settings.dll": {
-            "assemblyVersion": "1.0.9.0",
-            "fileVersion": "1.0.9.0"
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
           }
         }
       },
@@ -246,7 +246,7 @@
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "MongoDB.Driver": "2.29.0",
-          "Nuget.Settings": "1.0.9"
+          "Nuget.Settings": "2.0.0"
         },
         "runtime": {
           "HMS.ContractsMicroService.Infrastructure.dll": {
@@ -382,12 +382,12 @@
       "path": "nuget.messagingutilities/2.0.4",
       "hashPath": "nuget.messagingutilities.2.0.4.nupkg.sha512"
     },
-    "Nuget.Settings/1.0.9": {
+    "Nuget.Settings/2.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6vhR9QIH+8aHJp42054KPYgyxHBIg1lIP0qp4PoIc0yF+nYTYiN9mSbXsCMJg9BihvvSxn0W/0yATjW82YjPnw==",
-      "path": "nuget.settings/1.0.9",
-      "hashPath": "nuget.settings.1.0.9.nupkg.sha512"
+      "sha512": "sha512-KmhBsDDlvUNyhrIMWvkx8NlMVpSHcG+81s45Ihs9oZ4F/Lddl7w77sN3BHG4nWGGMTnJRte1ocV4mC2fzGEtkw==",
+      "path": "nuget.settings/2.0.0",
+      "hashPath": "nuget.settings.2.0.0.nupkg.sha512"
     },
     "SharpCompress/0.30.1": {
       "type": "package",

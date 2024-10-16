@@ -8,22 +8,21 @@ namespace HMS.ContractsMicroService.Messaging.Connect
 {
     public sealed class ConnectMessaging
     {
+        private readonly IRabbitMqSettings _settings;
 
-        public ConnectMessaging()
+        public ConnectMessaging(IRabbitMqSettings settings)
         {
-            
+            _settings = settings;
         }
 
         public IModel Connect()
         {
-            if (IAppSettings.CurrentSettings == null) throw new SettingsNotFoundedException("Configurações para conexão não encontradas!");
-            
-            var settings = IAppSettings.CurrentSettings.RabbitMq;
-            if(settings == null) throw new InvalidOperationException("Messaging settings not founded");
+            if (_settings == null) throw new SettingsNotFoundedException("Configurações para conexão não encontradas!");
+            Console.WriteLine(_settings.HostName);
             var factory = new ConnectionFactory()
             {
-                HostName = settings.HostName,
-                Port = settings.Port       
+                HostName = _settings.HostName,
+                Port = _settings.Port       
             };
             var connection = factory.CreateConnection();
             return connection.CreateModel();

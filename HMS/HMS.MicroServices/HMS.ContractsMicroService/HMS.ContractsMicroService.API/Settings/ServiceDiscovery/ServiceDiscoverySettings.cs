@@ -1,6 +1,6 @@
 ﻿using Nuget.Settings.ServiceDiscovery;
 
-namespace HMS.ContractsMicroService.Application.Settings.ServiceDiscovery
+namespace HMS.ContractsMicroService.API.Settings.ServiceDiscovery
 {
     public class ServiceDiscoverySettings : IConsulSettings
     {

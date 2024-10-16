@@ -13,17 +13,18 @@ namespace HMS.ContractsMicroService.Messaging.Publisher
     public sealed class MessagePubisher : IMessagePublisher<IMessagingSystem>
     {
         private readonly IModel _model;
+        private readonly IAppSettings _settings;
 
-        public MessagePubisher(ConnectMessaging messaging)
+        public MessagePubisher(ConnectMessaging messaging, IAppSettings settings)
         {
             _model = messaging.Connect();
+            _settings = settings;
         }
 
         public async Task Publish(object data, IMessagingSystem settings)
         {
-            var appSettings = IAppSettings.CurrentSettings;
             if(data.GetType() != typeof(Message))
-                data = new Message(data, appSettings.ApplicationName, settings.AddKey);
+                data = new Message(data, _settings.ApplicationName, settings.AddKey);
 
             var bytes = await GetDataBytes(data);
 

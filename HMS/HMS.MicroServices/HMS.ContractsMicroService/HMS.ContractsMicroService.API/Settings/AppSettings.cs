@@ -4,13 +4,12 @@ using Nuget.Settings.Database;
 using Nuget.Settings.Messaging;
 using Nuget.Settings.ServiceDiscovery;
 
-namespace HMS.ContractsMicroService.Application.Settings
+namespace HMS.ContractsMicroService.API.Settings
 {
     public class AppSettings : IAppSettings
     {
         public static IAppSettings CurrentSettings { get; private set; } 
         public IRabbitMqSettings? RabbitMq { get; set; }
-
         public IConsulSettings? Consul { get; set; }
 
         public IMongoDbSettings? MongoDb { get; set; }

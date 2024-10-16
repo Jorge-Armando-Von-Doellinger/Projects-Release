@@ -27,8 +27,7 @@ namespace HMS.ContractsMicroService.API
 
             //ServiceDiscovery.Register(null);
 
-            builder.Services.AddMemoryCache();
-
+            builder.Services.AddSettings(builder.Configuration);
             builder.Services
                 .AddApiModule()
                 .AddApplicationModule()
@@ -36,6 +35,7 @@ namespace HMS.ContractsMicroService.API
                 .AddMessagingModule();
 
             var app = builder.Build();
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment() || true)

@@ -1,6 +1,6 @@
 ﻿using Nuget.Settings.Messaging;
 
-namespace HMS.ContractsMicroService.Application.Settings.Messaging
+namespace HMS.ContractsMicroService.API.Settings.Messaging
 {
     public class MessagingSystem : IMessagingSystem
     {
