@@ -1,6 +1,5 @@
 ﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Interfaces.Messaging;
-using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.Application.Handlers
 {
@@ -12,16 +11,16 @@ namespace HMS.ContractsMicroService.Application.Handlers
         public AddContractHandler(IContractManager manager)
         {
             _manager = manager;
-            DtoType = typeof(ContractInput);
+            DtoType = typeof();
         }
 
         public Type DtoType{ get; private set; }
 
         public async Task HandleAsync(object input)
         {
-            if (input.GetType().Equals(typeof(ContractInput)))  await _manager.Add((ContractInput)
+            if (input.GetType().Equals(typeof()))  await _manager.Add((ContractInput)
                 input);
-            else if (input.GetType().Equals(typeof(EmployeeContractInput)))  await _employeeManager.Add((EmployeeContractInput)input);
+            else if (input.GetType().Equals(typeof()))  await _employeeManager.Add((EmployeeContractInput)input);
             else throw new InvalidDataException("Input for add isn't compatible");
         }
     }

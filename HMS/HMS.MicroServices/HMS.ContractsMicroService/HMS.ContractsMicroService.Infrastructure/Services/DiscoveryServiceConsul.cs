@@ -1,7 +1,5 @@
 ﻿using HMS.ContractsMicroService.Core.Interfaces.Settings;
 using HMS.ContractsMicroService.Core.Json;
-using HMS.ContractsMicroService.Infrastructure.Context;
-using Nuget.Settings;
 using System.Text;
 
 namespace HMS.ContractsMicroService.Infrastructure.Services

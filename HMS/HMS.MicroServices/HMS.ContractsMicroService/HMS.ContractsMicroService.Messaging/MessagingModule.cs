@@ -1,11 +1,9 @@
 ﻿using HMS.ContractsMicroService.Core.Interfaces.Messaging;
-using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Listener;
 using HMS.ContractsMicroService.Messaging.Publisher;
 using HMS.ContractsMicroService.Messaging.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Nuget.Settings.Messaging;
 
 namespace HMS.ContractsMicroService.Messaging
 {
@@ -31,5 +29,7 @@ namespace HMS.ContractsMicroService.Messaging
             services.AddScoped<IMessagePublisher<IMessagingSystem>, MessagePubisher>();
             return services;
         }
+
+
     }
 }

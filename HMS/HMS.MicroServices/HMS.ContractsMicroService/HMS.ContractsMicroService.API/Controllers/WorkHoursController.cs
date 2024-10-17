@@ -1,8 +1,8 @@
 ﻿using HMS.ContractsMicroService.API.Attributes;
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
+using HMS.ContractsMicroService.Core.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
@@ -27,14 +27,14 @@ namespace HMS.ContractsMicroService.API.Controllers
             => Ok(await _manager.GetById(ID));
 
         [HttpPost]
-        public async Task<IActionResult> AddWorkHours(WorkHoursInput input)
+        public async Task<IActionResult> AddWorkHours(WorkHours input)
         {
             await _manager.Add(input);
             return Accepted();
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(WorkHoursUpdateInput input)
+        public async Task<IActionResult> Update(WorkHours input)
         {
             await _manager.Update(input);
             return Accepted();

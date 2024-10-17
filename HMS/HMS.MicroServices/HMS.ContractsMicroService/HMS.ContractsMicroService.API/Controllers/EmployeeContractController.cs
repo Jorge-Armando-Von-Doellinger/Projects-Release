@@ -3,7 +3,6 @@ using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {

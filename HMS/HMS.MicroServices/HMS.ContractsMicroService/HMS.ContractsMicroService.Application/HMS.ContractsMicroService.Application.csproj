@@ -8,9 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
-    <PackageReference Include="Nuget.Contracts" Version="1.0.9" />
-    <PackageReference Include="Nuget.MessagingUtilities" Version="2.0.4" />
-    <PackageReference Include="Nuget.Settings" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,9 +2,6 @@
 using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Services;
-using Nuget.MessagingUtilities;
-using Nuget.Settings;
-using Nuget.Settings.Messaging;
 using RabbitMQ.Client;
 using System.Text;
 
@@ -13,9 +10,8 @@ namespace HMS.ContractsMicroService.Messaging.Publisher
     public sealed class MessagePubisher : IMessagePublisher<IMessagingSystem>
     {
         private readonly IModel _model;
-        private readonly IAppSettings _settings;
 
-        public MessagePubisher(ConnectMessaging messaging, IAppSettings settings)
+        public MessagePubisher(ConnectMessaging messaging
         {
             _model = messaging.Connect();
             _settings = settings;

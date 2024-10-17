@@ -1,18 +1,12 @@
 ﻿using HMS.ContractsMicroService.Core.Data;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
-using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Messaging.Connect;
-using HMS.ContractsMicroService.Messaging.Exceptions;
 using HMS.ContractsMicroService.Messaging.Services;
+using HMS.ContractsMicroService.Messaging.Settings.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using Nuget.MessagingUtilities;
-using Nuget.Settings;
-using Nuget.Settings.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Channels;
 
 namespace HMS.ContractsMicroService.Messaging.Listener
 {
@@ -31,13 +25,13 @@ namespace HMS.ContractsMicroService.Messaging.Listener
         }
         public async Task StartListener(Func<MessagingData, Task> action)
         {
-            MessagingConfigureService.ConfigureAllQueues(_model, _settings);
+            MessagingConfigureService.ConfigureAllQueues(_model, _settings.);
             var consumer = new EventingBasicConsumer(_model);
             consumer.Received += async (model, ea) =>
             {
                 var bytes = ea.Body.ToArray();
-                var message = this.GetMessageByBytes(bytes);
-                try
+                //var message = this.GetMessageByBytes(bytes);
+               /* try
                 {
                     if(message == null) throw new InvalidMessageException("Esta mensagem não foi deserializada corretamente");
                     if (message.RetryCount > 3) throw new AttemptLimitException("Todas as tentativas de processar sua mensagem NÃO tiveram êxito");
@@ -57,21 +51,21 @@ namespace HMS.ContractsMicroService.Messaging.Listener
                 }
                 catch(Exception ex) 
                 {
-                    var settings = _settings
-                    .FirstOrDefault(x => x.Value.GetKeys().Contains(ea.RoutingKey));
+                   //var settings = _settings
+                    //.FirstOrDefault(x => x.Value.GetKeys().Contains(ea.RoutingKey));
                     message.AddAttempt();
                     _model.BasicReject(ea.DeliveryTag, false);
-                    await _publisher.Publish(message, settings.Value);
-                }
+                    //await _publisher.Publish(message, settings.Value);
+                }*/
             };
-            var settings = _settings.Values.ToList();
-            foreach (var setting in settings)
+            //var settings = _settings.Values.ToList();
+            foreach (var setting in new List<string>())
             {
-                _model.BasicConsume(setting.Queue, false, consumer );
+                _model.BasicConsume(setting, false, consumer );
             }
         }
 
-        private Message GetMessageByBytes(byte[] bytes)
+        /*private Message GetMessageByBytes(byte[] bytes)
         {
             var data = Encoding.UTF8.GetString(bytes);
             try
@@ -84,6 +78,6 @@ namespace HMS.ContractsMicroService.Messaging.Listener
                 Console.WriteLine("N deserializou a msg");
             }
             return null;
-        }
+        }*/
     }
 }

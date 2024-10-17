@@ -7,24 +7,20 @@ using HMS.ContractsMicroService.Core.Data;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-using Nuget.Settings;
-using Nuget.Settings.Messaging;
 using System.Text.Json;
 
 namespace HMS.ContractsMicroService.Application.Messaging.Processor
 {
     public sealed class MessageProcessor : IMessageProcessor
     {
-        private Dictionary<string, IMessageHandler> _EmployeeHandler;
-        private readonly Dictionary<string, IMessagingSystem> _messagingSystem;
+        /*private Dictionary<string, IMessageHandler> _EmployeeHandler;
         private readonly IEmployeeContractManager _employeeContract;
         private readonly IContractManager _contractManager;
-        public MessageProcessor(IServiceProvider provider, Dictionary<string, IMessagingSystem> messagingSystem)
+        public MessageProcessor(IServiceProvider provider)
         {
             var service = provider.CreateScope().ServiceProvider;
             _contractManager = service.GetRequiredService<IContractManager>(); 
             _employeeContract = service.GetRequiredService<IEmployeeContractManager>();
-            _messagingSystem = messagingSystem;
         }
         public async Task Process(MessagingData data)
         {
@@ -52,7 +48,6 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
 
         private void SetGeneralContractHandler()
         {
-            var generalSettingsSuccess = _messagingSystem.TryGetValue(MessagingSystemKeysEnum.GeneralContracts.ToString(), out var generalSettings);
             var errorInGetSettings = generalSettingsSuccess;
             var settingsIsNull = generalSettings == null;
             SettingsIsValid(errorInGetSettings || settingsIsNull);
@@ -75,6 +70,6 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
         {
             if (valid) return;
             else throw new InvalidSettingsException("Erro ao processar esta rota de contratos!");
-        }
+        }*/
     }
 }

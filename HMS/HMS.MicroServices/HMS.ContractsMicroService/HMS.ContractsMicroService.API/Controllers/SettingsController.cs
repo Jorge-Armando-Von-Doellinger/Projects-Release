@@ -2,9 +2,6 @@
 using HMS.ContractsMicroService.Core.Interfaces.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using Nuget.Settings;
-using Nuget.Settings.ServiceDiscovery;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {

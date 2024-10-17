@@ -1,11 +1,9 @@
 ﻿using HMS.ContractsMicroService.Core.Entity;
-using Nuget.Contracts.Inputs;
-using Nuget.Contracts.Outputs;
 
 namespace HMS.ContractsMicroService.Application.Interfaces.Managers
 {
-    public interface IWorkHoursManager : IManager<WorkHoursInput, WorkHoursUpdateInput, WorkHoursOutput>
+    public interface IWorkHoursManager : IManager<WorkHours>
     {
-        public Task<WorkHoursOutput> FindByWorkHours(WorkHoursInput input);
+        public Task<WorkHours> FindByWorkHours(WorkHours input);
     }
 }

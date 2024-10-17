@@ -7,7 +7,6 @@ using HMS.ContractsMicroService.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Operations;
-using Nuget.Settings;
 
 namespace HMS.ContractsMicroService.Infrastructure
 {

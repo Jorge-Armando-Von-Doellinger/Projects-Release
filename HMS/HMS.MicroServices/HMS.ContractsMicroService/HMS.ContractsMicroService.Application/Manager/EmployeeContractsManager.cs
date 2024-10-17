@@ -5,8 +5,6 @@ using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Core.Json;
 using HMS.ContractsMicroService.Infrastructure.Messages;
-using Nuget.Contracts.Inputs;
-using Nuget.Contracts.Outputs;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {

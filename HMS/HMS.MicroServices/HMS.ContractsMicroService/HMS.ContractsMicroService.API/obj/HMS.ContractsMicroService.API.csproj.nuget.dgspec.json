@@ -65,14 +65,6 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
-            "Nuget.Contracts": {
-              "target": "Package",
-              "version": "[1.0.9, )"
-            },
-            "Nuget.Settings": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.9.0, )"
@@ -158,18 +150,6 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.1, )"
-            },
-            "Nuget.Contracts": {
-              "target": "Package",
-              "version": "[1.0.9, )"
-            },
-            "Nuget.MessagingUtilities": {
-              "target": "Package",
-              "version": "[2.0.4, )"
-            },
-            "Nuget.Settings": {
-              "target": "Package",
-              "version": "[2.0.0, )"
             }
           },
           "imports": [
@@ -319,11 +299,7 @@
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.29.0, )"
-            },
-            "Nuget.Settings": {
-              "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[3.0.0, )"
             }
           },
           "imports": [
@@ -401,17 +377,13 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.2, )"
-            },
-            "Nuget.MessagingUtilities": {
-              "target": "Package",
-              "version": "[2.0.4, )"
-            },
-            "Nuget.Settings": {
-              "target": "Package",
-              "version": "[2.0.0, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

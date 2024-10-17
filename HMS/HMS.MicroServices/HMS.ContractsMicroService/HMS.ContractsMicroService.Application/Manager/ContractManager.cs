@@ -3,7 +3,6 @@ using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Core.Extensions;
 using HMS.ContractsMicroService.Core.Interfaces.Repository;
-using Nuget.Contracts.Inputs;
 
 namespace HMS.ContractsMicroService.Application.Manager
 {

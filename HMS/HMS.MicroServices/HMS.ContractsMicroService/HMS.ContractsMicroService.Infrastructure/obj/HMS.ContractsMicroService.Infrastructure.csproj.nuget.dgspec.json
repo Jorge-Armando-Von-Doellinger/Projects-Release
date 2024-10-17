@@ -131,11 +131,7 @@
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.29.0, )"
-            },
-            "Nuget.Settings": {
-              "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[3.0.0, )"
             }
           },
           "imports": [
