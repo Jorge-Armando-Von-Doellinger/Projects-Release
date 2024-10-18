@@ -6,33 +6,33 @@ using HMS.ContractsMicroService.Application.Interfaces.Messaging;
 using HMS.ContractsMicroService.Core.Data;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Driver;
 using System.Text.Json;
 
 namespace HMS.ContractsMicroService.Application.Messaging.Processor
 {
     public sealed class MessageProcessor : IMessageProcessor
     {
-        /*private Dictionary<string, IMessageHandler> _EmployeeHandler;
+        private Dictionary<string, IMessageHandler> _EmployeeHandler;
+        
         private readonly IEmployeeContractManager _employeeContract;
         private readonly IContractManager _contractManager;
         public MessageProcessor(IServiceProvider provider)
         {
             var service = provider.CreateScope().ServiceProvider;
-            _contractManager = service.GetRequiredService<IContractManager>(); 
+            _contractManager = service.GetRequiredService<IContractManager>();
             _employeeContract = service.GetRequiredService<IEmployeeContractManager>();
         }
         public async Task Process(MessagingData data)
         {
             try
             {
-                if(_EmployeeHandler.TryGetValue(data.CurrentKey, out var handler) == false)
+                if (_EmployeeHandler.TryGetValue(data.CurrentKey, out var handler) == false)
                     throw new InvalidDataException("CurrentKey inválida");
                 var obj = JsonSerializer.Deserialize(data.Json, handler.DtoType);
                 await handler.HandleAsync(obj);
-                    
+
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine("Erro ao processar mensagem!");
                 Console.WriteLine($" --> Mensagem: {ex.Message}");
@@ -70,6 +70,6 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
         {
             if (valid) return;
             else throw new InvalidSettingsException("Erro ao processar esta rota de contratos!");
-        }*/
+        }
     }
 }

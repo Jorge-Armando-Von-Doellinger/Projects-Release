@@ -1,4 +1,7 @@
-﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
+﻿using HMS.ContractsMicroService.Application.DTOs.Input;
+using HMS.ContractsMicroService.Application.DTOs.Output;
+using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
+using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Core.Extensions;
@@ -25,16 +28,16 @@ namespace HMS.ContractsMicroService.Application.Manager
             await _repository.DeleteAsync(entityId);
         }
 
-        public async Task<List<ContractUpdateInput>> GetAll()
+        public async Task<List<ContractOutput>> GetAll()
         {
             var contracts = await _repository.GetAsync();
-            return contracts.FromTo<List<ContractUpdateInput>>();
+            return contracts.FromTo<List<ContractOutput>>();
         }
 
-        public async Task<ContractUpdateInput> GetById(string entityId)
+        public async Task<ContractOutput> GetById(string entityId)
         {
             var contract = await _repository.GetByIdAsync(entityId);
-            return contract.FromTo<ContractUpdateInput>();
+            return contract.FromTo<ContractOutput>();
         }
 
         public async Task Update(ContractUpdateInput input)

@@ -1,4 +1,5 @@
-﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
+﻿using HMS.ContractsMicroService.Application.DTOs.Input;
+using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Entity;
 using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Core.Extensions;
