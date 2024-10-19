@@ -1,7 +1,5 @@
-﻿using HMS.ContractsMicroService.API.Attributes;
-using HMS.ContractsMicroService.Application.Interfaces.Managers;
+﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Core.Entity;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HMS.ContractsMicroService.API.Controllers
@@ -19,7 +17,7 @@ namespace HMS.ContractsMicroService.API.Controllers
             _manager = manager;
         }
         [HttpGet]
-           public async Task<IActionResult> GetWorkHours()
+        public async Task<IActionResult> GetWorkHours()
             => Ok(await _manager.GetAll());
 
         [HttpGet("{ID}")]

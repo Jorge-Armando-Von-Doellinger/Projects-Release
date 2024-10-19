@@ -1,5 +1,4 @@
-﻿using HMS.ContractsMicroService.Application.DTOs;
-using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
+﻿using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Interfaces.Messaging;
 
@@ -18,7 +17,7 @@ namespace HMS.ContractsMicroService.Application.Handlers
 
         public async Task HandleAsync(object input)
         {
-            if(input is EmployeeContractUpdateInput value)
+            if (input is EmployeeContractUpdateInput value)
                 await _manager.Update((EmployeeContractUpdateInput)input);
             else
                 throw new InvalidDataException("Input for update isn't compatible");

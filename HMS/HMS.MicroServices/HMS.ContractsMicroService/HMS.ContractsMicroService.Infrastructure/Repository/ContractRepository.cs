@@ -42,7 +42,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task<Contract> GetByIdAsync(string entityId)
         {
             var contract = await _collection.FindAsync(doc => doc.ID == entityId);
-            return await contract.FirstOrDefaultAsync() ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded); 
+            return await contract.FirstOrDefaultAsync() ?? throw new KeyNotFoundException(MessageRecords.KeyNotFounded);
         }
 
         public async Task UpdateAsync(Contract entity)

@@ -10,5 +10,7 @@
         string UpdateKey { get; }
         string ResponseKey { get; }
         string CurrentKey { get; }
+        string[] Keys { get; }
+        void SetKeys();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using HMS.ContractsMicroService.Infrastructure.Interfaces;
-using HMS.ContractsMicroService.Infrastructure.Messages;
 using MongoDB.Driver;
 
 namespace HMS.ContractsMicroService.Infrastructure.Services

@@ -1,6 +1,7 @@
 ﻿using HMS.ContractsMicroService.API.Attributes;
+using HMS.ContractsMicroService.Application.DTOs.Input;
+using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
-using HMS.ContractsMicroService.Core.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HMS.ContractsMicroService.API.Controllers
@@ -23,7 +24,7 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpGet("{ID}")]
         public async Task<IActionResult> GetContractById(string ID) => Ok(await _manager.GetById(ID));
         [HttpPost]
-        public async Task<IActionResult> AddContract( contract)
+        public async Task<IActionResult> AddContract(ContractInput contract)
         {
             await _manager.Add(contract);
             return Accepted();

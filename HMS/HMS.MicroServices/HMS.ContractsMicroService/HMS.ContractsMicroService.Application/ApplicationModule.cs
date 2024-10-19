@@ -1,7 +1,9 @@
 ﻿using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Manager;
 using HMS.ContractsMicroService.Application.Messaging.Processor;
+using HMS.ContractsMicroService.Application.Services;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
+using HMS.ContractsMicroService.Core.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HMS.ContractsMicroService.Application
@@ -11,6 +13,7 @@ namespace HMS.ContractsMicroService.Application
         public static IServiceCollection AddApplicationModule(this IServiceCollection services)
         {
             services
+                .AddServices()
                 .AddManagers()
                 .AddMessageProcessors();
             return services;
@@ -32,5 +35,10 @@ namespace HMS.ContractsMicroService.Application
             return services;
         }
 
+        private static IServiceCollection AddServices(this IServiceCollection services)
+        {
+            services.AddSingleton<ICacheService, CacheService>();
+            return services;
+        }
     }
 }

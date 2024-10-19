@@ -1,8 +1,6 @@
 ﻿using HMS.ContractsMicroService.Core.Extensions;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using MongoDB.Driver.Linq;
 
 namespace HMS.ContractsMicroService.API.Attributes
 {
@@ -11,7 +9,7 @@ namespace HMS.ContractsMicroService.API.Attributes
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             var errors = new List<string>();
-            foreach(var argument in context.ActionArguments)
+            foreach (var argument in context.ActionArguments)
             {
                 var model = argument.Value;
                 if (model == null) continue;

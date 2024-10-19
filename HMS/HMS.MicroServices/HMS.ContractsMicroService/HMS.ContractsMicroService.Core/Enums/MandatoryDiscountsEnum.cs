@@ -2,7 +2,7 @@
 {
     public enum MandatoryDiscountsEnum
     {
-        INSS, 
+        INSS,
         FGTS
     }
 }

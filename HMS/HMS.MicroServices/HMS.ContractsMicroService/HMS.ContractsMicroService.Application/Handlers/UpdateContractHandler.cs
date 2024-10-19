@@ -17,7 +17,7 @@ namespace HMS.ContractsMicroService.Application.Handlers
 
         public async Task HandleAsync(object input)
         {
-            if(input is ContractUpdateInput contract)
+            if (input is ContractUpdateInput contract)
                 await _manager.Update(contract);
             else
                 throw new InvalidDataException("Input for add isn't compatible");

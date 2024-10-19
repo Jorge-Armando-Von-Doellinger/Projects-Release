@@ -1,9 +1,6 @@
-using Consul;
 using HMS.ContractsMicroService.API.Module;
-using HMS.ContractsMicroService.API.Services;
 using HMS.ContractsMicroService.Application;
-using HMS.ContractsMicroService.Core.Json;
-using HMS.ContractsMicroService.Infrastructure;
+using HMS.ContractsMicroService.Infrastructure.Modules;
 using HMS.ContractsMicroService.Messaging;
 
 namespace HMS.ContractsMicroService.API
@@ -16,19 +13,18 @@ namespace HMS.ContractsMicroService.API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            //builder.Environment.ApplicationName = "Contracts";
-            
-            //builder.Environment.
+            builder.Services.AddMemoryCache(); // Adiciona ao projeto a manipulação de memoria CACHE
 
-            //ServiceDiscovery.Register(null);
-
-            builder.Services.AddSettings(builder.Configuration);
-            builder.Services
+            builder.Services.AddSettings(builder.Configuration); // Adiciona as settings de todas as camadas
+            builder.Services        // Adiciona todas as injeções de depemdencia das camadas abaixo
                 .AddApiModule()
                 .AddApplicationModule()
                 .AddInfrastructureModule()

@@ -7,8 +7,8 @@ namespace HMS.ContractsMicroService.API.Attributes
     {
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            if(context.Exception == null) return;
-            context.Result = new BadRequestObjectResult(new { Message = context.Exception.Message } );
+            if (context.Exception == null) return;
+            context.Result = new BadRequestObjectResult(new { Message = context.Exception.Message });
             context.ExceptionHandled = true;
         }
 

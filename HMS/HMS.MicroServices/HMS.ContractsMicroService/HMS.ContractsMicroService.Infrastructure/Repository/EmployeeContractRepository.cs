@@ -3,10 +3,7 @@ using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Infrastructure.Context;
 using HMS.ContractsMicroService.Infrastructure.Interfaces;
 using HMS.ContractsMicroService.Infrastructure.Messages;
-using HMS.ContractsMicroService.Infrastructure.Mongo.Utilities;
 using MongoDB.Driver;
-using SharpCompress.Common;
-using System.ComponentModel;
 
 namespace HMS.ContractsMicroService.Infrastructure.Repository
 {

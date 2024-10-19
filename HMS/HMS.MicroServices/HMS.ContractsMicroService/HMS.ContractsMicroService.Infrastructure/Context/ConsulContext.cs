@@ -12,7 +12,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
             _client = new ConsulClient();
         }
 
-        private string GetDefaultKey() => $"hms/microservices/{appName}/settings";
+        private string GetDefaultKey() => $"hms/microservices/Contracts/settings";
 
         public async Task InsertOrUpdate(byte[] dataBytes)
         {
@@ -46,7 +46,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Context
                 await _client.KV.Delete(GetDefaultKey());
                 Console.WriteLine("-----------------------\n KvKey DELETADA COM SUCESSO! \n -------------------------------");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ErrorInOperation(ex.Message);
             }

@@ -4,6 +4,6 @@ namespace HMS.ContractsMicroService.Messaging.Settings
 {
     public sealed class MessagingSystem : IMessagingSystem
     {
-        public Dictionary<string, IMessagingComponents> Components { get; internal set; }
+        public Dictionary<string, IMessagingComponents> Components { get; set; }
     }
 }

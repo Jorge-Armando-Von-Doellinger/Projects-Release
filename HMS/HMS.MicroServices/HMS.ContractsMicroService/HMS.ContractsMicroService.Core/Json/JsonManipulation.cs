@@ -20,11 +20,12 @@ namespace HMS.ContractsMicroService.Core.Json
 
         public static async Task<TTarget> Deserialize<TTarget>(string json)
         {
-            return (TTarget) await Deserialize(json, typeof(TTarget));
+            return (TTarget)await Deserialize(json, typeof(TTarget));
         }
         public static async Task<object> Deserialize(string json, Type type)
         {
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-                return await JsonSerializer.DeserializeAsync(stream, type);        }
+                return await JsonSerializer.DeserializeAsync(stream, type);
+        }
     }
 }

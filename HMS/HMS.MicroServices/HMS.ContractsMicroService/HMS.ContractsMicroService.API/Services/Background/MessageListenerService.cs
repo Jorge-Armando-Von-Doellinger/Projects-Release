@@ -8,7 +8,7 @@ namespace HMS.ContractsMicroService.API.Services.Background
     {
         private readonly Lazy<IMessageListener> _listener;
         private readonly Lazy<IMessageProcessor> _processor;
-        
+
         public MessageListenerService(Lazy<IMessageListener> listener, Lazy<IMessageProcessor> processor)
         {
             _listener = listener;

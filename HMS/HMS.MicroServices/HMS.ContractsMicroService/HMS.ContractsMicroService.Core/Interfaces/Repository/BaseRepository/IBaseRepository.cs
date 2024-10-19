@@ -1,6 +1,4 @@
-﻿using HMS.ContractsMicroService.Core.Entity;
-
-namespace HMS.ContractsMicroService.Core.Interfaces.Repository.BaseRepository
+﻿namespace HMS.ContractsMicroService.Core.Interfaces.Repository.BaseRepository
 {
     public interface IBaseRepository<TEntity>
     {

@@ -1,5 +1,4 @@
 ﻿using HMS.ContractsMicroService.Core.Entity;
-using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Infrastructure.Messages;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -26,7 +25,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Mongo.Utilities
         {
             return Builders<WorkHours>
                 .Filter
-                .Eq( x => x.ID, entityId);
+                .Eq(x => x.ID, entityId);
         }
         internal static FilterDefinition<EmployeeContract> EmployeeContractFilterID(string entityId)
         {

@@ -1,6 +1,5 @@
 ﻿using HMS.ContractsMicroService.Core.Entity.Base;
 using HMS.ContractsMicroService.Core.Extensions;
-using System.ComponentModel.DataAnnotations;
 
 namespace HMS.ContractsMicroService.Core.Entity
 {
@@ -33,7 +32,7 @@ namespace HMS.ContractsMicroService.Core.Entity
         public void Update(Contract valuesToReplace)
         {
             base.Update();
-            if(valuesToReplace == null) Console.WriteLine( "awdwasdd");
+            if (valuesToReplace == null) Console.WriteLine("awdwasdd");
             this.Replacer(valuesToReplace, true);
         }
     }

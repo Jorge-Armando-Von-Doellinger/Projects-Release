@@ -16,7 +16,7 @@ namespace HMS.ContractsMicroService.Application.Handlers
 
         public async Task HandleAsync(object input)
         {
-            if(input is string value)
+            if (input is string value)
                 await _manager.Delete(value);
             else
                 throw new InvalidDataException("Input for delete isn't compatible");

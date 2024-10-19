@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "contract",
-        "Type": "Nuget.Contracts.Inputs.ContractInput",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.ContractInput",
         "IsRequired": true
       }
     ],
@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "contract",
-        "Type": "Nuget.Contracts.Inputs.ContractUpdateInput",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.UpdateInput.ContractUpdateInput",
         "IsRequired": true
       }
     ],
@@ -93,7 +93,7 @@
     "Parameters": [
       {
         "Name": "contract",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.EmployeeContractInput",
         "IsRequired": true
       }
     ],
@@ -109,7 +109,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractUpdateInput",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.UpdateInput.EmployeeContractUpdateInput",
         "IsRequired": true
       }
     ],
@@ -148,23 +148,51 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.SettingsController",
-    "Method": "AddSettings",
-    "RelativePath": "api/Settings",
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "AddContract",
+    "RelativePath": "api/Teste",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.ContractInput",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.SettingsController",
-    "Method": "GetSettingsCache",
-    "RelativePath": "api/Settings",
-    "HttpMethod": "GET",
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "AddContract",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.UpdateInput.ContractUpdateInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "AddContract",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.ContractDeleteInput",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -187,7 +215,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.WorkHoursInput",
+        "Type": "HMS.ContractsMicroService.Core.Entity.WorkHours",
         "IsRequired": true
       }
     ],
@@ -203,7 +231,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.WorkHoursUpdateInput",
+        "Type": "HMS.ContractsMicroService.Core.Entity.WorkHours",
         "IsRequired": true
       }
     ],

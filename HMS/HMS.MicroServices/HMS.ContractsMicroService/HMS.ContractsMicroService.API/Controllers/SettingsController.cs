@@ -1,6 +1,4 @@
-﻿using HMS.ContractsMicroService.API.Services;
-using HMS.ContractsMicroService.Core.Interfaces.Settings;
-using Microsoft.AspNetCore.Http;
+﻿using HMS.ContractsMicroService.Core.Interfaces.Settings;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HMS.ContractsMicroService.API.Controllers
@@ -11,26 +9,25 @@ namespace HMS.ContractsMicroService.API.Controllers
     {
         private readonly IDiscoveryService _serviceDiscovery;
         private readonly IHostEnvironment _environment;
-        private IMemoryCache _cache;
 
-        public SettingsController(IDiscoveryService serviceDiscovery, IHostEnvironment environment, IMemoryCache memory) 
+
+        public SettingsController(IDiscoveryService serviceDiscovery, IHostEnvironment environment)
         {
             _serviceDiscovery = serviceDiscovery;
             _environment = environment;
-            _cache = memory;
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<IActionResult> AddSettings(IAppSettings consulSettings)
         {
             await _serviceDiscovery.Put(consulSettings);
             return Accepted();
-        }
+        }*/
 
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult GetSettingsCache()
         {
             return Ok(_cache.Get("settings"));
-        }
+        }*/
     }
 }

@@ -1,5 +1,4 @@
-﻿using HMS.ContractsMicroService.Core.Enums;
-using System.Collections;
+﻿using System.Collections;
 using System.Reflection;
 
 namespace HMS.ContractsMicroService.Core.Extensions
@@ -12,15 +11,15 @@ namespace HMS.ContractsMicroService.Core.Extensions
             try
             {
                 if (propertyInfo == null) return false;
-                if(propertyInfo.CanWrite == false) return false;
+                if (propertyInfo.CanWrite == false) return false;
                 var value = propertyInfo.GetValue(obj);
                 if (value == null) return false;
 
-                var valueIsEqualsOrDefault = Equals(value, GetDefaultValue(propertyInfo)) 
+                var valueIsEqualsOrDefault = Equals(value, GetDefaultValue(propertyInfo))
                     || value.GetType().IsEnum == false;
                 var valueIsListAndDefault = propertyInfo.PropertyType.IsList() &&
-                    ListExtensions.SequenceEquals((IList)value, (IList) GetDefaultValue(propertyInfo));
-                
+                    ListExtensions.SequenceEquals((IList)value, (IList)GetDefaultValue(propertyInfo));
+
                 var isValid = value switch
                 {
                     null => false,
@@ -35,7 +34,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             {
                 return false;
             }
-            
+
         }
         internal static object GetDefaultValue(this PropertyInfo prop)
         {

@@ -2,8 +2,6 @@
 using HMS.ContractsMicroService.Core.Enums;
 using HMS.ContractsMicroService.Core.Extensions;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
 
 namespace HMS.ContractsMicroService.Core.Entity
 {
@@ -25,7 +23,7 @@ namespace HMS.ContractsMicroService.Core.Entity
 
         public void Update(EmployeeContract valuesToReplace)
         {
-            
+
             base.Update();
             this.Replacer(valuesToReplace, true);
         }

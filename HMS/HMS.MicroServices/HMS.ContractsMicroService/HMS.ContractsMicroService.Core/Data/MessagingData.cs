@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace HMS.ContractsMicroService.Core.Data
+﻿namespace HMS.ContractsMicroService.Core.Data
 {
     public sealed class MessagingData
     {
@@ -15,7 +13,7 @@ namespace HMS.ContractsMicroService.Core.Data
         public string? CurrentKey { get; private set; } = null;
 
         private void AddRetryCounter() => Header.Add(_retryCountKey, 0);
-        
+
         public void AddRetry()
         {
             var value = Header[_retryCountKey];

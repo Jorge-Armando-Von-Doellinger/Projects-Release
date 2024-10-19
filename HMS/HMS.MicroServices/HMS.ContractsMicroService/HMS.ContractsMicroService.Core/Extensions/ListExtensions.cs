@@ -10,14 +10,14 @@ namespace HMS.ContractsMicroService.Core.Extensions
             {
                 var itemTargetType = typeof(ListTaget).GetGenericArguments()[0];
                 var typeList = typeof(List<>).MakeGenericType(itemTargetType);
-                var targetList = (IList) Activator.CreateInstance(typeList);
+                var targetList = (IList)Activator.CreateInstance(typeList);
                 //Enum vire uma string
-                foreach ( var item in list)
+                foreach (var item in list)
                 {
                     var itemTarget = item.FromTo(itemTargetType);
                     targetList.Add(itemTarget);
                 }
-                return (ListTaget) targetList;
+                return (ListTaget)targetList;
             }
             catch
             {
@@ -27,10 +27,10 @@ namespace HMS.ContractsMicroService.Core.Extensions
         }
         internal static bool SequenceEquals(this IList list1, IList list2)
         {
-            if(list1.Count != list2.Count) return false;
-            if(list1 == null || list2 == null) return false;
-                // Se passar por todos e todos forem iguais, retorno true
-            for( int i = 0; i < list1.Count; i++ )
+            if (list1.Count != list2.Count) return false;
+            if (list1 == null || list2 == null) return false;
+            // Se passar por todos e todos forem iguais, retorno true
+            for (int i = 0; i < list1.Count; i++)
             {
                 if (Equals(list1[i], list2[i]) == false)
                     return false;

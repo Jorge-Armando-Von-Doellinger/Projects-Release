@@ -11,9 +11,9 @@ namespace HMS.ContractsMicroService.Messaging.Services
             model.QueueBind(settings.Queue, settings.Exchange, settings.CurrentKey);
         }
 
-        internal static void ConfigureAllQueues(IModel model, IMessagingSystem settings)
+        internal static void ConfigureAllQueues(IModel model, List<IMessagingComponents> settings)
         {
-            foreach(var value in settings.Components.Values)
+            foreach (var value in settings)
                 model.QueueBind(value.Queue, value.Exchange, "contract.#");
         }
     }

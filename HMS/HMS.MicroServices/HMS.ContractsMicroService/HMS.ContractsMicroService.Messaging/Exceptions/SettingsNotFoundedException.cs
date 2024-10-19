@@ -4,7 +4,7 @@
     {
         public SettingsNotFoundedException(string message) : base(message)
         {
-            
+
         }
     }
 }

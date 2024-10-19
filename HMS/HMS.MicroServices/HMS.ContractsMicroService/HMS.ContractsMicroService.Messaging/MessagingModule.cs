@@ -2,7 +2,7 @@
 using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Listener;
 using HMS.ContractsMicroService.Messaging.Publisher;
-using HMS.ContractsMicroService.Messaging.Services;
+using HMS.ContractsMicroService.Messaging.Settings.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HMS.ContractsMicroService.Messaging
@@ -26,7 +26,7 @@ namespace HMS.ContractsMicroService.Messaging
         private static IServiceCollection AddMessaging(this IServiceCollection services)
         {
             services.AddSingleton<IMessageListener, MessageListener>();
-            services.AddScoped<IMessagePublisher<IMessagingSystem>, MessagePubisher>();
+            services.AddScoped<IMessagePublisher, MessagePubisher>();
             return services;
         }
 

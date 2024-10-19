@@ -3,11 +3,7 @@ using HMS.ContractsMicroService.Core.Interfaces.Repository;
 using HMS.ContractsMicroService.Infrastructure.Context;
 using HMS.ContractsMicroService.Infrastructure.Interfaces;
 using HMS.ContractsMicroService.Infrastructure.Messages;
-using HMS.ContractsMicroService.Infrastructure.Mongo.Utilities;
-using HMS.ContractsMicroService.Infrastructure.Services;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using System.Linq.Expressions;
 
 namespace HMS.ContractsMicroService.Infrastructure.Repository
 {
@@ -42,7 +38,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
         public async Task<WorkHours> FindWorkHours(WorkHours workHours)
         {
             var data = await _collection.FindAsync(x => x.EntryTime == workHours.EntryTime &&
-                x.ExitTime == workHours.ExitTime && 
+                x.ExitTime == workHours.ExitTime &&
                 x.IntervalStartTime == workHours.IntervalStartTime &&
                 x.IntervalEndTime == workHours.IntervalEndTime);
             return await data.FirstOrDefaultAsync();
@@ -68,7 +64,7 @@ namespace HMS.ContractsMicroService.Infrastructure.Repository
             await _transaction.Execute(async (session) =>
             {
                 workHours.Update(entity);
-                await _collection.ReplaceOneAsync(session, 
+                await _collection.ReplaceOneAsync(session,
                     doc => doc.ID == entity.ID,
                     workHours);
             });

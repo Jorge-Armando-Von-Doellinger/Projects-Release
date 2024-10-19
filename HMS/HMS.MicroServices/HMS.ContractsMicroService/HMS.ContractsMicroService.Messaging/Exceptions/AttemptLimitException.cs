@@ -2,9 +2,9 @@
 {
     public sealed class AttemptLimitException : Exception
     {
-        public AttemptLimitException(string Message) : base(Message) 
+        public AttemptLimitException(string Message) : base(Message)
         {
-            
+
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Diagnostics.Metrics;
 using System.Reflection;
-using System.Runtime.Serialization;
 
 namespace HMS.ContractsMicroService.Core.Extensions
 {
@@ -42,13 +40,13 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 target.SetValue(obj, count);
                 count++;
             }
-            return (TObject[]) target;
+            return (TObject[])target;
         }
 
-        internal static void Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace, bool ignoreInheritedValues) 
+        internal static void Replacer<TEntity>(this TEntity obj, TEntity valuesToReplace, bool ignoreInheritedValues)
             where TEntity : class
         {
-            if(obj == null) return;
+            if (obj == null) return;
             foreach (var property in obj.GetType().GetProperties())
             {
                 var replaceProp = valuesToReplace.GetType().GetProperty(property.Name);
@@ -70,19 +68,19 @@ namespace HMS.ContractsMicroService.Core.Extensions
             return target;
 
         }
-        
+
         public static object FromTo(this object obj, Type type, Type? typeToIgnore = null)
         {
             var target = Activator.CreateInstance(type) ?? throw new Exception("Null");
-            foreach(var prop in obj.GetType().GetProperties())
+            foreach (var prop in obj.GetType().GetProperties())
             {
                 var propTarget = type.GetProperty(prop.Name);
                 if (propTarget == null) continue;
-                
-                if (propTarget.DeclaringType == typeToIgnore) 
+
+                if (propTarget.DeclaringType == typeToIgnore)
                 {
                     continue;
-                }   
+                }
                 var valueIsValid = prop.TryGetValue(obj, out var result);
                 if (valueIsValid == false) continue;
                 if (result?.GetType().GetProperty(propTarget.Name)?.DeclaringType?.BaseType == typeToIgnore) continue;
@@ -100,7 +98,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
             try
             {
                 var token = new CancellationTokenSource();
-                
+
                 for (int i = 0; i < array.Length; i++)
                 {
                     if (token.IsCancellationRequested)
@@ -117,12 +115,12 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 throw;
             }
         }
-        
+
         private static void CustomForEach<T>(this T[] array, Action<T, int> action)
         {
             try
             {
-                for (int i = 0; i < array.Length ; i++)
+                for (int i = 0; i < array.Length; i++)
                 {
                     action(array[i], i);
                 }
@@ -137,11 +135,11 @@ namespace HMS.ContractsMicroService.Core.Extensions
         private static bool ChangeType(this object obj, Type destine, out object result)
         {
             result = null;
-            if(destine.IsEnum) result = obj.ChangeTypeToEnum(destine);
+            if (destine.IsEnum) result = obj.ChangeTypeToEnum(destine);
             else if (obj.GetType().IsNumberEnumerable() && destine.IsEnumEnumerable()) result = obj.ChangeListToListEnum(destine);
             else if (obj.GetType().IsEnum && destine == typeof(string)) result = obj.ToString();
             else if (obj.GetType().IsEnumEnumerable() && destine == typeof(string)) result = obj.ListEnumFromString();
-            else if(obj.GetType().IsClass && destine.IsClass) result = obj.FromTo(destine);
+            else if (obj.GetType().IsClass && destine.IsClass) result = obj.FromTo(destine);
             else return false;
             return true;
 
@@ -158,7 +156,7 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 var targetList = itemType.MakeGenericList();
 
                 if (value is IEnumerable sourceList)
-                    foreach (var item in sourceList)                
+                    foreach (var item in sourceList)
                         AddValueToListEnum(item, itemType, targetList);
                 return targetList;
 
@@ -178,10 +176,10 @@ namespace HMS.ContractsMicroService.Core.Extensions
             else
                 throw new InvalidOperationException($"Invalid type {value.GetType()} for conversion to {itemType}");
         }
-        
+
         private static object ConvertValue(object value, Type typeTarget)
         {
-            if(typeTarget.IsEnum)
+            if (typeTarget.IsEnum)
                 return value.ChangeTypeToEnum(typeTarget);
             if (typeTarget.IsGenericType && typeof(List<>).IsAssignableFrom(typeTarget.GetGenericTypeDefinition()))
                 return value.ChangeListToListEnum(typeTarget);
@@ -199,8 +197,8 @@ namespace HMS.ContractsMicroService.Core.Extensions
                 if (Enum.TryParse(type, obj.ToString(), out var result))
                     return result;
             }
-            else if(obj.TryParseToInt32(out var value))
-                if(Enum.IsDefined(type, value))
+            else if (obj.TryParseToInt32(out var value))
+                if (Enum.IsDefined(type, value))
                     return Enum.ToObject(type, value);
                 else
                     return null;

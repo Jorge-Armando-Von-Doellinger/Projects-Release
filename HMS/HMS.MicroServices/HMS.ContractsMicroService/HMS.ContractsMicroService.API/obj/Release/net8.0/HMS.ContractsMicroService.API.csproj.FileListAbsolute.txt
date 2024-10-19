@@ -5,8 +5,6 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Contr
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.API.runtimeconfig.json
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.API.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.API.pdb
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\AWSSDK.Core.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\AWSSDK.SecurityToken.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Consul.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\DnsClient.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Microsoft.Extensions.DependencyInjection.dll
@@ -14,12 +12,10 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Contr
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Microsoft.OpenApi.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\MongoDB.Bson.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\MongoDB.Driver.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\MongoDB.Driver.Core.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Namotion.Reflection.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Newtonsoft.Json.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Nuget.Contracts.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Nuget.MessagingUtilities.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Nuget.Settings.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\NJsonSchema.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\NJsonSchema.Annotations.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\RabbitMQ.Client.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\SharpCompress.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Snappier.dll
@@ -27,9 +23,6 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Contr
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\ZstdSharp.dll
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\runtimes\linux\native\libmongocrypt.so
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\runtimes\osx\native\libmongocrypt.dylib
-C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\runtimes\win\native\mongocrypt.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.Application.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.Core.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.ContractsMicroService\HMS.ContractsMicroService.API\bin\Release\net8.0\HMS.ContractsMicroService.Infrastructure.dll

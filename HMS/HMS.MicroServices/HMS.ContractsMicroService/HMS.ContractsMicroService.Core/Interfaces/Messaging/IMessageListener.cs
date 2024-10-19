@@ -4,6 +4,6 @@ namespace HMS.ContractsMicroService.Core.Interfaces.Messaging
 {
     public interface IMessageListener
     {
-        Task StartListener(Func<MessagingData, Task> action);
+        Task StartListener(Func<string, Task> action);
     }
 }

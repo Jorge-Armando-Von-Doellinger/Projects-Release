@@ -65,6 +65,10 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
+            "NJsonSchema": {
+              "target": "Package",
+              "version": "[11.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.9.0, )"
@@ -147,9 +151,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Extensions.Caching.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "NJsonSchema": {
+              "target": "Package",
+              "version": "[11.0.2, )"
             }
           },
           "imports": [

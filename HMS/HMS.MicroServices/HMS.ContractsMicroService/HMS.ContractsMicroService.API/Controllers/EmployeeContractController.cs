@@ -1,8 +1,8 @@
 ﻿using HMS.ContractsMicroService.API.Attributes;
+using HMS.ContractsMicroService.Application.DTOs.Input;
+using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
-using HMS.ContractsMicroService.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
@@ -21,7 +21,7 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetEmployeeContracts()
             => Ok(await _manager.GetAll());
-         
+
         [HttpGet("{ID}")]
         public async Task<IActionResult> GetContractById(string ID)
         {
@@ -48,6 +48,6 @@ namespace HMS.ContractsMicroService.API.Controllers
             await _manager.Delete(ID);
             return Accepted();
         }
-            
+
     }
 }

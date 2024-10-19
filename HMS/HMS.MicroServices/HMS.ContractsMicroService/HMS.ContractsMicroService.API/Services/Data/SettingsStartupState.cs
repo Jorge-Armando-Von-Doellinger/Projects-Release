@@ -1,12 +1,10 @@
-﻿using Consul;
-
-namespace HMS.ContractsMicroService.API.Services.Data
+﻿namespace HMS.ContractsMicroService.API.Services.Data
 {
     public class SettingsStartupState
     {
         public SettingsStartupState()
         {
-           _taskCompletionSource.SetResult(false);
+            _taskCompletionSource.SetResult(false);
         }
         private static readonly TaskCompletionSource<bool> _taskCompletionSource = new();
 
@@ -17,7 +15,7 @@ namespace HMS.ContractsMicroService.API.Services.Data
 
         internal static Task AwaitSettingsCompletionAsync()
         {
-            if(_taskCompletionSource.Task.IsCompleted)
+            if (_taskCompletionSource.Task.IsCompleted)
                 return _taskCompletionSource.Task;
             return Task.Delay(Timeout.Infinite);
         }

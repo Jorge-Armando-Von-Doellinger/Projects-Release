@@ -1,34 +1,37 @@
-﻿using HMS.ContractsMicroService.Application.Enums;
-using HMS.ContractsMicroService.Application.Exceptions;
+﻿using HMS.ContractsMicroService.Application.DTOs.Input;
+using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
 using HMS.ContractsMicroService.Application.Handlers;
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Interfaces.Messaging;
 using HMS.ContractsMicroService.Core.Data;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
+using HMS.ContractsMicroService.Core.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
+using NJsonSchema;
 using System.Text.Json;
 
 namespace HMS.ContractsMicroService.Application.Messaging.Processor
 {
     public sealed class MessageProcessor : IMessageProcessor
     {
-        private Dictionary<string, IMessageHandler> _EmployeeHandler;
-        
+        private readonly Dictionary<JsonSchema, IMessageHandler> _EmployeeHandler = new();
+        private readonly ICacheService _cache;
+
         private readonly IEmployeeContractManager _employeeContract;
         private readonly IContractManager _contractManager;
-        public MessageProcessor(IServiceProvider provider)
+        public MessageProcessor(IServiceProvider provider, ICacheService cache)
         {
             var service = provider.CreateScope().ServiceProvider;
             _contractManager = service.GetRequiredService<IContractManager>();
             _employeeContract = service.GetRequiredService<IEmployeeContractManager>();
+            _cache = cache;
         }
-        public async Task Process(MessagingData data)
+        public async Task Process(string data)
         {
             try
             {
-                if (_EmployeeHandler.TryGetValue(data.CurrentKey, out var handler) == false)
-                    throw new InvalidDataException("CurrentKey inválida");
-                var obj = JsonSerializer.Deserialize(data.Json, handler.DtoType);
+                var handler = FindHandlerByJson(data);
+                var obj = JsonSerializer.Deserialize(data, handler.DtoType);
                 await handler.HandleAsync(obj);
 
             }
@@ -40,6 +43,14 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
             }
         }
 
+        private IMessageHandler FindHandlerByJson(string json)
+        {
+            var handler = _EmployeeHandler
+                .FirstOrDefault(x => x.Key.Validate(json).Count <= 0);
+            if (handler.Value == null) throw new InvalidDataException("Json recieved isn't valid!");
+            return handler.Value;
+        }
+
         private void SetHandlers()
         {
             SetEmployeeContractHandler();
@@ -48,28 +59,22 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
 
         private void SetGeneralContractHandler()
         {
-            var errorInGetSettings = generalSettingsSuccess;
-            var settingsIsNull = generalSettings == null;
-            SettingsIsValid(errorInGetSettings || settingsIsNull);
-            _EmployeeHandler.Add(generalSettings.AddKey, new AddContractHandler(_contractManager));
-            _EmployeeHandler.Add(generalSettings.UpdateKey, new UpdateContractHandler(_contractManager));
-            _EmployeeHandler.Add(generalSettings.DeleteKey, new DeleteContractHandler(_contractManager));
+            var inputSchema = _cache.Get<JsonSchema>(nameof(ContractInput));
+            var updateInputSchema = _cache.Get<JsonSchema>(nameof(ContractUpdateInput));
+            var deleteInputSchema = _cache.Get<JsonSchema>(nameof(ContractDeleteInput));
+            _EmployeeHandler.Add(inputSchema, new AddContractHandler(_contractManager));
+            _EmployeeHandler.Add(updateInputSchema, new UpdateContractHandler(_contractManager));
+            _EmployeeHandler.Add(deleteInputSchema, new DeleteContractHandler(_contractManager));
         }
 
         private void SetEmployeeContractHandler()
         {
-            var employeeContractSettingsSuccess = _messagingSystem.TryGetValue(MessagingSystemKeysEnum.EmployeeContracts.ToString(), out var employeeSettings);
-            bool settingsIsntNull = employeeSettings != null;
-            SettingsIsValid(employeeContractSettingsSuccess && settingsIsntNull);
-            _EmployeeHandler.Add(employeeSettings.AddKey, new AddEmployeeHandler(_employeeContract));
-            _EmployeeHandler.Add(employeeSettings.UpdateKey, new UpdateEmployeeHandler(_employeeContract));
-            _EmployeeHandler.Add(employeeSettings.DeleteKey, new DeleteEmployeeHandler(_employeeContract));
-        }
-
-        private void SettingsIsValid(bool valid)
-        {
-            if (valid) return;
-            else throw new InvalidSettingsException("Erro ao processar esta rota de contratos!");
+            var inputSchema = _cache.Get<JsonSchema>(nameof(EmployeeContractInput));
+            var updateInputSchema = _cache.Get<JsonSchema>(nameof(EmployeeContractUpdateInput));
+            var deleteInputSchema = _cache.Get<JsonSchema>(nameof(EmployeeContractDeleteInput));
+            _EmployeeHandler.Add(inputSchema, new AddEmployeeHandler(_employeeContract));
+            _EmployeeHandler.Add(updateInputSchema, new UpdateEmployeeHandler(_employeeContract));
+            _EmployeeHandler.Add(deleteInputSchema, new DeleteEmployeeHandler(_employeeContract));
         }
     }
 }
