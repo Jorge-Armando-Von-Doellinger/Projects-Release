@@ -38,6 +38,7 @@ namespace HMS.ContractsMicroService.Application
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddSingleton<ICacheService, CacheService>();
+            services.AddSingleton<SchemaCacheService>();
             return services;
         }
     }

@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "contract",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.ContractInput",
         "IsRequired": true
       }
     ],
@@ -34,8 +34,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.EmployeeContractInput",
+        "Name": "contract",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.UpdateInput.ContractUpdateInput",
         "IsRequired": true
       }
     ],
@@ -44,21 +44,159 @@
   {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
     "Method": "GetContractById",
-    "RelativePath": "api/Contract/ID",
+    "RelativePath": "api/Contract/{ID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "ID",
-        "Type": "System.Guid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.ContractController",
+    "Method": "DeleteContract",
+    "RelativePath": "api/Contract/{ID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "GetEmployeeContracts",
+    "RelativePath": "api/Contract/Employee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "AddContract",
+    "RelativePath": "api/Contract/Employee",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contract",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.EmployeeContractInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "UpdateContract",
+    "RelativePath": "api/Contract/Employee",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.UpdateInput.EmployeeContractUpdateInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "DeleteContract",
+    "RelativePath": "api/Contract/Employee",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHours",
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.EmployeeContractController",
+    "Method": "GetContractById",
+    "RelativePath": "api/Contract/Employee/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "AddContract",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.ContractInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "AddContract",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.UpdateInput.ContractUpdateInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
+    "Method": "AddContract",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Application.DTOs.Input.ContractDeleteInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
     "Method": "GetWorkHours",
     "RelativePath": "api/WorkHours",
     "HttpMethod": "GET",
@@ -68,7 +206,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHours",
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
     "Method": "AddWorkHours",
     "RelativePath": "api/WorkHours",
     "HttpMethod": "POST",
@@ -77,7 +215,55 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "Nuget.Contracts.Inputs.WorkHoursInput",
+        "Type": "HMS.ContractsMicroService.Core.Entity.WorkHours",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
+    "Method": "Update",
+    "RelativePath": "api/WorkHours",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.ContractsMicroService.Core.Entity.WorkHours",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
+    "Method": "Delete",
+    "RelativePath": "api/WorkHours",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.WorkHoursController",
+    "Method": "GetByID",
+    "RelativePath": "api/WorkHours/{ID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

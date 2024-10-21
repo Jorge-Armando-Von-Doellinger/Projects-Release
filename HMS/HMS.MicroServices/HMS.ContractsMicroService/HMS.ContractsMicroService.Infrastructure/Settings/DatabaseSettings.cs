@@ -4,6 +4,6 @@ namespace HMS.ContractsMicroService.Infrastructure.Settings
 {
     public sealed class DatabaseSettings : IDatabaseSettings
     {
-        public string ConnectionString { get; internal set; }
+        public string ConnectionString { get; set; }
     }
 }

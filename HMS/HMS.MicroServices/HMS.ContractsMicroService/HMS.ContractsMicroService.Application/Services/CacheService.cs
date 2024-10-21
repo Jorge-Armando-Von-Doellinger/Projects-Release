@@ -28,9 +28,9 @@ namespace HMS.ContractsMicroService.Application.Services
         {
             _keys.ForEach(key =>
             {
-                _keys.Remove(key);
                 Remove(key);
             });
+            _keys.Clear();
         }
 
         public void Set<T>(string key, T value)

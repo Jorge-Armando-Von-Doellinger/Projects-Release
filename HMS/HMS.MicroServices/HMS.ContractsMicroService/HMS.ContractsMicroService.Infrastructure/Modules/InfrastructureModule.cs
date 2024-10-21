@@ -1,5 +1,6 @@
-﻿using HMS.ContractsMicroService.Core.Interfaces.Repository;
-using HMS.ContractsMicroService.Core.Interfaces.Settings;
+﻿using Consul;
+using HMS.ContractsMicroService.Core.Interfaces.Repository;
+using HMS.ContractsMicroService.Core.Interfaces.Services;
 using HMS.ContractsMicroService.Infrastructure.Context;
 using HMS.ContractsMicroService.Infrastructure.Interfaces;
 using HMS.ContractsMicroService.Infrastructure.Repository;
@@ -38,19 +39,27 @@ namespace HMS.ContractsMicroService.Infrastructure.Modules
                 var settings = sp.GetRequiredService<IDatabaseSettings>();
                 return new(settings.ConnectionString);
             });
+            services.AddSingleton<IConsulClient, ConsulClient>(/*sp =>
+            {
+                var settings = sp.GetRequiredService<IServiceDiscoverySettings>(); // Precisará caso mude o address e etc
+                return new ConsulClient(config =>
+                {
+                    config.Address = new Uri(settings.Uri);
+                });
+            }*/);
             return services;
         }
 
         private static IServiceCollection AddContexts(this IServiceCollection services)
         {
             services.AddSingleton<MongoContext>();
-            services.AddScoped<ConsulContext>();
             return services;
         }
 
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddScoped<IDiscoveryService, DiscoveryServiceConsul>();
+            services.AddSingleton<IServiceDiscovery, ServiceDiscovery>();
+            services.AddSingleton<ISettingsService, SettingsService>();
             services.AddScoped<ITransaction, TransactionService>();
             return services;
         }

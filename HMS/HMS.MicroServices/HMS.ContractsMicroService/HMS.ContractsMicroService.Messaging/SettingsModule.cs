@@ -19,31 +19,28 @@ namespace HMS.ContractsMicroService.Messaging
             MessagingSystem? data = null;
             if (element.TryGetProperty("MessagingSystem", out var json))
             {
-                Console.WriteLine(json);
-                var components = JsonSerializer.Deserialize<Dictionary<string, MessagingComponents>>(json.GetRawText());
-                data = new() { Components = components.ToDictionary(x => x.Key, x => (IMessagingComponents)x.Value) };
-                foreach (var item in data.Components.Values)
+                var jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var components = JsonSerializer.Deserialize<Dictionary<string, MessagingComponents>>(json.GetRawText(), jsonOptions);
+                components.Values.All(x =>
                 {
-                    item.SetKeys();
-                    foreach (var item1 in item.Keys)
-                    {
-                        Console.WriteLine(item1);
-                    }
-                }
+                    x.SetKeys();
+                    return true;
+                });
+                data = new() { Components = components.ToDictionary(x => x.Key, x => (IMessagingComponents)x.Value) };
+                
             }
             else throw new Exception("Erro ao encontrar propertyName no json de configuração!");
+            Console.WriteLine(data == null);
             services.AddSingleton<IMessagingSystem>(data);
             return services;
         }
         private static IServiceCollection AddMessagingSettings(this IServiceCollection services, JsonElement element)
         {
             MessagingSettings? settings = null;
+            var jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             if (element.TryGetProperty("RabbitMq", out var json))
             {
-                Console.WriteLine(json);
-                settings = JsonSerializer.Deserialize<MessagingSettings>(json.GetRawText());
-                var data = JsonSerializer.Deserialize<MessagingSettings>(json.GetRawText());
-                Console.WriteLine(data.Port == 0);
+                settings = JsonSerializer.Deserialize<MessagingSettings>(json.GetRawText(), jsonOptions);
             }
             else throw new Exception("Erro ao encontrar propertyName no json de configuração!");
             services.AddSingleton<IMessagingSettings>(settings);

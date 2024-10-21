@@ -2,6 +2,9 @@
 using HMS.ContractsMicroService.API.Services.Data;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
 
+// Settings json consul
+// Pegar appsettings e enfiar no consul
+
 namespace HMS.ContractsMicroService.API.Services.Background
 {
     public class MessageListenerService : BackgroundService

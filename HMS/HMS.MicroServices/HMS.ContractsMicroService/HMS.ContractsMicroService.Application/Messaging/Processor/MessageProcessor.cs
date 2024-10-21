@@ -25,12 +25,13 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
             _contractManager = service.GetRequiredService<IContractManager>();
             _employeeContract = service.GetRequiredService<IEmployeeContractManager>();
             _cache = cache;
+            SetHandlers();
         }
         public async Task Process(string data)
         {
             try
             {
-                var handler = FindHandlerByJson(data);
+                var handler = FindHandlerByJson(data) ?? throw new Exception("Teste");
                 var obj = JsonSerializer.Deserialize(data, handler.DtoType);
                 await handler.HandleAsync(obj);
 
@@ -45,9 +46,15 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
 
         private IMessageHandler FindHandlerByJson(string json)
         {
-            var handler = _EmployeeHandler
-                .FirstOrDefault(x => x.Key.Validate(json).Count <= 0);
-            if (handler.Value == null) throw new InvalidDataException("Json recieved isn't valid!");
+            var handler = _EmployeeHandler.FirstOrDefault(pair =>
+            {
+                var errors = pair.Key.Validate(json);
+                Console.WriteLine(errors.Count);
+                return errors.Count == 0;
+            });
+            if(handler.Value.DtoType != null) Console.WriteLine(handler.Value.DtoType);
+            if(handler.Value.DtoType == null) Console.WriteLine(handler.Value.DtoType);
+            
             return handler.Value;
         }
 
@@ -59,7 +66,7 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
 
         private void SetGeneralContractHandler()
         {
-            var inputSchema = _cache.Get<JsonSchema>(nameof(ContractInput));
+            var inputSchema = _cache.Get<JsonSchema>(nameof(ContractInput)) ?? throw new Exception("Teste");
             var updateInputSchema = _cache.Get<JsonSchema>(nameof(ContractUpdateInput));
             var deleteInputSchema = _cache.Get<JsonSchema>(nameof(ContractDeleteInput));
             _EmployeeHandler.Add(inputSchema, new AddContractHandler(_contractManager));

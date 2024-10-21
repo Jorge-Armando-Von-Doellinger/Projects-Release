@@ -27,39 +27,40 @@ namespace HMS.ContractsMicroService.Messaging.Listener
         }
         public async Task StartListener(Func<string, Task> action)
         {
+            if(_settings.Components.Count > -1) Console.WriteLine(_settings.Components.Values.Count);
             MessagingConfigureService.ConfigureAllQueues(_model, _settings.Components.Values.ToList());
+            List<IMessagingComponents>? components = _settings.Components.Values.ToList();
             var consumer = new EventingBasicConsumer(_model);
-            IMessagingComponents? components = default;
             consumer.Received += async (model, ea) =>
             {
                 var bytes = ea.Body.ToArray();
                 var json = Encoding.UTF8.GetString(bytes);
-                // message = this.GetMessageByBytes(bytes);
                 try
                 {
-                    /*if (message == null) throw new InvalidMessageException("Esta mensagem não foi deserializada corretamente");
-                    if (message.RetryCount > 3) throw new AttemptLimitException("Todas as tentativas de processar sua mensagem NÃO tiveram êxito");
-                    var messagingData = new MessagingData();
-                    messagingData.SetData(message.Content.ToString(), ea.RoutingKey); // message.content é deserializado como JsonElement*/
-
+                    Console.WriteLine(json);
                     await action(json);
                     _model.BasicAck(ea.DeliveryTag, false);
                 }
-                catch (InvalidMessageException ex)
+                /*catch (InvalidMessageException ex)
                 {
                     _model.BasicReject(ea.DeliveryTag, false);
                 }
                 catch (AttemptLimitException ex)
                 {
                     _model.BasicReject(ea.DeliveryTag, false);
-                }
+                }*/
                 catch (Exception ex)
                 {
-                    //message.AddAttempt();
+                    Console.WriteLine(ex.Message);
                     _model.BasicReject(ea.DeliveryTag, false);
                 }
             };
-            _model.BasicConsume(components?.Queue, false, consumer);
+
+            components.ForEach(component =>
+            {
+                Console.WriteLine(component.Queue);
+                _model.BasicConsume(component.Queue, false, consumer);
+            });
         }
 
         private object GetMessageByBytes(byte[] bytes)

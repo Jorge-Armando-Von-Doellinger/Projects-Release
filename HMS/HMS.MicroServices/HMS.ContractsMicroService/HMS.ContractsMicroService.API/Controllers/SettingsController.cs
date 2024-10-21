@@ -1,4 +1,4 @@
-﻿using HMS.ContractsMicroService.Core.Interfaces.Settings;
+﻿using HMS.ContractsMicroService.Core.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HMS.ContractsMicroService.API.Controllers
@@ -7,11 +7,11 @@ namespace HMS.ContractsMicroService.API.Controllers
     [ApiController]
     public class SettingsController : ControllerBase
     {
-        private readonly IDiscoveryService _serviceDiscovery;
+        private readonly IServiceDiscovery _serviceDiscovery;
         private readonly IHostEnvironment _environment;
 
 
-        public SettingsController(IDiscoveryService serviceDiscovery, IHostEnvironment environment)
+        public SettingsController(IServiceDiscovery serviceDiscovery, IHostEnvironment environment)
         {
             _serviceDiscovery = serviceDiscovery;
             _environment = environment;

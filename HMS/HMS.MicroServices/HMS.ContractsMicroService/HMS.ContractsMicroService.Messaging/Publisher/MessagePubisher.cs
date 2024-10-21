@@ -24,17 +24,13 @@ namespace HMS.ContractsMicroService.Messaging.Publisher
             var bytes = await GetDataBytes(data);
             var components = _settings.Components.Values.FirstOrDefault(x =>
             {
-                foreach(var item in x.Keys)
-                    Console.WriteLine(item);
-                Console.WriteLine(x.Keys + "First or def");
-                Console.WriteLine(key);
                 if(x.Keys.Contains(key)) return true;
                 return false;
-            });
+            }) ?? throw new KeyNotFoundException("routing key not founded");
             MessagingConfigureService.ConfigureQueue(_model, components);
 
             _model.BasicPublish(components.Exchange,
-                components.CurrentKey,
+                components.Keys.First(x => x.Equals(key)),
                 false,
             null,
                 bytes);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.ContractsMicroService.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a65297a778a97ce638a750a95330f4dbf6241e38")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5895c6910fcc2386d766fb661ea821810e70c348")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.ContractsMicroService.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.ContractsMicroService.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

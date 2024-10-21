@@ -375,7 +375,8 @@
           "Consul": "1.7.14.4",
           "HMS.ContractsMicroService.Core": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
-          "MongoDB.Driver": "3.0.0"
+          "MongoDB.Driver": "3.0.0",
+          "NJsonSchema": "11.0.2"
         },
         "compile": {
           "bin/placeholder/HMS.ContractsMicroService.Infrastructure.dll": {}
