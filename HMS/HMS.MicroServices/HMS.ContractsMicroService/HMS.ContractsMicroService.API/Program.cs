@@ -18,15 +18,16 @@ namespace HMS.ContractsMicroService.API
 
             // ---------------------------
 
+            builder.Services
+                .AddSettings(builder.Configuration); // Adiciona as settings de todas as camadas
+
             builder.Services.AddMemoryCache(); // Adiciona ao projeto a manipulação de memoria CACHE
-            builder.Services.AddSettings(builder.Configuration); // Adiciona as settings de todas as camadas
             SettingsStartupState.SetSettingsCompleted(); // Permite os servicos background iniciarem!
             builder.Services        // Adiciona todas as injeções de depemdencia das camadas abaixo
                 .AddMessagingModule()
                 .AddInfrastructureModule()
                 .AddApplicationModule()
                 .AddApiModule();
-
             // ------------------------------
             var app = builder.Build();
 

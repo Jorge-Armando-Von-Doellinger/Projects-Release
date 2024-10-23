@@ -1,7 +1,9 @@
 ﻿using HMS.ContractsMicroService.Core.Interfaces.Messaging;
+using HMS.ContractsMicroService.Core.Interfaces.Settings;
 using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Listener;
 using HMS.ContractsMicroService.Messaging.Publisher;
+using HMS.ContractsMicroService.Messaging.Settings;
 using HMS.ContractsMicroService.Messaging.Settings.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,7 +15,8 @@ namespace HMS.ContractsMicroService.Messaging
         {
             services
                 .AddConnections()
-                .AddMessaging();
+                .AddMessaging()
+                .AddEvents();
             return services;
         }
 
@@ -30,6 +33,11 @@ namespace HMS.ContractsMicroService.Messaging
             return services;
         }
 
-
+        private static IServiceCollection AddEvents(this IServiceCollection services)
+        {
+            services.AddSingleton<OnUpdatedSettings, MessagingSystem>();
+            services.AddSingleton<OnUpdatedSettings, MessagingSettings>();
+            return services;
+        }
     }
 }

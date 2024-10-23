@@ -1,5 +1,10 @@
-﻿using HMS.ContractsMicroService.Core.Interfaces.Services;
+﻿using HMS.ContractsMicroService.API.Settings;
+using HMS.ContractsMicroService.API.Settings.Interfaces;
+using HMS.ContractsMicroService.Core.Interfaces.Services;
+using HMS.ContractsMicroService.Core.Interfaces.Settings;
 using Microsoft.AspNetCore.Mvc;
+using NJsonSchema;
+using System.Text.Json;
 
 namespace HMS.ContractsMicroService.API.Controllers
 {
@@ -7,27 +12,31 @@ namespace HMS.ContractsMicroService.API.Controllers
     [ApiController]
     public class SettingsController : ControllerBase
     {
-        private readonly IServiceDiscovery _serviceDiscovery;
+        private readonly ISettingsService _settingsService;
         private readonly IHostEnvironment _environment;
+        private readonly IEnumerable<OnUpdatedSettings> _onUpdatedSettings;
+        private readonly IAppSettings _appSettings;
 
-
-        public SettingsController(IServiceDiscovery serviceDiscovery, IHostEnvironment environment)
+        public SettingsController(ISettingsService settingsService, IHostEnvironment environment, IEnumerable<OnUpdatedSettings> onUpdatedSettings, IAppSettings appSettings)
         {
-            _serviceDiscovery = serviceDiscovery;
+            _settingsService = settingsService;
             _environment = environment;
+            _onUpdatedSettings = onUpdatedSettings;
+            _appSettings = appSettings;
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> AddSettings(IAppSettings consulSettings)
+        [HttpPost]
+        public async Task<IActionResult> AddSettings(object settings)
         {
-            await _serviceDiscovery.Put(consulSettings);
-            return Accepted();
-        }*/
-
-        /*[HttpGet]
-        public IActionResult GetSettingsCache()
-        {
-            return Ok(_cache.Get("settings"));
-        }*/
+            var settingsRecieved = JsonSerializer.Serialize(settings);
+            var stringschema = await _settingsService.GetSchema(nameof(AppSettings));
+            Console.WriteLine(stringschema);
+            var schema = JsonSerializer.Deserialize<JsonSchema>(stringschema);
+            if (schema.Validate(settingsRecieved).Count == 0)
+            {
+                return Accepted();
+            }
+            return BadRequest("Schema não valido!");
+        }
     }
 }

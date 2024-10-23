@@ -4,7 +4,7 @@
     {
         string KvKeySchemas { get; }
         string KvKeySettings { get; }
-        string Uri { get; }
+        string Address { get; }
         string GetSchema(string nameof);
         string GetSettings(string nameof);
     }

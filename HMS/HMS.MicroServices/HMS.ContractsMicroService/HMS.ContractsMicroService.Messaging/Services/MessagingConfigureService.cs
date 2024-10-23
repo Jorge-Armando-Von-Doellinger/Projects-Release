@@ -16,12 +16,20 @@ namespace HMS.ContractsMicroService.Messaging.Services
         {
             foreach (var value in settings)
             {
+                ExchangeDeclare(model, value);
                 value.Keys.All(x =>
                 {
                     model.QueueBind(value.Queue, value.Exchange, x);
                     return true;
                 });
             }
+        }
+
+        private static void ExchangeDeclare(IModel model, IMessagingComponents components)
+        {
+            Console.WriteLine(components.Exchange + " Ecchange");
+            Console.WriteLine(components.TypeExchange);
+            model.ExchangeDeclare(components.Exchange, components.TypeExchange, true, false);
         }
     }
 }

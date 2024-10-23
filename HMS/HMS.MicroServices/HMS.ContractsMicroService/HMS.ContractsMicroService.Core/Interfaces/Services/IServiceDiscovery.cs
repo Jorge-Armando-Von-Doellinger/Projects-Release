@@ -3,6 +3,7 @@
     public interface IServiceDiscovery
     {
         Task<T> Get<T>(string kvkey);
+        Task<string> Get(string kvkey);
         Task Register(object settings, string kvkey);
         Task Put(object settings, string kvkey);
         Task Delete(string kvkey);

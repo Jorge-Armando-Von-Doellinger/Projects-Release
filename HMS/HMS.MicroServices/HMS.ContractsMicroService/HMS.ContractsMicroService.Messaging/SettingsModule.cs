@@ -17,7 +17,7 @@ namespace HMS.ContractsMicroService.Messaging
         private static IServiceCollection AddMessagingSystem(this IServiceCollection services, JsonElement element)
         {
             MessagingSystem? data = null;
-            if (element.TryGetProperty("MessagingSystem", out var json))
+            if (element.TryGetProperty(Keys.MessagingSystemKey, out var json))
             {
                 var jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var components = JsonSerializer.Deserialize<Dictionary<string, MessagingComponents>>(json.GetRawText(), jsonOptions);
@@ -30,7 +30,6 @@ namespace HMS.ContractsMicroService.Messaging
                 
             }
             else throw new Exception("Erro ao encontrar propertyName no json de configuração!");
-            Console.WriteLine(data == null);
             services.AddSingleton<IMessagingSystem>(data);
             return services;
         }
@@ -38,7 +37,7 @@ namespace HMS.ContractsMicroService.Messaging
         {
             MessagingSettings? settings = null;
             var jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            if (element.TryGetProperty("RabbitMq", out var json))
+            if (element.TryGetProperty(Keys.MessagingSettingsKey, out var json))
             {
                 settings = JsonSerializer.Deserialize<MessagingSettings>(json.GetRawText(), jsonOptions);
             }

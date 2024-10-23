@@ -1,14 +1,24 @@
-﻿using System.Text.Json;
+﻿using HMS.ContractsMicroService.API.Settings.Interfaces;
+using HMS.ContractsMicroService.Core.Interfaces.Services;
+using System.Text.Json;
 
 namespace HMS.ContractsMicroService.API.Services
 {
     public sealed class AppSettingsService
     {
+        private readonly ISettingsService? _settingsService;
+        private readonly IAppSettings? _appSettings;
+        
+        public AppSettingsService(ISettingsService settingsService, IAppSettings appSettings)
+        {
+            _settingsService = settingsService;
+            _appSettings = appSettings;
+        }
         public AppSettingsService()
         {
             
         }
-        internal JsonElement TryGetJsonElemt(IConfigurationSection section)
+        private JsonElement TryGetJsonElemt(IConfigurationSection section)
         {
             var dict = new Dictionary<string, object>();
 
@@ -33,11 +43,19 @@ namespace HMS.ContractsMicroService.API.Services
             return jsonDoc.RootElement;
         }
 
-        internal JsonElement GetSettings(IConfiguration configuration)
+        internal JsonElement GetDefaultSettings(IConfiguration configuration)
         {
             var section = configuration.GetSection("DefaultAppSettings");
             var jsonElement = TryGetJsonElemt(section);
             return jsonElement;
+        }
+
+        internal async Task<JsonElement> GetDigitalSettings()
+        {
+            if (_appSettings == null || _settingsService == null) throw new InvalidCastException("null");
+            var settings =  await _settingsService.GetJsonSettings(_appSettings.ApplicationName);
+            var element = JsonSerializer.Deserialize<JsonElement>(settings);
+            return element;
         }
 
     }

@@ -26,6 +26,13 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
             return JsonSerializer.Deserialize<T>(bytes) ?? throw new InvalidCastException("Types isn't compatible");
         }
 
+        public async Task<string> Get(string kvkey)
+        {
+            var bytes = (await _client.KV.Get(kvkey)).Response.Value ?? throw new InvalidKeyPairException("Invalid kvKey");
+            var data = Encoding.UTF8.GetString(bytes);
+            return data;
+        }
+
         public async Task Put(object settings, string kvkey)
         {
             var json = JsonSerializer.Serialize(settings);

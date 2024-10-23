@@ -1,6 +1,8 @@
 ﻿using HMS.ContractsMicroService.API.Services;
 using HMS.ContractsMicroService.API.Services.Background;
 using HMS.ContractsMicroService.API.Services.Hosted;
+using HMS.ContractsMicroService.API.Settings;
+using HMS.ContractsMicroService.Core.Interfaces.Settings;
 
 namespace HMS.ContractsMicroService.API.Module
 {
@@ -27,6 +29,12 @@ namespace HMS.ContractsMicroService.API.Module
             services.AddHostedService<MessageListenerService>();
             services.AddHostedService<RegisterDtosSchemas>();
             services.AddHostedService<RegisterAppSettings>();
+            return services;
+        }
+
+        private static IServiceCollection AddEvents(this IServiceCollection services)
+        {
+            services.AddSingleton<OnUpdatedSettings, AppSettings>();
             return services;
         }
 
