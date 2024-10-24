@@ -1,5 +1,4 @@
-﻿using HMS.ContractsMicroService.API.Data;
-using HMS.ContractsMicroService.API.Settings;
+﻿using HMS.ContractsMicroService.API.Settings;
 using HMS.ContractsMicroService.Application.DTOs.Input;
 using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
 using HMS.ContractsMicroService.Core.Interfaces.Services;
@@ -13,15 +12,13 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
         private readonly ISettingsService _settingsService;
         private readonly AppSettingsService _appSettingsService;
         private readonly IConfiguration _configuration;
-        private readonly IServiceCollection _services;
 
-        public RegisterSchemas(ICacheService cache, ISettingsService settingsService, AppSettingsService appSettingsService, IConfiguration configuration, IServiceCollection services)
+        public RegisterSchemas(ICacheService cache, ISettingsService settingsService, AppSettingsService appSettingsService, IConfiguration configuration)
         {
             _cache = cache;
             _settingsService = settingsService;
             _appSettingsService = appSettingsService;
             _configuration = configuration;
-            this._services = services;
         }
 
         private async Task SetSchemas()
