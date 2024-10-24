@@ -27,7 +27,7 @@ namespace HMS.ContractsMicroService.API.Module
         private static IServiceCollection AddHostedServices(this IServiceCollection services)
         {
             services.AddHostedService<MessageListenerService>();
-            services.AddHostedService<RegisterDtosSchemas>();
+            services.AddHostedService<RegisterSchemas>();
             services.AddHostedService<RegisterAppSettings>();
             return services;
         }

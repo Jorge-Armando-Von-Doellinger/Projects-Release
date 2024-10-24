@@ -3,7 +3,6 @@ using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
 using HMS.ContractsMicroService.Application.Handlers;
 using HMS.ContractsMicroService.Application.Interfaces.Managers;
 using HMS.ContractsMicroService.Application.Interfaces.Messaging;
-using HMS.ContractsMicroService.Core.Data;
 using HMS.ContractsMicroService.Core.Interfaces.Messaging;
 using HMS.ContractsMicroService.Core.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;

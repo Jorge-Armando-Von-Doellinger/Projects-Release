@@ -148,6 +148,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HMS.ContractsMicroService.API.Controllers.SettingsController",
+    "Method": "AddSettings",
+    "RelativePath": "api/Settings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "settings",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HMS.ContractsMicroService.API.Controllers.TesteController",
     "Method": "AddContract",
     "RelativePath": "api/Teste",

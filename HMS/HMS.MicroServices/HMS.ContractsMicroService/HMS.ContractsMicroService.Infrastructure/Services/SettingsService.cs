@@ -7,7 +7,7 @@ using HMS.ContractsMicroService.Core.Interfaces.Settings;
 
 namespace HMS.ContractsMicroService.Infrastructure.Services
 {
-    public sealed class SettingsService : OnUpdatedSettings, ISettingsService
+    public sealed class SettingsService : ISettingsService
     {
         private readonly IServiceDiscovery _serviceDiscovery;
         private readonly IServiceDiscoverySettings _settings;
@@ -30,18 +30,26 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
 
         public async Task RegisterSchemas(Type type, string kvkey)
         {
-
             var schema = JsonSchema.FromType(type);
             await _serviceDiscovery.Register(schema.ToJson(), _settings.GetSchema(kvkey)); //aqui pede um object
+        }
 
+        public async Task RegisterSchemas(string json, string kvkey)
+        {
+            var schema = JsonSchema.FromSampleJson(json);
+            Console.WriteLine(schema.ToJson() + " Is Schema" + kvkey);
+            await _serviceDiscovery.Register(schema.ToJson(), _settings.GetSchema(kvkey));
         }
 
         public async Task RegisterSettings(string json, string kvkey)
         {
-            var stream = new MemoryStream(Encoding.UTF8.GetBytes(json));
-            using (var doc = await JsonDocument.ParseAsync(stream))
+            try
             {
                 await _serviceDiscovery.Register(json, _settings.GetSettings(kvkey)); //aqui pede um object
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Não foi possivel converter e registrar seu json de configuração!");
             }
         }
 

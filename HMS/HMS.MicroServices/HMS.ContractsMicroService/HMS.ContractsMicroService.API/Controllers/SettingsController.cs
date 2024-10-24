@@ -1,4 +1,6 @@
-﻿using HMS.ContractsMicroService.API.Settings;
+﻿using HMS.ContractsMicroService.API.Attributes;
+using HMS.ContractsMicroService.API.Data;
+using HMS.ContractsMicroService.API.Settings;
 using HMS.ContractsMicroService.API.Settings.Interfaces;
 using HMS.ContractsMicroService.Core.Interfaces.Services;
 using HMS.ContractsMicroService.Core.Interfaces.Settings;
@@ -10,6 +12,7 @@ namespace HMS.ContractsMicroService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ValidateJsonBySchema(new AppSettingsSchemaFilter())]
     public class SettingsController : ControllerBase
     {
         private readonly ISettingsService _settingsService;

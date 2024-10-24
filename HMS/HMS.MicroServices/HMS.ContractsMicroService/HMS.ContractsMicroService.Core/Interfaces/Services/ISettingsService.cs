@@ -6,6 +6,7 @@ namespace HMS.ContractsMicroService.Core.Interfaces.Services
     {
         Task RegisterSettings(string data, string kvkey);
         Task RegisterSchemas(Type type, string kvkey);
+        Task RegisterSchemas(string json, string kvkey);
         Task<string> GetSchema(string kvkey);
         Task UpdateSettings(OnUpdatedSettings updateEvent, string data, string key);
         Task UpdateSchemas(Type type, string kvkey);

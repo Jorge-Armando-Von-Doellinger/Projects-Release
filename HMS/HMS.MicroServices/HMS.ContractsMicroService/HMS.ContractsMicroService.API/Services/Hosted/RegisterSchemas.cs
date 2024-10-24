@@ -1,33 +1,34 @@
-﻿using HMS.ContractsMicroService.API.Settings;
+﻿using HMS.ContractsMicroService.API.Data;
+using HMS.ContractsMicroService.API.Settings;
 using HMS.ContractsMicroService.Application.DTOs.Input;
 using HMS.ContractsMicroService.Application.DTOs.UpdateInput;
 using HMS.ContractsMicroService.Core.Interfaces.Services;
 using NJsonSchema;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace HMS.ContractsMicroService.API.Services.Hosted
 {
-    public class RegisterDtosSchemas : IHostedService
+    public class RegisterSchemas : IHostedService
     {
         private readonly ICacheService _cache;
         private readonly ISettingsService _settingsService;
         private readonly AppSettingsService _appSettingsService;
         private readonly IConfiguration _configuration;
+        private readonly IServiceCollection _services;
 
-        public RegisterDtosSchemas(ICacheService cache, ISettingsService settingsService, AppSettingsService appSettingsService, IConfiguration configuration)
+        public RegisterSchemas(ICacheService cache, ISettingsService settingsService, AppSettingsService appSettingsService, IConfiguration configuration, IServiceCollection services)
         {
             _cache = cache;
             _settingsService = settingsService;
             _appSettingsService = appSettingsService;
             _configuration = configuration;
+            this._services = services;
         }
 
         private async Task SetSchemas()
         {
             await SetContractSchema();
             await SetEmployeeContractSchema();
-            await SetAppSttingsSchema();
+            await SetAppSttingsSchema(); // Have problems
         }
 
         private async Task SetSchema<T>() where T : new()
@@ -40,11 +41,12 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
         private async Task SetSchemaByJson(string json, string name)
         {
             var schema = await JsonSchema.FromJsonAsync(json);
-            await _settingsService.RegisterSchemas(typeof(T), name);
+
+            await _settingsService.RegisterSchemas(json, name);
             _cache.Set(name, schema);
         }
 
-        internal async Task SetAppSttingsSchema()
+        internal async Task SetAppSttingsSchema() // Here
         {
             var json = _appSettingsService.GetDefaultSettings(_configuration);
             await SetSchemaByJson(json.GetRawText(), Keys.AppSettingsJson);

@@ -35,7 +35,16 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
 
         public async Task Put(object settings, string kvkey)
         {
-            var json = JsonSerializer.Serialize(settings);
+            string? json;
+            try
+            {
+                json = JsonSerializer.Serialize(settings);
+            }
+            catch
+            {
+                json = (string)settings;
+            }
+            if (json == null) throw new Exception("Can't put the settings");
             var bytes = Encoding.UTF8.GetBytes(json);
             KVPair kVPair = new (kvkey) { Value = bytes };
             await _client.KV.Put(kVPair);
