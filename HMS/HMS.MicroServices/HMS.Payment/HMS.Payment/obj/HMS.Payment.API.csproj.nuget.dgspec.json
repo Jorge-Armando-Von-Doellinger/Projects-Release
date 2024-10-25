@@ -58,10 +58,6 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.0, )"
-            },
-            "Nuget.Payment": {
-              "target": "Package",
-              "version": "[0.0.1, )"
             }
           },
           "imports": [
@@ -204,10 +200,6 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.0, )"
-            },
-            "Nuget.Payment": {
-              "target": "Package",
-              "version": "[0.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

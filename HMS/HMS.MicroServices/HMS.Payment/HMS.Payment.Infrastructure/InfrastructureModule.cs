@@ -1,4 +1,5 @@
-﻿using HMS.Payments.Infratructure.Context;
+﻿using HMS.Payment.Infrastructure.Connect;
+using HMS.Payments.Infratructure.Context;
 using HMS.Payments.Infratructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,7 +23,7 @@ namespace HMS.Payments.Infrastructure
 
         public static IServiceCollection AddContext(this IServiceCollection services)
         {
-            services.AddTransient<EmployeePaymentContext>();
+            services.AddTransient<MongoContext>();
             return services;
         }
     }

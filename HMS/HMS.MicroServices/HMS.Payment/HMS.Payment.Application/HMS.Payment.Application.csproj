@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Nuget.Payment" Version="0.0.1" />
   </ItemGroup>
 
   <ItemGroup>

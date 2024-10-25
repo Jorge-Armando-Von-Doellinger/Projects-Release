@@ -12,6 +12,7 @@ namespace HMS.ContractsMicroService.Messaging.Settings
             get => _hostname;
             set
             {
+                Console.WriteLine(value + " Its Value");
                 AddUpdateEvent();
                 _hostname = value;
             }

@@ -25,7 +25,7 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
         {
             await SetContractSchema();
             await SetEmployeeContractSchema();
-            await SetAppSttingsSchema(); // Have problems
+            await SetAppSttingsSchema();
         }
 
         private async Task SetSchema<T>() where T : new()
@@ -43,7 +43,7 @@ namespace HMS.ContractsMicroService.API.Services.Hosted
             _cache.Set(name, schema);
         }
 
-        internal async Task SetAppSttingsSchema() // Here
+        internal async Task SetAppSttingsSchema() 
         {
             var json = _appSettingsService.GetDefaultSettings(_configuration);
             await SetSchemaByJson(json.GetRawText(), Keys.AppSettingsJson);

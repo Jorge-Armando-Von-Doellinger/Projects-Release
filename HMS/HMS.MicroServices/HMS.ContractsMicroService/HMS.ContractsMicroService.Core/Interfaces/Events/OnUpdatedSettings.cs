@@ -5,6 +5,7 @@
         protected event Action<string> SettingsChanged;
         public void OnSettingsChanged(string json)
         {
+            
             SettingsChanged?.Invoke(json);
         }
     }

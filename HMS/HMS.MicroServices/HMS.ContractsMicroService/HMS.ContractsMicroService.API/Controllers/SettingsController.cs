@@ -1,5 +1,4 @@
-﻿using HMS.ContractsMicroService.API.Attributes;
-using HMS.ContractsMicroService.API.Settings;
+﻿using HMS.ContractsMicroService.API.Settings;
 using HMS.ContractsMicroService.API.Settings.Interfaces;
 using HMS.ContractsMicroService.Core.Interfaces.Services;
 using HMS.ContractsMicroService.Core.Interfaces.Settings;
@@ -37,17 +36,30 @@ namespace HMS.ContractsMicroService.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddSettings(object settings)
         {
-            var settingsRecieved = JsonSerializer.Serialize(settings);
-            Console.WriteLine(settingsRecieved);
             var stringschema = await _settingsService.GetSchema(Keys.AppSettingsJson);
-            Console.WriteLine($"\n{stringschema} \n 1");
             var schema = await JsonSchema.FromJsonAsync(stringschema);
-            Console.WriteLine(schema.ToJson());
-            if (schema.Validate(settingsRecieved).Count == 0)
+            var settingsRecieved = JsonSerializer.Serialize(settings);
+            /*Console.WriteLine(stringschema + " Esse é o schema");
+            Console.WriteLine(schema.ToJson());*/
+            var errors = schema.Validate(settingsRecieved);
+            
+            foreach (var error in errors) 
             {
+                Console.WriteLine(error.Kind);
+                Console.WriteLine(error.Path);
+                Console.WriteLine(error.Property);
+            }
+
+            if (errors.Count == 0)
+            {
+                foreach(var e in _onUpdatedSettings)
+                {
+                    await _settingsService.UpdateSettings(e, settingsRecieved, Keys.AppSettingsJson);
+                }
                 return Accepted();
             }
-            return BadRequest("Schema não valido!");
+
+            return BadRequest("Schema não válido!");
         }
     }
 }

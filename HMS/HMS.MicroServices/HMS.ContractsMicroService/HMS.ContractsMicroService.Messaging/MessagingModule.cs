@@ -4,7 +4,6 @@ using HMS.ContractsMicroService.Messaging.Connect;
 using HMS.ContractsMicroService.Messaging.Listener;
 using HMS.ContractsMicroService.Messaging.Publisher;
 using HMS.ContractsMicroService.Messaging.Settings;
-using HMS.ContractsMicroService.Messaging.Settings.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HMS.ContractsMicroService.Messaging

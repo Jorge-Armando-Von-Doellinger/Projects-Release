@@ -7,6 +7,9 @@ namespace HMS.ContractsMicroService.Core.Entity
 {
     public sealed class EmployeeContract : EntityBaseWithId
     {
+        public string EmplyoersName { get; set; } // Contratante
+        public string EmploeeName { get; set; }
+        public long PIS { get; set; }
         public DateTime StartDate { get; set; }
         public JobTitleEnum JobTitle { get; set; } // Simucação de um banco de dados dedicado
         public ExperienceLevel ExperienceLevel { get; set; }

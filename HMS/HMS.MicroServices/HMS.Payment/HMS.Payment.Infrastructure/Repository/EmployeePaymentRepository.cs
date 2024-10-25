@@ -10,7 +10,6 @@ namespace HMS.Payments.Infratructure.Repository
     public sealed class EmployeePaymentRepository : IEmployeePaymentRepository
     {
         private readonly TransactionService _transaction;
-        private readonly EmployeePaymentContext _context;
         public EmployeePaymentRepository(EmployeePaymentContext context, TransactionService transaction)
         {
             _transaction = transaction;

@@ -25,7 +25,8 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
 
         public async Task<string> GetSchema(string kvkey)
         {
-            return await _serviceDiscovery.Get(_settings.GetSchema(kvkey));
+            var data = await _serviceDiscovery.Get(_settings.GetSchema(kvkey));
+            return JsonSerializer.Deserialize<string>(data);
         }
 
         public async Task RegisterSchemas(Type type, string kvkey)
@@ -37,7 +38,6 @@ namespace HMS.ContractsMicroService.Infrastructure.Services
         public async Task RegisterSchemas(string json, string kvkey)
         {
             var schema = JsonSchema.FromSampleJson(json);
-            Console.WriteLine(schema.ToJson() + " Is Schema" + kvkey);
             await _serviceDiscovery.Register(schema.ToJson(), _settings.GetSchema(kvkey));
         }
 
