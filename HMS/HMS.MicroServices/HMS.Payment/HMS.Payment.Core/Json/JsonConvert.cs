@@ -7,11 +7,11 @@ namespace HMS.Payments.Core.Json
     {
         public static async Task<string> Serialize(object obj)
         {
-            using(var stream = new MemoryStream())
+            using (var stream = new MemoryStream())
             {
                 await JsonSerializer.SerializeAsync(stream, obj);
                 stream.Position = 0;
-                using (var reader = new StreamReader(stream)) 
+                using (var reader = new StreamReader(stream))
                     return await reader.ReadToEndAsync();
             }
         }

@@ -1,9 +1,9 @@
 ﻿using HMS.Payments.Application.Extensions;
+using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Application.Models.Input;
 using HMS.Payments.Application.Models.Output;
-using HMS.Payments.Core.Interfaces.Repository;
-using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Core.Entity;
+using HMS.Payments.Core.Interfaces.Repository;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 
@@ -19,7 +19,7 @@ namespace HMS.Payments.Application.Manager
 
         public async Task AddAsync(EmployeePaymentModel input)
         {
-            var mapper = LambdaMapper.CreateDynamicMapper<EmployeePaymentModel, EmployeePayment>();
+            var mapper = LambdaMapper.CreateDynamicMapper<EmployeePaymentModel, PaymentEmployee>();
             var entity = mapper(input);
             var data = JsonSerializer.Serialize(entity);
             Console.WriteLine(data);
@@ -31,9 +31,9 @@ namespace HMS.Payments.Application.Manager
             throw new NotImplementedException();
         }
 
-        public Task<List<EmployeePaymentOutput>> GetAsync()
+        public async Task<List<PaymentEmployee>> GetAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllAsync();
         }
 
         public Task<List<EmployeePaymentOutput>> GetByEmployeeIdAsync([MaxLength(100)] string employeeID)

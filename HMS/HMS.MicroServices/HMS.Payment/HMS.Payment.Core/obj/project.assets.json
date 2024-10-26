@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Core\\HMS.Payment.Core.csproj",
-      "projectName": "HMS.Payment.Core",
-      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Core\\HMS.Payment.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Core\\HMS.Payments.Core.csproj",
+      "projectName": "HMS.Payments.Core",
+      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Core\\HMS.Payments.Core.csproj",
       "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Core\\obj\\",
       "projectStyle": "PackageReference",

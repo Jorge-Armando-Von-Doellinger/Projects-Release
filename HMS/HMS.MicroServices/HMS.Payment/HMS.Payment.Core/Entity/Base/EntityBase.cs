@@ -2,7 +2,7 @@
 {
     public class EntityBase
     {
-        public Guid ID { get; set; }
+        public string ID { get; set; } = Guid.NewGuid().ToString();
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 

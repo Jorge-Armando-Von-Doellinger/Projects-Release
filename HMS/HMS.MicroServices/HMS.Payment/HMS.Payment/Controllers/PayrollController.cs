@@ -1,5 +1,5 @@
-﻿using HMS.Payments.Application.Models.Input;
-using HMS.Payments.Application.Interfaces.Manager;
+﻿using HMS.Payments.Application.Interfaces.Manager;
+using HMS.Payments.Application.Models.Input;
 using HMS.Payments.Core.Enums;
 using Microsoft.AspNetCore.Mvc;
 

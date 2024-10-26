@@ -1,4 +1,7 @@
 
+using HMS.Payments.Application.Modules;
+using HMS.Payments.Infrastructure.Modules;
+
 namespace HMS.Payments
 {
     public class Program
@@ -13,6 +16,13 @@ namespace HMS.Payments
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+
+            // Adding Dependency Injection modules
+            builder.Services
+                .AddApplicationModule()
+                .AddInfrastructureModule();
+
 
             var app = builder.Build();
 

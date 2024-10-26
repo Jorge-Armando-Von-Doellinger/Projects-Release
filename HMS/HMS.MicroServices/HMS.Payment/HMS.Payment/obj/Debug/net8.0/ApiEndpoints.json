@@ -1,0 +1,38 @@
+[
+  {
+    "ContainingType": "HMS.Payments.API.Controllers.PayrollController",
+    "Method": "Get",
+    "RelativePath": "api/payroll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Payments.API.Controllers.PayrollController",
+    "Method": "AddPayroll",
+    "RelativePath": "api/payroll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "HMS.Payments.Application.Models.Input.EmployeePaymentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Payments.API.Controllers.PayrollController",
+    "Method": "GetBenefits",
+    "RelativePath": "api/payroll/benefits",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

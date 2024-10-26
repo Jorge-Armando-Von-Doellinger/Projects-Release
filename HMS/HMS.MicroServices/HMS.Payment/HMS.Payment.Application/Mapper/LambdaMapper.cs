@@ -17,8 +17,14 @@ namespace HMS.Payments.Application.Extensions
                     var sourceProp = typeof(TSource).GetProperty(destProp.Name);
                     if (sourceProp != null && destProp.CanWrite)
                     {
-                        // Criar uma ligação para a propriedade
-                        return Expression.Bind(destProp, Expression.Property(sourceParam, sourceProp));
+                        // Verificar se os tipos das propriedades são compatíveis
+                        if (sourceProp.PropertyType == destProp.PropertyType ||
+                            destProp.PropertyType.IsAssignableFrom(sourceProp.PropertyType))
+                        {
+                            // Criar uma ligação para a propriedade
+                            return Expression.Bind(destProp, Expression.Property(sourceParam, sourceProp));
+                        }
+                        return null; // Ignorar propriedades que não têm correspondência
                     }
                     return null; // Ignorar propriedades que não têm correspondência
                 })

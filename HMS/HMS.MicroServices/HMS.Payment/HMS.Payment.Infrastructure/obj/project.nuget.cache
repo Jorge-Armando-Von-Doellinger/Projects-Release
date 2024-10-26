@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5udBBnMjGr0=",
+  "dgSpecHash": "kWE3OY1YlEE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Infrastructure\\HMS.Payment.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Infrastructure\\HMS.Payments.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jorge\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",

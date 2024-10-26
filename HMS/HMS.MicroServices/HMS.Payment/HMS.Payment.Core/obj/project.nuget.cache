@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cixfv6P5MSM=",
+  "dgSpecHash": "WSsSBW+Wl84=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Core\\HMS.Payment.Core.csproj",
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Core\\HMS.Payments.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
