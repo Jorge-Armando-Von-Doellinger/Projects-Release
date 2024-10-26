@@ -1,7 +1,8 @@
-﻿using HMS.Payment.Infrastructure.Connect;
-using HMS.Payments.Infratructure.Context;
+﻿using HMS.Payments.Infrastructure.Connect;
+using HMS.Payments.Infrastructure.Settings.Interfaces;
 using HMS.Payments.Infratructure.Services;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Driver;
 
 namespace HMS.Payments.Infrastructure
 {

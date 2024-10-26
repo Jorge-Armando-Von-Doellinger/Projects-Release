@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.Payment.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9d2f28cd06a7a6295d017c3c980ab3c8251bb9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b48b191f1fd8f87ef586a5e22fe212a9907f94d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.Payment.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.Payment.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

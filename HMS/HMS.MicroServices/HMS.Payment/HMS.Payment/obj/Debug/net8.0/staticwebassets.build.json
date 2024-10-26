@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NoZU2Lad3N7i3okq36owdCiYBzsWdpb+oCYDEeyVzus=",
+  "Source": "HMS.Payment.API",
+  "BasePath": "_content/HMS.Payment.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

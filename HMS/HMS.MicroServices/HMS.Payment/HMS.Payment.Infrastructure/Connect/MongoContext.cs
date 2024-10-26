@@ -1,15 +1,16 @@
-﻿using HMS.Payments.Core.Entity;
+﻿using HMS.Payments.Infrastructure.Settings.Interfaces;
+using HMS.Payments.Core.Entity;
 using MongoDB.Driver;
 
-namespace HMS.Payment.Infrastructure.Connect
+namespace HMS.Payments.Infrastructure.Connect
 {
     public sealed class MongoContext
     {
         private readonly IMongoClient _client;
         private readonly IMongoDatabase _database;
-        public MongoContext(IMongoClient client)
+        public MongoContext(IDatabaseSettings settings)
         {
-            _client = client;
+            _client = new MongoClient(settings.ConnectionString);
             _database = _client.GetDatabase("Payment-MicroService");
         }
 

@@ -1,8 +1,7 @@
-﻿using HMS.Payments.Application.Interfaces.Manager;
-using HMS.Payments.Application.Manager;
+﻿using HMS.Payments.Application.Models.Input;
+using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Core.Enums;
 using Microsoft.AspNetCore.Mvc;
-using Nuget.Payment.Input;
 
 namespace HMS.Payments.API.Controllers
 {
@@ -10,9 +9,9 @@ namespace HMS.Payments.API.Controllers
     [Route("api/payroll")]
     public class PayrollController : ControllerBase
     {
-        private readonly IEmployeePayrollManager _payrollManager;
+        private readonly IEmployeePaymentManager _payrollManager;
 
-        public PayrollController(IEmployeePayrollManager payrollManager)
+        public PayrollController(IEmployeePaymentManager payrollManager)
         {
             _payrollManager = payrollManager;
         }
@@ -33,9 +32,10 @@ namespace HMS.Payments.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPayroll(PaymentInput input)
+        public async Task<IActionResult> AddPayroll(EmployeePaymentModel input)
         {
-            return Ok(await _payrollManager.AddAsync(input));
+            await _payrollManager.AddAsync(input);
+            return Accepted();
         }
     }
 }

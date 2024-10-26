@@ -9,8 +9,7 @@
       "HMS.Payment.Application/1.0.0": {
         "dependencies": {
           "HMS.Payment.Core": "1.0.0",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Nuget.Payment": "0.0.1"
+          "Microsoft.Extensions.DependencyInjection": "8.0.0"
         },
         "runtime": {
           "HMS.Payment.Application.dll": {}
@@ -32,14 +31,6 @@
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
-          }
-        }
-      },
-      "Nuget.Payment/0.0.1": {
-        "runtime": {
-          "lib/net8.0/Nuget.Payment.dll": {
-            "assemblyVersion": "0.0.1.0",
-            "fileVersion": "0.0.1.0"
           }
         }
       },
@@ -72,13 +63,6 @@
       "sha512": "sha512-cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
-    },
-    "Nuget.Payment/0.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rX63IWlxyeWsPUodVbQ2L8SE7XXQp+7NYN6dAddFeSyLfbBkB+fttQyu8CdfGEMgZxp2siE/MNeKJGzhI9OEzQ==",
-      "path": "nuget.payment/0.0.1",
-      "hashPath": "nuget.payment.0.0.1.nupkg.sha512"
     },
     "HMS.Payment.Core/1.0.0": {
       "type": "project",
