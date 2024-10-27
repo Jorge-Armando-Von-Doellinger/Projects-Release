@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.Payments.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bc631b170d681a9e35df38e17587bd2836f1f62")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a9c2db1d6aef04c72a373839c117000dc6931bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.Payments.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.Payments.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
