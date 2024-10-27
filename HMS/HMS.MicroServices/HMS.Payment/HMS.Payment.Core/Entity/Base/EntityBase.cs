@@ -7,5 +7,9 @@
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         protected void Update() => UpdatedAt = DateTime.Now;
+        public virtual void ValidateEntity()
+        {
+
+        }
     }
 }

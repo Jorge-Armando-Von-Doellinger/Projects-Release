@@ -8,8 +8,20 @@ namespace HMS.Payments.Core.Entity
     {
         public string Beneficiary { get; set; }
         public string Payer { get; set; }
-        public long Amount { get; set; }
-        public PaymentMethodEnum PaymentMethod { get; set; }
+        public decimal Amount { get; set; }
+        private string _paymentMethod;
+        public string PaymentMethod
+        {
+            get => _paymentMethod;
+            set
+            {
+                ArgumentNullException.ThrowIfNull(value);
+                if (Enum.IsDefined(typeof(PaymentMethodEnum), value))
+                    _paymentMethod = value;
+                else throw new ArgumentOutOfRangeException(nameof(value), "Metodo de pagamento inválido!");
+            }
+        }
+
         public string Description { get; set; }
 
 
@@ -26,12 +38,17 @@ namespace HMS.Payments.Core.Entity
         [StringLength(500, MinimumLength = 10, ErrorMessage = "Observações muito curtas! Por favor, nos dê mais informações!")]
         public string? Observations { get; set; }
 
-        public bool ValidateEntity()
+        public override void ValidateEntity()
         {
-            var payerInvalid = (PayerCNPJ == null || PayerCPF == null);
-            var beneficiaryInvalid = (BeneficiaryCNPJ == null || BeneficiaryCPF == null);
-            if (payerInvalid || beneficiaryInvalid || Amount < 1) return false;
-            return true;
+            ValidateData();
+        }
+
+        private void ValidateData()
+        {
+            var payerDataIsValid = PayerCPF != null || PayerCNPJ != null;
+            var beneficaryDataIsValid = BeneficiaryCPF != null || BeneficiaryCNPJ != null;
+            if (payerDataIsValid == false) throw new InvalidDataException("Dados do pagador não são validos!");
+            if (beneficaryDataIsValid == false) throw new InvalidDataException("Dados do beneficiario não são validos!");
         }
     }
 }

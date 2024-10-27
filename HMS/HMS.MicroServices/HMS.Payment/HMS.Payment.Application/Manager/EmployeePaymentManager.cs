@@ -1,54 +1,57 @@
-﻿using HMS.Payments.Application.Extensions;
-using HMS.Payments.Application.Interfaces.Manager;
+﻿using HMS.Payments.Application.Interfaces.Manager;
+using HMS.Payments.Application.Mapper;
 using HMS.Payments.Application.Models.Input;
 using HMS.Payments.Application.Models.Output;
-using HMS.Payments.Core.Entity;
+using HMS.Payments.Application.Models.Update;
 using HMS.Payments.Core.Interfaces.Repository;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json;
 
 namespace HMS.Payments.Application.Manager
 {
     public sealed class EmployeePaymentManager : IEmployeePaymentManager
     {
         private readonly IEmployeePaymentRepository _repository;
-        public EmployeePaymentManager(IEmployeePaymentRepository repository)
+        private readonly EmployeePaymentMapper _mapper;
+
+        public EmployeePaymentManager(IEmployeePaymentRepository repository, EmployeePaymentMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task AddAsync(EmployeePaymentModel input)
+        public async Task AddAsync(PaymentEmployeeModel input)
         {
-            var mapper = LambdaMapper.CreateDynamicMapper<EmployeePaymentModel, PaymentEmployee>();
-            var entity = mapper(input);
-            var data = JsonSerializer.Serialize(entity);
-            Console.WriteLine(data);
+            var entity = _mapper.Map(input);
             await _repository.AddAsync(entity);
         }
 
-        public Task DeleteAsync(Guid ID)
+        public async Task DeleteAsync(string ID)
+        {
+            await _repository.DeleteAsync(ID);
+        }
+
+        public async Task<List<PaymentEmployeeOutput>> GetAsync()
+        {
+            var payments = await _repository.GetAllAsync();
+            var output = _mapper.Map(payments);
+            return output;
+        }
+
+        public Task<List<PaymentEmployeeOutput>> GetByEmployeeIdAsync(string employeeID)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<PaymentEmployee>> GetAsync()
+        public async Task<PaymentEmployeeOutput> GetByIdAsync(string ID)
         {
-            return await _repository.GetAllAsync();
+            var payment = await _repository.GetByID(ID);
+            var output = _mapper.Map(payment);
+            return output;
         }
 
-        public Task<List<EmployeePaymentOutput>> GetByEmployeeIdAsync([MaxLength(100)] string employeeID)
+        public async Task UpdateAsync(PaymentEmployeeUpdateModel input)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<EmployeePaymentOutput> GetByIdAsync(string ID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(EmployeePaymentModel input)
-        {
-            throw new NotImplementedException();
+            var entity = _mapper.Map(input);
+            await _repository.UpdateAsync(entity);
         }
     }
 }

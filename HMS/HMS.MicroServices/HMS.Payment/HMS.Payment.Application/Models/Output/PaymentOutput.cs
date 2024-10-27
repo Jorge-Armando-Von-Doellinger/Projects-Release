@@ -7,6 +7,7 @@ namespace HMS.Payments.Application.Models.Output
     // É herdada pelas demais
     public class PaymentOutput
     {
+        public string ID { get; set; }
         public string Beneficiary { get; set; }
         public string Payer { get; set; }
         public long Amount { get; set; }

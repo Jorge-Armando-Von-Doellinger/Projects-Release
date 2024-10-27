@@ -11,23 +11,33 @@ namespace HMS.Payments.Core.Entity
         public string EmployeeId { get; set; } // Quando bater dia 5 ou dia 20, será buscado pelos empregados, onde serão capturados os IDs e realizará o pagamento com base nos dados apresentados!
         public int HourlySalary { get; set; } // Virá do contrato
         public short HoursWorkedInMonth { get; set; } // Virá do contrato
-        public List<BenefitsEnum> Benefits { get; set; } = new(); // Virá do contrato
+        private List<string> _benefits;
+        public List<string> Benefits
+        {
+            get => _benefits;
+            set
+            {
+                ArgumentNullException.ThrowIfNull(value);
+                if (value.All(x => Enum.IsDefined(typeof(BenefitsEnum), x)))
+                {
+                    _benefits = new (value);
+                    SetMandatoryBenefits();
+                }
+                else throw new ArgumentOutOfRangeException(nameof(value), "Metodo de pagamento inválido!");
+            }
+        }
         public int TotalAmountOfBenefits { get; set; } // Virá do contrato
 
 
-        private void SetMandatoryBenefits()
+        public void SetMandatoryBenefits()
         {
             if (Benefits == null) Benefits = new();
             var mandatoryBenefits = Enum.GetValues(typeof(BenefitsEnum))
                 .Cast<BenefitsEnum>()
                 .Take(10)
                 .ToList()
-                .Where(x =>
-                {
-                    if (Benefits.FirstOrDefault(p => p.Equals(x)) != null)
-                        return false;
-                    return true;
-                });
+                .Select(x => x.ToString())
+                .Where(x => !Benefits.Contains(x));
             Benefits.AddRange(mandatoryBenefits);
         }
 

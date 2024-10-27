@@ -10,7 +10,7 @@ namespace HMS.Payments.Application.Models.Input
         public string Beneficiary { get; set; }
         public string Payer { get; set; }
         public long Amount { get; set; }
-        public int PaymentMethod { get; set; }
+        public string PaymentMethod { get; set; }
         public string? Description { get; set; }
 
         [StringLength(18, MinimumLength = 14, ErrorMessage = "CNPJ do pagador está inválido!")]// Limita o CPF em 14 caracteres
