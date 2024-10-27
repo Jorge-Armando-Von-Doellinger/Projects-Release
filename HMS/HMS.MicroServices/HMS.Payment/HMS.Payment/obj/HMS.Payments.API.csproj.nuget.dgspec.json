@@ -197,9 +197,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "HashiCorp.Cdktf.Providers.Consul": {
+              "target": "Package",
+              "version": "[9.1.0, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.1, )"
             },
             "MongoDB.Driver": {
               "target": "Package",

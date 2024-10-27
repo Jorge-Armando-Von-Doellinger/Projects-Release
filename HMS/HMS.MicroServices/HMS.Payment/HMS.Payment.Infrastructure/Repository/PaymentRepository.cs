@@ -16,7 +16,7 @@ namespace HMS.Payments.Infrastructure.Repository
             _context = context;
             _transaction = transaction;
         }
-        public async Task AddPayment(Payment payment)
+        public async Task AddAsync(Payment payment)
         {
             await _transaction.Execute(async (session) =>
             {
@@ -24,24 +24,24 @@ namespace HMS.Payments.Infrastructure.Repository
             });
         }
 
-        public Task DeletePayment(Payment payment)
+        public Task DeleteAsync(Payment payment)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<Payment>> GetAll()
+        public async Task<List<Payment>> GetAllAsync()
         {
             var documents = await _context.Payment.FindAsync(p => true);
             return await documents.ToListAsync();
         }
 
-        public async Task<Payment> GetPaymentById(string id)
+        public async Task<Payment> GetByIdAsync(string id)
         {
             var document = await _context.Payment.FindAsync(doc => doc.ID == id);
             return await document.FirstOrDefaultAsync();
         }
 
-        public async Task UpdatePayment(Payment payment)
+        public async Task UpdateAsync(Payment payment)
         {
             await _transaction.Execute(async (session) =>
             {

@@ -1,6 +1,8 @@
 ﻿using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Application.Manager;
 using HMS.Payments.Application.Mapper;
+using HMS.Payments.Application.Services;
+using HMS.Payments.Core.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HMS.Payments.Application.Modules
@@ -11,6 +13,7 @@ namespace HMS.Payments.Application.Modules
         {
             services
                 .AddManagers()
+                .AddServices()
                 .AddMappers();
             return services;
         }
@@ -20,6 +23,13 @@ namespace HMS.Payments.Application.Modules
             services.AddScoped<IPaymentManager, PaymentManager>();
             return services;
         }
+
+        private static IServiceCollection AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<IPaymentService, PaymentService>();
+            return services;
+        }
+
         private static IServiceCollection AddMappers(this IServiceCollection services)
         {
             services.AddScoped<EmployeePaymentMapper>();

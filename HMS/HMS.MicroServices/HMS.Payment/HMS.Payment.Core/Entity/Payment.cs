@@ -26,6 +26,7 @@ namespace HMS.Payments.Core.Entity
         public string? BeneficiaryCPF { get; set; }
         [StringLength(18, MinimumLength = 18, ErrorMessage = "CNPJ do beneficiario está inválido!")]
         public string? BeneficiaryCNPJ { get; set; }
+        public PaymentStatus Status { get; set; }
 
         [StringLength(500, MinimumLength = 10, ErrorMessage = "Observações muito curtas! Por favor, nos dê mais informações!")]
         public string? Observations { get; set; }

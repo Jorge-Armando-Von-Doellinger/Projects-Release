@@ -35,12 +35,13 @@ namespace HMS.Payments.Infrastructure.Repository
             return await documents.ToListAsync();
         }
 
-        public Task<List<PaymentEmployee>> GetByEmployeeID(string EmployeeID)
+        public async Task<List<PaymentEmployee>> GetByEmployeeID(string EmployeeID)
         {
-            throw new NotImplementedException();
+            var documents = await _context.PaymentEmployee.FindAsync(x => x.EmployeeId == EmployeeID);
+            return await documents.ToListAsync();
         }
 
-        public async Task<PaymentEmployee> GetByID(string ID)
+        public async Task<PaymentEmployee> GetByIDAsync(string ID)
         {
             var document = await _context.PaymentEmployee.FindAsync(doc => doc.ID == ID);
             return await document.FirstOrDefaultAsync();

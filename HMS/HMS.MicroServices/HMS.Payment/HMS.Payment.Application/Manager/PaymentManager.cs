@@ -3,37 +3,43 @@ using HMS.Payments.Application.Mapper;
 using HMS.Payments.Application.Models.Input;
 using HMS.Payments.Application.Models.Output;
 using HMS.Payments.Application.Models.Update;
+using HMS.Payments.Core.Exceptions;
 using HMS.Payments.Core.Interfaces.Repository;
+using HMS.Payments.Core.Interfaces.Services;
 
 namespace HMS.Payments.Application.Manager
 {
     public sealed class PaymentManager : IPaymentManager
     {
         private readonly IPaymentRepository _repository;
+        private readonly IPaymentService _paymentService;
         private readonly PaymentMapper _mapper;
 
-        public PaymentManager(IPaymentRepository repository, PaymentMapper mapper)
+        public PaymentManager(IPaymentRepository repository, IPaymentService paymentService, PaymentMapper mapper)
         {
             _repository = repository;
+            _paymentService = paymentService;
             _mapper = mapper;
         }
         public async Task AddAsync(PaymentModel input)
         {
             var entity = _mapper.Map(input);
             entity.ValidateEntity();
-            await _repository.AddPayment(entity);
+            bool success = await _paymentService.TryProcessPayment(entity);
+            await _repository.AddAsync(entity);
+            if (!success) throw new PaymentInvalidException("Não foi possivel realizar o pagamento!");
         }
 
         public async Task<List<PaymentOutput>> GetAll()
         {
-            var payments = await _repository.GetAll();
+            var payments = await _repository.GetAllAsync();
             var output = _mapper.Map(payments);
             return output;
         }
 
         public async Task<PaymentOutput> GetByIdAsync(string id)
         {
-            var payment = await _repository.GetPaymentById(id);
+            var payment = await _repository.GetByIdAsync(id);
             var output = _mapper.Map(payment);
 
             return output;
@@ -43,7 +49,7 @@ namespace HMS.Payments.Application.Manager
         {
             var entity = _mapper.Map(input);
             entity.ValidateEntity();
-            await _repository.UpdatePayment(entity);
+            await _repository.UpdateAsync(entity);
         }
     }
 }
