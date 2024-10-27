@@ -10,7 +10,7 @@ namespace HMS.Payments.Application.Models.Output
         public string ID { get; set; }
         public string Beneficiary { get; set; }
         public string Payer { get; set; }
-        public long Amount { get; set; }
+        public decimal Amount { get; set; }
         public string PaymentMethod { get; set; }
         public string? Description { get; set; }
 

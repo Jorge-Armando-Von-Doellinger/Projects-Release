@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace HMS.Payments.API.Controllers
 {
     [ApiController]
-    [Route("api/Payroll")]
-    [ProducesResponseType(StatusCodes.Status200OK)] // Resposta bem-sucedida
+    [Route("api/Payment")]
+/*    [ProducesResponseType(StatusCodes.Status200OK)] // Resposta bem-sucedida
     [ProducesResponseType(StatusCodes.Status404NotFound)] // Recurso não encontrado
-    [ProducesResponseType(StatusCodes.Status400BadRequest)] // Solicitação inválida
-    public class PayrollController : ControllerBase
+    [ProducesResponseType(StatusCodes.Status400BadRequest)] // Solicitação inválida*/
+    public class PaymentController : ControllerBase
     {
         private IEmployeePaymentManager _employeePaymentManager;
-        public PayrollController(IEmployeePaymentManager employeePayrollManager)
+        public PaymentController(IEmployeePaymentManager employeePayrollManager)
         {
             _employeePaymentManager = employeePayrollManager;
         }

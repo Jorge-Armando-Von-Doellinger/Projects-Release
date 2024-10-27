@@ -21,6 +21,7 @@ namespace HMS.Payments.Application.Manager
         public async Task AddAsync(PaymentEmployeeModel input)
         {
             var entity = _mapper.Map(input);
+            entity.ValidateEntity();
             await _repository.AddAsync(entity);
         }
 
@@ -51,6 +52,7 @@ namespace HMS.Payments.Application.Manager
         public async Task UpdateAsync(PaymentEmployeeUpdateModel input)
         {
             var entity = _mapper.Map(input);
+            entity.ValidateEntity();
             await _repository.UpdateAsync(entity);
         }
     }

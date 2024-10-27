@@ -7,6 +7,6 @@
         public int HourlySalary { get; set; } // Virá do contrato
         public short HoursWorkedInMonth { get; set; } // Virá do contrato
         public List<string> Benefits { get; set; } = new(); // Virá do contrato
-        public int TotalAmountOfBenefits { get; set; } // Virá do contrato
+        public decimal TotalAmountOfBenefits { get; set; } // Virá do contrato
     }
 }

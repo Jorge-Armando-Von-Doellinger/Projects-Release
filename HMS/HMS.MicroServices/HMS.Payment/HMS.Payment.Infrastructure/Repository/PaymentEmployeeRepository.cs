@@ -16,15 +16,15 @@ namespace HMS.Payments.Infrastructure.Repository
             _context = context;
             _transaction = transaction;
         }
-        public async Task AddAsync(PaymentEmployee payroll)
+        public async Task AddAsync(PaymentEmployee payment)
         {
             await _transaction.Execute(async (session) =>
             {
-                await _context.PaymentEmployee.InsertOneAsync(session, payroll);
+                await _context.PaymentEmployee.InsertOneAsync(session, payment);
             });
         }
 
-        public Task DeleteAsync(string payrollID)
+        public Task DeleteAsync(string paymentId)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +35,7 @@ namespace HMS.Payments.Infrastructure.Repository
             return await documents.ToListAsync();
         }
 
-        public Task<List<PaymentEmployee>> GetByEmployeeID(Guid EmployeeID)
+        public Task<List<PaymentEmployee>> GetByEmployeeID(string EmployeeID)
         {
             throw new NotImplementedException();
         }
@@ -46,9 +46,12 @@ namespace HMS.Payments.Infrastructure.Repository
             return await document.FirstOrDefaultAsync();
         }
 
-        public Task UpdateAsync(PaymentEmployee payroll)
+        public async Task UpdateAsync(PaymentEmployee payment)
         {
-            throw new NotImplementedException();
+            await _transaction.Execute(async (session) =>
+            {
+                await _context.PaymentEmployee.ReplaceOneAsync(session, doc => doc.ID == payment.ID, payment);
+            });
         }
     }
 }

@@ -9,7 +9,11 @@
         protected void Update() => UpdatedAt = DateTime.Now;
         public virtual void ValidateEntity()
         {
-
+            ValidateId();
+        }
+        private void ValidateId()
+        {
+            if (string.IsNullOrWhiteSpace(ID)) throw new ArgumentNullException(nameof(ID), "O Identificador do pagamento não pode ser vazio!");
         }
     }
 }

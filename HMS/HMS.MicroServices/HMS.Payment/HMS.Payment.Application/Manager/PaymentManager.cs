@@ -35,12 +35,14 @@ namespace HMS.Payments.Application.Manager
         {
             var payment = await _repository.GetPaymentById(id);
             var output = _mapper.Map(payment);
+
             return output;
         }
 
         public async Task UpdateAsync(PaymentUpdateModel input)
         {
             var entity = _mapper.Map(input);
+            entity.ValidateEntity();
             await _repository.UpdatePayment(entity);
         }
     }

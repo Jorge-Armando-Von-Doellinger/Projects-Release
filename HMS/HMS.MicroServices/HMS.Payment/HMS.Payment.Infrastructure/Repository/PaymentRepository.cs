@@ -41,9 +41,12 @@ namespace HMS.Payments.Infrastructure.Repository
             return await document.FirstOrDefaultAsync();
         }
 
-        public Task UpdatePayment(Payment payment)
+        public async Task UpdatePayment(Payment payment)
         {
-            throw new NotImplementedException();
+            await _transaction.Execute(async (session) =>
+            {
+                await _context.Payment.ReplaceOneAsync(session, x => x.ID == payment.ID, payment);
+            });
         }
     }
 }
