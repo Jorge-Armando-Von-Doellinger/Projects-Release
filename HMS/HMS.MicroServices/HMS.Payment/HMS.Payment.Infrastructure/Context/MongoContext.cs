@@ -1,5 +1,6 @@
 ﻿using HMS.Payments.Core.Entity;
 using HMS.Payments.Core.Entity.Base;
+using HMS.Payments.Infrastructure.Settings.Interfaces;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
@@ -9,9 +10,9 @@ namespace HMS.Payments.Infrastructure.Connect
     {
         private readonly IMongoClient _client;
         private readonly IMongoDatabase _database;
-        public MongoContext(/*IDatabaseSettings settings*/)
+        public MongoContext(IDatabaseSettings settings)
         {
-            _client = new MongoClient(/*settings.ConnectionString*/);
+            _client = new MongoClient(settings.ConnectionString);
             _database = _client.GetDatabase("Payment-MicroService");
             MapId();
         }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace HMS.Payments.API.Controllers
 {
     [ApiController]
-    [Route("api/Payment")]
+    [Route("api/v1/Payment")]
 /*    [ProducesResponseType(StatusCodes.Status200OK)] // Resposta bem-sucedida
     [ProducesResponseType(StatusCodes.Status404NotFound)] // Recurso não encontrado
     [ProducesResponseType(StatusCodes.Status400BadRequest)] // Solicitação inválida*/

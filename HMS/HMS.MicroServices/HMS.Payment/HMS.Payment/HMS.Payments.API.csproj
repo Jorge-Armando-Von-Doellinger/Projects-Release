@@ -16,4 +16,9 @@
     <ProjectReference Include="..\HMS.Payment.Infrastructure\HMS.Payments.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Settings\Interfaces\" />
+    <Folder Include="Settings\Implementations\" />
+  </ItemGroup>
+
 </Project>

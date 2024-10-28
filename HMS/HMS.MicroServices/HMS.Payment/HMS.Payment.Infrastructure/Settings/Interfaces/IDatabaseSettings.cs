@@ -8,7 +8,9 @@ namespace HMS.Payments.Infrastructure.Settings.Interfaces
         [MaxLength(50)]
         public string DatabaseName { get; }
         [MaxLength(50)]
-        public string EmployeeCollection { get; }
+        public string PaymentEmployeeCollection { get; }
+        [MaxLength(50)]
+        public string PaymentCollection { get; }
 
     }
 }

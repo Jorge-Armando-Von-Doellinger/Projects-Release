@@ -1,28 +1,16 @@
-﻿using Constructs;
-using HashiCorp.Cdktf.Providers.Consul.DataConsulKeys;
-using HashiCorp.Cdktf.Providers.Consul.Provider;
+﻿using Consul;
 
 namespace HMS.Payments.Infrastructure.Context
 {
-    public sealed class ConsulContext : Construct
+    public sealed class ConsulContext
     {
-        private ConsulProvider _provider;
-        public ConsulContext(Construct scope, string id) : base(scope, id) 
+        private readonly IConsulClient _client;
+        public ConsulContext()
         {
-            _provider = new(this, "Consul", new ConsulProviderConfig
-            {
-                Address = "http://localhost:8500"
-            });
+            _client = new ConsulClient();
         }
-        public void AddKvKey(string data, string kvKey)
-        {
-            var kv = new ConsulKeyValue(this, "")
-            {
-                Key = "",
-                Value 
-            };
-            
-            
-        }
+
+        internal IKVEndpoint KvEndpoints => _client.KV;
+        internal IAgentEndpoint Agent => _client.Agent;
     }
 }
