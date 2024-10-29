@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.Payments.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77f688dbfc33f6a974d797412cacc4a66e9337dc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d2380766e606b93df214b5ff5e1697c74ece983")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.Payments.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.Payments.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
