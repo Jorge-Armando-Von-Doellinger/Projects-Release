@@ -19,7 +19,7 @@ namespace HMS.Payments.Application.Modules
         }
         private static IServiceCollection AddManagers(this IServiceCollection services)
         {
-            services.AddScoped<IEmployeePaymentManager, EmployeePaymentManager>();
+            services.AddScoped<IPaymentEmployeeManager, PaymentEmployeeManager>();
             services.AddScoped<IPaymentManager, PaymentManager>();
             return services;
         }

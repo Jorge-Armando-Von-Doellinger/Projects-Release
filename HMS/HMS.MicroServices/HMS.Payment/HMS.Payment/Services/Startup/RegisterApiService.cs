@@ -7,29 +7,37 @@ namespace HMS.Payments.API.Services.Startup
     {
         private readonly IServiceDiscovery _serviceDiscovery;
         private readonly IConfiguration _configuration;
+        private readonly Uri appAddress;
+        private const string appName = "payments";
 
-        public RegisterApiService(IServiceDiscovery serviceDiscovery, IConfiguration configuration)
+        public RegisterApiService(IServiceProvider provider, IConfiguration configuration)
         {
-            _serviceDiscovery = serviceDiscovery;
+            _serviceDiscovery = provider.CreateScope().ServiceProvider.GetRequiredService<IServiceDiscovery>();
             _configuration = configuration;
+            var address = _configuration["ASPNETCORE_URLS"] ?? throw new Exception("Não foi possivel capturar o endereço da api");
+            appAddress = new Uri(address);
         }
 
         private async Task RegisterThisApi()
         {
-            var address = _configuration["ASPNETCORE_URLS"] ?? throw new Exception("Não foi possivel capturar o endereço da api");
-            var uri = new Uri(address);
+
             await _serviceDiscovery.RegisterService(new()
             {
-                Address = uri.Host,
-                Port = uri.Port,
-                Name = "payments",
+                Address = appAddress.Host,
+                Port = appAddress.Port,
+                Name = appName,
                 Check = new()
                 {
-                    HTTP = $"http://{uri.Host}:{uri.Port}/api/v1/Health",
+                    HTTP = $"http://{appAddress.Host}:{appAddress.Port}/api/v1/Health",
                     Interval = TimeSpan.FromSeconds(10),
                     Timeout = TimeSpan.FromSeconds(10)
                 }
             });
+        }
+
+        private async Task DeRegisterThisApi()
+        {
+            await _serviceDiscovery.DeRegisterService(appName);
         }
         public async Task StartAsync(CancellationToken cancellationToken)
         {
@@ -38,8 +46,7 @@ namespace HMS.Payments.API.Services.Startup
 
         public async Task StopAsync(CancellationToken cancellationToken)
         {
-            cancellationToken.ThrowIfCancellationRequested();
-            await Task.Delay(1,  cancellationToken);
+            await DeRegisterThisApi();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using HMS.Payments.Core.Entity;
 using HMS.Payments.Core.Entity.Base;
+using HMS.Payments.Infrastructure.Settings.Implementations;
 using HMS.Payments.Infrastructure.Settings.Interfaces;
+using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
@@ -10,10 +12,12 @@ namespace HMS.Payments.Infrastructure.Connect
     {
         private readonly IMongoClient _client;
         private readonly IMongoDatabase _database;
-        public MongoContext(IDatabaseSettings settings)
+        private readonly IDatabaseSettings _settings;
+        public MongoContext(IMongoClient client, IOptionsMonitor<DatabaseSettings> settings)
         {
-            _client = new MongoClient(settings.ConnectionString);
-            _database = _client.GetDatabase("Payment-MicroService");
+            _client = client;
+            _settings = settings.CurrentValue;
+            _database = _client.GetDatabase(_settings.Name);
             MapId();
         }
 
@@ -28,9 +32,7 @@ namespace HMS.Payments.Infrastructure.Connect
             });
         }
 
-        internal IMongoCollection<PaymentEmployee> PaymentEmployee => _database.GetCollection<PaymentEmployee>("PaymentsEmployee");
-        internal IMongoCollection<Payment> Payment => _database.GetCollection<Payment>("Payment");
-
-        internal IMongoClient GetClient() => _client;
+        internal IMongoCollection<PaymentEmployee> PaymentEmployee => _database.GetCollection<PaymentEmployee>(_settings.PaymentEmployeeCollection);
+        internal IMongoCollection<Payment> Payment => _database.GetCollection<Payment>(_settings.PaymentCollection);    
     }
 }

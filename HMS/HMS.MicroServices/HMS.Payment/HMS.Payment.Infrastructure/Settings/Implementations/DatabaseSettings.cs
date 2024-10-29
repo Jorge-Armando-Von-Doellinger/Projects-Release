@@ -6,10 +6,10 @@ namespace HMS.Payments.Infrastructure.Settings.Implementations
     {
         public string ConnectionString { get; set; }
 
-        public string DatabaseName { get; set; }
-
         public string PaymentEmployeeCollection { get; set; }
 
         public string PaymentCollection { get; set; }
+
+        public string Name { get; set; }    
     }
 }

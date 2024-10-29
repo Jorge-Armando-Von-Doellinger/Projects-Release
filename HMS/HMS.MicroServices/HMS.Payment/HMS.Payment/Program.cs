@@ -19,6 +19,10 @@ namespace HMS.Payments
             builder.Services.AddSwaggerGen();
 
 
+            builder.Services
+                .ConfigureAppSettings(builder.Configuration);
+                
+
             // Adding Dependency Injection modules
             builder.Services
                 .AddApiModule()

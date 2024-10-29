@@ -6,7 +6,7 @@ using MongoDB.Driver;
 
 namespace HMS.Payments.Infrastructure.Repository
 {
-    public sealed class PaymentEmployeeRepository : IEmployeePaymentRepository
+    public sealed class PaymentEmployeeRepository : IPaymentEmployeeRepository
     {
         private readonly MongoContext _context;
         private readonly TransactionService _transaction;

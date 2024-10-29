@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Payments.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Payments.Infrastructure", "HMS.Payment.Infrastructure\HMS.Payments.Infrastructure.csproj", "{D850E641-B18B-4FF9-9E1D-EAA2DC57FF34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Payments.Messaging", "HMS.Payments.Messaging\HMS.Payments.Messaging.csproj", "{A323D6DC-52C8-4C81-B3DF-2671C8753360}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D850E641-B18B-4FF9-9E1D-EAA2DC57FF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D850E641-B18B-4FF9-9E1D-EAA2DC57FF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D850E641-B18B-4FF9-9E1D-EAA2DC57FF34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A323D6DC-52C8-4C81-B3DF-2671C8753360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A323D6DC-52C8-4C81-B3DF-2671C8753360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A323D6DC-52C8-4C81-B3DF-2671C8753360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A323D6DC-52C8-4C81-B3DF-2671C8753360}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

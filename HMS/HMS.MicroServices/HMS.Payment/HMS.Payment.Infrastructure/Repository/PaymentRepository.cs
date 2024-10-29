@@ -18,10 +18,20 @@ namespace HMS.Payments.Infrastructure.Repository
         }
         public async Task AddAsync(Payment payment)
         {
-            await _transaction.Execute(async (session) =>
+            await Task.Run(() => Console.WriteLine(DateTime.Now + " Chgou"));
+            try
             {
-                await _context.Payment.InsertOneAsync(session, payment);
-            });
+                await _transaction.Execute(async (session) =>
+                {
+                    await _context.Payment.InsertOneAsync(session, payment);
+                });
+
+            }
+            finally
+            {
+                Console.WriteLine(DateTime.Now + " Acabou");
+
+            }
         }
 
         public Task DeleteAsync(Payment payment)

@@ -1,4 +1,5 @@
 ﻿using HMS.Payments.API.Services.Startup;
+using HMS.Payments.Infrastructure.Settings.Implementations;
 
 namespace HMS.Payments.API.Modules
 {

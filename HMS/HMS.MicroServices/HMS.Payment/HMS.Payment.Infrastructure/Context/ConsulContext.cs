@@ -1,13 +1,15 @@
 ﻿using Consul;
+using HMS.Payments.Infrastructure.Settings.Implementations;
+using Microsoft.Extensions.Options;
 
 namespace HMS.Payments.Infrastructure.Context
 {
     public sealed class ConsulContext
     {
         private readonly IConsulClient _client;
-        public ConsulContext()
+        public ConsulContext(IConsulClient client)
         {
-            _client = new ConsulClient();
+            _client = client;
         }
 
         internal IKVEndpoint KvEndpoints => _client.KV;
