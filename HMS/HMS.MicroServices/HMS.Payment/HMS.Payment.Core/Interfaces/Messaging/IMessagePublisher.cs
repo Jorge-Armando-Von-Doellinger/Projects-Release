@@ -2,7 +2,7 @@
 {
     public interface IMessagePublisher
     {
-        Task PublishResponseAsync(object message);
-        Task PublishAsync(object message, string exchange, string queue, string routingkey);
+        void PublishResponseSync(object message);
+        void PublishSync(object message, string exchange, string queue, string routingkey);
     }
 }

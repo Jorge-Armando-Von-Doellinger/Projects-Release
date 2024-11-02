@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "HMS.Payments.API.Controllers.Teste.TesteController",
+    "Method": "Teste",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "obj",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HMS.Payments.API.Controllers.HealthController",
     "Method": "Get",
     "RelativePath": "api/v1/Health",
@@ -29,7 +45,7 @@
     "Parameters": [
       {
         "Name": "input",
-        "Type": "HMS.Payments.Application.Models.Input.PaymentEmployeeModel",
+        "Type": "HMS.Payments.Application.Models.Input.PaymentModel",
         "IsRequired": true
       }
     ],
@@ -45,7 +61,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "HMS.Payments.Application.Models.Update.PaymentEmployeeUpdateModel",
+        "Type": "HMS.Payments.Application.Models.Update.PaymentUpdateModel",
         "IsRequired": true
       }
     ],

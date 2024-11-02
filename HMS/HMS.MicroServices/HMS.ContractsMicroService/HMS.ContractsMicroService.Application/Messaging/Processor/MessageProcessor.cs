@@ -51,8 +51,6 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
                 Console.WriteLine(errors.Count);
                 return errors.Count == 0;
             });
-            if(handler.Value.DtoType != null) Console.WriteLine(handler.Value.DtoType);
-            if(handler.Value.DtoType == null) Console.WriteLine(handler.Value.DtoType);
             
             return handler.Value;
         }

@@ -30,7 +30,7 @@ namespace HMS.Payments.Application.Manager
             if (!success) throw new PaymentInvalidException("Não foi possivel realizar o pagamento!");
         }
 
-        public async Task<List<PaymentOutput>> GetAll()
+        public async Task<List<PaymentOutput>> GetAllAsync()
         {
             var payments = await _repository.GetAllAsync();
             var output = _mapper.Map(payments);

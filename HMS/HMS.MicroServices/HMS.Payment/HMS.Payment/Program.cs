@@ -2,6 +2,7 @@
 using HMS.Payments.API.Modules;
 using HMS.Payments.Application.Modules;
 using HMS.Payments.Infrastructure.Modules;
+using HMS.Payments.Messaging.Modules;
 
 namespace HMS.Payments
 {
@@ -9,15 +10,17 @@ namespace HMS.Payments
     {
         public static void Main(string[] args)
         {
+            System.Threading.SynchronizationContext.SetSynchronizationContext(null);
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddMemoryCache(); // Adding Cache
 
             builder.Services
                 .ConfigureAppSettings(builder.Configuration);
@@ -27,7 +30,8 @@ namespace HMS.Payments
             builder.Services
                 .AddApiModule()
                 .AddApplicationModule()
-                .AddInfrastructureModule();
+                .AddInfrastructureModule()
+                .AddMessagingModule();
 
 
             var app = builder.Build();

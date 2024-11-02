@@ -1,4 +1,8 @@
-﻿using HMS.Payments.Messaging.Factory;
+﻿using HMS.Payments.Core.Interfaces.Messaging;
+using HMS.Payments.Messaging.Context;
+using HMS.Payments.Messaging.Factory;
+using HMS.Payments.Messaging.Listeners;
+using HMS.Payments.Messaging.Publisher;
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
 
@@ -10,7 +14,10 @@ namespace HMS.Payments.Messaging.Modules
         {
             services
                 .AddFactory()
-                .AddChannel();
+                .AddChannel()
+                .AddContexts()
+                .AddListener()
+                .AddPublisher();
             return services;
         }
 
@@ -30,5 +37,22 @@ namespace HMS.Payments.Messaging.Modules
             return services;
         }
 
+        private static IServiceCollection AddContexts(this IServiceCollection services)
+        {
+            services.AddSingleton<RabbitContext>();
+            return services;
+        }
+
+        private static IServiceCollection AddPublisher(this IServiceCollection services)
+        {
+            services.AddSingleton<IMessagePublisher, MessagePublisher>();
+            return services;
+        }
+
+        private static IServiceCollection AddListener(this IServiceCollection services)
+        {
+            services.AddSingleton<IMessageListener, MessageListener>();
+            return services;
+        }
     }
 }

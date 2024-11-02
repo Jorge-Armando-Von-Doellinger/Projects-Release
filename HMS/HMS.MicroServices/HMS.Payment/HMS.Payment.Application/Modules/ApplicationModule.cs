@@ -1,4 +1,5 @@
 ﻿using HMS.Payments.Application.Interfaces.Manager;
+using HMS.Payments.Application.Interfaces.Services;
 using HMS.Payments.Application.Manager;
 using HMS.Payments.Application.Mapper;
 using HMS.Payments.Application.Services;
@@ -14,7 +15,8 @@ namespace HMS.Payments.Application.Modules
             services
                 .AddManagers()
                 .AddServices()
-                .AddMappers();
+                .AddMappers()
+                .AddProcessor();
             return services;
         }
         private static IServiceCollection AddManagers(this IServiceCollection services)
@@ -27,6 +29,8 @@ namespace HMS.Payments.Application.Modules
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddSingleton<ICacheService, CacheService>();
+            services.AddSingleton<ISchemasService, SchemasService>();
             return services;
         }
 
@@ -34,6 +38,12 @@ namespace HMS.Payments.Application.Modules
         {
             services.AddScoped<EmployeePaymentMapper>();
             services.AddScoped<PaymentMapper>();
+            return services;
+        }
+
+        private static IServiceCollection AddProcessor(this IServiceCollection services)
+        {
+            services.AddSingleton<IMessageProcessorService, MessagingProcessorService>();
             return services;
         }
     }

@@ -13,8 +13,8 @@ namespace HMS.Payments.API.Controllers
     [ProducesResponseType(StatusCodes.Status400BadRequest)] // Solicitação inválida*/
     public class PaymentController : ControllerBase
     {
-        private IPaymentEmployeeManager _employeePaymentManager;
-        public PaymentController(IPaymentEmployeeManager employeePayrollManager)
+        private IPaymentManager _employeePaymentManager;
+        public PaymentController(IPaymentManager employeePayrollManager)
         {
             _employeePaymentManager = employeePayrollManager;
         }
@@ -33,14 +33,14 @@ namespace HMS.Payments.API.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> AddPayroll(PaymentEmployeeModel input)
+        public async Task<IActionResult> AddPayroll(PaymentModel input)
         {
             await _employeePaymentManager.AddAsync(input);
             return Accepted();
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdatePayroll(PaymentEmployeeUpdateModel model)
+        public async Task<IActionResult> UpdatePayroll(PaymentUpdateModel model)
         {
             await _employeePaymentManager.UpdateAsync(model);
             return Accepted();

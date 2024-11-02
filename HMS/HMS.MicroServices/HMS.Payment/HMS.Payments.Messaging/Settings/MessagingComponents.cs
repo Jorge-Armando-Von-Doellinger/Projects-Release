@@ -9,10 +9,6 @@
         public string Exchange { get; set; }
         public string TypeExchange { get; set; }
         public string Queue { get; set; }
-        public string[] Keys { get; set; }
-        public void SetKeys()
-        {
-            Keys = new string[4] { AddKey, UpdateKey, DeleteKey, ResponseKey};
-        }
+        public string AllKeys { get; set; }
     }
 }

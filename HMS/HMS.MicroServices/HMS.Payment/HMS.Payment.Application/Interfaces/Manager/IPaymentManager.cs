@@ -10,7 +10,7 @@ namespace HMS.Payments.Application.Interfaces.Manager
         Task AddAsync(PaymentModel input);
         Task UpdateAsync(PaymentUpdateModel input); // Update somente nas razões, para manter a integridade!
         // Task Delete(PaymentModel input); Não haverão deletes de pagameento, isso para manter a integridade!
-        Task<List<PaymentOutput>> GetAll();
+        Task<List<PaymentOutput>> GetAllAsync();
         Task<PaymentOutput> GetByIdAsync(string id);
         // Task GetByData(); Futuramente ainda
     }

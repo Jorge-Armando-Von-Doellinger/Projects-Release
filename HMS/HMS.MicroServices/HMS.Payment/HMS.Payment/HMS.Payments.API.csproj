@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HMS.Payment.Application\HMS.Payments.Application.csproj" />
     <ProjectReference Include="..\HMS.Payment.Infrastructure\HMS.Payments.Infrastructure.csproj" />
+    <ProjectReference Include="..\HMS.Payments.Messaging\HMS.Payments.Messaging.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,8 @@
-﻿using HMS.Payments.Messaging.Settings;
+﻿using HMS.Payments.Messaging.Context;
+using HMS.Payments.Messaging.Settings;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
+using System.Text.Json;
 
 namespace HMS.Payments.Messaging.Factory
 {
@@ -8,16 +10,20 @@ namespace HMS.Payments.Messaging.Factory
     {
         private readonly MessagingSettings _settings;
         internal IModel Channel { get; }
-        public ChannelFactory(IOptionsMonitor<MessagingSettings> settings)
+        public ChannelFactory(IOptionsMonitor<MessagingSettings> settings, RabbitContext context)
         {
+            Console.WriteLine("foi");
             _settings = settings.CurrentValue;
             Channel = GetChannel();
+            context.ConfigureChannel(Channel);
         }
         internal IModel GetChannel()
         {
+            var uri = new Uri(_settings.Address);
             var factory = new ConnectionFactory()
             {
-                HostName = _settings.Hostname,
+                HostName = uri.Host,
+                Port = uri.Port,
                 UserName = _settings.User,
                 Password = _settings.Password,
             };

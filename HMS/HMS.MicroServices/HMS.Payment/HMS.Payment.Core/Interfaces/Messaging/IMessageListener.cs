@@ -2,7 +2,7 @@
 {
     public interface IMessageListener
     {
-        Task<Action<byte[]>> ListeningAsync();
-        Action<byte[]> ListeningSync();
+        Task ListeningAsync(Func<byte[], Task> action);
+        void ListeningSync(Action<byte[]> action);
     }
 }
