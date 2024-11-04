@@ -6,7 +6,6 @@ using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Application.Interfaces.Services;
 using HMS.Payments.Core.Interfaces.Processor;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using NJsonSchema;
 using System.Text;
 
@@ -54,22 +53,23 @@ namespace HMS.Payments.Application.Processor
         }
         public async Task Process(byte[] bytes)
         {
-            var json = Encoding.UTF8.GetString(bytes);
-            Console.WriteLine(json);
-            var handle = _handler
-                .FirstOrDefault((x) =>
-                {
-                    Console.WriteLine( JsonConvert.SerializeObject(x.Key, Formatting.Indented) );
-                    var errors = x.Key.Validate(json);
-                    errors.All(x =>
+            try
+            {
+                var json = Encoding.UTF8.GetString(bytes);
+                Console.WriteLine(json);
+                var handle = _handler
+                    .FirstOrDefault((x) =>
                     {
-                        Console.WriteLine(x.Property);
-                        return true;
-                    });
-                    return errors.Count == 0;
-                }).Value
-                ?? throw new InvalidMessageException("Mensagem inválida!");
-            await handle.HandleAsync(json);
+                        var valid = x.Key.Validate(json, new()).Count == 0;
+                        return valid;
+                    }).Value
+                    ?? throw new InvalidMessageException("Mensagem inválida!");
+                await handle.HandleAsync(json);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

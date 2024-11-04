@@ -1,12 +1,10 @@
-﻿using HMS.Payments.Application.Enums.Keys.Schemas;
-using HMS.Payments.Application.Interfaces.Services;
-using HMS.Payments.Application.Models.Input;
-using HMS.Payments.Application.Models.Update;
+﻿using HMS.Payments.Application.Interfaces.Services;
+using Newtonsoft.Json;
 using NJsonSchema;
 
 namespace HMS.Payments.Application.Services
 {
-    public sealed class SchemasService : ISchemasService
+    public class SchemasService : ISchemasService
     {
         public JsonSchema FromJson(string json)
         {
@@ -15,12 +13,16 @@ namespace HMS.Payments.Application.Services
 
         public JsonSchema FromType(Type type)
         {
-            return JsonSchema.FromType(type);
+            var json = JsonConvert.SerializeObject(Activator.CreateInstance(type));
+            var schema = FromJson(json);
+            schema.AllowAdditionalProperties = false;
+            return schema;
         }
 
         public JsonSchema FromType<T>()
         {
-            return JsonSchema.FromType<T>();
+            var schema = FromType(typeof(T));
+            return schema;
         }
 
 

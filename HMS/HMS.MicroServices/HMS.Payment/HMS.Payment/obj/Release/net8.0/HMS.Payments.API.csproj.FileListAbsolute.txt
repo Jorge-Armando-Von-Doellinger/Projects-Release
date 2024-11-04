@@ -55,3 +55,4 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payme
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Release\net8.0\Namotion.Reflection.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Release\net8.0\NJsonSchema.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Release\net8.0\NJsonSchema.Annotations.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Release\net8.0\Newtonsoft.Json.Schema.dll

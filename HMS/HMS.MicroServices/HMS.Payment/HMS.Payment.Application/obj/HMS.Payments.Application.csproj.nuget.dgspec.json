@@ -66,6 +66,10 @@
             "NJsonSchema": {
               "target": "Package",
               "version": "[11.0.2, )"
+            },
+            "Newtonsoft.Json.Schema": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             }
           },
           "imports": [

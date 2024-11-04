@@ -6,31 +6,17 @@ using NJsonSchema;
 
 namespace HMS.Payments.Application.Services
 {
-    public sealed class SchemasModelService : ISchemasModelService
+    public sealed class SchemasModelService : SchemasService, ISchemasModelService
     {
-        public JsonSchema FromJson(string json)
-        {
-            return JsonSchema.FromSampleJson(json);
-        }
-
-        public JsonSchema FromType(Type type)
-        {
-            return JsonSchema.FromType(type);
-        }
-
-        public JsonSchema FromType<T>()
-        {
-            return JsonSchema.FromType<T>();
-        }
-
         public Dictionary<SchemasDefaultKeysEnum, JsonSchema> GetDtosSchemas()
         {
-            Console.WriteLine(FromType<PaymentEmployeeModel>().ToJson());
-            Dictionary<SchemasDefaultKeysEnum, JsonSchema> schemas = new();
-            schemas.Add(SchemasDefaultKeysEnum.Payment_Add_Schema, FromType<PaymentModel>());
-            schemas.Add(SchemasDefaultKeysEnum.Payment_Update_Schema, FromType<PaymentUpdateModel>());
-            schemas.Add(SchemasDefaultKeysEnum.PaymentEmployee_Add_Schema, FromType<PaymentEmployeeModel>());
-            schemas.Add(SchemasDefaultKeysEnum.PaymentEmployee_Update_Schema, FromType<PaymentEmployeeUpdateModel>());
+            Dictionary<SchemasDefaultKeysEnum, JsonSchema> schemas = new()
+            {
+                { SchemasDefaultKeysEnum.Payment_Add_Schema, base.FromType<PaymentModel>() },
+                { SchemasDefaultKeysEnum.Payment_Update_Schema, base.FromType<PaymentUpdateModel>() },
+                { SchemasDefaultKeysEnum.PaymentEmployee_Add_Schema, base.FromType <PaymentEmployeeModel>() },
+                { SchemasDefaultKeysEnum.PaymentEmployee_Update_Schema, base.FromType <PaymentEmployeeUpdateModel>() }
+            };
             return schemas;
         }
     }

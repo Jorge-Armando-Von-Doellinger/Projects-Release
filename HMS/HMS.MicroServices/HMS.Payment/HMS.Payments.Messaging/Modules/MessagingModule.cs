@@ -5,6 +5,7 @@ using HMS.Payments.Messaging.Listeners;
 using HMS.Payments.Messaging.Publisher;
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
+using System.Threading.Channels;
 
 namespace HMS.Payments.Messaging.Modules
 {
@@ -18,6 +19,11 @@ namespace HMS.Payments.Messaging.Modules
                 .AddContexts()
                 .AddListener()
                 .AddPublisher();
+            var channel = Channel.CreateBounded<byte[]>(new BoundedChannelOptions(100)
+            {
+                FullMode = BoundedChannelFullMode.Wait // Espera se o canal estiver cheio
+            });
+            services.AddSingleton(channel);
             return services;
         }
 
