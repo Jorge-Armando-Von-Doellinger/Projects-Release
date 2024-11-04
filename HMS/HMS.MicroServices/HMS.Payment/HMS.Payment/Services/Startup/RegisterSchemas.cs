@@ -14,7 +14,6 @@ namespace HMS.Payments.API.Services.Startup
         {
             _schemaService = schemaService;
             _cacheService = cacheService;
-            StartAsync(new());
         }
         public async Task StartAsync(CancellationToken cancellationToken)
         {
@@ -29,15 +28,13 @@ namespace HMS.Payments.API.Services.Startup
 
         private void SetSchema<T>(string key)
         {
-            Console.WriteLine(key);
             var schema = _schemaService.FromType<T>();
-            Console.WriteLine(schema.ToJson());
             _cacheService.Set(key, schema);
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

@@ -4,26 +4,29 @@ using HMS.Payments.Application.Handlers.Message;
 using HMS.Payments.Application.Interfaces.Handlers;
 using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Application.Interfaces.Services;
-using HMS.Payments.Core.Interfaces.Services;
+using HMS.Payments.Core.Interfaces.Processor;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using NJsonSchema;
 using System.Text;
 
-namespace HMS.Payments.Application.Services
+namespace HMS.Payments.Application.Processor
 {
-    public sealed class MessagingProcessorService : IMessageProcessorService
+    public sealed class MessagingProcessor : IMessageProcessor
     {
         private Dictionary<JsonSchema, IMessageHandler> _handler = new();
         private readonly IPaymentEmployeeManager _paymentEmployeeManager;
         private readonly IPaymentManager _paymentManager;
+        private readonly ISchemasModelService _schemasModelService;
         private readonly ICacheService _cacheService;
 
-        public MessagingProcessorService(IServiceProvider serviceProvider, ICacheService cacheService)
+        public MessagingProcessor(IServiceProvider serviceProvider, ISchemasModelService schemasModelService, ICacheService cacheService)
         {
             var scope = serviceProvider.CreateScope();
             _paymentManager = scope.ServiceProvider.GetRequiredService<IPaymentManager>();
-            var scope2= serviceProvider.CreateScope();
+            var scope2 = serviceProvider.CreateScope();
             _paymentEmployeeManager = scope2.ServiceProvider.GetRequiredService<IPaymentEmployeeManager>();
+            _schemasModelService = schemasModelService;
             _cacheService = cacheService;
             AddHandlers();
         }
@@ -35,29 +38,37 @@ namespace HMS.Payments.Application.Services
         }
         private void AddPaymentHandler()
         {
-            var a = GetSchema(SchemasDefaultKeysEnum.Payment_Add_Schema);
-            if (a == null) throw new Exception("Batata");
             _handler.Add(GetSchema(SchemasDefaultKeysEnum.Payment_Add_Schema), new PaymentAddHandler(_paymentManager));
             _handler.Add(GetSchema(SchemasDefaultKeysEnum.Payment_Update_Schema), new PaymentUpdateHandler(_paymentManager));
         }
 
         private void AddPaymentEmployeeHandler()
         {
-
+            _handler.Add(GetSchema(SchemasDefaultKeysEnum.PaymentEmployee_Add_Schema), new PaymentEmployeeAddHandler(_paymentEmployeeManager));
+            _handler.Add(GetSchema(SchemasDefaultKeysEnum.PaymentEmployee_Update_Schema), new PaymentEmplyoeeUpdateHandler(_paymentEmployeeManager));
         }
         private JsonSchema GetSchema(SchemasDefaultKeysEnum key)
         {
-            
-            return _cacheService.Get<JsonSchema>(key.ToString());
-            
+            var data = _schemasModelService.GetDtosSchemas().FirstOrDefault(x => x.Key == key).Value;
+            return data;
         }
         public async Task Process(byte[] bytes)
         {
             var json = Encoding.UTF8.GetString(bytes);
-
+            Console.WriteLine(json);
             var handle = _handler
-                .FirstOrDefault(x => x.Key.Validate(json).Count == 0).Value
-                ?? throw new MessageInvalidException("Esta mensagem não é valida para nenhum pagamento!");
+                .FirstOrDefault((x) =>
+                {
+                    Console.WriteLine( JsonConvert.SerializeObject(x.Key, Formatting.Indented) );
+                    var errors = x.Key.Validate(json);
+                    errors.All(x =>
+                    {
+                        Console.WriteLine(x.Property);
+                        return true;
+                    });
+                    return errors.Count == 0;
+                }).Value
+                ?? throw new InvalidMessageException("Mensagem inválida!");
             await handle.HandleAsync(json);
         }
     }

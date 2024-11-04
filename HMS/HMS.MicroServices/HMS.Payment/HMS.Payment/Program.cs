@@ -1,5 +1,6 @@
 
 using HMS.Payments.API.Modules;
+using HMS.Payments.API.Services.Data;
 using HMS.Payments.Application.Modules;
 using HMS.Payments.Infrastructure.Modules;
 using HMS.Payments.Messaging.Modules;
@@ -24,7 +25,7 @@ namespace HMS.Payments
 
             builder.Services
                 .ConfigureAppSettings(builder.Configuration);
-                
+
 
             // Adding Dependency Injection modules
             builder.Services

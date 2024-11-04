@@ -7,7 +7,7 @@
         public Dictionary<string, MessagingComponents> MessagingComponents { get; set; }
         public MessagingComponents GetPaymentComponent()
             => MessagingComponents.FirstOrDefault(x => x.Key == PaymentComponent).Value;
-        internal MessagingComponents GetPaymentEmployeeComponent()
+        public MessagingComponents GetPaymentEmployeeComponent()
             => MessagingComponents.FirstOrDefault(x => x.Key == PaymentEmployeeComponent).Value;
     }
 }

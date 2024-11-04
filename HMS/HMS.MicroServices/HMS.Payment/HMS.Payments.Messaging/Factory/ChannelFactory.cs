@@ -12,7 +12,6 @@ namespace HMS.Payments.Messaging.Factory
         internal IModel Channel { get; }
         public ChannelFactory(IOptionsMonitor<MessagingSettings> settings, RabbitContext context)
         {
-            Console.WriteLine("foi");
             _settings = settings.CurrentValue;
             Channel = GetChannel();
             context.ConfigureChannel(Channel);

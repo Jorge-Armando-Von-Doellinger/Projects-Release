@@ -21,11 +21,9 @@ namespace HMS.Payments.Messaging.Listeners
         {
             var payment = _messagingSystem.GetPaymentComponent();
             var paymentEmplyoee = _messagingSystem.GetPaymentEmployeeComponent();
-            _channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += async (obj, args) =>
             {
-                await Task.Run(() =>Console.WriteLine("awdasd"));
                 try
                 {
                     await action(args.Body.ToArray());
@@ -39,7 +37,7 @@ namespace HMS.Payments.Messaging.Listeners
                 
             };
             _channel.BasicConsume(payment.Queue, false, consumer);
-            //_channel.BasicConsume(paymentEmplyoee.Queue, false, consumer);
+            _channel.BasicConsume(paymentEmplyoee.Queue, false, consumer);
         }
 
         public void ListeningSync(Action<byte[]> action)

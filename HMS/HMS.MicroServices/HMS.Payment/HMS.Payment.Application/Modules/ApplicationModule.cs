@@ -2,7 +2,9 @@
 using HMS.Payments.Application.Interfaces.Services;
 using HMS.Payments.Application.Manager;
 using HMS.Payments.Application.Mapper;
+using HMS.Payments.Application.Processor;
 using HMS.Payments.Application.Services;
+using HMS.Payments.Core.Interfaces.Processor;
 using HMS.Payments.Core.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,6 +33,7 @@ namespace HMS.Payments.Application.Modules
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<ISchemasService, SchemasService>();
+            services.AddSingleton<ISchemasModelService, SchemasModelService>();
             return services;
         }
 
@@ -43,7 +46,7 @@ namespace HMS.Payments.Application.Modules
 
         private static IServiceCollection AddProcessor(this IServiceCollection services)
         {
-            services.AddSingleton<IMessageProcessorService, MessagingProcessorService>();
+            services.AddSingleton<IMessageProcessor, MessagingProcessor>();
             return services;
         }
     }

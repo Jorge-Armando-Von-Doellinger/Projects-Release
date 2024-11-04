@@ -13,10 +13,11 @@ namespace HMS.Payments.API.Modules
             return services;
         }
 
-        private static IServiceCollection AddServices(this IServiceCollection services)
+        internal     static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddHostedService<RegisterSchemas>();
             services.AddHostedService<RegisterApiService>();
+
             services.AddHostedService<MessageConsumerService>();
             return services;
         }

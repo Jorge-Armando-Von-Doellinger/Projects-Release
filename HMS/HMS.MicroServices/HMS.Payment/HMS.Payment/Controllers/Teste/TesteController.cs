@@ -1,4 +1,6 @@
-﻿using HMS.Payments.Core.Interfaces.Messaging;
+﻿using HMS.Payments.Application.Models.Input;
+using HMS.Payments.Application.Models.Update;
+using HMS.Payments.Core.Interfaces.Messaging;
 using HMS.Payments.Messaging.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +22,29 @@ namespace HMS.Payments.API.Controllers.Teste
             _messagingSystem = messagingSystem.CurrentValue;
         }
         [HttpPost]
-        public IActionResult Teste(object obj)
+        public async Task<IActionResult> Teste(PaymentModel obj)
         {
-            Console.WriteLine( JsonSerializer.Serialize(_messagingSystem)  + " Controller");
+            var component = _messagingSystem.GetPaymentComponent();
+            _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
+            return Accepted();
+        }
+        [HttpPut]
+        public async Task<IActionResult> Teste1(PaymentUpdateModel obj)
+        {
+            var component = _messagingSystem.GetPaymentComponent();
+            _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.UpdateKey);
+            return Accepted();
+        }
+        [HttpPost("2")]
+        public async Task<IActionResult> Teste2(PaymentEmployeeModel obj)
+        {
+            var component = _messagingSystem.GetPaymentEmployeeComponent();
+            _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
+            return Accepted();
+        }
+        [HttpPut("2")]
+        public async Task<IActionResult> Teste3(PaymentEmployeeUpdateModel obj)
+        {
             var component = _messagingSystem.GetPaymentComponent();
             _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
             return Accepted();

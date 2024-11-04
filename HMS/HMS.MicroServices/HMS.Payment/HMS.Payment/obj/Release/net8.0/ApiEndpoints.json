@@ -9,7 +9,55 @@
     "Parameters": [
       {
         "Name": "obj",
-        "Type": "System.Object",
+        "Type": "HMS.Payments.Application.Models.Input.PaymentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Payments.API.Controllers.Teste.TesteController",
+    "Method": "Teste1",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "obj",
+        "Type": "HMS.Payments.Application.Models.Update.PaymentUpdateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Payments.API.Controllers.Teste.TesteController",
+    "Method": "Teste2",
+    "RelativePath": "api/Teste/2",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "obj",
+        "Type": "HMS.Payments.Application.Models.Input.PaymentEmployeeModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Payments.API.Controllers.Teste.TesteController",
+    "Method": "Teste3",
+    "RelativePath": "api/Teste/2",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "obj",
+        "Type": "HMS.Payments.Application.Models.Update.PaymentEmployeeUpdateModel",
         "IsRequired": true
       }
     ],

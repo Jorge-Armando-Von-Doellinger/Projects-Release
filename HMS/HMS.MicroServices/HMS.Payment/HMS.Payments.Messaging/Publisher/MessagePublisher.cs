@@ -19,12 +19,16 @@ namespace HMS.Payments.Messaging.Publisher
             _messagingSystem = messagingSystem.CurrentValue;
         }
 
-        public void PublishSync(object message, string exchange, string queue, string routingkey)
+        public void PublishSync<T>(T message, string exchange, string queue, string routingkey)
         {
-            var serialized = JsonSerializer.Serialize(message);
+            var jsonOptions = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = null
+            };
+            var serialized = JsonSerializer.Serialize(message, jsonOptions);
             var bytes = Encoding.UTF8.GetBytes(serialized);
-
-            _channel.BasicPublish(exchange, routingkey, false, null, bytes);
+            _channel.BasicPublish(exchange, routingkey, null, bytes);
+            Console.WriteLine("Publicou?");
         }
 
         public void PublishResponseSync(object message)
