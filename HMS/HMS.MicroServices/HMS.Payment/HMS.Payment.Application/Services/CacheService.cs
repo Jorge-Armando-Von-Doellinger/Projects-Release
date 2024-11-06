@@ -23,7 +23,7 @@ namespace HMS.Payments.Application.Services
             {
                 try
                 {
-                    return (T) _cache.Get(key);
+                    return (T)_cache.Get(key);
                 }
                 catch
                 {

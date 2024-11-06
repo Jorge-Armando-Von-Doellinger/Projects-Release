@@ -17,7 +17,7 @@ namespace HMS.Payments.Messaging.Context
         {
             ConfigurePaymentsEmployeeChannel(model);
             ConfigurePaymentsChannel(model);
-        } 
+        }
 
         // Methods configuration
         private void ConfigurePaymentsChannel(IModel model)

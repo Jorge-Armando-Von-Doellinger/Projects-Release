@@ -1,7 +1,6 @@
 ﻿using Consul;
 using HMS.Payments.Core.Interfaces.Repository;
 using HMS.Payments.Core.Interfaces.Services;
-using HMS.Payments.Infrastructure.Connect;
 using HMS.Payments.Infrastructure.Context;
 using HMS.Payments.Infrastructure.Repository;
 using HMS.Payments.Infrastructure.Services;

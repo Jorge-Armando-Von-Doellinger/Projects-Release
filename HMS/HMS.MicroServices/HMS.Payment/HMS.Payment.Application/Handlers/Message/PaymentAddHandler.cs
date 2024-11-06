@@ -2,7 +2,6 @@
 using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Application.Models.Input;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace HMS.Payments.Application.Handlers.Message
 {

@@ -2,7 +2,6 @@
 using HMS.Payments.Messaging.Settings;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
-using System.Text.Json;
 
 namespace HMS.Payments.Messaging.Factory
 {

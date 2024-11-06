@@ -49,13 +49,13 @@ namespace HMS.Payments.Core.Entity
         {
             // Depois será atualizado para estes dados sairem do contrato!
             if (Benefits == null || Benefits.Count == 0) return;
-            if(!Benefits.All(x => Enum.IsDefined(typeof(BenefitsEnum), x))) throw new ArgumentOutOfRangeException(nameof(Benefits), "Beneficios do funcionario são inválido!");
-            if(TotalAmountOfBenefits <= 0) throw new PaymentInvalidException("Valor minimo dos beneficios não foram cumpridos");
+            if (!Benefits.All(x => Enum.IsDefined(typeof(BenefitsEnum), x))) throw new ArgumentOutOfRangeException(nameof(Benefits), "Beneficios do funcionario são inválido!");
+            if (TotalAmountOfBenefits <= 0) throw new PaymentInvalidException("Valor minimo dos beneficios não foram cumpridos");
         }
 
         private void ValidateIds()
         {
-            if(string.IsNullOrWhiteSpace(EmployeeId)) throw new ArgumentNullException(nameof(EmployeeId), "Identificador do funcionario não pode ser null");
+            if (string.IsNullOrWhiteSpace(EmployeeId)) throw new ArgumentNullException(nameof(EmployeeId), "Identificador do funcionario não pode ser null");
         }
     }
 }

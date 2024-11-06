@@ -12,7 +12,7 @@ namespace HMS.Payments.Messaging.Publisher
     {
         private readonly IModel _channel;
         private readonly MessagingSystem _messagingSystem;
-        
+
         public MessagePublisher(IModel channel, RabbitContext context, IOptionsMonitor<MessagingSystem> messagingSystem)
         {
             _channel = channel;
@@ -28,7 +28,6 @@ namespace HMS.Payments.Messaging.Publisher
             var serialized = JsonSerializer.Serialize(message, jsonOptions);
             var bytes = Encoding.UTF8.GetBytes(serialized);
             _channel.BasicPublish(exchange, routingkey, null, bytes);
-            Console.WriteLine("Publicou?");
         }
 
         public void PublishResponseSync(object message)

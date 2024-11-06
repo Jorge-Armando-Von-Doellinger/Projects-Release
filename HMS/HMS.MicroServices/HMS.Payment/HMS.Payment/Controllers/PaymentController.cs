@@ -1,16 +1,15 @@
 ﻿using HMS.Payments.Application.Interfaces.Manager;
 using HMS.Payments.Application.Models.Input;
 using HMS.Payments.Application.Models.Update;
-using HMS.Payments.Core.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HMS.Payments.API.Controllers
 {
     [ApiController]
     [Route("api/v1/Payment")]
-/*    [ProducesResponseType(StatusCodes.Status200OK)] // Resposta bem-sucedida
-    [ProducesResponseType(StatusCodes.Status404NotFound)] // Recurso não encontrado
-    [ProducesResponseType(StatusCodes.Status400BadRequest)] // Solicitação inválida*/
+    /*    [ProducesResponseType(StatusCodes.Status200OK)] // Resposta bem-sucedida
+        [ProducesResponseType(StatusCodes.Status404NotFound)] // Recurso não encontrado
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] // Solicitação inválida*/
     public class PaymentController : ControllerBase
     {
         private IPaymentManager _employeePaymentManager;

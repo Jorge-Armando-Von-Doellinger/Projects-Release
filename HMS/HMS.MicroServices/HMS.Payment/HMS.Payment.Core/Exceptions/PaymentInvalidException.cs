@@ -4,7 +4,7 @@
     {
         public PaymentInvalidException(string message) : base(message)
         {
-            
+
         }
     }
 }

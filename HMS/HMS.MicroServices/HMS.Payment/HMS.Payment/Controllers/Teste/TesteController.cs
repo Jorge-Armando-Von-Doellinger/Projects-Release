@@ -2,11 +2,8 @@
 using HMS.Payments.Application.Models.Update;
 using HMS.Payments.Core.Interfaces.Messaging;
 using HMS.Payments.Messaging.Settings;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace HMS.Payments.API.Controllers.Teste
 {

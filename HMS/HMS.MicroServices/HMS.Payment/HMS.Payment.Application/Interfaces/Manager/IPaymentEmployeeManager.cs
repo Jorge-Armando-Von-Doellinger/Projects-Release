@@ -1,7 +1,6 @@
 ﻿using HMS.Payments.Application.Models.Input;
 using HMS.Payments.Application.Models.Output;
 using HMS.Payments.Application.Models.Update;
-using HMS.Payments.Core.Entity;
 
 namespace HMS.Payments.Application.Interfaces.Manager
 {

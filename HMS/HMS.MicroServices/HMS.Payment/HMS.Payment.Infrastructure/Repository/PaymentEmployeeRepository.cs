@@ -1,8 +1,7 @@
 ﻿using HMS.Payments.Core.Entity;
 using HMS.Payments.Core.Interfaces.Repository;
-using HMS.Payments.Infrastructure.Connect;
+using HMS.Payments.Infrastructure.Context;
 using HMS.Payments.Infratructure.Services;
-using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace HMS.Payments.Infrastructure.Repository
@@ -19,13 +18,12 @@ namespace HMS.Payments.Infrastructure.Repository
         }
         public async Task AddAsync(PaymentEmployee payment)
         {
-            payment.ID = ObjectId.GenerateNewId().ToString();
             await _context.AddOperation(new InsertOneModel<PaymentEmployee>(payment));
-/*            payment.ID = null;
-            await _transaction.Execute(async (session) =>
-            {
-                await _context.PaymentEmployee.InsertOneAsync(session, payment);
-            });*/
+            /*            payment.ID = null;
+                        await _transaction.Execute(async (session) =>
+                        {
+                            await _context.PaymentEmployee.InsertOneAsync(session, payment);
+                        });*/
         }
 
         public Task DeleteAsync(string paymentId)

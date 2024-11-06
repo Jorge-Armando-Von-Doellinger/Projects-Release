@@ -1,5 +1,4 @@
 ﻿using HMS.Payments.Core.Interfaces.Services;
-using System.Threading;
 
 namespace HMS.Payments.API.Services.Startup
 {

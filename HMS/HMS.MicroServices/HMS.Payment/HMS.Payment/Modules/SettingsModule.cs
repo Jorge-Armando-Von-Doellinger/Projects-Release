@@ -1,6 +1,4 @@
-﻿using Consul;
-using HMS.Payments.Infrastructure.Settings.Implementations;
-using HMS.Payments.Infrastructure.Settings.Interfaces;
+﻿using HMS.Payments.Infrastructure.Settings.Implementations;
 using HMS.Payments.Messaging.Settings;
 
 namespace HMS.Payments.API.Modules

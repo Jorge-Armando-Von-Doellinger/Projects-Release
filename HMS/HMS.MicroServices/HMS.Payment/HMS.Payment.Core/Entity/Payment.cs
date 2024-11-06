@@ -42,7 +42,7 @@ namespace HMS.Payments.Core.Entity
         {
             var payerDataIsValid = !(PayerCPF != null && PayerCNPJ != null) && (PayerCPF != null || PayerCNPJ != null); // Se ambos não sao NULL, mas se somente um for diferente de null, ta certo
             var beneficaryDataIsValid = !(BeneficiaryCPF != null && BeneficiaryCNPJ != null) && (BeneficiaryCPF != null || BeneficiaryCNPJ != null);
-            
+
             if (payerDataIsValid == false) throw new InvalidDataException("Dados do pagador não são validos!");
             if (beneficaryDataIsValid == false) throw new InvalidDataException("Dados do beneficiario não são validos!");
         }
@@ -51,7 +51,7 @@ namespace HMS.Payments.Core.Entity
         {
             ArgumentNullException.ThrowIfNull(PaymentMethod);
             if (!Enum.IsDefined(typeof(PaymentMethodEnum), PaymentMethod)) throw new ArgumentOutOfRangeException(nameof(PaymentMethod), "Metodo de pagamento inválido!");
-            if(Amount <= 0) throw new InvalidDataException("O valor do pagamento não pode ser menor ou igual a zero!");
+            if (Amount <= 0) throw new InvalidDataException("O valor do pagamento não pode ser menor ou igual a zero!");
         }
     }
 }

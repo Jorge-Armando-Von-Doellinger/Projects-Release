@@ -1,6 +1,4 @@
 ﻿using Consul;
-using HMS.Payments.Infrastructure.Settings.Implementations;
-using Microsoft.Extensions.Options;
 
 namespace HMS.Payments.Infrastructure.Context
 {

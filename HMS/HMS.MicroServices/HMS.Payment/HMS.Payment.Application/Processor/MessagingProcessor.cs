@@ -74,7 +74,7 @@ namespace HMS.Payments.Application.Processor
                 var handle = _handler
                     .FirstOrDefault((x) => x.Key.Validate(json, new()).Count == 0)
                     .Value ?? throw new InvalidMessageException("Mensagem inválida!");
-                
+
                 await handle.HandleAsync(json);
             });
         }

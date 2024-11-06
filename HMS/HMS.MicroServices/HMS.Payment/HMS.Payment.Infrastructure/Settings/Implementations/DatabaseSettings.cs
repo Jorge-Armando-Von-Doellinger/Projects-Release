@@ -10,6 +10,6 @@ namespace HMS.Payments.Infrastructure.Settings.Implementations
 
         public string PaymentCollection { get; set; }
 
-        public string Name { get; set; }    
+        public string Name { get; set; }
     }
 }

@@ -15,44 +15,44 @@ namespace HMS.Payments.API.Services.Background
             /*this._provider = provider;
             _channel = channel;*/
         }
-/*        private readonly Channel<byte[]> _channel;
-        private async Task StartListiner()
-        {
-            Console.WriteLine("a");
-            while (await _channel.Reader.WaitToReadAsync())
-            {
-                if (_channel.Reader.TryRead(out var message))
+        /*        private readonly Channel<byte[]> _channel;
+                private async Task StartListiner()
                 {
-                    // Aguarda um slot disponível no semáforo
-                    await _semaphore.WaitAsync();
-
-                    _ = Task.Run(async () =>
+                    Console.WriteLine("a");
+                    while (await _channel.Reader.WaitToReadAsync())
                     {
-                        Console.WriteLine("asdw");
-                        try
+                        if (_channel.Reader.TryRead(out var message))
                         {
-                            // Cria um escopo de serviço para resolver IMessageProcessor
-                            using var scope = _provider.CreateScope();
-                            var processor = scope.ServiceProvider.GetService<IMessageProcessor>();
+                            // Aguarda um slot disponível no semáforo
+                            await _semaphore.WaitAsync();
 
-                            if (processor != null)
+                            _ = Task.Run(async () =>
                             {
-                                await processor.Process(message); // Processa a mensagem
-                            }
+                                Console.WriteLine("asdw");
+                                try
+                                {
+                                    // Cria um escopo de serviço para resolver IMessageProcessor
+                                    using var scope = _provider.CreateScope();
+                                    var processor = scope.ServiceProvider.GetService<IMessageProcessor>();
+
+                                    if (processor != null)
+                                    {
+                                        await processor.Process(message); // Processa a mensagem
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine("Erro ao processar mensagem: " + ex.Message);
+                                }
+                                finally
+                                {
+                                    // Libera o slot no semáforo
+                                    _semaphore.Release();
+                                }
+                            });
                         }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("Erro ao processar mensagem: " + ex.Message);
-                        }
-                        finally
-                        {
-                            // Libera o slot no semáforo
-                            _semaphore.Release();
-                        }
-                    });
-                }
-            }
-        }*/
+                    }
+                }*/
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             await _messageListener.ListeningAsync();

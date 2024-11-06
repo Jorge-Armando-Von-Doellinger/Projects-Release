@@ -2,14 +2,14 @@
 {
     public class EntityBase
     {
-        public string ID { get; set; }// = Guid.NewGuid().ToString();
+        public string ID { get; set; } = Guid.NewGuid().ToString();
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         protected void Update() => UpdatedAt = DateTime.Now;
         public virtual void ValidateEntity()
         {
-            //ValidateId();
+            ValidateId();
         }
         private void ValidateId()
         {

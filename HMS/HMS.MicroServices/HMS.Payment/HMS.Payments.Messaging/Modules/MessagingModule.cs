@@ -5,7 +5,6 @@ using HMS.Payments.Messaging.Listeners;
 using HMS.Payments.Messaging.Publisher;
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
-using System.Threading.Channels;
 
 namespace HMS.Payments.Messaging.Modules
 {

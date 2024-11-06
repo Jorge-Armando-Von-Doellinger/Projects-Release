@@ -29,7 +29,7 @@ namespace HMS.Payments.Application.Mapper
                 TotalAmountOfBenefits = model.TotalAmountOfBenefits,
             };
         }
-        internal  PaymentEmployee Map(PaymentEmployeeModel model)
+        internal PaymentEmployee Map(PaymentEmployeeModel model)
         {
             return new()
             {
@@ -48,7 +48,7 @@ namespace HMS.Payments.Application.Mapper
                 PayerCPF = model.PayerCPF,
                 PaymentMethod = model.PaymentMethod,
                 TotalAmountOfBenefits = model.TotalAmountOfBenefits,
-            };  
+            };
         }
         internal PaymentEmployeeOutput Map(PaymentEmployee entity)
         {

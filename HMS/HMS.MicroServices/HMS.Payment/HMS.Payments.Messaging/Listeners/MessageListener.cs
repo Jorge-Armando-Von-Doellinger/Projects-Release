@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System.Reflection;
 using System.Threading.Channels;
 
 namespace HMS.Payments.Messaging.Listeners
@@ -16,7 +15,7 @@ namespace HMS.Payments.Messaging.Listeners
         private IModel _channel;
         private readonly IMessageProcessor _messageProcessor;
         private MessagingSystem _messagingSystem;
-        private List<byte[]> data = new(); 
+        private List<byte[]> data = new();
 
         public MessageListener(IServiceProvider serviceProvider, IOptionsMonitor<MessagingSystem> messagingSystem, IMessageProcessor messageProcessor)
         {
@@ -34,7 +33,7 @@ namespace HMS.Payments.Messaging.Listeners
             consumer.Received += async (obj, args) =>
             {
                 data.Add(args.Body.ToArray());
-                if(data.Count > 50)
+                if (data.Count > 50)
                 {
                     List<byte[]> dataCopy = new(data);
                     await ProcessInParalell(dataCopy);
@@ -42,7 +41,7 @@ namespace HMS.Payments.Messaging.Listeners
             };
             _channel.BasicConsume(payment.Queue, true, consumer);
             _channel.BasicConsume(paymentEmplyoee.Queue, true, consumer);
-            
+
         }
         private async Task ProcessInParalell(List<byte[]> dataCopy)
         {

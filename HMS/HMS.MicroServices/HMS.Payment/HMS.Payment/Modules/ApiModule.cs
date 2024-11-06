@@ -1,6 +1,5 @@
 ﻿using HMS.Payments.API.Services.Background;
 using HMS.Payments.API.Services.Startup;
-using HMS.Payments.Infrastructure.Settings.Implementations;
 
 namespace HMS.Payments.API.Modules
 {
@@ -13,7 +12,7 @@ namespace HMS.Payments.API.Modules
             return services;
         }
 
-        internal     static IServiceCollection AddServices(this IServiceCollection services)
+        internal static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddHostedService<RegisterSchemas>();
             services.AddHostedService<RegisterApiService>();
