@@ -6,7 +6,8 @@ namespace HMS.Payments.Infratructure.Services
     public sealed class TransactionService
     {
         private readonly IMongoClient _client;
-        private static short _max = ;
+        private static short _max = 50;
+        private static short activeNow = 0;
         public TransactionService(IMongoClient client)
         {
             _client = client;
@@ -30,6 +31,7 @@ namespace HMS.Payments.Infratructure.Services
                     throw;
                 }
             }
+            activeNow--;
         }
     }
 }

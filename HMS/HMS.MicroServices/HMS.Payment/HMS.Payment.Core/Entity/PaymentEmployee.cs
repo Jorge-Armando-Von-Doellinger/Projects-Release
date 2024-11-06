@@ -27,7 +27,7 @@ namespace HMS.Payments.Core.Entity
                 .Where(x => !Benefits.Contains(x));
             Benefits.AddRange(mandatoryBenefits);
         }
-        public override void ValidateEntity()
+        public void ValidateEntity()
         {
             base.ValidateEntity();
             ValidateBenefits();
@@ -35,7 +35,7 @@ namespace HMS.Payments.Core.Entity
         }
         public void Update(PaymentEmployee payroll)
         {
-            base.Update();
+            //base.Update();
             //this.Replacer<EmployeePayment>(payroll); // Repassa propriedades de um objeto para o outro, desde que os nomes, tipos e valores sejam iguais e diferentes de null
         }
 

@@ -31,7 +31,7 @@ namespace HMS.Payments.Core.Entity
         [StringLength(500, MinimumLength = 10, ErrorMessage = "Observações muito curtas! Por favor, nos dê mais informações!")]
         public string? Observations { get; set; }
 
-        public override void ValidateEntity()
+        public void ValidateEntity()
         {
             base.ValidateEntity();
             ValidateData();
