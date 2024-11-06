@@ -3,5 +3,6 @@
     public interface IMessageProcessor
     {
         Task Process(byte[] bytes);
+        Task Process(List<byte[]> bytes);
     }
 }

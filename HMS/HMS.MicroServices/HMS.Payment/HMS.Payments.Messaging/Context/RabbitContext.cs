@@ -31,9 +31,9 @@ namespace HMS.Payments.Messaging.Context
         private void Configure(IModel model, MessagingComponents component)
         {
             if (component == null) throw new KeyNotFoundException("payments-components KEY not founded");
-                model.ExchangeDeclare(component.Exchange, component.TypeExchange, true, false);
-                model.QueueDeclare(component.Queue, true, false, false);
-                model.QueueBind(component.Queue, component.Exchange, component.AllKeys);
+            model.ExchangeDeclare(component.Exchange, component.TypeExchange, true, false);
+            model.QueueDeclare(component.Queue, true, false, false);
+            model.QueueBind(component.Queue, component.Exchange, component.AllKeys);
         }
     }
 }

@@ -19,11 +19,6 @@ namespace HMS.Payments.Messaging.Modules
                 .AddContexts()
                 .AddListener()
                 .AddPublisher();
-            var channel = Channel.CreateBounded<byte[]>(new BoundedChannelOptions(100)
-            {
-                FullMode = BoundedChannelFullMode.Wait // Espera se o canal estiver cheio
-            });
-            services.AddSingleton(channel);
             return services;
         }
 
@@ -51,7 +46,7 @@ namespace HMS.Payments.Messaging.Modules
 
         private static IServiceCollection AddPublisher(this IServiceCollection services)
         {
-            services.AddSingleton<IMessagePublisher, MessagePublisher>();
+            services.AddScoped<IMessagePublisher, MessagePublisher>();
             return services;
         }
 

@@ -14,17 +14,16 @@ namespace HMS.Payments.Application.Processor
     public sealed class MessagingProcessor : IMessageProcessor
     {
         private Dictionary<JsonSchema, IMessageHandler> _handler = new();
-        private readonly IPaymentEmployeeManager _paymentEmployeeManager;
-        private readonly IPaymentManager _paymentManager;
         private readonly ISchemasModelService _schemasModelService;
         private readonly ICacheService _cacheService;
+        private readonly IPaymentManager _paymentManager;
+        private readonly IPaymentEmployeeManager _paymentEmployeeManager;
 
         public MessagingProcessor(IServiceProvider serviceProvider, ISchemasModelService schemasModelService, ICacheService cacheService)
         {
-            var scope = serviceProvider.CreateScope();
-            _paymentManager = scope.ServiceProvider.GetRequiredService<IPaymentManager>();
-            var scope2 = serviceProvider.CreateScope();
-            _paymentEmployeeManager = scope2.ServiceProvider.GetRequiredService<IPaymentEmployeeManager>();
+            var scope = serviceProvider.CreateScope().ServiceProvider;
+            _paymentEmployeeManager = scope.GetRequiredService<IPaymentEmployeeManager>();
+            _paymentManager = scope.GetRequiredService<IPaymentManager>();
             _schemasModelService = schemasModelService;
             _cacheService = cacheService;
             AddHandlers();
@@ -40,7 +39,6 @@ namespace HMS.Payments.Application.Processor
             _handler.Add(GetSchema(SchemasDefaultKeysEnum.Payment_Add_Schema), new PaymentAddHandler(_paymentManager));
             _handler.Add(GetSchema(SchemasDefaultKeysEnum.Payment_Update_Schema), new PaymentUpdateHandler(_paymentManager));
         }
-
         private void AddPaymentEmployeeHandler()
         {
             _handler.Add(GetSchema(SchemasDefaultKeysEnum.PaymentEmployee_Add_Schema), new PaymentEmployeeAddHandler(_paymentEmployeeManager));
@@ -56,20 +54,29 @@ namespace HMS.Payments.Application.Processor
             try
             {
                 var json = Encoding.UTF8.GetString(bytes);
-                Console.WriteLine(json);
                 var handle = _handler
-                    .FirstOrDefault((x) =>
-                    {
-                        var valid = x.Key.Validate(json, new()).Count == 0;
-                        return valid;
-                    }).Value
-                    ?? throw new InvalidMessageException("Mensagem inválida!");
+                    .FirstOrDefault((x) => x.Key.Validate(json, new()).Count == 0)
+                    .Value ?? throw new InvalidMessageException("Mensagem inválida!");
                 await handle.HandleAsync(json);
             }
             catch
             {
                 throw;
             }
+        }
+
+        public async Task Process(List<byte[]> bytes)
+        {
+            if (bytes.Count < 100) return;
+            await Parallel.ForEachAsync(bytes, async (data, _) =>
+            {
+                var json = Encoding.UTF8.GetString(data);
+                var handle = _handler
+                    .FirstOrDefault((x) => x.Key.Validate(json, new()).Count == 0)
+                    .Value ?? throw new InvalidMessageException("Mensagem inválida!");
+                
+                await handle.HandleAsync(json);
+            });
         }
     }
 }

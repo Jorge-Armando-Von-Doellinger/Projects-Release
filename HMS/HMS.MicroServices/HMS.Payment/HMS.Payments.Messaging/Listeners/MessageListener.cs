@@ -1,8 +1,11 @@
 ﻿using HMS.Payments.Core.Interfaces.Messaging;
+using HMS.Payments.Core.Interfaces.Processor;
 using HMS.Payments.Messaging.Settings;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using System.Reflection;
 using System.Threading.Channels;
 
 namespace HMS.Payments.Messaging.Listeners
@@ -11,40 +14,41 @@ namespace HMS.Payments.Messaging.Listeners
     {
         private readonly Channel<byte[]> _channelThread;
         private IModel _channel;
+        private readonly IMessageProcessor _messageProcessor;
         private MessagingSystem _messagingSystem;
+        private List<byte[]> data = new(); 
 
-        public MessageListener(IModel channel, IOptionsMonitor<MessagingSystem> messagingSystem, Channel<byte[]> channelThread)
+        public MessageListener(IServiceProvider serviceProvider, IOptionsMonitor<MessagingSystem> messagingSystem, IMessageProcessor messageProcessor)
         {
-            _channel = channel;
+            _channel = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<IModel>();
+            _messageProcessor = messageProcessor;
             _messagingSystem = messagingSystem.CurrentValue;
-            _channelThread = channelThread;
         }
 
-        public async Task ListeningAsync(Func<byte[], Task> action)
+        public async Task ListeningAsync(/*Func<byte[], Task> action*/)
         {
-            await Task.Run(() =>
+            var payment = _messagingSystem.GetPaymentComponent();
+            var paymentEmplyoee = _messagingSystem.GetPaymentEmployeeComponent();
+            _channel.BasicQos(0, 200, false);
+            var consumer = new EventingBasicConsumer(_channel);
+            consumer.Received += async (obj, args) =>
             {
-                var payment = _messagingSystem.GetPaymentComponent();
-                var paymentEmplyoee = _messagingSystem.GetPaymentEmployeeComponent();
-                var consumer = new EventingBasicConsumer(_channel);
-                consumer.Received += async (obj, args) =>
+                data.Add(args.Body.ToArray());
+                if(data.Count > 50)
                 {
-                    try
-                    {
-                        await action(args.Body.ToArray());
-                        _channel.BasicAck(args.DeliveryTag, false);
-                    }
-                    catch
-                    {
-                        _channel.BasicReject(args.DeliveryTag, false);
-                        throw;
-                    }
-                
-                };
-                _channel.BasicConsume(payment.Queue, false, consumer);
-                _channel.BasicConsume(paymentEmplyoee.Queue, false, consumer);
-            });
+                    List<byte[]> dataCopy = new(data);
+                    await ProcessInParalell(dataCopy);
+                }
+            };
+            _channel.BasicConsume(payment.Queue, true, consumer);
+            _channel.BasicConsume(paymentEmplyoee.Queue, true, consumer);
+            
         }
+        private async Task ProcessInParalell(List<byte[]> dataCopy)
+        {
+            await _messageProcessor.Process(dataCopy);
+        }
+
 
         public void ListeningSync(Action<byte[]> action)
         {

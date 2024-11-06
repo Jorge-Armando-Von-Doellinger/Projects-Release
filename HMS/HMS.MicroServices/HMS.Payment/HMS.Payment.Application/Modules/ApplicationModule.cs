@@ -46,7 +46,7 @@ namespace HMS.Payments.Application.Modules
 
         private static IServiceCollection AddProcessor(this IServiceCollection services)
         {
-            services.AddScoped<IMessageProcessor, MessagingProcessor>();
+            services.AddSingleton<IMessageProcessor, MessagingProcessor>();
             return services;
         }
     }
