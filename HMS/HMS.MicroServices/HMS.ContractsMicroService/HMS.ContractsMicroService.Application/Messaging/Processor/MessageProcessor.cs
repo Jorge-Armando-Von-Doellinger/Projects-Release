@@ -40,6 +40,7 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
                 Console.WriteLine("Erro ao processar mensagem!");
                 Console.WriteLine($" --> Mensagem: {ex.Message}");
                 throw;
+                
             }
         }
 
@@ -48,7 +49,7 @@ namespace HMS.ContractsMicroService.Application.Messaging.Processor
             var handler = _EmployeeHandler.FirstOrDefault(pair =>
             {
                 var errors = pair.Key.Validate(json);
-                Console.WriteLine(errors.Count);
+                Console.WriteLine(errors.Count);        
                 return errors.Count == 0;
             });
             

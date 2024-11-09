@@ -47,3 +47,12 @@ C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payme
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\Namotion.Reflection.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\Newtonsoft.Json.Schema.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\NJsonSchema.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\NJsonSchema.Annotations.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\HMS.Payments.Messaging.dll
+C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Payment\HMS.Payment\bin\Debug\net8.0\HMS.Payments.Messaging.pdb

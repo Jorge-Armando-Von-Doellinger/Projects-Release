@@ -54,7 +54,7 @@ namespace HMS.Payments.Infrastructure.Context
         {
             while (true)
             {
-                await Task.Delay(5000);
+                await Task.Delay(15000);
                 List<WriteModel<Payment>> paymentCopy;
                 List<WriteModel<PaymentEmployee>> paymentEmployeeCopy;
                 lock (_paymentEmployeeOperations)
@@ -66,14 +66,12 @@ namespace HMS.Payments.Infrastructure.Context
                     }
                     _paymentEmployeeOperations.Clear();
                     _paymentOperations.Clear();
-                    }
+                }
                 await ExecuteOperationsMassive(paymentCopy, paymentEmployeeCopy);
             }
         }
         internal async Task ExecuteOperationsMassive(List<WriteModel<Payment>> paymentOperations, List<WriteModel<PaymentEmployee>> paymentEmployeeOperations)
         {
-            //await _transaction.Execute(async (session) =>
-            //{
             if (paymentOperations.Count > 0)
             {
                 await Payment.BulkWriteAsync(paymentOperations);

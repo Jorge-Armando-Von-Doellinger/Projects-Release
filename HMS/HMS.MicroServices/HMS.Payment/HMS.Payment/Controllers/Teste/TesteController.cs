@@ -11,8 +11,6 @@ namespace HMS.Payments.API.Controllers.Teste
     [ApiController]
     public class TesteController : ControllerBase
     {
-        private static int teste = 0;
-
         private readonly IMessagePublisher _messagePublisher;
         private readonly MessagingSystem _messagingSystem;
         public TesteController(IMessagePublisher messagePublisher, IOptionsMonitor<MessagingSystem> messagingSystem)
@@ -23,8 +21,6 @@ namespace HMS.Payments.API.Controllers.Teste
         [HttpPost]
         public async Task<IActionResult> Teste(PaymentModel obj)
         {
-            teste++;
-            //Console.WriteLine(teste);
             var component = _messagingSystem.GetPaymentComponent();
             await _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
             return Accepted();

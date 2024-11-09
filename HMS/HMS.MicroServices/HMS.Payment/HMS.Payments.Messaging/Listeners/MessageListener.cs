@@ -11,12 +11,10 @@ namespace HMS.Payments.Messaging.Listeners
 {
     public sealed class MessageListener : IMessageListener
     {
-        private readonly Channel<byte[]> _channelThread;
         private IModel _channel;
         private readonly IMessageProcessor _messageProcessor;
         private MessagingSystem _messagingSystem;
-        private List<byte[]> data = new();
-        private SemaphoreSlim semaphore = new (1, 1);
+        private List<byte[]> data = new ();
 
         public MessageListener(IServiceProvider serviceProvider, IOptionsMonitor<MessagingSystem> messagingSystem, IMessageProcessor messageProcessor)
         {
@@ -27,45 +25,46 @@ namespace HMS.Payments.Messaging.Listeners
 
         public async Task ListeningAsync()
         {
-            var payment = _messagingSystem.GetPaymentComponent();
-            var paymentEmplyoee = _messagingSystem.GetPaymentEmployeeComponent();
-            _channel.BasicQos(0, 50, false);
-            var consumer = new EventingBasicConsumer(_channel);
-            consumer.Received += async (obj, args) =>
+            await Task.Run(() =>
             {
-                data.Add(args.Body.ToArray());
-                if (data.Count > 50)
+                var payment = _messagingSystem.GetPaymentComponent();
+                var paymentEmplyoee = _messagingSystem.GetPaymentEmployeeComponent();
+                _channel.BasicQos(0, 50, false);
+                var consumer = new EventingBasicConsumer(_channel);
+                consumer.Received += async (obj, args) =>
                 {
-                    Console.WriteLine(data.Count);
-                    try
-                    {
-                        List<byte[]> dataCopy;
-                      
-                            dataCopy = new(data);
-                            data.Clear();
-                        
-                        Console.WriteLine("Processado");
-                        await ProcessInParalell(dataCopy);
-                    }
-                    catch
-                    {
-                        throw;
-                    }
-                    finally
-                    {
-                        
-                    }
+                    await OnRecieved(args.Body.ToArray(), args.DeliveryTag);
+                };
+                _channel.BasicConsume(payment.Queue,  true, consumer);
+                _channel.BasicConsume(paymentEmplyoee.Queue, true, consumer);
+            });
+        }
+
+        private async Task OnRecieved(byte[] body, ulong tag)
+        {
+            data.Add(body);
+            if (data.Count < 50) return;
+            try
+            {
+                List<byte[]> dataCopy = null;
+                lock (data)
+                {
+                    dataCopy = new List<byte[]>(data);
+                    data.Clear();
                 }
-            };
-            _channel.BasicConsume(payment.Queue, true, consumer);
-            _channel.BasicConsume(paymentEmplyoee.Queue, true, consumer);
+                await ProcessInParalell(dataCopy);
+            }
+            catch
+            {
+                Console.WriteLine("Batata");
+                throw;
+            }
 
         }
+
         private async Task ProcessInParalell(List<byte[]> dataCopy)
         {
             await _messageProcessor.Process(dataCopy);
-            Console.WriteLine(dataCopy.Count + " Teste");
-            
         }
 
 

@@ -35,7 +35,7 @@ namespace HMS.Payments.API.Controllers
         public async Task<IActionResult> AddPayroll(PaymentModel input)
         {
             await _employeePaymentManager.AddAsync(input);
-            return Accepted();
+            return Ok();
         }
 
         [HttpPut]

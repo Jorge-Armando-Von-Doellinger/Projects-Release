@@ -18,14 +18,7 @@ namespace HMS.Payments.Infrastructure.Repository
         }
         public async Task AddAsync(Payment payment)
         {
-            Console.WriteLine("Operation Added");
             await _context.AddOperation(new InsertOneModel<Payment>(payment));
-            //await _context.AddOperation(new InsertOneModel<Payment>(payment));
-            /*await _transaction.Execute(async (session) =>
-            {
-                await _context.Payment.InsertOneAsync(session, payment);
-            });*/
-
         }
 
         public Task DeleteAsync(Payment payment)
