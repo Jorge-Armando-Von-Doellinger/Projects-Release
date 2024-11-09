@@ -53,6 +53,8 @@ namespace HMS.Payments.Application.Processor
         {
             try
             {
+                Console.WriteLine("Comecou o processamento");
+
                 var json = Encoding.UTF8.GetString(bytes);
                 var handle = _handler
                     .FirstOrDefault((x) => x.Key.Validate(json, new()).Count == 0)
@@ -63,11 +65,15 @@ namespace HMS.Payments.Application.Processor
             {
                 throw;
             }
+            finally
+            {
+                Console.WriteLine("terminou o processamento 2");
+            }
         }
 
         public async Task Process(List<byte[]> bytes)
         {
-            if (bytes.Count < 100) return;
+            Console.WriteLine("Comecou o processamento");
             await Parallel.ForEachAsync(bytes, async (data, _) =>
             {
                 var json = Encoding.UTF8.GetString(data);
@@ -77,6 +83,8 @@ namespace HMS.Payments.Application.Processor
 
                 await handle.HandleAsync(json);
             });
+            Console.WriteLine("terminou o processamento");
+
         }
     }
 }

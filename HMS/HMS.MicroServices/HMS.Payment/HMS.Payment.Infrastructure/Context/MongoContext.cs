@@ -25,6 +25,7 @@ namespace HMS.Payments.Infrastructure.Context
             _settings = settings.CurrentValue;
             _database = _client.GetDatabase(_settings.Name);
             MapId();
+            _ = LoopTest();
         }
 
         private void MapId()
@@ -42,34 +43,46 @@ namespace HMS.Payments.Infrastructure.Context
         {
             if (_paymentOperations.Contains(operation)) throw new Exception("Batata");
             _paymentOperations.Add(operation);
-            if (_paymentOperations.Count < 50) return;
-            else await ExecuteOperationsMassive(_paymentOperations, _paymentEmployeeOperations);
         }
         internal async Task AddOperation(WriteModel<PaymentEmployee> operation)
         {
             if (_paymentEmployeeOperations.Contains(operation)) throw new Exception("Batata");
             _paymentEmployeeOperations.Add(operation);
-            if (_paymentOperations.Count < 50) return;
-            else await ExecuteOperationsMassive(_paymentOperations, _paymentEmployeeOperations);
+        }
+
+        private async Task LoopTest()
+        {
+            while (true)
+            {
+                await Task.Delay(5000);
+                List<WriteModel<Payment>> paymentCopy;
+                List<WriteModel<PaymentEmployee>> paymentEmployeeCopy;
+                lock (_paymentEmployeeOperations)
+                {
+                    paymentEmployeeCopy = new(_paymentEmployeeOperations);
+                    lock (_paymentOperations)
+                    {
+                        paymentCopy = new(_paymentOperations);
+                    }
+                    _paymentEmployeeOperations.Clear();
+                    _paymentOperations.Clear();
+                    }
+                await ExecuteOperationsMassive(paymentCopy, paymentEmployeeCopy);
+            }
         }
         internal async Task ExecuteOperationsMassive(List<WriteModel<Payment>> paymentOperations, List<WriteModel<PaymentEmployee>> paymentEmployeeOperations)
         {
             //await _transaction.Execute(async (session) =>
             //{
-                if (paymentOperations.Any())
-                {
-                    await Payment.BulkWriteAsync(paymentOperations);
-                    _paymentOperations.Clear();
-                }
-                if (paymentEmployeeOperations.Any())
-                {
-
-                    await PaymentEmployee.BulkWriteAsync(paymentEmployeeOperations);
-                _paymentEmployeeOperations.Clear();
-                }
-
-            //});
-        }
+            if (paymentOperations.Count > 0)
+            {
+                await Payment.BulkWriteAsync(paymentOperations);
+            }
+            if (paymentEmployeeOperations.Count > 0)
+            {
+                await PaymentEmployee.BulkWriteAsync(paymentEmployeeOperations);
+            }
+        }   
         internal IMongoCollection<PaymentEmployee> PaymentEmployee => _database.GetCollection<PaymentEmployee>(_settings.PaymentEmployeeCollection);
         internal IMongoCollection<Payment> Payment => _database.GetCollection<Payment>(_settings.PaymentCollection);
     }

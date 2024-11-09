@@ -12,22 +12,25 @@ namespace HMS.Payments.Messaging.Publisher
     {
         private readonly IModel _channel;
         private readonly MessagingSystem _messagingSystem;
-
+        private readonly JsonSerializerOptions jsonOptions = new ()
+        {
+            PropertyNamingPolicy = null
+        };
         public MessagePublisher(IModel channel, RabbitContext context, IOptionsMonitor<MessagingSystem> messagingSystem)
         {
             _channel = channel;
             _messagingSystem = messagingSystem.CurrentValue;
         }
 
-        public void PublishSync<T>(T message, string exchange, string queue, string routingkey)
+        public async Task PublishSync<T>(T message, string exchange, string queue, string routingkey)
         {
-            var jsonOptions = new JsonSerializerOptions()
+            await Task.Run(() =>
             {
-                PropertyNamingPolicy = null
-            };
-            var serialized = JsonSerializer.Serialize(message, jsonOptions);
-            var bytes = Encoding.UTF8.GetBytes(serialized);
-            _channel.BasicPublish(exchange, routingkey, null, bytes);
+                var serialized = JsonSerializer.Serialize(message, jsonOptions);
+                var bytes = Encoding.UTF8.GetBytes(serialized);
+                _channel.BasicPublish(exchange, routingkey, null, bytes);
+            });
+            
         }
 
         public void PublishResponseSync(object message)

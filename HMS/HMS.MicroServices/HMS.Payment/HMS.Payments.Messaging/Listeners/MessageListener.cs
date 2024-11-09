@@ -16,6 +16,7 @@ namespace HMS.Payments.Messaging.Listeners
         private readonly IMessageProcessor _messageProcessor;
         private MessagingSystem _messagingSystem;
         private List<byte[]> data = new();
+        private SemaphoreSlim semaphore = new (1, 1);
 
         public MessageListener(IServiceProvider serviceProvider, IOptionsMonitor<MessagingSystem> messagingSystem, IMessageProcessor messageProcessor)
         {
@@ -24,19 +25,36 @@ namespace HMS.Payments.Messaging.Listeners
             _messagingSystem = messagingSystem.CurrentValue;
         }
 
-        public async Task ListeningAsync(/*Func<byte[], Task> action*/)
+        public async Task ListeningAsync()
         {
             var payment = _messagingSystem.GetPaymentComponent();
             var paymentEmplyoee = _messagingSystem.GetPaymentEmployeeComponent();
-            _channel.BasicQos(0, 200, false);
+            _channel.BasicQos(0, 50, false);
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += async (obj, args) =>
             {
                 data.Add(args.Body.ToArray());
                 if (data.Count > 50)
                 {
-                    List<byte[]> dataCopy = new(data);
-                    await ProcessInParalell(dataCopy);
+                    Console.WriteLine(data.Count);
+                    try
+                    {
+                        List<byte[]> dataCopy;
+                      
+                            dataCopy = new(data);
+                            data.Clear();
+                        
+                        Console.WriteLine("Processado");
+                        await ProcessInParalell(dataCopy);
+                    }
+                    catch
+                    {
+                        throw;
+                    }
+                    finally
+                    {
+                        
+                    }
                 }
             };
             _channel.BasicConsume(payment.Queue, true, consumer);
@@ -46,6 +64,8 @@ namespace HMS.Payments.Messaging.Listeners
         private async Task ProcessInParalell(List<byte[]> dataCopy)
         {
             await _messageProcessor.Process(dataCopy);
+            Console.WriteLine(dataCopy.Count + " Teste");
+            
         }
 
 

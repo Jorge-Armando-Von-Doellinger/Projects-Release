@@ -24,30 +24,30 @@ namespace HMS.Payments.API.Controllers.Teste
         public async Task<IActionResult> Teste(PaymentModel obj)
         {
             teste++;
-            Console.WriteLine(teste);
+            //Console.WriteLine(teste);
             var component = _messagingSystem.GetPaymentComponent();
-            _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
+            await _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
             return Accepted();
         }
         [HttpPut]
         public async Task<IActionResult> Teste1(PaymentUpdateModel obj)
         {
             var component = _messagingSystem.GetPaymentComponent();
-            _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.UpdateKey);
+            await _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.UpdateKey);
             return Accepted();
         }
         [HttpPost("2")]
         public async Task<IActionResult> Teste2(PaymentEmployeeModel obj)
         {
             var component = _messagingSystem.GetPaymentEmployeeComponent();
-            _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
+            await _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
             return Accepted();
         }
         [HttpPut("2")]
         public async Task<IActionResult> Teste3(PaymentEmployeeUpdateModel obj)
         {
             var component = _messagingSystem.GetPaymentComponent();
-            _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
+            await _messagePublisher.PublishSync(obj, component.Exchange, component.Queue, component.AddKey);
             return Accepted();
         }
     }
