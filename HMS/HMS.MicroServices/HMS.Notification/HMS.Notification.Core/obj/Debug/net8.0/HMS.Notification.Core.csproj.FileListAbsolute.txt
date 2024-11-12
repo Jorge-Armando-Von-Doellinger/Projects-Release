@@ -1,0 +1,11 @@
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\bin\Debug\net8.0\HMS.Notification.Core.deps.json
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\bin\Debug\net8.0\HMS.Notification.Core.dll
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\bin\Debug\net8.0\HMS.Notification.Core.pdb
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\HMS.Notification.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\HMS.Notification.Core.AssemblyInfoInputs.cache
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\HMS.Notification.Core.AssemblyInfo.cs
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\HMS.Notification.Core.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\HMS.Notification.Core.dll
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\refint\HMS.Notification.Core.dll
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\HMS.Notification.Core.pdb
+C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Core\obj\Debug\net8.0\ref\HMS.Notification.Core.dll

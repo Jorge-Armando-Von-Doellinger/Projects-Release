@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4kXQrYm9Xe7LH9G3bZiw4Rz3S/hEUeq7QVVGieLfE44=",
+  "Source": "HMS.Notification.API",
+  "BasePath": "_content/HMS.Notification.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

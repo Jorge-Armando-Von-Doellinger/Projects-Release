@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "X5/jw2oT9v5ictxgoFCHd/kUizrfs5PqAVmBRgzx0lQ=",
+  "Source": "HMS.Notification.gRPC",
+  "BasePath": "_content/HMS.Notification.gRPC",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

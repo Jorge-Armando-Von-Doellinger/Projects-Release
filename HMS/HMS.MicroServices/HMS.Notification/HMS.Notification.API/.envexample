@@ -1,0 +1,4 @@
+﻿SMTP_SERVER=smtp.seuserver
+SMTP_PORT=123
+EMAIL_USER=emailoudominip
+EMAIL_PASS=senha

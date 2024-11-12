@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "HMS.Notification.API.Controllers.TesteController",
+    "Method": "Index",
+    "RelativePath": "api/Teste",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HMS.Notification.API.Controllers.NotificationController",
+    "Method": "Post",
+    "RelativePath": "api/v1/Notification",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "notificationDto",
+        "Type": "HMS.Notification.Application.DTOs.NotificationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

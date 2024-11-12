@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Notification.API", "HMS.Notification.API\HMS.Notification.API.csproj", "{6B037287-72D7-4D85-94AA-DDD1F10EF242}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Notification.Application", "HMS.Notification.Application\HMS.Notification.Application.csproj", "{F0E439E1-3AD4-4D9B-8EBE-0DF0DB15B3FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Notification.Core", "HMS.Notification.Core\HMS.Notification.Core.csproj", "{12ABA7AF-AFDB-4204-A046-1F33A6FB6FDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Notification.Infrastructure", "HMS.Notification.Infrastructure\HMS.Notification.Infrastructure.csproj", "{44946FAE-ADA5-4B45-9ECC-BABD84394EA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Notification.gRPC", "HMS.Notification.gRPC\HMS.Notification.gRPC.csproj", "{6BE799AD-9B5B-4901-A63F-A4A0F4377592}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B037287-72D7-4D85-94AA-DDD1F10EF242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B037287-72D7-4D85-94AA-DDD1F10EF242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B037287-72D7-4D85-94AA-DDD1F10EF242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B037287-72D7-4D85-94AA-DDD1F10EF242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0E439E1-3AD4-4D9B-8EBE-0DF0DB15B3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0E439E1-3AD4-4D9B-8EBE-0DF0DB15B3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0E439E1-3AD4-4D9B-8EBE-0DF0DB15B3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0E439E1-3AD4-4D9B-8EBE-0DF0DB15B3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12ABA7AF-AFDB-4204-A046-1F33A6FB6FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12ABA7AF-AFDB-4204-A046-1F33A6FB6FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12ABA7AF-AFDB-4204-A046-1F33A6FB6FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12ABA7AF-AFDB-4204-A046-1F33A6FB6FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44946FAE-ADA5-4B45-9ECC-BABD84394EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44946FAE-ADA5-4B45-9ECC-BABD84394EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44946FAE-ADA5-4B45-9ECC-BABD84394EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44946FAE-ADA5-4B45-9ECC-BABD84394EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BE799AD-9B5B-4901-A63F-A4A0F4377592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE799AD-9B5B-4901-A63F-A4A0F4377592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE799AD-9B5B-4901-A63F-A4A0F4377592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE799AD-9B5B-4901-A63F-A4A0F4377592}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

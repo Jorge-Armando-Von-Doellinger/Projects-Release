@@ -1,4 +1,6 @@
 .vs
 .idea
+.env
 ConnectionTest
 TemplateEngineHost
+HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.API/.env

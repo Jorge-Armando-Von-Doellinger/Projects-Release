@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Consul" Version="1.7.14.4" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0-rc.2.24473.5" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.0-rc.2.24473.5" />
+      <PackageReference Include="MongoDB.Driver" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HMS.Notification.Core\HMS.Notification.Core.csproj" />
+    </ItemGroup>
+
+</Project>
