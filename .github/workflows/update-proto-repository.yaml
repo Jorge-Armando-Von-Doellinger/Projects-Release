@@ -13,28 +13,30 @@ jobs:
     steps:
     # Passo 1: Checkout do repositório de origem
     - name: Checkout Projects-Releases repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       with:
-        repository: Jorge-Armando-Von-Doellinger/Projects-Release
-        ref: main
+        repository: Jorge-Armando-Von-Doellinger/Projects-Releases  # Substitua pelo nome correto do repositório
+        ref: main  # Ou a branch de sua escolha
 
-    # Passo 2: Encontrar e copiar arquivos .proto da pasta HMS/Micro-Services
+    # Passo 2: Navegar para o diretório correto e copiar arquivos .proto
     - name: Find and copy .proto files
       run: |
+        cd ..  # Vai um diretório acima
+        cd ..  # Vai dois diretórios acima
         mkdir -p proto-files
-        find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
+        find HMS/Micro-Services -name "*.proto" -exec cp --parents {} proto-files/ \;
 
     # Passo 3: Checkout do repositório de destino grpc-proto-files
     - name: Checkout grpc-proto-files repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       with:
-        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
-        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files/  # Substitua pelo nome correto do repositório de destino
+        token: ${{ secrets.GITHUB_TOKEN }}  # Para autenticação
 
     # Passo 4: Mover os arquivos copiados para o diretório final e commit no repositório de destino
     - name: Move proto files to target directory and commit
       run: |
-        mkdir -p HMS/ProtoFiles  # Cria o diretório de destino se não existir
+        mkdir -p HMS/ProtoFiles  # Cria o diretório de destino, se não existir
         mv proto-files/HMS/Micro-Services/* HMS/ProtoFiles/ || echo "Nenhum arquivo para mover"
         git add HMS/ProtoFiles/*
         git commit -m "Add new .proto files"
