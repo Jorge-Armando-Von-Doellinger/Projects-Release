@@ -28,8 +28,8 @@ jobs:
         # Cria a pasta proto-files se não existir
         mkdir -p proto-files
         
-        # Encontra e copia todos os arquivos .proto das subpastas para proto-files
-        find HMS/Micro-Services -name "*.proto" -exec cp --parents {} proto-files/ \;
+        # Encontra e copia todos os arquivos .proto da pasta correta para proto-files
+        find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
 
     # Passo 3: Checkout do repositório de destino grpc-proto-files
     - name: Checkout grpc-proto-files repository
@@ -45,7 +45,7 @@ jobs:
         mkdir -p HMS/ProtoFiles 
         
         # Move todos os arquivos para o diretório correto
-        mv proto-files/HMS/Micro-Services/* HMS/ProtoFiles/ || echo "Nenhum arquivo para mover"
+        mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/ || echo "Nenhum arquivo para mover"
 
         # Verifica o status do Git antes de adicionar e comitar
         git status
