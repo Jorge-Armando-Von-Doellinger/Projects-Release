@@ -3,26 +3,38 @@ name: Sync Proto Files
 on:
   push:
     branches:
-      - main  # Gatilho para eventos de push na branch main
+      - main
+  workflow_dispatch:
 
 jobs:
-  sync:
+  sync-protos:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    # Passo 1: Checkout do repositório de origem
+    - name: Checkout Projects-Releases repository
+      uses: actions/checkout@v2
+      with:
+        repository: Jorge-Armando-Von-Doellinger/Projects-Releases  # Substitua pelo nome correto do repositório
+        ref: main  # Ou a branch de sua escolha
 
-      - name: Procurar arquivos .proto
-        run: |
-          find . -type f -name "*.proto" -exec cp {} ./grpc-proto-files/ \;
+    # Passo 2: Encontrar e copiar arquivos .proto da pasta HMS/Micro-Services
+    - name: Find and copy .proto files
+      run: |
+        mkdir -p proto-files
+        find HMS/Micro-Services -name "*.proto" -exec cp --parents {} proto-files/ \;
 
-      - name: Commit e push dos arquivos .proto
-        run: |
-          cd grpc-proto-files
-          git init
-          git remote add origin https://github.com/SEU_USUARIO/grpc-proto-files.git
-          git add .
-          git commit -m "Adicionando novos arquivos .proto"
-          git push origin main
-        env:
-          GIT_AUTH_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
+    # Passo 3: Checkout do repositório de destino grpc-proto-files
+    - name: Checkout grpc-proto-files repository
+      uses: actions/checkout@v2
+      with:
+        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files  # Substitua pelo nome correto do repositório de destino
+        token: ${{ secrets.GITHUB_TOKEN }}  # Para autenticação
+
+    # Passo 4: Mover os arquivos copiados para o diretório final e commit no repositório de destino
+    - name: Move proto files to target directory and commit
+      run: |
+        mv proto-files/HMS/Micro-Services/* HMS/ProtoFiles/
+        git add HMS/ProtoFiles/*
+        git commit -m "Add new .proto files"
+        git push origin main  # Ou a branch de sua escolha
