@@ -40,24 +40,24 @@ jobs:
         repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    # Passo 6: Verificar a estrutura do repositório de destino
+    # Passo 6: Criar diretório de destino caso não exista
+    - name: Create ProtoFiles directory in the destination repository
+      run: |
+        mkdir -p HMS/ProtoFiles  # Cria o diretório se não existir
+
+    # Passo 7: Verificar a estrutura do repositório de destino
     - name: List destination directory structure
       run: ls -R
 
-    # Passo 7: Verificar se arquivos existem antes de mover
-    - name: Check if files exist before moving
+    # Passo 8: Mover os arquivos copiados para o repositório de destino
+    - name: Move proto files to destination
       run: |
-        if [ -d "proto-files/HMS/HMS.MicroServices" ]; then
-          echo "Arquivos encontrados, movendo..."
-          mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Move os arquivos
-        else
-          echo "Nenhum arquivo encontrado para mover"
-        fi
+        mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Mover os arquivos para o diretório correto
 
-    # Passo 8: Adicionar e comitar os arquivos movidos
+    # Passo 9: Adicionar e comitar os arquivos movidos
     - name: Add and commit .proto files
       run: |
         ls -R HMS/ProtoFiles/  # Verifica o conteúdo da pasta de destino
-        git add HMS/ProtoFiles/
-        git commit -m "Add new .proto files"
-        git push origin main
+        git add HMS/ProtoFiles/  # Adiciona os arquivos
+        git commit -m "Add new .proto files"  # Comita os arquivos
+        git push origin main  # Empurra as mudanças para o repositório de destino
