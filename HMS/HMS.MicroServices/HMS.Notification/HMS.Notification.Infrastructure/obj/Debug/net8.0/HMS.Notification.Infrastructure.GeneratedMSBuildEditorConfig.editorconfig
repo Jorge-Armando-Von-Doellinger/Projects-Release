@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HMS.Notification.Infrastructure
-build_property.ProjectDir = C:\Users\Jorge\RiderProjects\HMS.Notification\HMS.Notification.Infrastructure\
+build_property.ProjectDir = C:\Users\Jorge\Documents\GitHub\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Infrastructure\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

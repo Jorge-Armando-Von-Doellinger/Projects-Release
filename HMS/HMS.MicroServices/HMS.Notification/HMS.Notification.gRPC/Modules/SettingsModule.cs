@@ -1,24 +1,21 @@
-﻿using HMS.Notification.API.Settings;
-using HMS.Notification.Infrastructure;
+﻿using HMS.Notification.gRPC.Settings;
 using HMS.Notification.Infrastructure.Settings;
 
-namespace HMS.Notification.API.Modules;
+namespace HMS.Notification.gRPC.Modules;
 
 public static class SettingsModule
 {
     internal static IServiceCollection AddSettingsModule(this IServiceCollection services, IConfiguration configuration)
     {
         services
-            .AddHttpContextAccessor() // Native
-            .AddApiSettings(configuration)
+            .AddgRpcSettings(configuration)
             .AddInfrastructureSettings(configuration);
         return services;
     }
 
-    private static IServiceCollection AddApiSettings(this IServiceCollection services, IConfiguration configuration)
+    private static IServiceCollection AddgRpcSettings(this IServiceCollection services, IConfiguration configuration)
     {
-        
-        services.Configure<ApiSettings>(configuration);
+        services.Configure<AppSettings>(configuration);
         return services;
     }
     private static IServiceCollection AddInfrastructureSettings(this IServiceCollection services,

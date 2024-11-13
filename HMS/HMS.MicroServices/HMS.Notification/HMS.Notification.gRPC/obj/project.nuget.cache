@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BoklpA9ENnU=",
+  "dgSpecHash": "3fRuxo193LE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.gRPC\\HMS.Notification.gRPC.csproj",
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.gRPC\\HMS.Notification.gRPC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jorge\\.nuget\\packages\\consul\\1.7.14.4\\consul.1.7.14.4.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",

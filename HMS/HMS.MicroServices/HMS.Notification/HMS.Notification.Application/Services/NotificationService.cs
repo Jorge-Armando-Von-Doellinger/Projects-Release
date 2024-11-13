@@ -8,10 +8,8 @@ namespace HMS.Notification.Application.Services;
 
 public sealed class NotificationService : INotificationService
 {
-    public void Send(NotificationEntity notification, string emailDestine)
+    public async Task Send(NotificationEntity notification, string emailDestine)
     {
-        
-        
         var email = Env.GetString("EMAIL_USER") ?? throw new ArgumentNullException("EMAIL_USER");
         var pass = Env.GetString("EMAIL_PASS") ?? throw new Exception();
         var port = Env.GetInt("SMTP_PORT");
@@ -35,7 +33,6 @@ public sealed class NotificationService : INotificationService
             Priority = MailPriority.Normal,
         };
         message.To.Add(emailDestine);
-        
-        client.Send(message);
+        await client.SendMailAsync(message);
     }
 }

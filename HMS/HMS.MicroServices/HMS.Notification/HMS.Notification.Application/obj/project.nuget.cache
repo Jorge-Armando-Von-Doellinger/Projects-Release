@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eo3gRWIAjP4=",
+  "dgSpecHash": "hYJA1IF5mRI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj",
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jorge\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.configuration\\1.1.2\\microsoft.extensions.configuration.1.1.2.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj": {}
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
         "projectName": "HMS.Notification.Core",
-        "projectPath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
         "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\obj\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -70,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj": {
+    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj",
         "projectName": "HMS.Notification.Infrastructure",
-        "projectPath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -100,8 +100,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
-                "projectPath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj"
+              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj"
               }
             }
           }

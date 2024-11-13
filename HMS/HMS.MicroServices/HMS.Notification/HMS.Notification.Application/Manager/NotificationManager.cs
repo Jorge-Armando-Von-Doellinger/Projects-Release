@@ -21,7 +21,7 @@ public sealed class NotificationManager : INotificationManager
     public async Task SendAsync(NotificationDTO notification, string emailDestine)
     {
         var entity = _mapper.MapToEntity(notification);
-        _notificationService.Send(entity, emailDestine);
+        await _notificationService.Send(entity, emailDestine);
         await _repository.AddAsync(entity);
     }
 

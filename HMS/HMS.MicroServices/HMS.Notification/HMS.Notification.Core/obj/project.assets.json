@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
       "projectName": "HMS.Notification.Core",
-      "projectPath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
+      "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
       "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jorge\\RiderProjects\\HMS.Notification\\HMS.Notification.Core\\obj\\",
+      "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

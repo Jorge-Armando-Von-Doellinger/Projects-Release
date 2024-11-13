@@ -1,0 +1,28 @@
+name: Sync Proto Files
+
+on:
+  push:
+    branches:
+      - main  # Gatilho para eventos de push na branch main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Procurar arquivos .proto
+        run: |
+          find . -type f -name "*.proto" -exec cp {} ./grpc-proto-files/ \;
+
+      - name: Commit e push dos arquivos .proto
+        run: |
+          cd grpc-proto-files
+          git init
+          git remote add origin https://github.com/SEU_USUARIO/grpc-proto-files.git
+          git add .
+          git commit -m "Adicionando novos arquivos .proto"
+          git push origin main
+        env:
+          GIT_AUTH_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
