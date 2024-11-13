@@ -22,7 +22,7 @@ jobs:
     - name: Find and copy .proto files
       run: |
         mkdir -p proto-files
-        find HMS/Micro-Services -name "*.proto" -exec cp --parents {} proto-files/ \;
+        find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
 
     # Passo 3: Checkout do repositório de destino grpc-proto-files
     - name: Checkout grpc-proto-files repository
