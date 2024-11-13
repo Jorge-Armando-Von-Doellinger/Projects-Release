@@ -12,10 +12,10 @@ jobs:
 
     steps:
     # Passo 1: Checkout do repositório de origem
-    - name: Checkout Projects-Releases repository
+    - name: Checkout Projects-Release repository
       uses: actions/checkout@v2
       with:
-        repository: Jorge-Armando-Von-Doellinger/Projects-Releases  # Substitua pelo nome correto do repositório
+        repository: Jorge-Armando-Von-Doellinger/Projects-Release  # Substitua pelo nome correto do repositório
         ref: main  # Ou a branch de sua escolha
 
     # Passo 2: Navegar para o diretório correto e copiar arquivos .proto
