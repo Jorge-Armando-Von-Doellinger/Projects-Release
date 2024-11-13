@@ -47,6 +47,10 @@ jobs:
     # Passo 7: Verificar se arquivos existem antes de mover
     - name: Check if files exist before moving
       run: |
+        # Verifica se a pasta de destino existe, senão cria
+        mkdir -p HMS/ProtoFiles
+        
+        # Verifica se existem arquivos .proto na pasta de origem antes de mover
         if [ -d "proto-files/HMS/HMS.MicroServices" ]; then
           echo "Arquivos encontrados, movendo..."
           mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Move os arquivos
@@ -58,6 +62,6 @@ jobs:
     - name: Add and commit .proto files
       run: |
         ls -R HMS/ProtoFiles/  # Verifica o conteúdo da pasta de destino
-        git add HMS/ProtoFiles/
+        git add HMS/ProtoFiles/*
         git commit -m "Add new .proto files"
         git push origin main
