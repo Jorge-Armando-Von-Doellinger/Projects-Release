@@ -58,10 +58,14 @@ jobs:
     - name: Create target directory if it doesn't exist
       run: mkdir -p HMS/ProtoFiles/
 
-    # Passo 9: Adicionar e comitar os arquivos movidos
+    # Passo 9: Verificar o conteúdo de HMS/ProtoFiles antes de adicionar
+    - name: List contents of HMS/ProtoFiles before adding
+      run: ls -R HMS/ProtoFiles/
+
+    # Passo 10: Adicionar e comitar os arquivos movidos
     - name: Add and commit .proto files
       run: |
-        git add HMS/ProtoFiles/*
+        git add HMS/ProtoFiles/*  # Adiciona os arquivos .proto movidos
         git status  # Verifica se os arquivos foram adicionados corretamente
         git commit -m "Add new .proto files"
         git push origin main
