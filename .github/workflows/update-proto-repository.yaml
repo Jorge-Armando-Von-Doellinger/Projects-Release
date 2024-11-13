@@ -15,30 +15,26 @@ jobs:
     - name: Checkout Projects-Releases repository
       uses: actions/checkout@v3
       with:
-        repository: Jorge-Armando-Von-Doellinger/Projects-Release  # Substitua pelo nome correto do repositório
-        ref: main  # Ou a branch de sua escolha
+        repository: Jorge-Armando-Von-Doellinger/Projects-Release
+        ref: main
 
     # Passo 2: Encontrar e copiar arquivos .proto da pasta HMS/Micro-Services
     - name: Find and copy .proto files
       run: |
         mkdir -p proto-files
-        # Encontrar e copiar arquivos .proto mantendo a estrutura de diretórios
         find HMS/Micro-Services -name "*.proto" -exec cp --parents {} proto-files/ \;
 
     # Passo 3: Checkout do repositório de destino grpc-proto-files
     - name: Checkout grpc-proto-files repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
-        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files/  # Substitua pelo nome correto do repositório de destino
-        token: ${{ secrets.GITHUB_TOKEN }}  # Para autenticação
+        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # Passo 4: Mover os arquivos copiados para o diretório final e commit no repositório de destino
     - name: Move proto files to target directory and commit
       run: |
-        # Criar o diretório destino, caso não exista
-        mkdir -p HMS/ProtoFiles
-        # Mover os arquivos .proto para o repositório de destino, mantendo a estrutura de diretórios
         mv proto-files/HMS/Micro-Services/* HMS/ProtoFiles/
         git add HMS/ProtoFiles/*
         git commit -m "Add new .proto files"
-        git push origin main  # Ou a branch de sua escolha
+        git push origin main
