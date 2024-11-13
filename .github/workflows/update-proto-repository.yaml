@@ -15,12 +15,12 @@ jobs:
     - name: Checkout Projects-Release repository
       uses: actions/checkout@v2
       with:
-        repository: Jorge-Armando-Von-Doellinger/Projects-Release  # Substitua pelo nome correto do repositório
-        ref: main  # Ou a branch de sua escolha
+        repository: Jorge-Armando-Von-Doellinger/Projects-Release
+        ref: main
 
     # Passo 2: Verificar a estrutura do diretório
-    - name: List directory structure
-      run: ls -R  # Verifica a estrutura de diretórios para confirmar se o caminho está correto
+    - name: List directory structure of source repo
+      run: ls -R  # Verifique a estrutura de diretórios para confirmar se o caminho está correto
 
     # Passo 3: Encontrar e listar os arquivos .proto
     - name: Find and list .proto files
@@ -30,30 +30,34 @@ jobs:
     # Passo 4: Copiar os arquivos .proto para uma pasta temporária
     - name: Find and copy .proto files
       run: |
-        mkdir -p proto-files  # Cria a pasta de destino temporária para os arquivos .proto
-        find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;  # Copia os arquivos .proto
+        mkdir -p proto-files
+        find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
 
     # Passo 5: Checkout do repositório de destino grpc-proto-files
     - name: Checkout grpc-proto-files repository
       uses: actions/checkout@v2
       with:
-        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files  # Substitua pelo nome correto do repositório de destino
-        token: ${{ secrets.GITHUB_TOKEN }}  # Para autenticação
+        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-    # Passo 6: Verificar se arquivos existem e mover
+    # Passo 6: Verificar a estrutura do repositório de destino
+    - name: List destination directory structure
+      run: ls -R
+
+    # Passo 7: Verificar se arquivos existem antes de mover
     - name: Check if files exist before moving
       run: |
         if [ -d "proto-files/HMS/HMS.MicroServices" ]; then
           echo "Arquivos encontrados, movendo..."
-          mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Move os arquivos para o diretório final
+          mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Move os arquivos
         else
           echo "Nenhum arquivo encontrado para mover"
         fi
 
-    # Passo 7: Adicionar e comitar os arquivos movidos
-    - name: Git status and commit changes
+    # Passo 8: Adicionar e comitar os arquivos movidos
+    - name: Add and commit .proto files
       run: |
-        git status  # Verifica o status do Git antes de adicionar e comitar
-        git add HMS/ProtoFiles/*  # Adiciona os arquivos ao git
-        git commit -m "Add new .proto files"  # Cria um commit com as alterações
-        git push origin main  # Empurra as mudanças para o repositório de destino
+        ls -R HMS/ProtoFiles/  # Verifica o conteúdo da pasta de destino
+        git add HMS/ProtoFiles/
+        git commit -m "Add new .proto files"
+        git push origin main
