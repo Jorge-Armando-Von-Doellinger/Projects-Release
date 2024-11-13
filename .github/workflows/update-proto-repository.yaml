@@ -18,11 +18,11 @@ jobs:
         repository: Jorge-Armando-Von-Doellinger/Projects-Release
         ref: main
 
-    # Passo 2: Verificar a estrutura do diretório
+    # Passo 2: Verificar estrutura de diretórios
     - name: List directory structure of source repo
-      run: ls -R  # Verifique a estrutura de diretórios para confirmar se o caminho está correto
+      run: ls -R
 
-    # Passo 3: Encontrar e listar os arquivos .proto
+    # Passo 3: Verificar a existência dos arquivos .proto
     - name: Find and list .proto files
       run: |
         find HMS/HMS.MicroServices -name "*.proto"  # Apenas lista os arquivos encontrados
@@ -30,13 +30,13 @@ jobs:
     # Passo 4: Copiar os arquivos .proto para uma pasta temporária
     - name: Find and copy .proto files
       run: |
-        mkdir -p proto-files
+        mkdir -p proto-files/HMS/HMS.MicroServices  # Cria a estrutura de diretórios necessária
         find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
 
-    # Passo 5: Listar o conteúdo da pasta proto-files após a cópia
-    - name: List contents of proto-files directory
+    # Passo 5: Listar conteúdo da pasta proto-files após cópia
+    - name: List contents of proto-files after copying
       run: |
-        ls -R proto-files  # Verifica os arquivos copiados para garantir que a cópia foi bem-sucedida
+        ls -R proto-files/HMS/HMS.MicroServices  # Verifica se os arquivos foram copiados corretamente
 
     # Passo 6: Checkout do repositório de destino grpc-proto-files
     - name: Checkout grpc-proto-files repository
@@ -45,25 +45,19 @@ jobs:
         repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    # Passo 7: Criar diretório de destino no repositório de destino
+    # Passo 7: Criar diretório de destino
     - name: Create ProtoFiles directory in the destination repository
       run: |
-        mkdir -p HMS/ProtoFiles  # Cria o diretório se não existir
+        mkdir -p HMS/ProtoFiles  # Cria o diretório de destino se não existir
 
-    # Passo 8: Verificar a estrutura do repositório de destino
-    - name: List destination directory structure
-      run: ls -R
-
-    # Passo 9: Mover os arquivos copiados para o repositório de destino
+    # Passo 8: Mover arquivos para o diretório de destino
     - name: Move proto files to destination
       run: |
-        ls -R proto-files/HMS  # Verifique o conteúdo da pasta proto-files/HMS antes de mover
         mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Mover os arquivos para o diretório correto
 
-    # Passo 10: Adicionar e comitar os arquivos movidos
+    # Passo 9: Adicionar e comitar os arquivos movidos
     - name: Add and commit .proto files
       run: |
-        ls -R HMS/ProtoFiles/  # Verifica o conteúdo da pasta de destino
-        git add HMS/ProtoFiles/  # Adiciona os arquivos
-        git commit -m "Add new .proto files"  # Comita os arquivos
-        git push origin main  # Empurra as mudanças para o repositório de destino
+        git add HMS/ProtoFiles/
+        git commit -m "Add new .proto files"
+        git push origin main  # Empurrar para o repositório de destino
