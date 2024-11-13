@@ -18,7 +18,7 @@ jobs:
         repository: Jorge-Armando-Von-Doellinger/Projects-Release
         ref: main
 
-    # Passo 2: Verificar estrutura de diretórios
+    # Passo 2: Verificar estrutura de diretórios do repositório de origem
     - name: List directory structure of source repo
       run: ls -R
 
@@ -27,18 +27,18 @@ jobs:
       run: |
         find HMS/HMS.MicroServices -name "*.proto"  # Apenas lista os arquivos encontrados
 
-    # Passo 4: Copiar os arquivos .proto para uma pasta temporária
-    - name: Find and copy .proto files
+    # Passo 4: Copiar os arquivos .proto para a pasta temporária
+    - name: Create directories and copy .proto files
       run: |
-        mkdir -p proto-files/HMS/HMS.MicroServices  # Cria a estrutura de diretórios necessária
+        mkdir -p proto-files/HMS/HMS.MicroServices  # Cria a estrutura de diretórios
         find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
 
-    # Passo 5: Listar conteúdo da pasta proto-files após cópia
+    # Passo 5: Verificar o conteúdo da pasta proto-files
     - name: List contents of proto-files after copying
       run: |
         ls -R proto-files/HMS/HMS.MicroServices  # Verifica se os arquivos foram copiados corretamente
 
-    # Passo 6: Checkout do repositório de destino grpc-proto-files
+    # Passo 6: Checkout do repositório de destino
     - name: Checkout grpc-proto-files repository
       uses: actions/checkout@v2
       with:
@@ -50,7 +50,7 @@ jobs:
       run: |
         mkdir -p HMS/ProtoFiles  # Cria o diretório de destino se não existir
 
-    # Passo 8: Mover arquivos para o diretório de destino
+    # Passo 8: Mover os arquivos para o diretório de destino
     - name: Move proto files to destination
       run: |
         mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Mover os arquivos para o diretório correto
