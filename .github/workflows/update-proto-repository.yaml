@@ -34,7 +34,8 @@ jobs:
     # Passo 4: Mover os arquivos copiados para o diretório final e commit no repositório de destino
     - name: Move proto files to target directory and commit
       run: |
-        mv proto-files/HMS/Micro-Services/* HMS/ProtoFiles/
+        mkdir -p HMS/ProtoFiles  # Cria o diretório de destino se não existir
+        mv proto-files/HMS/Micro-Services/* HMS/ProtoFiles/ || echo "Nenhum arquivo para mover"
         git add HMS/ProtoFiles/*
         git commit -m "Add new .proto files"
         git push origin main
