@@ -65,8 +65,12 @@ jobs:
     # Passo 10: Adicionar e comitar os arquivos movidos
     - name: Add and commit .proto files
       run: |
-        ls -R HMS/ProtoFiles/  # Verifica o conteúdo da pasta antes de adicionar
-        git add HMS/ProtoFiles/*  # Adiciona os arquivos .proto movidos
-        git status  # Verifica se os arquivos foram adicionados corretamente
-        git commit -m "Add new .proto files"
-        git push origin main
+        # Verifica se há arquivos na pasta de destino
+        if [ "$(ls -A HMS/ProtoFiles/)" ]; then
+          git add HMS/ProtoFiles/*  # Adiciona os arquivos .proto movidos
+          git status  # Verifica se os arquivos foram adicionados corretamente
+          git commit -m "Add new .proto files"
+          git push origin main
+        else
+          echo "Não há arquivos para adicionar"
+        fi
