@@ -31,7 +31,6 @@ jobs:
     - name: Find and copy .proto files
       run: |
         mkdir -p proto-files
-        mkdir -p proto-files/HMS/HMS.MicroServices
         find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
 
     # Passo 5: Checkout do repositório de destino grpc-proto-files
@@ -48,6 +47,7 @@ jobs:
     # Passo 7: Verificar se arquivos existem antes de mover
     - name: Check if files exist before moving
       run: |
+        cd ..
         if [ "$(ls -A proto-files/HMS/HMS.MicroServices/)" ]; then
           echo "Arquivos encontrados, movendo..."
           mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Move os arquivos
