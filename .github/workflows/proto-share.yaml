@@ -1,6 +1,9 @@
-# Step 1: Buscar por arquivos .proto e listar
-echo "Buscando arquivos .proto"
+# Step 1: Exibir o diretório atual e procurar arquivos .proto
+echo "Diretório atual: $(pwd)"
+echo "Buscando arquivos .proto..."
 find HMS/HMS.MicroServices -type f -name "*.proto" > /tmp/protos/files.txt
+
+# Verifique se arquivos foram encontrados
 if [ -s /tmp/protos/files.txt ]; then
   echo "Arquivos .proto encontrados:"
   cat /tmp/protos/files.txt
@@ -10,29 +13,21 @@ else
 fi
 
 # Step 2: Criar diretório para armazenar arquivos
-mkdir -p /tmp/protos
+echo "Criando diretório de destino para arquivos .proto"
+mkdir -p /tmp/grpc-proto-files/ProtoFiles/HMS/HMS.MicroServices/
 
-# Step 3: Criar diretórios necessários no repositório de destino
-echo "Criando diretórios de destino no repositório grpc-proto-files"
+# Step 3: Copiar arquivos .proto encontrados para o diretório de destino
+echo "Copiando arquivos .proto para /tmp/grpc-proto-files/ProtoFiles/"
 while IFS= read -r file; do
-  DIR_NAME=$(dirname "$file")
-  echo "Criando diretório: /tmp/grpc-proto-files/ProtoFiles/$DIR_NAME"
-  mkdir -p "/tmp/grpc-proto-files/ProtoFiles/$DIR_NAME"
+  echo "Copiando $file para /tmp/grpc-proto-files/ProtoFiles/$(dirname "$file")"
+  cp "$file" /tmp/grpc-proto-files/ProtoFiles/"$(dirname "$file")"/
 done < /tmp/protos/files.txt
 
-# Step 4: Copiar arquivos .proto para o repositório de destino
-echo "Copiando arquivos .proto para o repositório grpc-proto-files"
-while IFS= read -r file; do
-  echo "Copiando $file para /tmp/grpc-proto-files/ProtoFiles/"
-  cp "$file" /tmp/grpc-proto-files/ProtoFiles/"$(dirname "$file")/"
-done < /tmp/protos/files.txt
-
-# Step 5: Verificar arquivos copiados
-echo "Verificando arquivos copiados"
+# Step 4: Verificar se os arquivos foram copiados
+echo "Verificando arquivos copiados em /tmp/grpc-proto-files/ProtoFiles/"
 ls -R /tmp/grpc-proto-files/ProtoFiles/
 
-# Step 6: Commit e push para o repositório grpc-proto-files
-echo "Fazendo commit e push dos arquivos copiados"
+# Step 5: Commit e push para o repositório grpc-proto-files
 cd /tmp/grpc-proto-files
 git status
 git add .
