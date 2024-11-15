@@ -22,14 +22,14 @@ jobs:
         with:
           repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: repo-destino
+          path: rpc-proto-files
 
       - name: Copiar arquivos para o repositório de destino
         run: cp -r /tmp/proto/* repo-destino/
 
       - name: Commit e push para o repositório de destino
         run: |
-          cd repo-destino
+          cd rpc-proto-files
           git add .
           git commit -m "Adicionando arquivos proto"
           git push origin main
