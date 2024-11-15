@@ -1,31 +1,35 @@
-name: Copiar arquivos proto para o repositório proto
+name: Copiar arquivos proto para outro repositório
 
-jobs: 
-  integracao-continua:
+on: push
+
+jobs:
+  copiar-arquivos:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Usar NodeJs
-        uses: actions/setup-node@v3
+      - name: Checkout repositório de origem
+        uses: actions/checkout@v3
+
+      - name: Criar diretório para arquivos proto
+        run: mkdir -p /tmp/proto
+
+      - name: Encontrar e copiar arquivos proto
+        run: |
+          find . -type f -name "*.proto" -exec cp {} /tmp/proto/ \;
+
+      - name: Checkout repositório de destino
+        uses: actions/checkout@v3
         with:
-          node-version: '14'
+          repository: usuario/repositorio-destino
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: repo-destino
 
-      - name: Criar os diretórios destino
-        run: mkdir -p /teste/proto
+      - name: Copiar arquivos para o repositório de destino
+        run: cp -r /tmp/proto/* repo-destino/
 
-      - name: Encontrar todos os arquivos proto
+      - name: Commit e push para o repositório de destino
         run: |
-          echo "Procurando arquivos"
-          find . -type f -name "*.proto" -exec cp {} /teste/proto/ \;
-
-      - name: Garantir permissões
-        run: chmod -R 755 /teste/proto
-
-      - name: Commit e push para grpc-proto-files
-        run: |
-          cd /teste/
+          cd repo-destino
           git add .
-          git commit -m "Atualizando arquivos proto"
+          git commit -m "Adicionando arquivos proto"
           git push origin main
