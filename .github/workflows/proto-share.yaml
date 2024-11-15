@@ -1,26 +1,31 @@
-name: Copy proto-files for the proto-repository
+name: Copiar arquivos proto para o repositório proto
 
 jobs: 
-  continuos-integration:
+  integracao-continua:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Usar NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
 
-      - name: Criar os diretorios destino
+      - name: Criar os diretórios destino
         run: mkdir -p /teste/proto
 
-      - name: Encontrar todos os proto files
+      - name: Encontrar todos os arquivos proto
         run: |
           echo "Procurando arquivos"
           find . -type f -name "*.proto" -exec cp {} /teste/proto/ \;
 
-      - name: Garantir permissoes
-        run: chmod -R 755 /teste/proto/
+      - name: Garantir permissões
+        run: chmod -R 755 /teste/proto
 
       - name: Commit e push para grpc-proto-files
         run: |
-          cd /teste/proto
+          cd /teste/
           git add .
           git commit -m "Atualizando arquivos proto"
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git HEAD:main
+          git push origin main
