@@ -12,7 +12,6 @@ message NotificationProtoDto {
 	string title = 1;
 	string content = 2;
 	string email = 3;
-	
 }
 
 

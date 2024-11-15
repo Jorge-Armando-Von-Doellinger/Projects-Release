@@ -67,7 +67,3 @@ jobs:
           git add .
           git commit -m "Importando arquivos .proto de Projects-Release"
           git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git HEAD:main
-
-      # Step 9: Limpeza
-      - name: Limpeza
-        run: rm -rf /tmp/protos /tmp/grpc-proto-files
