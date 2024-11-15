@@ -1,0 +1,77 @@
+name: Sync Proto Files
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sync-protos:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Passo 1: Checkout do repositório de origem
+    - name: Checkout Projects-Release repository
+      uses: actions/checkout@v3
+      with:
+        repository: Jorge-Armando-Von-Doellinger/Projects-Release
+        ref: main
+
+    # Passo 2: Verificar a estrutura do diretório de origem
+    - name: List directory structure of source repo
+      run: ls -R  # Verifique a estrutura de diretórios para confirmar se o caminho está correto
+
+    # Passo 3: Encontrar e listar arquivos .proto
+    - name: Find and list .proto files
+      run: |
+        find HMS/HMS.MicroServices -name "*.proto"  # Apenas lista os arquivos encontrados
+
+    # Passo 4: Copiar arquivos .proto para uma pasta temporária
+    - name: Find and copy .proto files
+      run: |
+        mkdir -p proto-files
+        find HMS/HMS.MicroServices -name "*.proto" -exec cp --parents {} proto-files/ \;
+
+    # Passo 5: Checkout do repositório de destino grpc-proto-files
+    - name: Checkout grpc-proto-files repository
+      uses: actions/checkout@v2
+      with:
+        repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    # Passo 6: Verificar a estrutura do diretório de destino
+    - name: List destination directory structure
+      run: ls -R
+
+    # Passo 7: Verificar se arquivos existem antes de mover
+    - name: Check if files exist before moving
+      run: |
+        cd ..
+        if [ "$(ls -A proto-files/HMS/HMS.MicroServices/)" ]; then
+          echo "Arquivos encontrados, movendo..."
+          mv proto-files/HMS/HMS.MicroServices/* HMS/ProtoFiles/  # Move os arquivos
+        else
+          echo "Nenhum arquivo encontrado para mover"
+        fi
+
+    # Passo 8: Criar o diretório de destino se não existir
+    - name: Create target directory if it doesn't exist
+      run: mkdir -p HMS/ProtoFiles/
+
+    # Passo 9: Verificar o conteúdo de HMS/ProtoFiles antes de adicionar
+    - name: List contents of HMS/ProtoFiles before adding
+      run: ls -R HMS/ProtoFiles/
+
+    # Passo 10: Adicionar e comitar os arquivos movidos
+    - name: Add and commit .proto files
+      run: |
+        # Verifica se há arquivos na pasta de destino
+        if [ "$(ls -A HMS/ProtoFiles/)" ]; then
+          git add HMS/ProtoFiles/*  # Adiciona os arquivos .proto movidos
+          git status  # Verifica se os arquivos foram adicionados corretamente
+          git commit -m "Add new .proto files"
+          git push origin main
+        else
+          echo "Não há arquivos para adicionar"
+        fi

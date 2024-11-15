@@ -3,5 +3,4 @@
 .env
 ConnectionTest
 TemplateEngineHost
-*.yaml
 HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.API/.env
