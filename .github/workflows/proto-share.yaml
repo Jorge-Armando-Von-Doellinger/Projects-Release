@@ -47,7 +47,7 @@ jobs:
         run: |
           mkdir -p /tmp/grpc-proto-files/ProtoFiles
 
-      # Step 6: Verificar arquivos .proto antes de copiar
+      # Step 6: Verificar arquivos .proto encontrados
       - name: Verificar arquivos .proto encontrados
         run: |
           echo "Arquivos encontrados para mover:"
