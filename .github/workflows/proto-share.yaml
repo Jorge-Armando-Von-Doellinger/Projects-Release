@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out o repsitório 'Projects-Release'
+      # Step 1: Check out o repositório 'Projects-Release'
       - name: Check out repositório 'Projects-Release'
         uses: actions/checkout@v3
+        with:
+          repository: Jorge-Armando-Von-Doellinger/Projects-Release
 
       # Step 2: Garantir que o diretório temporário exista
       - name: Criar diretório temporário para armazenar os arquivos
@@ -23,27 +25,27 @@ jobs:
         run: |
           echo "Buscando arquivos .proto no repositório"
           find . -type f -name "*.proto" > /tmp/protos/files.txt
-          if [ -s /tmp/protos/files.txt ]; then
-            echo "Arquivos .proto encontrados:"
-            cat /tmp/protos/files.txt
-          else
+          if [ ! -s /tmp/protos/files.txt ]; then
             echo "Nenhum arquivo .proto encontrado!"
             exit 1
           fi
+          echo "Arquivos .proto encontrados:"
+          cat /tmp/protos/files.txt
 
-      # Step 4: Clonar repositório grpc-proto-files com autenticação SSH
-      - name: Clonar repositório 'grpc-proto-files' com autenticação SSH
+      # Step 4: Clonar repositório grpc-proto-files
+      - name: Clonar repositório 'grpc-proto-files' com autenticação via token
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Referência ao secret
         run: |
-          git clone git@github.com:Jorge-Armando-Von-Doellinger/grpc-proto-files.git /tmp/grpc-proto-files
+          git clone https://github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git /tmp/grpc-proto-files
           cd /tmp/grpc-proto-files
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git pull  # Atualizar o repositório remoto antes de push
+          git checkout main  # Certifique-se de que está na branch main
 
       # Step 5: Criar diretório 'ProtoFiles' se não existir
       - name: Criar diretório de destino no repositório grpc-proto-files
-        run: |
-          mkdir -p /tmp/grpc-proto-files/ProtoFiles
+        run: mkdir -p /tmp/grpc-proto-files/ProtoFiles
 
       # Step 6: Copiar arquivos .proto para o repositório 'grpc-proto-files'
       - name: Copiar arquivos .proto para o repositório 'grpc-proto-files'
@@ -53,19 +55,11 @@ jobs:
             cp "$file" /tmp/grpc-proto-files/ProtoFiles/
           done < /tmp/protos/files.txt
 
-      # Step 7: Verificar arquivos copiados no repositório 'grpc-proto-files'
-      - name: Verificar arquivos copiados para ProtoFiles
-        run: ls -l /tmp/grpc-proto-files/ProtoFiles/
-
-      # Step 8: Fazer commit e push dos arquivos copiados para o repositório grpc-proto-files
+      # Step 7: Fazer commit e push dos arquivos copiados para o repositório grpc-proto-files
       - name: Commit e push para grpc-proto-files
         run: |
           cd /tmp/grpc-proto-files
           git status
           git add .
           git commit -m "Importando arquivos .proto de Projects-Release"
-          git push origin main  # Utilizar URL SSH para push
-
-      # Step 9: Excluir arquivo temporário de registros
-      - name: Excluir arquivo temporário
-        run: rm /tmp/protos/files.txt
+          git push origin main
