@@ -54,24 +54,32 @@ jobs:
           echo "Arquivos encontrados para mover:"
           cat /tmp/protos/files.txt
 
-      # Step 7: Copiar arquivos .proto para o repositório 'grpc-proto-files'
+      # Step 7: Criar os diretórios de destino no repositório de destino
+      - name: Criar diretórios de destino no repositório grpc-proto-files
+        run: |
+          while IFS= read -r file; do
+            DIR_NAME=$(dirname "$file")
+            echo "Criando diretório: /tmp/grpc-proto-files/ProtoFiles/$DIR_NAME"
+            mkdir -p "/tmp/grpc-proto-files/ProtoFiles/$DIR_NAME"
+          done < /tmp/protos/files.txt
+
+      # Step 8: Copiar arquivos .proto para o repositório 'grpc-proto-files'
       - name: Copiar arquivos .proto para o repositório 'grpc-proto-files'
         run: |
           while IFS= read -r file; do
             echo "Copiando $file para /tmp/grpc-proto-files/ProtoFiles/"
-            # Certifique-se de que o caminho do arquivo seja correto
-            cp "$file" /tmp/grpc-proto-files/ProtoFiles/ || echo "Erro ao copiar $file"
+            cp "$file" /tmp/grpc-proto-files/ProtoFiles/"$(dirname "$file")/"
           done < /tmp/protos/files.txt
 
-      # Step 8: Verificar arquivos copiados no repositório 'grpc-proto-files'
+      # Step 9: Verificar arquivos copiados no repositório 'grpc-proto-files'
       - name: Verificar arquivos copiados para ProtoFiles
         run: ls -l /tmp/grpc-proto-files/ProtoFiles/
 
-      # Step 9: Garantir permissões corretas para o diretório de destino
+      # Step 10: Garantir permissões corretas para o diretório de destino
       - name: Garantir permissões corretas
         run: chmod -R 755 /tmp/grpc-proto-files/ProtoFiles/
 
-      # Step 10: Fazer commit e push dos arquivos copiados para o repositório grpc-proto-files
+      # Step 11: Fazer commit e push dos arquivos copiados para o repositório grpc-proto-files
       - name: Commit e push para grpc-proto-files
         run: |
           cd /tmp/grpc-proto-files
