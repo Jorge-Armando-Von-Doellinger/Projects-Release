@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out o repositório 'Projects-Release'
+      # Step 1: Check out o repsitório 'Projects-Release'
       - name: Check out repositório 'Projects-Release'
         uses: actions/checkout@v3
 
