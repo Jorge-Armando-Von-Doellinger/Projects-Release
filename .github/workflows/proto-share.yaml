@@ -9,8 +9,7 @@ jobs:
     steps:
       - name: Checkout repositório de origem
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GH_TOKEN }}
+
 
       - name: Criar diretório para arquivos proto
         run: mkdir -p /tmp/proto
