@@ -28,6 +28,8 @@ jobs:
         run: cp -r /tmp/proto/* grpc-proto-files/
 
       - name: Commit e push para o repositório de destino
+        env: 
+           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           cd grpc-proto-files
           git config --global user.name "GitHub Actions"  # Nome configurado
