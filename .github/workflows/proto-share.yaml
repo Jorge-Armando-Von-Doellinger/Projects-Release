@@ -31,7 +31,6 @@ jobs:
         run: |
           cd grpc-proto-files
           git config --global user.email "jorgearmandovdj@gmail.com"
-          git add user.name "Jorge Armando Von Doellinger"
           git add .
           git commit -m "Adicionando arquivos proto"
           git push origin main
