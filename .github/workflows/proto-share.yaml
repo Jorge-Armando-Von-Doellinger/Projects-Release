@@ -36,12 +36,6 @@ jobs:
           git config --global user.email "actions@github.com"  # E-mail configurado
           git add .
           git commit -m "Adicionando arquivos proto"
-          |
-          cd repo-destino
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add .
-          git commit -m "Adicionando arquivos proto"
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git
           git push origin main
 
