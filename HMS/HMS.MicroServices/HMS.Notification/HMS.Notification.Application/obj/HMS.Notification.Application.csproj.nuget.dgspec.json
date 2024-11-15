@@ -1,41 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj": {}
+    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj": {
+    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj",
+        "projectUniqueName": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj",
         "projectName": "HMS.Notification.Application",
-        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj",
-        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\obj\\",
+        "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj",
+        "packagesPath": "/home/j/.nuget/packages/",
+        "outputPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/j/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
-                "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj"
+              "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj": {
+                "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj"
               }
             }
           }
@@ -80,35 +73,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
+    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
+        "projectUniqueName": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj",
         "projectName": "HMS.Notification.Core",
-        "projectPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
-        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\obj\\",
+        "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj",
+        "packagesPath": "/home/j/.nuget/packages/",
+        "outputPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/j/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Jorge-Armando-Von-Doellinger/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -146,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
