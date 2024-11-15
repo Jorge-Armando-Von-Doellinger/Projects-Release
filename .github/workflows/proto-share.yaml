@@ -25,7 +25,7 @@ jobs:
           path: rpc-proto-files
 
       - name: Copiar arquivos para o repositório de destino
-        run: cp -r /tmp/proto/* repo-destino/
+        run: cp -r /tmp/proto/* rpc-proto-files/
 
       - name: Commit e push para o repositório de destino
         run: |
