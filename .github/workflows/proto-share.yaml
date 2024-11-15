@@ -22,14 +22,14 @@ jobs:
         with:
           repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: rpc-proto-files
+          path: grpc-proto-files
 
       - name: Copiar arquivos para o repositório de destino
         run: cp -r /tmp/proto/* rpc-proto-files/
 
       - name: Commit e push para o repositório de destino
         run: |
-          cd rpc-proto-files
+          cd grpc-proto-files
           git config --global user.email "jorgearmandovdj@gmail.com"
           git add user.name "Jorge"
           git add .
