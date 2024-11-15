@@ -30,6 +30,8 @@ jobs:
       - name: Commit e push para o repositório de destino
         run: |
           cd rpc-proto-files
+          git config --global user.email "jorgearmandovdj@gmail.com"
+          git add user.name "Jorge"
           git add .
           git commit -m "Adicionando arquivos proto"
           git push origin main
