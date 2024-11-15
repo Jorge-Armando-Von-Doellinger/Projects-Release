@@ -19,10 +19,8 @@ jobs:
 
       - name: Checkout repositório de destino
         uses: actions/checkout@v3
-        with:
-          repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
-          token: ${{ secrets.GH_TOKEN }}
-          path: grpc-proto-files
+        with: 
+           token: ${{ secrets.GH_TOKEN }}
 
       - name: Copiar arquivos para o repositório de destino
         run: cp -r /tmp/proto/* grpc-proto-files/
