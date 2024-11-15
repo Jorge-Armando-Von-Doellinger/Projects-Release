@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/copy-protos.yml'
-      - 'HMS/HMS.MicroServices/**/*.proto'
+      - '**/*.proto'
 
 jobs:
   copy-protos:
@@ -15,34 +15,31 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      # Step 2: Listar estrutura de diretórios para verificar onde estamos
-      - name: Listar diretórios principais do repositório
-        run: ls -l
-
-      - name: Listar diretório 'HMS' e verificar se 'HMS.MicroServices' está presente
+      # Step 2: Listar todos os arquivos no repositório para debugar a estrutura
+      - name: Listar todos os arquivos no repositório
         run: |
-          ls -l HMS
-          ls -l HMS/HMS.MicroServices
+          echo "Listando a estrutura de diretórios do repositório"
+          ls -R
 
-      # Step 3: Encontrar arquivos .proto e verificar se existem
-      - name: Encontrar arquivos .proto em HMS/HMS.MicroServices
+      # Step 3: Buscar por arquivos .proto em todo o repositório
+      - name: Buscar por arquivos .proto no repositório
         run: |
-          echo "Procurando arquivos .proto em HMS/HMS.MicroServices/"
-          find HMS/HMS.MicroServices -type f -name "*.proto" > /tmp/protos/files.txt
+          echo "Buscando arquivos .proto em todo o repositório"
+          find . -type f -name "*.proto" > /tmp/protos/files.txt
           if [ -s /tmp/protos/files.txt ]; then
             echo "Arquivos .proto encontrados:"
             cat /tmp/protos/files.txt
           else
-            echo "Nenhum arquivo .proto encontrado em HMS/HMS.MicroServices/"
+            echo "Nenhum arquivo .proto encontrado no repositório!"
             exit 1
           fi
 
       # Step 4: Criar diretório de destino para os arquivos .proto
-      - name: Criar diretório para arquivos .proto
+      - name: Criar diretório de destino para arquivos .proto
         run: mkdir -p HMS/ProtoFiles/
 
       # Step 5: Copiar arquivos .proto para o diretório de destino
-      - name: Copiar arquivos .proto para HMS/ProtoFiles
+      - name: Copiar arquivos .proto para HMS/ProtoFiles/
         run: |
           while IFS= read -r file; do
             echo "Copiando $file para HMS/ProtoFiles/"
