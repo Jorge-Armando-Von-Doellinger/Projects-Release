@@ -10,11 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out o repositório'Projects-Release'
+      # Step 1: Check out o repositório 'Projects-Release'
       - name: Check out repositório 'Projects-Release'
         uses: actions/checkout@v3
 
-      # Step 2: Buscar por arquivos .proto no repositório 'Projects-Release'
+      # Step 2: Garantir que o diretório temporário exista
+      - name: Criar diretório temporário para armazenar os arquivos
+        run: mkdir -p /tmp/protos
+
+      # Step 3: Buscar por arquivos .proto no repositório 'Projects-Release'
       - name: Buscar arquivos .proto no repositório 'Projects-Release'
         run: |
           echo "Buscando arquivos .proto no repositório"
@@ -27,10 +31,10 @@ jobs:
             exit 1
           fi
 
-      # Step 3: Clonar repositório grpc-proto-files
+      # Step 4: Clonar repositório grpc-proto-files
       - name: Clonar repositório 'grpc-proto-files' com autenticação via token
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Referência ao secret
         run: |
           git clone https://github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git /tmp/grpc-proto-files
           cd /tmp/grpc-proto-files
@@ -38,12 +42,12 @@ jobs:
           git config --global user.email "actions@github.com"
           git status
 
-      # Step 4: Criar diretório 'ProtoFiles' se não existir
+      # Step 5: Criar diretório 'ProtoFiles' se não existir
       - name: Criar diretório de destino no repositório grpc-proto-files
         run: |
           mkdir -p /tmp/grpc-proto-files/ProtoFiles
 
-      # Step 5: Copiar arquivos .proto para o repositório 'grpc-proto-files'
+      # Step 6: Copiar arquivos .proto para o repositório 'grpc-proto-files'
       - name: Copiar arquivos .proto para o repositório 'grpc-proto-files'
         run: |
           while IFS= read -r file; do
@@ -51,11 +55,11 @@ jobs:
             cp "$file" /tmp/grpc-proto-files/ProtoFiles/
           done < /tmp/protos/files.txt
 
-      # Step 6: Verificar arquivos copiados no repositório 'grpc-proto-files'
+      # Step 7: Verificar arquivos copiados no repositório 'grpc-proto-files'
       - name: Verificar arquivos copiados para ProtoFiles
         run: ls -l /tmp/grpc-proto-files/ProtoFiles/
 
-      # Step 7: Fazer commit e push dos arquivos copiados para o repositório grpc-proto-files
+      # Step 8: Fazer commit e push dos arquivos copiados para o repositório grpc-proto-files
       - name: Commit e push para grpc-proto-files
         run: |
           cd /tmp/grpc-proto-files
@@ -64,6 +68,6 @@ jobs:
           git commit -m "Importando arquivos .proto de Projects-Release"
           git push https://github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git HEAD:main
 
-      # Step 8: Limpeza
+      # Step 9: Limpeza
       - name: Limpeza
         run: rm -rf /tmp/protos /tmp/grpc-proto-files
