@@ -1,35 +1,26 @@
-# Step 1: Exibir o diretório atual e procurar arquivos .proto
-echo "Diretório atual: $(pwd)"
-echo "Buscando arquivos .proto..."
-find HMS/HMS.MicroServices -type f -name "*.proto" > /tmp/protos/files.txt
+name: Copy proto-files for the proto-repository
 
-# Verifique se arquivos foram encontrados
-if [ "$(find proto-files -type f)" ]; then
-    echo "Arquivos encontrados, movendo..."
-    find proto-files -type f -exec mv {} HMS/ProtoFiles/ \;
-else
-    echo "Nenhum arquivo encontrado para mover"
-fi
+jobs: 
+  continuos-integration:
+    runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v3
 
-# Step 2: Criar diretório para armazenar arquivos
-echo "Criando diretório de destino para arquivos .proto"
-mkdir -p /tmp/grpc-proto-files/ProtoFiles/HMS/HMS.MicroServices/
+      - name: Criar os diretorios destino
+        run: mkdir -p /teste/proto
 
-# Step 3: Copiar arquivos .proto encontrados para o diretório de destino
-echo "Copiando arquivos .proto para /tmp/grpc-proto-files/ProtoFiles/"
-while IFS= read -r file; do
-  echo "Copiando $file para /tmp/grpc-proto-files/ProtoFiles/$(dirname "$file")"
-  cp "$file" /tmp/grpc-proto-files/ProtoFiles/"$(dirname "$file")"/
-done < /tmp/protos/files.txt
+      - name: Encontrar todos os proto files
+        run: |
+          echo "Procurando arquivos"
+          find . -type f -name "*.proto" -exec cp {} /teste/proto/ \;
 
-# Step 4: Verificar se os arquivos foram copiados
-echo "Verificando arquivos copiados em /tmp/grpc-proto-files/ProtoFiles/"
-ls -R /tmp/grpc-proto-files/ProtoFiles/
+      - name: Garantir permissoes
+        run: chmod -R 755 /teste/proto/
 
-# Step 5: Commit e push para o repositório grpc-proto-files
-cd /tmp/grpc-proto-files
-git status
-git add .
-git commit -m "Importando arquivos .proto de Projects-Release"
-git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git HEAD:main
+      - name: Commit e push para grpc-proto-files
+        run: |
+          cd /teste/proto
+          git add .
+          git commit -m "Atualizando arquivos proto"
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git HEAD:main
