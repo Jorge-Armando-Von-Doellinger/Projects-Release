@@ -20,7 +20,7 @@ jobs:
       - name: Checkout repositório de destino
         uses: actions/checkout@v3
         with:
-          repository: usuario/repositorio-destino
+          repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
           token: ${{ secrets.GITHUB_TOKEN }}
           path: repo-destino
 
