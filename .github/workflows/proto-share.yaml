@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/copy-protos.yml'
-      - 'HMS/HMS.MicroServices/**.proto'
+      - 'HMS/HMS.MicroServices/**/*.proto'
 
 jobs:
   copy-protos:
@@ -15,45 +15,55 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      # Step 2: Verificar estrutura de diretórios para entender onde estamos
-      - name: Listar diretórios principais
+      # Step 2: Listar estrutura de diretórios para verificar onde estamos
+      - name: Listar diretórios principais do repositório
         run: ls -l
 
-      # Step 3: Listar diretório 'HMS' e verificar se 'HMS.MicroServices' está presente
-      - name: Listar diretório HMS
-        run: ls -l HMS
-
-      - name: Listar diretório HMS/HMS.MicroServices
-        run: ls -l HMS/HMS.MicroServices || echo "Diretório não encontrado"
-
-      # Step 4: Encontrar e copiar arquivos .proto
-      - name: Encontrar e copiar arquivos .proto
+      - name: Listar diretório 'HMS' e verificar se 'HMS.MicroServices' está presente
         run: |
-          mkdir -p /tmp/protos
+          ls -l HMS
+          ls -l HMS/HMS.MicroServices
+
+      # Step 3: Encontrar arquivos .proto e verificar se existem
+      - name: Encontrar arquivos .proto em HMS/HMS.MicroServices
+        run: |
+          echo "Procurando arquivos .proto em HMS/HMS.MicroServices/"
           find HMS/HMS.MicroServices -type f -name "*.proto" > /tmp/protos/files.txt
-          echo "Arquivos .proto encontrados:"
-          cat /tmp/protos/files.txt
-          # Copiar arquivos encontrados
+          if [ -s /tmp/protos/files.txt ]; then
+            echo "Arquivos .proto encontrados:"
+            cat /tmp/protos/files.txt
+          else
+            echo "Nenhum arquivo .proto encontrado em HMS/HMS.MicroServices/"
+            exit 1
+          fi
+
+      # Step 4: Criar diretório de destino para os arquivos .proto
+      - name: Criar diretório para arquivos .proto
+        run: mkdir -p HMS/ProtoFiles/
+
+      # Step 5: Copiar arquivos .proto para o diretório de destino
+      - name: Copiar arquivos .proto para HMS/ProtoFiles
+        run: |
           while IFS= read -r file; do
-            cp "$file" /tmp/protos/
+            echo "Copiando $file para HMS/ProtoFiles/"
+            cp "$file" HMS/ProtoFiles/
           done < /tmp/protos/files.txt
-          echo "Arquivos copiados para /tmp/protos"
 
-      # Step 5: Verificar se os arquivos .proto foram copiados corretamente
-      - name: Verificar arquivos copiados
-        run: ls -l /tmp/protos
+      # Step 6: Verificar se os arquivos foram copiados corretamente
+      - name: Verificar arquivos copiados para HMS/ProtoFiles
+        run: ls -l HMS/ProtoFiles/
 
-      # Step 6: Clonar o repositório grpc-proto-files
+      # Step 7: Clonar repositório grpc-proto-files
       - name: Clonar repositório grpc-proto-files
         run: |
           git clone https://github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git /tmp/grpc-proto-files
 
-      # Step 7: Copiar os arquivos .proto para o repositório grpc-proto-files
+      # Step 8: Copiar os arquivos .proto para o repositório grpc-proto-files
       - name: Copiar arquivos .proto para grpc-proto-files
         run: |
-          if [ -d "/tmp/protos" ]; then
-            echo "Copiando arquivos .proto para o repositório grpc-proto-files"
-            cp /tmp/protos/* /tmp/grpc-proto-files/
+          if [ "$(ls -A HMS/ProtoFiles)" ]; then
+            echo "Arquivos encontrados em HMS/ProtoFiles. Copiando para grpc-proto-files..."
+            cp HMS/ProtoFiles/* /tmp/grpc-proto-files/
             cd /tmp/grpc-proto-files
             git config --global user.name "GitHub Actions"
             git config --global user.email "actions@github.com"
@@ -62,10 +72,10 @@ jobs:
             git commit -m "Adicionando novos arquivos .proto"
             git push origin main
           else
-            echo "Nenhum arquivo .proto foi encontrado para copiar!"
+            echo "Não há arquivos .proto para copiar!"
             exit 1
           fi
 
-      # Step 8: Limpeza
+      # Step 9: Limpeza
       - name: Limpeza
         run: rm -rf /tmp/protos /tmp/grpc-proto-files
