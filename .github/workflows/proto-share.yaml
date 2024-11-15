@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repositório de origem
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Criar diretório para arquivos proto
         run: mkdir -p /tmp/proto
@@ -19,23 +21,22 @@ jobs:
 
       - name: Checkout repositório de destino
         uses: actions/checkout@v3
-        with: 
-           token: ${{ secrets.GH_TOKEN }}
+        with:
+          repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
+          token: ${{ secrets.GH_TOKEN }}
+          path: repo-destino
 
       - name: Copiar arquivos para o repositório de destino
-        run: cp -r /tmp/proto/* grpc-proto-files/
+        run: cp -r /tmp/proto/* repo-destino/
 
       - name: Commit e push para o repositório de destino
-        env: 
-           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          cd grpc-proto-files
-          git config --global user.name "GitHub Actions"  # Nome configurado
-          git config --global user.email "actions@github.com"  # E-mail configurado
+          cd repo-destino
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           git add .
           git commit -m "Adicionando arquivos proto"
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git
           git push origin HEAD:main
-
-
-
