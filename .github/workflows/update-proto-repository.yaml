@@ -15,39 +15,50 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      # Step 2: List the directories to ensure correct structure
-      - name: List root directory
+      # Step 2: Verificar estrutura de diretórios para entender onde estamos
+      - name: Listar diretórios principais
         run: ls -l
 
-      - name: List HMS directory to ensure correct path
+      # Step 3: Listar diretório 'HMS' e verificar se 'HMS.MicroServices' está presente
+      - name: Listar diretório HMS
         run: ls -l HMS
 
-      - name: List HMS/HMS.MicroServices directory
-        run: ls -l HMS/HMS.MicroServices
+      - name: Listar diretório HMS/HMS.MicroServices
+        run: ls -l HMS/HMS.MicroServices || echo "Diretório não encontrado"
 
-      # Step 3: Find .proto files and copy them
-      - name: Find .proto files
+      # Step 4: Encontrar e copiar arquivos .proto
+      - name: Encontrar e copiar arquivos .proto
         run: |
-          mkdir -p /tmp/protos
-          find HMS/HMS.MicroServices -type f -name "*.proto" -exec cp {} /tmp/protos/
+          if [ -d "HMS/HMS.MicroServices" ]; then
+            echo "Encontrando arquivos .proto em HMS/HMS.MicroServices"
+            mkdir -p /tmp/protos
+            find HMS/HMS.MicroServices -type f -name "*.proto" -exec cp {} /tmp/protos/
+          else
+            echo "O diretório HMS/HMS.MicroServices não foi encontrado!"
+            exit 1
+          fi
 
-      # Step 4: Clone the grpc-proto-files repository
-      - name: Clone grpc-proto-files repository
+      # Step 5: Clonar o repositório grpc-proto-files
+      - name: Clonar repositório grpc-proto-files
         run: |
-          git clone https://github.com/dawJorge-Armando-Von-Doellinger/grpc-proto-files.git /tmp/grpc-proto-files
-        continue-on-error: true
+          git clone https://github.com/{your-username}/grpc-proto-files.git /tmp/grpc-proto-files
 
-      # Step 5: Copy the proto files to grpc-proto-files repository
-      - name: Copy proto files to grpc-proto-files repo
+      # Step 6: Copiar os arquivos .proto para o repositório grpc-proto-files
+      - name: Copiar arquivos .proto para grpc-proto-files
         run: |
-          cp /tmp/protos/* /tmp/grpc-proto-files/
-          cd /tmp/grpc-proto-files
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add .
-          git commit -m "Add new .proto files"
-          git push origin main
+          if [ -d "/tmp/protos" ]; then
+            cp /tmp/protos/* /tmp/grpc-proto-files/
+            cd /tmp/grpc-proto-files
+            git config --global user.name "GitHub Actions"
+            git config --global user.email "actions@github.com"
+            git add .
+            git commit -m "Adicionando novos arquivos .proto"
+            git push origin main
+          else
+            echo "Nenhum arquivo .proto foi encontrado para copiar!"
+            exit 1
+          fi
 
-      # Step 6: Clean up
-      - name: Clean up
+      # Step 7: Limpeza
+      - name: Limpeza
         run: rm -rf /tmp/protos /tmp/grpc-proto-files
