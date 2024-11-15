@@ -37,7 +37,7 @@ jobs:
           git add .
           git commit -m "Adicionando arquivos proto"
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git
-          git push origin main
+          git push origin HEAD:main
 
 
 
