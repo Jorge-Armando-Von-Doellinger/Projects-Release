@@ -4,13 +4,13 @@ echo "Buscando arquivos .proto..."
 find HMS/HMS.MicroServices -type f -name "*.proto" > /tmp/protos/files.txt
 
 # Verifique se arquivos foram encontrados
-if [ -s /tmp/protos/files.txt ]; then
-  echo "Arquivos .proto encontrados:"
-  cat /tmp/protos/files.txt
+if [ "$(find proto-files -type f)" ]; then
+    echo "Arquivos encontrados, movendo..."
+    find proto-files -type f -exec mv {} HMS/ProtoFiles/ \;
 else
-  echo "Nenhum arquivo .proto encontrado!"
-  exit 1
+    echo "Nenhum arquivo encontrado para mover"
 fi
+
 
 # Step 2: Criar diretório para armazenar arquivos
 echo "Criando diretório de destino para arquivos .proto"
