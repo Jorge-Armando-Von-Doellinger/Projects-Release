@@ -19,7 +19,7 @@ jobs:
       - name: List root directory
         run: ls -l
 
-      - name: List HMS directory to ensure correct path
+      - name: List HMS  awdasdirectory to ensure correct path
         run: ls -l HMS
 
       - name: List HMS/HMS.MicroServices directory
