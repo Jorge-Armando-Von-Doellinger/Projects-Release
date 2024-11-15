@@ -42,10 +42,11 @@ jobs:
           git config --global user.email "actions@github.com"
           git status
 
-      # Step 5: Criar diretório 'ProtoFiles' se não existir
+      # Step 5: Criar diretório 'ProtoFiles' se não existir no repositório grpc-proto-files
       - name: Criar diretório de destino no repositório grpc-proto-files
         run: |
           mkdir -p /tmp/grpc-proto-files/ProtoFiles
+          echo "Diretório /tmp/grpc-proto-files/ProtoFiles/ criado com sucesso."
 
       # Step 6: Verificar arquivos .proto encontrados
       - name: Verificar arquivos .proto encontrados
@@ -58,7 +59,8 @@ jobs:
         run: |
           while IFS= read -r file; do
             echo "Copiando $file para /tmp/grpc-proto-files/ProtoFiles/"
-            cp "$file" /tmp/grpc-proto-files/ProtoFiles/
+            # Certifique-se de que o caminho do arquivo seja correto
+            cp "$file" /tmp/grpc-proto-files/ProtoFiles/ || echo "Erro ao copiar $file"
           done < /tmp/protos/files.txt
 
       # Step 8: Verificar arquivos copiados no repositório 'grpc-proto-files'
