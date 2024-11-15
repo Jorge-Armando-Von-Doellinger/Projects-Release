@@ -31,16 +31,14 @@ jobs:
             exit 1
           fi
 
-      # Step 4: Clonar repositório grpc-proto-files
-      - name: Clonar repositório 'grpc-proto-files' com autenticação via token
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Referência ao secret
+      # Step 4: Clonar repositório grpc-proto-files com autenticação SSH
+      - name: Clonar repositório 'grpc-proto-files' com autenticação SSH
         run: |
-          git clone https://github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git /tmp/grpc-proto-files
+          git clone git@github.com:Jorge-Armando-Von-Doellinger/grpc-proto-files.git /tmp/grpc-proto-files
           cd /tmp/grpc-proto-files
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git status
+          git pull  # Atualizar o repositório remoto antes de push
 
       # Step 5: Criar diretório 'ProtoFiles' se não existir
       - name: Criar diretório de destino no repositório grpc-proto-files
@@ -66,4 +64,8 @@ jobs:
           git status
           git add .
           git commit -m "Importando arquivos .proto de Projects-Release"
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git HEAD:main
+          git push origin main  # Utilizar URL SSH para push
+
+      # Step 9: Excluir arquivo temporário de registros
+      - name: Excluir arquivo temporário
+        run: rm /tmp/protos/files.txt
