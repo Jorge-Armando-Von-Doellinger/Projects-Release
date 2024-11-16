@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Verificar Token (Debug)
-        run: echo ${{ secrets.GH_TOKEN }}
+        run: echo "${{ secrets.GH_TOKEN }}"
 
       - name: Checkout repositório de origem
         uses: actions/checkout@v3
