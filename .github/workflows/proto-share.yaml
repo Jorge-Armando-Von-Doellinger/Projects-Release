@@ -28,7 +28,7 @@ jobs:
           path: grpc-proto-files
 
       - name: Copiar arquivos para o repositório de destino
-        run: cp -r /tmp/proto/* grpc-proto-files/proto/
+        run: cp -r /tmp/proto/* grpc-proto-files/proto/hms # especificando o projeto
 
       - name: Commit e push para o repositório de destino
         env:
