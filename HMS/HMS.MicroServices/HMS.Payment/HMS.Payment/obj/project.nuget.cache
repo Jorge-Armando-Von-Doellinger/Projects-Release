@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IuVLWQzxthc=",
+  "dgSpecHash": "5QKYz0gCr48=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment\\HMS.Payments.API.csproj",
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment\\HMS.Payments.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jorge\\.nuget\\packages\\consul\\1.7.14.4\\consul.1.7.14.4.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",

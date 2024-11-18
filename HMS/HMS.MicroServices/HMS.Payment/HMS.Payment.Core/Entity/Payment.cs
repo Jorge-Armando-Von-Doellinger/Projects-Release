@@ -15,8 +15,7 @@ namespace HMS.Payments.Core.Entity
         public string PaymentMethod { get; set; }
 
         public string Description { get; set; }
-
-
+        
         [StringLength(18, MinimumLength = 14, ErrorMessage = "CNPJ do pagador está inválido!")]// Limita o CPF em 14 caracteres
         public string? PayerCPF { get; set; }
         [StringLength(18, MinimumLength = 18, ErrorMessage = "CNPJ do pagador está inválido!")]
@@ -28,7 +27,7 @@ namespace HMS.Payments.Core.Entity
         public string? BeneficiaryCNPJ { get; set; }
         public PaymentStatus Status { get; set; }
 
-        [StringLength(500, MinimumLength = 10, ErrorMessage = "Observações muito curtas! Por favor, nos dê mais informações!")]
+        [StringLength(500, MinimumLength = 0, ErrorMessage = "Observações muito curtas! Por favor, nos dê mais informações!")]
         public string? Observations { get; set; }
 
         public void ValidateEntity()

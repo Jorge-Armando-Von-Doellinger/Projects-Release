@@ -2,7 +2,8 @@
 {
     public interface IMessageListener
     {
-        Task ListeningAsync(/*Func<byte[], Task> action*/);
-        void ListeningSync(Action<byte[]> action);
+        public ulong[] Tags {get; }
+        public List<byte[]> MessageBytes { get; }
+        Task ListeningAsync(CancellationToken cancellationToken);
     }
 }

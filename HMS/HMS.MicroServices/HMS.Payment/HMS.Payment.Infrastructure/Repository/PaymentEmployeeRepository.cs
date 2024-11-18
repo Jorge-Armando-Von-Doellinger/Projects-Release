@@ -18,7 +18,7 @@ namespace HMS.Payments.Infrastructure.Repository
         }
         public async Task AddAsync(PaymentEmployee payment)
         {
-            await _context.AddOperation(new InsertOneModel<PaymentEmployee>(payment));
+            _context.AddOperation(new InsertOneModel<PaymentEmployee>(payment));
             /*            payment.ID = null;
                         await _transaction.Execute(async (session) =>
                         {

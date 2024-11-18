@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Payments.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Payments.Messaging", "HMS.Payments.Messaging\HMS.Payments.Messaging.csproj", "{A323D6DC-52C8-4C81-B3DF-2671C8753360}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Payments.Grpc", " HMS.Payments.Grpc\HMS.Payments.Grpc.csproj", "{F62A71E0-01C9-4EC3-BB80-FA9BB7DEF8B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A323D6DC-52C8-4C81-B3DF-2671C8753360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A323D6DC-52C8-4C81-B3DF-2671C8753360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A323D6DC-52C8-4C81-B3DF-2671C8753360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62A71E0-01C9-4EC3-BB80-FA9BB7DEF8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62A71E0-01C9-4EC3-BB80-FA9BB7DEF8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62A71E0-01C9-4EC3-BB80-FA9BB7DEF8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62A71E0-01C9-4EC3-BB80-FA9BB7DEF8B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

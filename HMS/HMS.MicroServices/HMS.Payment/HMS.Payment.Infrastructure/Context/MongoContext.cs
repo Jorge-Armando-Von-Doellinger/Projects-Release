@@ -39,12 +39,12 @@ namespace HMS.Payments.Infrastructure.Context
 
             });
         }
-        internal async Task AddOperation(WriteModel<Payment> operation)
+        internal void AddOperation(WriteModel<Payment> operation)
         {
             if (_paymentOperations.Contains(operation)) throw new Exception("Batata");
             _paymentOperations.Add(operation);
         }
-        internal async Task AddOperation(WriteModel<PaymentEmployee> operation)
+        internal void AddOperation(WriteModel<PaymentEmployee> operation)
         {
             if (_paymentEmployeeOperations.Contains(operation)) throw new Exception("Batata");
             _paymentEmployeeOperations.Add(operation);

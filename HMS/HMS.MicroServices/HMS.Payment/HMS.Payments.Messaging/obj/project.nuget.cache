@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bbNyWShfWUQ=",
+  "dgSpecHash": "vtfBMBmBurc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jorge\\Documents\\GitHub\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.Messaging\\HMS.Payments.Messaging.csproj",
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.Messaging\\HMS.Payments.Messaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",

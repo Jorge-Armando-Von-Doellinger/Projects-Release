@@ -28,7 +28,7 @@ namespace HMS.Payments.Messaging.Context
         {
             Configure(model, _messagingSystem.GetPaymentEmployeeComponent());
         }
-        private void Configure(IModel model, MessagingComponents component)
+        private void Configure(IModel model, BaseComponent component)
         {
             if (component == null) throw new KeyNotFoundException("payments-components KEY not founded");
             model.ExchangeDeclare(component.Exchange, component.TypeExchange, true, false);
