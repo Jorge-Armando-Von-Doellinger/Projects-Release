@@ -1,8 +1,10 @@
-﻿namespace HMS.Payments.Core.Interfaces.Processor
+﻿using HMS.Payments.Core.Data;
+
+namespace HMS.Payments.Core.Interfaces.Processor
 {
     public interface IMessageProcessor
     {
-        Task Process(byte[] bytes);
-        Task Process(List<byte[]> bytes);
+        Task TryProcess(byte[] bytes);
+        Task<(bool success, List<MessageData>? MessageWithErrors)> TryProcess(List<byte[]> bytes);
     }
 }

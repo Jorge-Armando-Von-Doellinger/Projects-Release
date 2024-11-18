@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.Notification.gRPC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+711ede776c747a4ffb965176e21322b3b34bb20c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+151c00bad8f03182e5fabfdc52ce2af0367aad63")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.Notification.gRPC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.Notification.gRPC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

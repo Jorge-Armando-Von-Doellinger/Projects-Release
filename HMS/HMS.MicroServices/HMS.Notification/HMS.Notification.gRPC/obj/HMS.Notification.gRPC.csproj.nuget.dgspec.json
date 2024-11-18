@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.gRPC/HMS.Notification.gRPC.csproj": {}
+    "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.gRPC\\HMS.Notification.gRPC.csproj": {}
   },
   "projects": {
-    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj": {
+    "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj",
         "projectName": "HMS.Notification.Application",
-        "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj",
-        "packagesPath": "/home/j/.nuget/packages/",
-        "outputPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/obj/",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/home/j/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -27,8 +27,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj": {
-                "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj"
+              "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj"
               }
             }
           }
@@ -41,7 +41,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -68,27 +68,41 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj": {
+    "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
         "projectName": "HMS.Notification.Core",
-        "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj",
-        "packagesPath": "/home/j/.nuget/packages/",
-        "outputPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/obj/",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/home/j/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -110,7 +124,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -127,27 +141,41 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Infrastructure/HMS.Notification.Infrastructure.csproj": {
+    "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.gRPC\\HMS.Notification.gRPC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Infrastructure/HMS.Notification.Infrastructure.csproj",
-        "projectName": "HMS.Notification.Infrastructure",
-        "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Infrastructure/HMS.Notification.Infrastructure.csproj",
-        "packagesPath": "/home/j/.nuget/packages/",
-        "outputPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Infrastructure/obj/",
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.gRPC\\HMS.Notification.gRPC.csproj",
+        "projectName": "HMS.Notification.gRPC",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.gRPC\\HMS.Notification.gRPC.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.gRPC\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/home/j/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -159,8 +187,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj": {
-                "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj"
+              "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Application\\HMS.Notification.Application.csproj"
+              },
+              "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj"
               }
             }
           }
@@ -173,7 +204,97 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.57.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj",
+        "projectName": "HMS.Notification.Infrastructure",
+        "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\HMS.Notification.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj": {
+                "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -208,87 +329,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.gRPC/HMS.Notification.gRPC.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.gRPC/HMS.Notification.gRPC.csproj",
-        "projectName": "HMS.Notification.gRPC",
-        "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.gRPC/HMS.Notification.gRPC.csproj",
-        "packagesPath": "/home/j/.nuget/packages/",
-        "outputPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.gRPC/obj/",
-        "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
-        "configFilePaths": [
-          "/home/j/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj": {
-                "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Application/HMS.Notification.Application.csproj"
-              },
-              "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Infrastructure/HMS.Notification.Infrastructure.csproj": {
-                "projectPath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Infrastructure/HMS.Notification.Infrastructure.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Grpc.AspNetCore": {
-              "target": "Package",
-              "version": "[2.57.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
             },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

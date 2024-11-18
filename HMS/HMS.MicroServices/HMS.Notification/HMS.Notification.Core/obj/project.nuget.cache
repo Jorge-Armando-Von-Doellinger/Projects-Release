@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "gnVE+eV7pic=",
+  "dgSpecHash": "gdzkKrOS1a8=",
   "success": true,
-  "projectFilePath": "/home/j/Documentos/github/Projects-Release/HMS/HMS.MicroServices/HMS.Notification/HMS.Notification.Core/HMS.Notification.Core.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Notification\\HMS.Notification.Core\\HMS.Notification.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.11\\microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.11\\microsoft.windowsdesktop.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.11\\microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -4,8 +4,10 @@ namespace HMS.Payments.Grpc.Modules;
 
 public static class SettingsModule
 {
-    internal static IServiceCollection AddSettingsService(this IServiceCollection services)
+    internal static IServiceCollection AddSettingsModule(this IServiceCollection services, IConfiguration configuration)
     {
+        services
+            .AddMessagingSettings(configuration);
         return services;
     }
 

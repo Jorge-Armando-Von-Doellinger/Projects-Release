@@ -17,10 +17,16 @@ namespace HMS.Payments.Messaging.Modules
                 .AddChannel()
                 .AddContexts()
                 .AddListener()
-                .AddPublisher();
+                .AddPublisher()
+                .AddBackgroundServices();
             return services;
         }
 
+        private static IServiceCollection AddBackgroundServices(this IServiceCollection services)
+        {
+            services.AddHostedService<MessageListener>();
+            return services;
+        }
         private static IServiceCollection AddFactory(this IServiceCollection services)
         {
             services.AddSingleton<ChannelFactory>();

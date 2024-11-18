@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\HMS.Payment.API.props" />
-</Project>
