@@ -1,0 +1,5 @@
+EMAIL_USER=
+EMAIL_PASS= chave-de-app-aqui
+SMTP_PORT=
+SMTP_SERVER=
+EmailTest="

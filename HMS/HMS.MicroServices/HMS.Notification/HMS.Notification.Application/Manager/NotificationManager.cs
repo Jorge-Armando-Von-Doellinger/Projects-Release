@@ -18,21 +18,11 @@ public sealed class NotificationManager : INotificationManager
         _notificationService = notificationService;
         _mapper = mapper;
     }
-    public async Task SendAsync(NotificationDTO notification, string emailDestine)
+    public async Task SendAsync(NotificationByEmailDto notificationDto)
     {
-        var entity = _mapper.MapToEntity(notification);
-        await _notificationService.Send(entity, emailDestine);
+        var entity = _mapper.MapToEntity(notificationDto);
+        await _notificationService.SendEmail(entity);
         await _repository.AddAsync(entity);
     }
 
-    public async Task ReSendAsync(NotificationDTO notification, string emailDestine)
-    {
-        var entity = _mapper.MapToEntity(notification);
-        await _repository.UpdateAsync(entity);
-    }
-
-    public async Task RemoveAsync(string id)
-    {
-        await _repository.DeleteAsync(id);
-    }
 }

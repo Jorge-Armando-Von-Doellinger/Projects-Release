@@ -11,7 +11,7 @@ public sealed class MongoContext
 {
     private readonly IOptionsMonitor<DatabaseSettings> _settings;
     private readonly IMongoClient _mongoClient;
-    private List<WriteModel<NotificationEntity>> _operations = new ();
+    private List<WriteModel<NotificationBase>> _operations = new ();
     public MongoContext(IOptionsMonitor<DatabaseSettings> settings)
     {
         _settings = settings;
@@ -21,17 +21,17 @@ public sealed class MongoContext
     }
     private void MapPropertyId()
     {
-        if(BsonClassMap.IsClassMapRegistered(typeof(NotificationEntity))) return;
-        BsonClassMap.RegisterClassMap<NotificationEntity>(mp =>
+        if(BsonClassMap.IsClassMapRegistered(typeof(NotificationBase))) return;
+        BsonClassMap.RegisterClassMap<NotificationBase>(mp =>
         {
             mp.AutoMap();
             mp.MapIdProperty(x => x.Id);
         });
     }
     private IMongoDatabase GetDatabase() => _mongoClient.GetDatabase(_settings.CurrentValue.DatabaseName);
-    internal IMongoCollection<NotificationEntity> GetNotificationCollection() => GetDatabase().GetCollection<NotificationEntity>(_settings.CurrentValue.NotificationCollection);
+    internal IMongoCollection<NotificationBase> GetNotificationCollection() => GetDatabase().GetCollection<NotificationBase>(_settings.CurrentValue.NotificationCollection);
     
-    internal void AddOperation(WriteModel<NotificationEntity> writeModel)
+    internal void AddOperation(WriteModel<NotificationBase> writeModel)
     {
         _operations.Add(writeModel);
     }
@@ -47,7 +47,7 @@ public sealed class MongoContext
     private async Task ExecuteOperationsAsync()
     {
         if(_operations.Count <= 0) return;
-        List<WriteModel<NotificationEntity>> operationsCopy; 
+        List<WriteModel<NotificationBase>> operationsCopy; 
         lock (_operations)
         {
             operationsCopy = new (_operations);

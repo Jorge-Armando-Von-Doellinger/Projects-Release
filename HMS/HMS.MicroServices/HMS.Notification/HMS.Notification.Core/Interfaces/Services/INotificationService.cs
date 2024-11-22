@@ -4,5 +4,5 @@ namespace HMS.Notification.Core.Interfaces.Services;
 
 public interface INotificationService
 {
-    Task Send(NotificationEntity notification, string emailDestine);
+    Task SendEmail(NotificationByEmail notification);
 }

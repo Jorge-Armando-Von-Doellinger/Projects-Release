@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\HMS.Notification.gRPC.props" />
-</Project>

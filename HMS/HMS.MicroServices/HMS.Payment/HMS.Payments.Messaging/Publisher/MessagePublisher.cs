@@ -36,20 +36,14 @@ namespace HMS.Payments.Messaging.Publisher
 
         public async Task ReRepublishAsync(MessageData message, string exchange, string queue, string routingkey)
         {
-            try
+            await Task.Run(() =>
             {
-                await Task.Run(() =>
-                {
-                    message.RetryCount++; 
-                    var serialized = JsonSerializer.Serialize(message, jsonOptions);
-                    var bytes = Encoding.UTF8.GetBytes(serialized);
-                    _channel.BasicPublish(exchange, routingkey, null, bytes);
-                });
-            }
-            catch
-            {
-                
-            }
+                message.RetryCount++; 
+                var serialized = JsonSerializer.Serialize(message, jsonOptions);
+                var bytes = Encoding.UTF8.GetBytes(serialized);
+                _channel.BasicPublish(exchange, routingkey, null, bytes);
+            });
+
         }
     }
 }

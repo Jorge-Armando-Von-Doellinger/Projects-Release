@@ -1,0 +1,16 @@
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\bin\Debug\net9.0\HMS.Notification.Messaging.deps.json
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\bin\Debug\net9.0\HMS.Notification.Messaging.dll
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\bin\Debug\net9.0\HMS.Notification.Messaging.pdb
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\bin\Debug\net9.0\HMS.Notification.Core.dll
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\bin\Debug\net9.0\HMS.Notification.Core.pdb
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.csproj.AssemblyReference.cache
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.AssemblyInfoInputs.cache
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.AssemblyInfo.cs
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.sourcelink.json
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Noti.30FFC08E.Up2Date
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.dll
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\refint\HMS.Notification.Messaging.dll
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\HMS.Notification.Messaging.pdb
+C:\Users\Jorge\Documents\Git-Clones\Projects-Release\HMS\HMS.MicroServices\HMS.Notification\HMS.Notification.Messaging\obj\Debug\net9.0\ref\HMS.Notification.Messaging.dll

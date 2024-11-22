@@ -5,21 +5,13 @@ namespace HMS.Notification.Application.Mapper;
 
 public sealed class NotificationMapper
 {
-    public NotificationEntity MapToEntity(NotificationDTO notification)
+    public NotificationByEmail MapToEntity(NotificationByEmailDto notificationDto)
     {
         return new()
         {
-            Content = notification.Content,
-            Title = notification.Title,
-        };
-    }
-    internal NotificationEntity MapToEntity(NotificationUpdateDTO notification)
-    {
-        return new()
-        {
-            Id = notification.Id,
-            Content = notification.Content,
-            Title = notification.Title,
+            Content = notificationDto.Content,
+            Title = notificationDto.Title,
+            Email = notificationDto.Email,
         };
     }
 }

@@ -4,10 +4,10 @@ namespace HMS.Notification.Core.Interfaces.Repository;
 
 public interface INotificationRepository
 {
-    Task AddAsync(NotificationEntity notification);
-    Task UpdateAsync(NotificationEntity notification);
+    Task AddAsync(NotificationBase notification);
+    Task UpdateAsync(NotificationBase notification);
     Task DeleteAsync(string id);
-    Task<NotificationEntity> GetByIdAsync(string id);
-    Task<List<NotificationEntity>> GetAllAsync();
+    Task<NotificationBase> GetByIdAsync(string id);
+    Task<List<NotificationBase>> GetAllAsync();
     
 }
