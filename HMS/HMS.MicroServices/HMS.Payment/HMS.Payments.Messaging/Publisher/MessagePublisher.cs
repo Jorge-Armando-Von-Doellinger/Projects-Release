@@ -6,44 +6,53 @@ using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
 using HMS.Payments.Core.Data;
+using HMS.Payments.Core.Entity;
+using HMS.Payments.Messaging.Factory;
+using HMS.Payments.Messaging.Properties;
 
 namespace HMS.Payments.Messaging.Publisher
 {
     public sealed class MessagePublisher : IMessagePublisher
     {
-        private readonly IModel _channel;
+        private readonly ChannelFactory _channelFactory;
         private readonly MessagingSettings _settings;
         private readonly JsonSerializerOptions jsonOptions = new ()
         {
             PropertyNamingPolicy = null
         };
-        public MessagePublisher(IModel channel, RabbitContext context, IOptionsMonitor<MessagingSettings> messagingSettings)
+        public MessagePublisher(ChannelFactory channelFactory, RabbitContext context, IOptionsMonitor<MessagingSettings> messagingSettings)
         {
-            _channel = channel;
+            _channelFactory = channelFactory;
             _settings = messagingSettings.CurrentValue;
         }
 
         public async Task PublishAsync<T>(T message, string exchange, string queue, string routingkey)
         {
-            await Task.Run(() =>
-            {
-                var serialized = JsonSerializer.Serialize(message, jsonOptions);
-                var bytes = Encoding.UTF8.GetBytes(serialized);
-                _channel.BasicPublish(exchange, routingkey, null, bytes);
-            });
-            
+            var channel = await _channelFactory.GetChannelAsync(); 
+            var serialized = JsonSerializer.Serialize(message, jsonOptions);
+            var bytes = Encoding.UTF8.GetBytes(serialized);
+            await channel.BasicPublishAsync(exchange, routingkey, false, bytes);
+
         }
 
-        public async Task ReRepublishAsync(MessageData message, string exchange, string queue, string routingkey)
+        public async Task ToRetryQueue(Message message)
         {
-            await Task.Run(() =>
+            var channel = await _channelFactory.GetChannelAsync();
+            var serialized = JsonSerializer.Serialize(message, jsonOptions);
+            var bytes = Encoding.UTF8.GetBytes(serialized);
+            var properties = new BasicProperties().Headers = new  Dictionary<string, object?>()
             {
-                message.RetryCount++; 
-                var serialized = JsonSerializer.Serialize(message, jsonOptions);
-                var bytes = Encoding.UTF8.GetBytes(serialized);
-                _channel.BasicPublish(exchange, routingkey, null, bytes);
-            });
+                { new MessageProperties().RetryCount , message.Attempts }
+            };
+            await channel.BasicPublishAsync(_settings.Exchange, _settings.GetRetryQueue(), false, bytes);
+        }
 
+        public async Task ToDeadLetterQueueAsync<T>(T message)
+        {
+            var channel = await _channelFactory.GetChannelAsync();
+            var serialized = JsonSerializer.Serialize(message, jsonOptions);
+            var bytes = Encoding.UTF8.GetBytes(serialized);
+            await channel.BasicPublishAsync(_settings.Exchange, _settings.GetUnprocessableQueue(), false, bytes);
         }
     }
 }

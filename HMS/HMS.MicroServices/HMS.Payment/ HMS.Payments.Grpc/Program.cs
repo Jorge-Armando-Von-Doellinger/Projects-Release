@@ -19,7 +19,8 @@ public class Program
             .AddSettingsModule(builder.Configuration) // Configura o app com base nas classes de representação
             .AddApplicationModule()
             .AddInfrastructureModule()
-            .AddMessagingModule();
+            .AddMessagingModule()
+            .AddMemoryCache();
         
         var app = builder.Build();
 

@@ -1,10 +1,12 @@
 ﻿using HMS.Payments.Core.Data;
+using HMS.Payments.Core.Entity;
 
 namespace HMS.Payments.Core.Interfaces.Processor
 {
     public interface IMessageProcessor
     {
-        Task TryProcess(byte[] bytes);
-        Task<(bool success, List<MessageData>? MessageWithErrors)> TryProcess(List<byte[]> bytes);
+        Task Process(byte[] bytes);
+        Task Process(List<byte[]> bytes);
+        Task ReProcess(Message message);
     }
 }

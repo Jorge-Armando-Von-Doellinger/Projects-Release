@@ -8,8 +8,11 @@ using HMS.Payments.Core.Interfaces.Processor;
 using Microsoft.Extensions.DependencyInjection;
 using NJsonSchema;
 using System.Text;
+using System.Text.Json;
 using HMS.Payments.Application.Services;
 using HMS.Payments.Core.Data;
+using HMS.Payments.Core.Entity;
+using HMS.Payments.Core.Interfaces.Messaging;
 
 namespace HMS.Payments.Application.Processor
 {
@@ -20,6 +23,7 @@ namespace HMS.Payments.Application.Processor
         private readonly IPaymentManager _paymentManager;
         private readonly IPaymentEmployeeManager _paymentEmployeeManager;
         private readonly HandlerService _handlerService;
+        private readonly IMessagePublisher _publisher;
 
         public MessagingProcessor(IServiceProvider serviceProvider, ICacheService cacheService)
         {
@@ -28,23 +32,31 @@ namespace HMS.Payments.Application.Processor
             _paymentManager = scope.GetRequiredService<IPaymentManager>();
             _handlerService = scope.GetRequiredService<HandlerService>();
             _cacheService = cacheService;
-            
+            _publisher = serviceProvider.GetRequiredService<IMessagePublisher>();
         }
 
         
-        public async Task TryProcess(byte[] bytes)
+        public async Task Process(byte[] bytes)
         {
-            var json = Encoding.UTF8.GetString(bytes);
-            var handle = _handlerService.GetHandler(json)
-                            ?? throw new InvalidMessageException("Mensagem inválida!");
-            await handle.HandleAsync(json);
+            try
+            {
+                var json = Encoding.UTF8.GetString(bytes);
+                var handle = _handlerService.GetHandler(json)
+                             ?? throw new InvalidMessageException("Mensagem inválida!");
+                await handle.HandleAsync(json);
+            }
+            catch
+            {
+                await _publisher.ToRetryQueue(new() { Content = bytes, Attempts = 1 });
+            }
         }
 
-        public async Task<(bool success, List<MessageData>? MessageWithErrors)> TryProcess(List<byte[]> bytes)
+        public async Task Process(List<byte[]> bytes)
         {
-            var messages = new List<MessageData>();
-            Parallel.ForEach(bytes, async (bytes, _) =>
+            var messages = new List<Message>();
+            await Parallel.ForEachAsync(bytes, async (bytes, _) =>
             {
+                short attempts = 0;
                 try
                 {
                     var json = Encoding.UTF8.GetString(bytes);
@@ -54,10 +66,30 @@ namespace HMS.Payments.Application.Processor
                 }
                 catch
                 {
-                    messages.Add(new() { Message = bytes, RetryCount = 1});
+                    messages.Add(new() { Content = bytes, Attempts = 1});
                 }
             });
-            return new (){ success = true, MessageWithErrors = messages };
+            if(messages.Count < 1) return; // Se não houver mensagens não processadas, ele retorna,
+            await Parallel.ForEachAsync(messages, async (message, cancelationToken) =>
+            {
+                await _publisher.ToRetryQueue(message);
+            });
+        }
+
+        public async Task ReProcess(Message message) // Tenta reprocessar uma mensagem. Se não conseguir, joga na fila dnv
+        {
+            try
+            {
+                var json = Encoding.UTF8.GetString(message.Content);
+                var handle = _handlerService.GetHandler(json)
+                             ?? throw new InvalidMessageException("Mensagem inválida!");
+                await handle.HandleAsync(json);
+            }
+            catch
+            {
+                message.Attempts++;
+                await _publisher.ToRetryQueue(message);
+            }
         }
     }
 }

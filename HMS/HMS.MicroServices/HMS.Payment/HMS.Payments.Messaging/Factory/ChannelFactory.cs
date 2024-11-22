@@ -7,15 +7,14 @@ namespace HMS.Payments.Messaging.Factory
 {
     public sealed class ChannelFactory
     {
+        private readonly RabbitContext _context;
         private readonly MessagingSettings _settings;
-        internal IModel Channel { get; }
         public ChannelFactory(IOptionsMonitor<MessagingSettings> settings, RabbitContext context)
         {
+            _context = context;
             _settings = settings.CurrentValue;
-            Channel = GetChannel();
-            context.ConfigureChannel(Channel);
         }
-        internal IModel GetChannel()
+        internal async Task<IChannel> GetChannelAsync()
         {
             var uri = new Uri(_settings.Address);
             var factory = new ConnectionFactory()
@@ -25,8 +24,9 @@ namespace HMS.Payments.Messaging.Factory
                 UserName = _settings.User,
                 Password = _settings.Password,
             };
-            var connection = factory.CreateConnection();
-            var channel = connection.CreateModel();
+            var connection = await factory.CreateConnectionAsync();
+            var channel = await connection.CreateChannelAsync();
+            await _context.ConfigureChannel(channel);
             return channel;
         }
     }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HMS.Payments.Messaging")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3912f65966a7edcc60eed143b1454eb00b767cf1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d42f90c6706aa8281cb0eb91f9e6e594fecfb3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("HMS.Payments.Messaging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HMS.Payments.Messaging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

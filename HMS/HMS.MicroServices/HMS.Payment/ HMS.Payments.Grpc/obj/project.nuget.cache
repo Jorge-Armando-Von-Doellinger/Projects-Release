@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "63TGhRWTV2E=",
+  "dgSpecHash": "A5XKGoWu6Eg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\ HMS.Payments.Grpc\\HMS.Payments.Grpc.csproj",
   "expectedPackageFiles": [
@@ -54,16 +54,17 @@
     "C:\\Users\\Jorge\\.nuget\\packages\\newtonsoft.json.schema\\4.0.1\\newtonsoft.json.schema.4.0.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\njsonschema\\11.0.2\\njsonschema.11.0.2.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\njsonschema.annotations\\11.0.2\\njsonschema.annotations.11.0.2.nupkg.sha512",
-    "C:\\Users\\Jorge\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\rabbitmq.client\\7.0.0\\rabbitmq.client.7.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.0\\system.diagnostics.eventlog.9.0.0.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\Jorge\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
+    "C:\\Users\\Jorge\\.nuget\\packages\\system.threading.ratelimiting\\8.0.0\\system.threading.ratelimiting.8.0.0.nupkg.sha512",
     "C:\\Users\\Jorge\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
   "logs": []

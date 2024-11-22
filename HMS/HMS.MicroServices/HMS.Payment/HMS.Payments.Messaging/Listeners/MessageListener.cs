@@ -1,6 +1,10 @@
-﻿using HMS.Payments.Core.Data;
+﻿using System.Diagnostics;
+using HMS.Payments.Core.Data;
+using HMS.Payments.Core.Entity;
 using HMS.Payments.Core.Interfaces.Messaging;
 using HMS.Payments.Core.Interfaces.Processor;
+using HMS.Payments.Messaging.Factory;
+using HMS.Payments.Messaging.Properties;
 using HMS.Payments.Messaging.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,15 +16,18 @@ namespace HMS.Payments.Messaging.Listeners
 {
     public sealed class MessageListener : BackgroundService, IMessageListener
     {
-        private IModel _channel;
         private readonly IMessageProcessor _messageProcessor;
+        private readonly ChannelFactory _factory;
         private readonly IMessagePublisher _messagePublisher;
         private readonly MessagingSettings _settings;
 
-        public MessageListener(IServiceProvider serviceProvider, IOptionsMonitor<MessagingSettings> settings , IMessageProcessor messageProcessor)
+        public MessageListener(IServiceProvider serviceProvider, 
+            IOptionsMonitor<MessagingSettings> settings , 
+            IMessageProcessor messageProcessor,
+            ChannelFactory factory)
         {
-            _channel = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<IModel>();
             _messageProcessor = messageProcessor;
+            _factory = factory;
             _messagePublisher  = serviceProvider.GetRequiredService<IMessagePublisher>();
             _settings = settings.CurrentValue;
         }
@@ -36,47 +43,46 @@ namespace HMS.Payments.Messaging.Listeners
             // retornar para a fila de retry os que derem erro
             // quem der erro +3x, recebe a notificação de erro
             // vai para dead-queue
+            var channel = await _factory.GetChannelAsync();
             
             
-            cancellationToken.ThrowIfCancellationRequested();
-            _channel.BasicQos(0, 50, false);
-            var consumer = new EventingBasicConsumer(_channel);
-            consumer.Received += async (obj, args) =>
+            var consumer = new AsyncEventingBasicConsumer(channel);
+            consumer.ReceivedAsync += async (obj, args) =>
             {
+                cancellationToken.ThrowIfCancellationRequested();
                 var message = args.Body.ToArray();
-                lock (_messages)
-                    _messages.Add(message);
+                var retries = GetRetries(args.BasicProperties.Headers);
+                Task task = retries switch 
+                {
+                    0 => _messageProcessor.Process(message),
+                    <=3 => _messageProcessor.ReProcess(new () {Content = message, Attempts = retries}),
+                    >3 => _messagePublisher.ToDeadLetterQueueAsync(new Message() { Content = message, Attempts = retries })
+                };
+                await task;
+                // if(retries == 0)
+                //     await _messageProcessor.Process(message);
+                // else if(retries <= 3)
+                //     await _messageProcessor.ReProcess(new () { Content = message, });
+                // else
+                //     await _messagePublisher.ToDeadLetterQueueAsync(new Message() { Content = message, Attempts = 4});
             };
             
-            Parallel.ForEach(_settings.Queues, (queue, cancellationToken) =>
+            await Parallel.ForEachAsync(_settings.Queues.Values, async (queue, cancellationToken) =>
             {
-                _channel.BasicConsume(queue, true, consumer);
+                await channel.BasicConsumeAsync(queue, false, consumer);
             });
         }
 
-        private async Task AddOnRetryQueueAsync(List<MessageData> messages)
+        private short GetRetries(IDictionary<string, object> headers)
         {
-            foreach (var message in messages)
-            {
-                await _messagePublisher.ReRepublishAsync(message, 
-                    _settings.Exchange, 
-                    _settings.Queues.FirstOrDefault(x => x.Contains("retry")), 
-                    string.Empty);
-            }
+            if(headers.TryGetValue(new MessageProperties().RetryCount, out var retryCount))
+                return (short) retryCount;
+            return 0;
         }
         
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             await ListeningAsync(stoppingToken);
-            List<byte[]> copy;
-            while (!stoppingToken.IsCancellationRequested)
-            {
-                await Task.Delay(TimeSpan.FromSeconds(15), stoppingToken);
-                lock (_messages) copy = new List<byte[]>(_messages); // Create a copy of the messages
-                var messagesWithError = await _messageProcessor.TryProcess(copy);
-                if (!messagesWithError.success && messagesWithError.MessageWithErrors?.Count > 0)
-                    await AddOnRetryQueueAsync(messagesWithError.MessageWithErrors);
-            }
         }
         
         // Confirma recebimento

@@ -1,4 +1,5 @@
-﻿using HMS.Payments.Messaging.Settings;
+﻿using HMS.Payments.Core.Exceptions;
+using HMS.Payments.Messaging.Settings;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 
@@ -6,36 +7,36 @@ namespace HMS.Payments.Messaging.Context
 {
     public sealed class RabbitContext
     {
-        private readonly MessagingSettings _settings;
+        private readonly IOptionsMonitor<MessagingSettings> _settings;
 
-        public RabbitContext(IOptionsMonitor<MessagingSettings> messagingSystem)
+
+        public RabbitContext(IOptionsMonitor<MessagingSettings> settings)
         {
-            _settings = messagingSystem.CurrentValue;
-
+            _settings = settings;
         }
-        internal void ConfigureChannel(IModel model)
+        internal async Task ConfigureChannel(IChannel model)
         {
-            ConfigurePaymentsEmployeeChannel(model);
-            ConfigurePaymentsChannel(model);
+            await ConfigurePaymentsEmployeeChannel(model);
+            await ConfigurePaymentsChannel(model);
         }
 
         // Methods configuration
-        private void ConfigurePaymentsChannel(IModel model)
+        private async Task ConfigurePaymentsChannel(IChannel model)
         {
-            Configure(model, _settings);
+            await Configure(model, _settings.CurrentValue);
         }
-        private void ConfigurePaymentsEmployeeChannel(IModel model)
+        private async Task ConfigurePaymentsEmployeeChannel(IChannel model)
         {
-            Configure(model, _settings);
+            await Configure(model, _settings.CurrentValue);
         }
-        private void Configure(IModel model, MessagingSettings settings)
+        private async Task Configure(IChannel model, MessagingSettings settings)
         {
-            if (settings == null) throw new KeyNotFoundException("payments-components KEY not founded");
-            model.ExchangeDeclare(settings.Exchange, settings.TypeExchange, true, false);
-            foreach (var queue in settings.Queues)
+            if (settings == null) throw new SettingsNullException("Messaging settings cannot be null");
+            await model.ExchangeDeclareAsync(settings.Exchange, settings.TypeExchange, true, false);
+            foreach (var queue in settings.Queues.Values)
             {
-                model.QueueDeclare(queue, true, true, false);
-                model.QueueBind(queue, settings.Exchange, string.Empty);
+                await model.QueueDeclareAsync(queue, true, true, false);
+                await model.QueueBindAsync(queue, settings.Exchange, string.Empty);
             }
         }
     }

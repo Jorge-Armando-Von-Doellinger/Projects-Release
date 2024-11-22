@@ -14,7 +14,6 @@ namespace HMS.Payments.Messaging.Modules
         {
             services
                 .AddFactory()
-                .AddChannel()
                 .AddContexts()
                 .AddListener()
                 .AddPublisher()
@@ -30,16 +29,6 @@ namespace HMS.Payments.Messaging.Modules
         private static IServiceCollection AddFactory(this IServiceCollection services)
         {
             services.AddSingleton<ChannelFactory>();
-            return services;
-        }
-
-        private static IServiceCollection AddChannel(this IServiceCollection services)
-        {
-            services.AddSingleton<IModel>(sp =>
-            {
-                var factory = sp.GetRequiredService<ChannelFactory>();
-                return factory.Channel;
-            });
             return services;
         }
 
