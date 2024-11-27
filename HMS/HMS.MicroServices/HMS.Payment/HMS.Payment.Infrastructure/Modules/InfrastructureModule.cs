@@ -1,6 +1,6 @@
 ﻿using Consul;
+using HMS.Payments.Core.Interfaces.Internal_Services;
 using HMS.Payments.Core.Interfaces.Repository;
-using HMS.Payments.Core.Interfaces.Services;
 using HMS.Payments.Infrastructure.Context;
 using HMS.Payments.Infrastructure.Repository;
 using HMS.Payments.Infrastructure.Services;
@@ -42,8 +42,8 @@ namespace HMS.Payments.Infrastructure.Modules
         {
             services.AddSingleton<IMongoClient>(sp =>
             {
-                var context = sp.GetRequiredService<IOptionsMonitor<DatabaseSettings>>();
-                return new MongoClient(context.CurrentValue.ConnectionString);
+                var settings = sp.GetRequiredService<IOptionsMonitor<DatabaseSettings>>();
+                return new MongoClient(settings.CurrentValue.ConnectionString);
             });
             services.AddSingleton<IConsulClient>(sp =>
             {

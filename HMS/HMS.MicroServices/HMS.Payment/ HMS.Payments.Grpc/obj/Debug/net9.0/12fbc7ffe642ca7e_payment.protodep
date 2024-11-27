@@ -1,0 +1,3 @@
+obj\Debug\net9.0\Protos/Payment.cs \
+obj\Debug\net9.0\Protos/PaymentGrpc.cs: C:/Users/Jorge/.nuget/packages/grpc.tools/2.64.0/build/native/include/google/protobuf/empty.proto\
+ Protos/payment.proto

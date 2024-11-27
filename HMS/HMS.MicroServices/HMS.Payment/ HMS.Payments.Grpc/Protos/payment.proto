@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "HMS.Payments.Grpc";
+
+package greet;
+
+import "google/protobuf/empty.proto";
+service PaymentProto {
+  rpc AddPayment (PaymentProtoDto) returns (google.protobuf.Empty);
+}
+
+
+message PaymentProtoDto {
+  string beneficiary = 1;          // Nome ou identificador do beneficiário
+  string payer = 2;                // Nome ou identificador do pagador
+  double amount = 3;               // Valor da transação (em unidades monetárias)
+  string paymentMethod = 4;        // Método de pagamento (ex.: "Cartão", "PIX")
+  string description = 5;          // Descrição da transação
+  string payerCPF = 6;             // CPF do pagador (apenas se pessoa física)
+  string payerCNPJ = 7;            // CNPJ do pagador (apenas se pessoa jurídica)
+  string beneficiaryCPF = 8;       // CPF do beneficiário (apenas se pessoa física)
+  string beneficiaryCNPJ = 9;      // CNPJ do beneficiário (apenas se pessoa jurídica)
+  string observations = 11;        // Observações gerais ou notas
+}

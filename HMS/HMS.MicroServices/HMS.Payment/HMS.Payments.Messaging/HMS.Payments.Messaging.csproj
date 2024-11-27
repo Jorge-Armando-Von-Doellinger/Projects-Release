@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Services\Background-Services\" />
+    <Folder Include="Teste\" />
   </ItemGroup>
 
 </Project>

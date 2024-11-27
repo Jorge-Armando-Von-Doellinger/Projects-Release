@@ -18,12 +18,10 @@ namespace HMS.Payments.Infrastructure.Repository
         }
         public async Task AddAsync(PaymentEmployee payment)
         {
-            _context.AddOperation(new InsertOneModel<PaymentEmployee>(payment));
-            /*            payment.ID = null;
-                        await _transaction.Execute(async (session) =>
-                        {
-                            await _context.PaymentEmployee.InsertOneAsync(session, payment);
-                        });*/
+            await _transaction.ExecuteAsync(async (session) =>
+            {
+                await _context.Payment.InsertOneAsync(session, payment);
+            });
         }
 
         public Task DeleteAsync(string paymentId)
@@ -37,21 +35,21 @@ namespace HMS.Payments.Infrastructure.Repository
             return await documents.ToListAsync();
         }
 
-        public async Task<List<PaymentEmployee>> GetByEmployeeID(string EmployeeID)
-        {
-            var documents = await _context.PaymentEmployee.FindAsync(x => x.EmployeeId == EmployeeID);
+        public async Task<List<PaymentEmployee>> GetByEmployeeID(string employeeId)
+        { ;
+            var documents = await _context.PaymentEmployee.FindAsync(x => x.EmployeeId == employeeId);
             return await documents.ToListAsync();
         }
 
-        public async Task<PaymentEmployee> GetByIDAsync(string ID)
+        public async Task<PaymentEmployee> GetByIDAsync(string id)
         {
-            var document = await _context.PaymentEmployee.FindAsync(doc => doc.ID == ID);
+            var document = await _context.PaymentEmployee.FindAsync(doc => doc.ID == id);
             return await document.FirstOrDefaultAsync();
         }
 
         public async Task UpdateAsync(PaymentEmployee payment)
         {
-            await _transaction.Execute(async (session) =>
+            await _transaction.ExecuteAsync(async (session) =>
             {
                 await _context.PaymentEmployee.ReplaceOneAsync(session, doc => doc.ID == payment.ID, payment);
             });

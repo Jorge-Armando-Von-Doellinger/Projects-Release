@@ -32,9 +32,11 @@ public sealed class RabbitMqListener : BackgroundService, IMessageListener
     {
         var channel = await _channelFactory.GetChannelAsync();
         var consumer = new AsyncEventingBasicConsumer(channel);
+        await channel.BasicQosAsync(0, 10, true);
         consumer.ReceivedAsync += async (model, ea) =>
         {
             cancellationToken.ThrowIfCancellationRequested();
+            
             if(await UnprocessableByRetryCount(ea))
                 return;
             await _processor.Process(ea.Body.ToArray());

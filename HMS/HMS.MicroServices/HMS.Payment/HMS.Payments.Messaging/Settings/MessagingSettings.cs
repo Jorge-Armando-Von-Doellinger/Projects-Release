@@ -9,8 +9,8 @@
         public string Exchange { get; set; }
         public string TypeExchange { get; set; }
         
-        internal string GetPaymentQueue() => Queues?.FirstOrDefault(x => x.Key == "Payment").Value;
-        internal string GetPaymentEmployeeQueue() => Queues?.FirstOrDefault(x => x.Key == "PaymentEmployee").Value;
+        public string GetPaymentQueue() => Queues?.FirstOrDefault(x => x.Key == "Payment").Value;
+        public string GetPaymentEmployeeQueue() => Queues?.FirstOrDefault(x => x.Key == "PaymentEmployee").Value;
         internal string GetRetryQueue() => Queues?.FirstOrDefault(x => x.Key == "Retry-AllPayments").Value;
         internal string GetUnprocessableQueue() => Queues?.FirstOrDefault(x => x.Key == "Retry-AllPayments").Value;
     }

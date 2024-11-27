@@ -12,7 +12,7 @@ namespace HMS.Payments.Infratructure.Services
         {
             _client = client;
         }
-        internal async Task Execute([NotNull] Func<IClientSessionHandle, Task> action)
+        internal async Task ExecuteAsync([NotNull] Func<IClientSessionHandle, Task> action)
         {
             using (var session = await _client.StartSessionAsync())
             {

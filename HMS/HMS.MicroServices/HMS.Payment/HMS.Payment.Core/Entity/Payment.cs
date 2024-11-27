@@ -1,6 +1,8 @@
 ﻿using HMS.Payments.Core.Entity.Base;
 using HMS.Payments.Core.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+using System.Text.Json;
 
 namespace HMS.Payments.Core.Entity
 {
@@ -11,8 +13,8 @@ namespace HMS.Payments.Core.Entity
         [StringLength(255, MinimumLength = 3, ErrorMessage = "Nome do pagador está inválido!")]// Limita o CPF em 14 caracteres
 
         public string Payer { get; set; }
-        public decimal Amount { get; set; }
-        public string PaymentMethod { get; set; }
+        public double Amount { get; set; }
+        public PaymentMethodEnum PaymentMethod { get; set; }
 
         public string Description { get; set; }
         
@@ -39,11 +41,14 @@ namespace HMS.Payments.Core.Entity
 
         private void ValidateData()
         {
-            var payerDataIsValid = !(PayerCPF != null && PayerCNPJ != null) && (PayerCPF != null || PayerCNPJ != null); // Se ambos não sao NULL, mas se somente um for diferente de null, ta certo
-            var beneficaryDataIsValid = !(BeneficiaryCPF != null && BeneficiaryCNPJ != null) && (BeneficiaryCPF != null || BeneficiaryCNPJ != null);
-
-            if (payerDataIsValid == false) throw new InvalidDataException("Dados do pagador não são validos!");
-            if (beneficaryDataIsValid == false) throw new InvalidDataException("Dados do beneficiario não são validos!");
+            if (string.IsNullOrWhiteSpace(BeneficiaryCPF) && string.IsNullOrWhiteSpace(BeneficiaryCNPJ) ||
+                (!string.IsNullOrWhiteSpace(BeneficiaryCPF) && !string.IsNullOrWhiteSpace(BeneficiaryCNPJ)))
+                 throw new InvalidDataException("Dados do beneficiario não são validos!");
+            
+            if (string.IsNullOrWhiteSpace(PayerCPF) && string.IsNullOrWhiteSpace(PayerCNPJ) ||
+                (!string.IsNullOrWhiteSpace(PayerCPF) && !string.IsNullOrWhiteSpace(PayerCNPJ)))
+                throw new InvalidDataException("Dados do pagador não são validos!");
+            
         }
 
         private void ValidatePayment()

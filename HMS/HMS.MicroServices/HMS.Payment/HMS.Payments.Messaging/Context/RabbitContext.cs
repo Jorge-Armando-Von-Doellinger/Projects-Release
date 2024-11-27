@@ -35,8 +35,8 @@ namespace HMS.Payments.Messaging.Context
             await model.ExchangeDeclareAsync(settings.Exchange, settings.TypeExchange, true, false);
             foreach (var queue in settings.Queues.Values)
             {
-                await model.QueueDeclareAsync(queue, true, true, false);
-                await model.QueueBindAsync(queue, settings.Exchange, string.Empty);
+                await model.QueueDeclareAsync(queue, true, false, false);
+                await model.QueueBindAsync(queue, settings.Exchange, queue);
             }
         }
     }

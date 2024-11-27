@@ -1,11 +1,10 @@
 ﻿using NJsonSchema;
 
-namespace HMS.Payments.Application.Interfaces.Services
+namespace HMS.Payments.Application.Interfaces.Services;
+
+public interface ISchemasService
 {
-    public interface ISchemasService
-    {
-        JsonSchema FromType(Type t);
-        JsonSchema FromType<T>();
-        JsonSchema FromJson(string json);
-    }
+    JsonSchema FromType(Type t);
+    JsonSchema FromType<T>();
+    JsonSchema FromJson(string json);
 }

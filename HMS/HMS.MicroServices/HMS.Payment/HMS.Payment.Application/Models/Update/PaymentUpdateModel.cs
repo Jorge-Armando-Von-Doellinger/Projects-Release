@@ -1,10 +1,9 @@
 ﻿using HMS.Payments.Application.Models.Input;
 
-namespace HMS.Payments.Application.Models.Update
+namespace HMS.Payments.Application.Models.Update;
+
+// Herda o seu input
+public sealed class PaymentUpdateModel : PaymentModel
 {
-    // Herda o seu input
-    public sealed class PaymentUpdateModel : PaymentModel
-    {
-        public string ID { get; set; }
-    }
+    public string ID { get; set; }
 }

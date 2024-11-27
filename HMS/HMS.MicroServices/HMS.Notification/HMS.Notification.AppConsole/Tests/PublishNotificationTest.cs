@@ -19,7 +19,7 @@ public sealed class PublishNotificationTest
 
     public async Task Publish()
     {
-        var x = 10;
+        var x = 100;
         while (x != 0)
         {
             var settings = _settings.CurrentValue;
@@ -36,6 +36,5 @@ public sealed class PublishNotificationTest
                 );
             x--;
         }
-            Console.WriteLine("Complted");
     }
 }

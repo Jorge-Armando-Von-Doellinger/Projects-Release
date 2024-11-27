@@ -1,7 +1,6 @@
-﻿namespace HMS.Payments.Application.Interfaces.Handlers
+﻿namespace HMS.Payments.Application.Interfaces.Handlers;
+
+public interface IMessageHandler
 {
-    public interface IMessageHandler
-    {
-        internal Task HandleAsync(string json);
-    }
+    internal Task HandleAsync(string json);
 }

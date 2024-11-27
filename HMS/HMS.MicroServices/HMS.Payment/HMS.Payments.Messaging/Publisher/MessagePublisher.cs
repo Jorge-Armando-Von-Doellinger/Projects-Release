@@ -38,7 +38,7 @@ namespace HMS.Payments.Messaging.Publisher
         public async Task ToRetryQueue(Message message)
         {
             var channel = await _channelFactory.GetChannelAsync();
-            var serialized = JsonSerializer.Serialize(message, jsonOptions);
+            var serialized = JsonSerializer.Serialize(message.Content, jsonOptions);
             var bytes = Encoding.UTF8.GetBytes(serialized);
             var properties = new BasicProperties().Headers = new  Dictionary<string, object?>()
             {

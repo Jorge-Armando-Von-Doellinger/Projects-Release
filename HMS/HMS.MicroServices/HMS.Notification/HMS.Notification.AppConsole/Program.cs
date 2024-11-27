@@ -21,7 +21,7 @@ class Program
             {
                 config.Sources.Clear();
                 config.SetBasePath(
-                    AppDomain.CurrentDomain.BaseDirectory+"../../../");
+                    AppDomain.CurrentDomain.BaseDirectory + "../../../");
                 config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
                 config.AddEnvironmentVariables();
             })
@@ -35,16 +35,10 @@ class Program
                 AppConfigurator.AddAppSettings(services, context.Configuration);
             })
             .Build();
-        Env.Load(AppDomain.CurrentDomain.BaseDirectory+"../../../.env");
-        var a = host.Services.GetRequiredService<PublishNotificationTest>();
-        await a.Publish();
+        Env.Load(AppDomain.CurrentDomain.BaseDirectory + "../../../.env");
+        //var a = host.Services.GetRequiredService<PublishNotificationTest>();
+        //await a.Publish();
         await host.StartAsync();
         Console.ReadLine();
-    }
-
-    static async Task Test(IServiceProvider serviceProvider)
-    {
-        var testPublisher = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<PublishNotificationTest>();
-        await testPublisher.Publish();
     }
 }

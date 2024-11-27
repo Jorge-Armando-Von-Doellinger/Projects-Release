@@ -1,6 +1,6 @@
 ﻿using Consul;
 using HMS.Payments.Core.Data;
-using HMS.Payments.Core.Interfaces.Services;
+using HMS.Payments.Core.Interfaces.Internal_Services;
 using HMS.Payments.Infrastructure.Context;
 
 namespace HMS.Payments.Infrastructure.Services

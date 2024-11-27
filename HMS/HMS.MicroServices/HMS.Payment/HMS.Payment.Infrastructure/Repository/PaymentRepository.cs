@@ -18,10 +18,29 @@ namespace HMS.Payments.Infrastructure.Repository
         }
         public async Task AddAsync(Payment payment)
         {
-            _context.AddOperation(new InsertOneModel<Payment>(payment));
+            Console.WriteLine(payment.BeneficiaryCPF);
+            await _transaction.ExecuteAsync(async (session) =>
+            {
+                await _context.Payment.InsertOneAsync(session, payment);
+            });
+        }
+
+        public async Task AddBatchAsync(IEnumerable<Payment> payments)
+        {
+            await _context.Payment.InsertManyAsync(payments);
+        }
+
+        public Task UpdateBatchAsync(IEnumerable<Payment> payments)
+        {
+            throw new NotImplementedException();
         }
 
         public Task DeleteAsync(Payment payment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteBatchAsync(IEnumerable<string> payments)
         {
             throw new NotImplementedException();
         }
@@ -40,7 +59,7 @@ namespace HMS.Payments.Infrastructure.Repository
 
         public async Task UpdateAsync(Payment payment)
         {
-            await _transaction.Execute(async (session) =>
+            await _transaction.ExecuteAsync(async (session) =>
             {
                 await _context.Payment.ReplaceOneAsync(session, x => x.ID == payment.ID, payment);
             });
