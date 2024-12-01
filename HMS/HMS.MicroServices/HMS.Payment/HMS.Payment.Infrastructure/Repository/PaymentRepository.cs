@@ -1,4 +1,5 @@
 ﻿using HMS.Payments.Core.Entity;
+using HMS.Payments.Core.Enums;
 using HMS.Payments.Core.Interfaces.Repository;
 using HMS.Payments.Infrastructure.Context;
 using HMS.Payments.Infratructure.Services;
@@ -16,53 +17,44 @@ namespace HMS.Payments.Infrastructure.Repository
             _context = context;
             _transaction = transaction;
         }
-        public async Task AddAsync(Payment payment)
+        private FilterDefinition<Payment> GetFilter(string id) => Builders<Payment>.Filter.Eq(p => p.ID, id);
+        private UpdateDefinition<Payment> GetUpdateDefinition(PaymentStatus status) => Builders<Payment>.Update
+            .Set(p => p.Status, status);
+
+        public async Task AddManyAsync(List<Payment> payments)
         {
-            Console.WriteLine(payment.BeneficiaryCPF);
+            if (payments.Count == 0) return;
             await _transaction.ExecuteAsync(async (session) =>
             {
-                await _context.Payment.InsertOneAsync(session, payment);
+                await _context.Payment.InsertManyAsync(session, payments);
             });
         }
 
-        public async Task AddBatchAsync(IEnumerable<Payment> payments)
+        public async Task AddAsync(Payment payment)
         {
-            await _context.Payment.InsertManyAsync(payments);
+            await _transaction.ExecuteAsync(async (session) =>
+            {
+                await _context.Payment.InsertOneAsync(payment);
+            });
         }
 
-        public Task UpdateBatchAsync(IEnumerable<Payment> payments)
+        public async Task AddRefundAsync(Payment payment)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(Payment payment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteBatchAsync(IEnumerable<string> payments)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<Payment>> GetAllAsync()
-        {
-            var documents = await _context.Payment.FindAsync(p => true);
-            return await documents.ToListAsync();
+            var filter = GetFilter(payment.ID);
+            var update = GetUpdateDefinition(payment.Status);
+            await _context.Payment.UpdateOneAsync(filter, update);
         }
 
         public async Task<Payment> GetByIdAsync(string id)
         {
-            var document = await _context.Payment.FindAsync(doc => doc.ID == id);
-            return await document.FirstOrDefaultAsync();
+            var docs = await _context.Payment.FindAsync(p => p.ID == id);
+            return await docs.FirstOrDefaultAsync();
         }
 
-        public async Task UpdateAsync(Payment payment)
+        public async Task<List<Payment>> GetAllAsync()
         {
-            await _transaction.ExecuteAsync(async (session) =>
-            {
-                await _context.Payment.ReplaceOneAsync(session, x => x.ID == payment.ID, payment);
-            });
+            var docs = await _context.Payment.FindAsync(p => true);
+            return await docs.ToListAsync();
         }
     }
 }

@@ -2603,47 +2603,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jorge\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/jorge/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.Console\\HMS.Payments.Console.csproj",
+      "projectUniqueName": "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payments.Console/HMS.Payments.Console.csproj",
       "projectName": "HMS.Payments.Console",
-      "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.Console\\HMS.Payments.Console.csproj",
-      "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.Console\\obj\\",
+      "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payments.Console/HMS.Payments.Console.csproj",
+      "packagesPath": "/home/jorge/.nuget/packages/",
+      "outputPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payments.Console/obj/",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+        "/home/jorge/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "/usr/lib64/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Application\\HMS.Payments.Application.csproj": {
-              "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Application\\HMS.Payments.Application.csproj"
+            "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payment.Application/HMS.Payments.Application.csproj": {
+              "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payment.Application/HMS.Payments.Application.csproj"
             },
-            "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Infrastructure\\HMS.Payments.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payment.Infrastructure\\HMS.Payments.Infrastructure.csproj"
+            "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payment.Infrastructure/HMS.Payments.Infrastructure.csproj": {
+              "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payment.Infrastructure/HMS.Payments.Infrastructure.csproj"
             },
-            "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.External-Services\\HMS.Payments.External-Services.csproj": {
-              "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.External-Services\\HMS.Payments.External-Services.csproj"
+            "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payments.External-Services/HMS.Payments.External-Services.csproj": {
+              "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payments.External-Services/HMS.Payments.External-Services.csproj"
             },
-            "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.Messaging\\HMS.Payments.Messaging.csproj": {
-              "projectPath": "C:\\Users\\Jorge\\Documents\\Git-Clones\\Projects-Release\\HMS\\HMS.MicroServices\\HMS.Payment\\HMS.Payments.Messaging\\HMS.Payments.Messaging.csproj"
+            "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payments.Messaging/HMS.Payments.Messaging.csproj": {
+              "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/HMS/HMS.MicroServices/HMS.Payment/HMS.Payments.Messaging/HMS.Payments.Messaging.csproj"
             }
           }
         }
@@ -2684,7 +2680,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
