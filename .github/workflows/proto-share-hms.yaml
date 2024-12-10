@@ -1,0 +1,43 @@
+name: Copiar arquivos proto para outro repositório
+
+on: push
+
+jobs:
+  copiar-arquivos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositório de origem
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Criar diretórios para arquivos proto
+        run: |
+          mkdir -p /tmp/proto/HMS
+
+      - name: Encontrar e copiar arquivos proto
+        run: |
+          find ./HMS -type f -name "*.proto" -exec cp {} /tmp/proto/HMS/ \;
+
+      - name: Checkout repositório de destino
+        uses: actions/checkout@v3
+        with:
+          repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
+          token: ${{ secrets.GH_TOKEN }}
+          path: grpc-proto-files
+
+      - name: Copiar arquivos para o repositório de destino
+        run: cp -r /tmp/proto/HMS* grpc-proto-files/proto/HMS # especificando o projeto
+
+      - name: Commit e push para o repositório de destino
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          cd grpc-proto-files
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Adicionando arquivos proto na pasta proto/HMS"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Jorge-Armando-Von-Doellinger/grpc-proto-files.git
+          git push origin HEAD:main
