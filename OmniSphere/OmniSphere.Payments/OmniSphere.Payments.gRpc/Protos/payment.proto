@@ -1,0 +1,30 @@
+syntax = "proto3";
+option csharp_namespace = "OmniSphere.Payments.gRpc";
+
+import "google/protobuf/empty.proto";
+
+service PaymentProtoService {
+  rpc GetPaymentById(PaymentId) returns (PaymentProto);
+  rpc GetPaymentsByAccountId(AccountIdentifier) returns (ListPaymentsWithMessageProto);
+  rpc AddPayment(PaymentProto) returns (google.protobuf.Empty);
+  rpc DeletePayment(PaymentIdAndAccountId) returns (google.protobuf.Empty);
+}
+
+message PaymentId {
+  string Id = 1;
+}
+message AccountIdentifier {
+  string AccountId = 1;
+}
+message PaymentIdAndAccountId{
+  string AccountId = 1;
+  string Id = 2;
+}
+message PaymentProto {
+  double Amount = 1;
+  string Message = 2;
+  string AccountId = 3;
+}
+message ListPaymentsWithMessageProto {
+  repeated PaymentProto payments= 1;
+}

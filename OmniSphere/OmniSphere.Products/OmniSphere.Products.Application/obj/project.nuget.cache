@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SgE6TkjzaqM=",
+  "success": true,
+  "projectFilePath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Application/OmniSphere.Products.Application.csproj",
+  "expectedPackageFiles": [
+    "/home/jorge/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.0/microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
+    "/home/jorge/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.0/microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "vtAZhlk+j/36qy94O7X4WrgjwWiv5dSRokBmP2+lvQk=",
+  "Source": "OmniSphere.Products.Grpc",
+  "BasePath": "_content/OmniSphere.Products.Grpc",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

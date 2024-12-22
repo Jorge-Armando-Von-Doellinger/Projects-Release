@@ -1,0 +1,12 @@
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/bin/Debug/net9.0/OmniSphere.Products.Core.deps.json
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/bin/Debug/net9.0/OmniSphere.Products.Core.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/bin/Debug/net9.0/OmniSphere.Products.Core.pdb
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/OmniSphere.Products.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/OmniSphere.Products.Core.AssemblyInfoInputs.cache
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/OmniSphere.Products.Core.AssemblyInfo.cs
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/OmniSphere.Products.Core.csproj.CoreCompileInputs.cache
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/OmniSphere.Products.Core.sourcelink.json
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/OmniSphere.Products.Core.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/refint/OmniSphere.Products.Core.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/OmniSphere.Products.Core.pdb
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Core/obj/Debug/net9.0/ref/OmniSphere.Products.Core.dll

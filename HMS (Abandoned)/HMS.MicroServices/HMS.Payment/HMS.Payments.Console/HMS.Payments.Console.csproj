@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\HMS.Payment.Application\HMS.Payments.Application.csproj"/>
+        <ProjectReference Include="..\HMS.Payment.Infrastructure\HMS.Payments.Infrastructure.csproj"/>
+        <ProjectReference Include="..\HMS.Payments.External-Services\HMS.Payments.External-Services.csproj"/>
+        <ProjectReference Include="..\HMS.Payments.Messaging\HMS.Payments.Messaging.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Update="appsettings.json">
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Microsoft.Extensions.Caching.Memory"/>
+    </ItemGroup>
+
+</Project>

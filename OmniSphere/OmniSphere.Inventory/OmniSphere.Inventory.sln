@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Inventory.Application", "OmniSphere.Inventory.Application\OmniSphere.Inventory.Application.csproj", "{EAA63B4E-F8DF-406B-838C-A68B0A3869DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Inventory.Core", "OmniSphere.Inventory.Core\OmniSphere.Inventory.Core.csproj", "{40330F22-3F8A-4C82-820A-9AE34F938D37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Inventory.Infrastructure", "OmniSphere.Inventory.Infrastructure\OmniSphere.Inventory.Infrastructure.csproj", "{B8233D70-8404-496A-8368-475DE55A1107}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Inventory.Messaging", "OmniSphere.Inventory.Messaging\OmniSphere.Inventory.Messaging.csproj", "{63156C7B-27C8-4CDB-ABAE-AFC6DCF16951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Inventory.Console", "OmniSphere.Inventory.Console\OmniSphere.Inventory.Console.csproj", "{A6E17C81-4653-4270-A304-8E5D8A3D5864}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAA63B4E-F8DF-406B-838C-A68B0A3869DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA63B4E-F8DF-406B-838C-A68B0A3869DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA63B4E-F8DF-406B-838C-A68B0A3869DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA63B4E-F8DF-406B-838C-A68B0A3869DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40330F22-3F8A-4C82-820A-9AE34F938D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40330F22-3F8A-4C82-820A-9AE34F938D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40330F22-3F8A-4C82-820A-9AE34F938D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40330F22-3F8A-4C82-820A-9AE34F938D37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8233D70-8404-496A-8368-475DE55A1107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8233D70-8404-496A-8368-475DE55A1107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8233D70-8404-496A-8368-475DE55A1107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8233D70-8404-496A-8368-475DE55A1107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63156C7B-27C8-4CDB-ABAE-AFC6DCF16951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63156C7B-27C8-4CDB-ABAE-AFC6DCF16951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63156C7B-27C8-4CDB-ABAE-AFC6DCF16951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63156C7B-27C8-4CDB-ABAE-AFC6DCF16951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6E17C81-4653-4270-A304-8E5D8A3D5864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6E17C81-4653-4270-A304-8E5D8A3D5864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6E17C81-4653-4270-A304-8E5D8A3D5864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6E17C81-4653-4270-A304-8E5D8A3D5864}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

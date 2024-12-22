@@ -1,0 +1,39 @@
+# Fase de Build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+
+# Definir o diretório de trabalho
+WORKDIR /app
+
+# Copiar a solution para o container
+COPY HMS.Client.sln ./
+
+# Copiar os arquivos .csproj para o container, criando as pastas necessárias
+COPY ./HMS.API/HMS.API.csproj /app/HMS.API/
+COPY ./HMS.Application/HMS.Application.csproj /app/HMS.Application/
+COPY ./HMS.Core/HMS.Core.csproj /app/HMS.Core/
+COPY ./HMS.Infrastructure/HMS.Infrastructure.csproj /app/HMS.Infrastructure/
+COPY ./HMS.Messaging/HMS.Messaging.csproj /app/HMS.Messaging/
+
+# Restaurar as dependências (restore)
+RUN dotnet restore
+
+# Copiar todo o restante do código fonte para o container
+COPY ./ ./
+
+# Publicar a aplicação
+RUN dotnet publish HMS.Client.sln -c Release -o /app/out
+
+# Fase de Execução (Runtime)
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+
+# Definir o diretório de trabalho no container para a execução
+WORKDIR /app
+
+# Copiar os arquivos compilados da fase de Build
+COPY --from=build /app/out .
+
+# Expor a porta em que a aplicação vai rodar
+EXPOSE 80
+
+# Definir o comando de inicialização do container
+ENTRYPOINT ["dotnet", "HMS.API.dll"]

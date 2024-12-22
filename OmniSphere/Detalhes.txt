@@ -1,0 +1,26 @@
+Project: OmniSphere:
+    - Version: v1
+    - Micro-Services:
+        + Products:
+            - Description: "Adiciona produtos, remove produtos, realiza a venda, verifica disponibilidade"
+            - Features: Loja centralizada, onde não haverão varios vendedores.
+            - Dependencies: ["Payments", "Notification", "Inve"]
+        + Payments:
+            - Description: "Registra e realiza pagamentos"
+            - Dependencies: []
+        + Notification:
+            - Description: "Manda uma notificação (Email, sms ou qualquer outra forma)"
+            - Dependencies: []
+        + Users:
+            - Description: "Realiza o cadastro de novos usuarios"
+            - Dependencies: ["Notification"]
+        + Tracking:
+            - Description: "Mostra o status da(s) encomenda(s)"
+            - Dependencies: ["Notification"]
+        + Authentication:
+            - Description: "Faz a criação e validação de tokens JWT"
+            - Features: "Será usada a cada requisição, por meio do filtro do Envoy"
+            - Dependencies: []
+    - Technologies Used: Kubernetes (ou docker), Envoy, Micro-Services, Database NoSQL (MongoDb), Messaging (Kafka, Amazon-SQS),
+
+
