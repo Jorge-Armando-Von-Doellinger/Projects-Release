@@ -1,7 +1,7 @@
 name: Copiar arquivos proto para outro repositório
 
 on: push
-HMS
+
 jobs:
   copiar-arquivos:
     runs-on: ubuntu-latest
