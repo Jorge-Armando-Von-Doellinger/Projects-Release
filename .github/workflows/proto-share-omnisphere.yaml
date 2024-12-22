@@ -1,7 +1,7 @@
 name: Copiar arquivos proto para outro repositório
 
 on: push
-
+HMS
 jobs:
   copiar-arquivos:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
 
       - name: Encontrar e copiar arquivos proto
         run: |
-          find ./HMOmniSphereS -type f -name "*.proto" -exec cp {} /tmp/proto/OmniSphere/ \;
+          find ./OmniSphere -type f -name "*.proto" -exec cp {} /tmp/proto/OmniSphere/ \;
 
       - name: Checkout repositório de protos do OmniSphere
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
           path: grpc-proto-files
 
       - name: Copiar arquivos para o repositório de protos do OmniSphere
-        run: cp -r /tmp/proto/OmniSphere* grpc-proto-files/proto/OmniSphere # especificando o projeto
+        run: cp -r /tmp/proto/OmniSphere* grpc-proto-files/proto/OmniSphere
 
       - name: Commit e push para o repositório de protos do OmniSphere
         env:
