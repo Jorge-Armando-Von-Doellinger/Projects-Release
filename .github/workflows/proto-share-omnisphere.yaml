@@ -16,6 +16,11 @@ jobs:
         run: |
           mkdir -p /tmp/proto/OmniSphere
 
+      - name: Listar diretórios disponíveis
+        run: |
+          echo "Listando diretórios disponíveis no repositório:"
+          ls -R
+
       - name: Encontrar e copiar arquivos proto
         run: |
           find ./OmniSphere -type f -name "*.proto" -exec cp {} /tmp/proto/OmniSphere/ \;
