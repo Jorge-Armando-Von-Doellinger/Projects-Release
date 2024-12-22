@@ -20,17 +20,17 @@ jobs:
         run: |
           find ./HMOmniSphereS -type f -name "*.proto" -exec cp {} /tmp/proto/OmniSphere/ \;
 
-      - name: Checkout repositório de destino
+      - name: Checkout repositório de protos do OmniSphere
         uses: actions/checkout@v3
         with:
           repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
           token: ${{ secrets.GH_TOKEN }}
           path: grpc-proto-files
 
-      - name: Copiar arquivos para o repositório de destino
+      - name: Copiar arquivos para o repositório de protos do OmniSphere
         run: cp -r /tmp/proto/OmniSphere* grpc-proto-files/proto/OmniSphere # especificando o projeto
 
-      - name: Commit e push para o repositório de destino
+      - name: Commit e push para o repositório de protos do OmniSphere
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
