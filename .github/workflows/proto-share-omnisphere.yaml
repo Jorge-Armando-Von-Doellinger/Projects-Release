@@ -23,7 +23,7 @@ jobs:
 
       - name: Encontrar e copiar arquivos proto
         run: |
-          find ./OmniSphere -type f -name "*.proto" -exec cp {} /tmp/proto/OmniSphere/ \;
+          find ./OmniSphere -type d -name "ProtoFiles" -prune -o -type d -name "External_Services" -prune -o -type f -name "*.proto" -exec cp {} /tmp/proto/OmniSphere/ \;
 
       - name: Checkout repositório de protos do OmniSphere
         uses: actions/checkout@v3

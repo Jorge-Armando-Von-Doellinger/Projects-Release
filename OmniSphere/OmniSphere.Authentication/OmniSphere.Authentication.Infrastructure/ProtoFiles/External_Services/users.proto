@@ -1,0 +1,37 @@
+syntax = "proto3";
+option csharp_namespace = "OmniSphere.Users.Grpc";
+
+import "google/protobuf/empty.proto"; 
+
+service UsersProtoService {
+  rpc AddUser(UserProtoDto) returns (google.protobuf.Empty);
+  rpc UpdateUser(UserProtoWithIdDto) returns (google.protobuf.Empty);
+  rpc DeleteUser(UserId) returns (google.protobuf.Empty);
+  rpc FindUser(UserFinder) returns (UserId);
+  rpc GetCountUsers(google.protobuf.Empty) returns (CountUser);
+}
+
+message UserProtoDto {
+  string Username = 1;
+  string Email = 2;
+  string Password = 3;
+}
+message UserProtoWithIdDto {
+  string Username = 1;
+  string Email = 2;
+  string Password = 3;
+  string Id = 4;
+}
+message UserId {
+  string Id = 1;
+}
+message CountUser { 
+  int32 Counter = 1;
+}
+message UserFinder {
+  string Email = 1;
+  string Password = 2;
+}
+message UserIsFound {
+  bool IsFound = 1;
+}
