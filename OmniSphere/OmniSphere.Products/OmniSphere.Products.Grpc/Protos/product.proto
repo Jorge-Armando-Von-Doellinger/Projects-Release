@@ -29,6 +29,7 @@ message ProductProtoModel {
     string productDescription = 3;
     double productPrice = 4;
     string categoryName = 5;
+    int32 quantity = 6;
 }
     
 message GetListProductProtoModel {

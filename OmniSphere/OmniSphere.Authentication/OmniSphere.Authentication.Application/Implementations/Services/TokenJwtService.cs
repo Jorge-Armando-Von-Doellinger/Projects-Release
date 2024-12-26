@@ -16,50 +16,51 @@ public class TokenJwtService : ITokenJwtService
     {
         _config = config.CurrentValue;
     }
+
     public string GenerateToken(string userId, string userEmail)
     {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.UTF8.GetBytes(_config.JwtSecretkey);
-        var tokenDescriptor = new SecurityTokenDescriptor()
+        var claims = new[]
         {
-            Subject = new ClaimsIdentity(new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, userId), // userId
-                new Claim(JwtRegisteredClaimNames.Email, userEmail) // email
-            }),
-            Expires = DateTime.UtcNow.AddHours(1),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            new Claim(JwtRegisteredClaimNames.Email, userEmail),
+            new Claim("userId", userId),
+            new Claim(JwtRegisteredClaimNames.Jti, userId),
         };
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
+        var key = Encoding.UTF8.GetBytes(_config.JwtSecretkey);
+        var creds = new SigningCredentials(new SymmetricSecurityKey(key),
+            SecurityAlgorithms.HmacSha256);
+        var token = new JwtSecurityToken(
+            claims: claims,
+            expires: DateTime.Now.AddHours(1),
+            signingCredentials: creds
+        );
+        return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    public bool ValidateToken(string token, string userId)
+    public string GetUserIdByJwtToken(string token)
     {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.UTF8.GetBytes(_config.JwtSecretkey);
+        string userId = null;
+        var invalidTokenException = new SecurityTokenException("Invalid token");
         try
         {
-            var validationParameters = new TokenValidationParameters
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(_config.JwtSecretkey);
+            var parameters = new TokenValidationParameters
             {
-                ValidateIssuerSigningKey = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
                 IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false, 
-                ValidateAudience = false, 
-                ClockSkew = TimeSpan.Zero // Para reduzir o tempo de tolerância durante a expiração do token
             };
-            var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
-            if (validatedToken is JwtSecurityToken jwtToken)
-            {
-                var tokenUserId = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                return tokenUserId == userId;
-            }
+            var principal = tokenHandler.ValidateToken(token, parameters, out var securityToken);
+            if (securityToken is not JwtSecurityToken jwtToken || 
+                !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.Ordinal)) throw invalidTokenException;
+            userId = principal.FindFirst("userId")?.Value ?? throw invalidTokenException;
+            Console.WriteLine(principal.FindFirst("userId")?.Value);
+            return userId;
         }
         catch
         {
-            return false;
+            return null;
         }
-        return false;
     }
-
 }

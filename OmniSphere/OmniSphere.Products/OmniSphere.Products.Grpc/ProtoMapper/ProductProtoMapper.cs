@@ -13,7 +13,8 @@ public class ProductProtoMapper
             ProductDescription = product.ProductDescription,
             ProductName = product.ProductName,
             ProductPrice = product.ProductPrice,
-            ProductEanCode = product.ProductEanCode
+            ProductEanCode = product.ProductEanCode,
+            Quantity = product.Quantity,
         };
     }
 
@@ -25,7 +26,8 @@ public class ProductProtoMapper
             ProductDescription = product.ProductDescription,
             ProductName = product.ProductName,
             ProductPrice = product.ProductPrice,
-            ProductEanCode = product.ProductEanCode
+            ProductEanCode = product.ProductEanCode,
+            Quantity = product.Quantity
         };
     }
 

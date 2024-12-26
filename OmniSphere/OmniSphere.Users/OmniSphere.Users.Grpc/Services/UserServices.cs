@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using OmniSphere.Users.Application.Interfaces.UseCases;
@@ -41,12 +42,14 @@ public class UserServices : UsersProtoService.UsersProtoServiceBase
         var count = await _useCase.GetUserCountAsync();
         return new() { Counter = count };
     }
-
+    
     public override async Task<UserId> FindUser(UserFinder request, ServerCallContext context)
     {
+        await Task.Run(() => Console.WriteLine(JsonSerializer.Serialize(request)));
         var id = await _useCase.GetUserIdAsync(request.Email, request.Password);
-        Console.WriteLine(id);
+        Console.WriteLine($"{request.Email} Email");
+        Console.WriteLine($"{request.Password} password");
         var userid = new UserId() { Id = id };
         return userid;
     }
-}
+}   

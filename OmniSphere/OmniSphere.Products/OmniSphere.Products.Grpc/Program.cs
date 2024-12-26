@@ -24,7 +24,6 @@ public class Program
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
-        // app.MapGrpcService<GetProduct>();
         app.MapGrpcService<ProductService>();
         app.MapGet("/",
             () =>

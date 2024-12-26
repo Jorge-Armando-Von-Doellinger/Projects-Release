@@ -13,7 +13,8 @@ public class ProductMapper
             ProductDescription = product.ProductDescription,
             ProductName = product.ProductName,
             ProductPrice = product.ProductPrice,
-            ProductEanCode = product.ProductEanCode
+            ProductEanCode = product.ProductEanCode,
+            Quantity = product.Quantity,
         };
     }
     internal ProductDTO Map(Product product)
@@ -24,10 +25,11 @@ public class ProductMapper
             ProductDescription = product.ProductDescription,
             ProductName = product.ProductName,
             ProductPrice = product.ProductPrice,
-            ProductEanCode = product.ProductEanCode
+            ProductEanCode = product.ProductEanCode,
+            Quantity = product.Quantity
         };
     }
 
-    internal IEnumerable<ProductDTO> Map(IEnumerable<Product> products) => products.Select(x => Map(x));
+    internal IEnumerable<ProductDTO> Map(IEnumerable<Product> products) => products.Select(Map);
     
 }

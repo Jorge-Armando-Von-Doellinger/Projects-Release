@@ -19,21 +19,23 @@ public class AuthUseCase : IAuthUseCase
         _service = service;
         _tokenCacheService = tokenCacheService;
     }
-    public async Task<string?> ValidateCredentialsAsync(string email, string password)
+
+    public async Task<string?> GenerateTokenAsync(string email, string password)
     {
         var userId = await _loginService.GetUserIdByCredentialsAsync(email, password);
-        if(string.IsNullOrEmpty(userId) || userId.Length == 0) return null;
+        if (string.IsNullOrEmpty(userId) || userId.Length == 0) return null;
         var token = _service.GenerateToken(userId, email);
         await _tokenCacheService.StoreTokenAsync(token, userId, TimeSpan.FromHours(1));
         return token;
     }
 
-    public async Task<bool> ValidateTokenAsync(string userId, string token)
+    public async Task<string> GetUserIdByTokenAsync(string token)
     {
-        var valid = _service.ValidateToken(token, userId);
-        if(!valid) return false;
+        var userId = _service.GetUserIdByJwtToken(token);
+        if(string.IsNullOrEmpty(userId) || userId.Length == 0) return null;
         var cachedToken = await _tokenCacheService.GetTokenAsync(userId);
-        return token.Equals(cachedToken);
+        if(string.IsNullOrEmpty(cachedToken) || cachedToken.Length == 0) return null;
+        return userId;
     }
 
 }

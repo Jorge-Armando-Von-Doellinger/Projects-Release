@@ -27,29 +27,29 @@ namespace OmniSphere.Products.Grpc {
             "ChRQcm90b3MvcHJvZHVjdC5wcm90bxobZ29vZ2xlL3Byb3RvYnVmL2VtcHR5",
             "LnByb3RvIhcKCVByb2R1Y3RJZBIKCgJpZBgBIAEoCSIbCgtQcm9kdWN0Q29k",
             "ZRIMCgRjb2RlGAEgASgJIiIKC1Byb2R1Y3ROYW1lEhMKC3Byb2R1Y3ROYW1l",
-            "GAEgASgJIogBChFQcm9kdWN0UHJvdG9Nb2RlbBITCgtwcm9kdWN0TmFtZRgB",
+            "GAEgASgJIpoBChFQcm9kdWN0UHJvdG9Nb2RlbBITCgtwcm9kdWN0TmFtZRgB",
             "IAEoCRIWCg5wcm9kdWN0RWFuQ29kZRgCIAEoCRIaChJwcm9kdWN0RGVzY3Jp",
             "cHRpb24YAyABKAkSFAoMcHJvZHVjdFByaWNlGAQgASgBEhQKDGNhdGVnb3J5",
-            "TmFtZRgFIAEoCSJEChhHZXRMaXN0UHJvZHVjdFByb3RvTW9kZWwSKAoMcHJv",
-            "ZHVjdE1vZGVsGAEgAygLMhIuUHJvZHVjdFByb3RvTW9kZWwyqwMKE0dycGNQ",
-            "cm9kdWN0U2VydmljZXMSQAoLR2V0UHJvZHVjdHMSFi5nb29nbGUucHJvdG9i",
-            "dWYuRW1wdHkaGS5HZXRMaXN0UHJvZHVjdFByb3RvTW9kZWwSPAoRR2V0UHJv",
-            "ZHVjdHNCeU5hbWUSDC5Qcm9kdWN0TmFtZRoZLkdldExpc3RQcm9kdWN0UHJv",
-            "dG9Nb2RlbBI0ChBHZXRQcm9kdWN0QnlDb2RlEgwuUHJvZHVjdENvZGUaEi5Q",
-            "cm9kdWN0UHJvdG9Nb2RlbBIwCg5HZXRQcm9kdWN0QnlJZBIKLlByb2R1Y3RJ",
-            "ZBoSLlByb2R1Y3RQcm90b01vZGVsEjgKCkFkZFByb2R1Y3QSEi5Qcm9kdWN0",
-            "UHJvdG9Nb2RlbBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRI7Cg1VcGRhdGVQ",
-            "cm9kdWN0EhIuUHJvZHVjdFByb3RvTW9kZWwaFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkSNQoNRGVsZXRlUHJvZHVjdBIMLlByb2R1Y3RDb2RlGhYuZ29vZ2xl",
-            "LnByb3RvYnVmLkVtcHR5QhuqAhhPbW5pU3BoZXJlLlByb2R1Y3RzLkdycGNi",
-            "BnByb3RvMw=="));
+            "TmFtZRgFIAEoCRIQCghxdWFudGl0eRgGIAEoBSJEChhHZXRMaXN0UHJvZHVj",
+            "dFByb3RvTW9kZWwSKAoMcHJvZHVjdE1vZGVsGAEgAygLMhIuUHJvZHVjdFBy",
+            "b3RvTW9kZWwyqwMKE0dycGNQcm9kdWN0U2VydmljZXMSQAoLR2V0UHJvZHVj",
+            "dHMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaGS5HZXRMaXN0UHJvZHVjdFBy",
+            "b3RvTW9kZWwSPAoRR2V0UHJvZHVjdHNCeU5hbWUSDC5Qcm9kdWN0TmFtZRoZ",
+            "LkdldExpc3RQcm9kdWN0UHJvdG9Nb2RlbBI0ChBHZXRQcm9kdWN0QnlDb2Rl",
+            "EgwuUHJvZHVjdENvZGUaEi5Qcm9kdWN0UHJvdG9Nb2RlbBIwCg5HZXRQcm9k",
+            "dWN0QnlJZBIKLlByb2R1Y3RJZBoSLlByb2R1Y3RQcm90b01vZGVsEjgKCkFk",
+            "ZFByb2R1Y3QSEi5Qcm9kdWN0UHJvdG9Nb2RlbBoWLmdvb2dsZS5wcm90b2J1",
+            "Zi5FbXB0eRI7Cg1VcGRhdGVQcm9kdWN0EhIuUHJvZHVjdFByb3RvTW9kZWwa",
+            "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkSNQoNRGVsZXRlUHJvZHVjdBIMLlBy",
+            "b2R1Y3RDb2RlGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5QhuqAhhPbW5pU3Bo",
+            "ZXJlLlByb2R1Y3RzLkdycGNiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OmniSphere.Products.Grpc.ProductId), global::OmniSphere.Products.Grpc.ProductId.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OmniSphere.Products.Grpc.ProductCode), global::OmniSphere.Products.Grpc.ProductCode.Parser, new[]{ "Code" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OmniSphere.Products.Grpc.ProductName), global::OmniSphere.Products.Grpc.ProductName.Parser, new[]{ "ProductName_" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OmniSphere.Products.Grpc.ProductProtoModel), global::OmniSphere.Products.Grpc.ProductProtoModel.Parser, new[]{ "ProductName", "ProductEanCode", "ProductDescription", "ProductPrice", "CategoryName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OmniSphere.Products.Grpc.ProductProtoModel), global::OmniSphere.Products.Grpc.ProductProtoModel.Parser, new[]{ "ProductName", "ProductEanCode", "ProductDescription", "ProductPrice", "CategoryName", "Quantity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OmniSphere.Products.Grpc.GetListProductProtoModel), global::OmniSphere.Products.Grpc.GetListProductProtoModel.Parser, new[]{ "ProductModel" }, null, null, null, null)
           }));
     }
@@ -691,6 +691,7 @@ namespace OmniSphere.Products.Grpc {
       productDescription_ = other.productDescription_;
       productPrice_ = other.productPrice_;
       categoryName_ = other.categoryName_;
+      quantity_ = other.quantity_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -760,6 +761,18 @@ namespace OmniSphere.Products.Grpc {
       }
     }
 
+    /// <summary>Field number for the "quantity" field.</summary>
+    public const int QuantityFieldNumber = 6;
+    private int quantity_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Quantity {
+      get { return quantity_; }
+      set {
+        quantity_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -780,6 +793,7 @@ namespace OmniSphere.Products.Grpc {
       if (ProductDescription != other.ProductDescription) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ProductPrice, other.ProductPrice)) return false;
       if (CategoryName != other.CategoryName) return false;
+      if (Quantity != other.Quantity) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -792,6 +806,7 @@ namespace OmniSphere.Products.Grpc {
       if (ProductDescription.Length != 0) hash ^= ProductDescription.GetHashCode();
       if (ProductPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ProductPrice);
       if (CategoryName.Length != 0) hash ^= CategoryName.GetHashCode();
+      if (Quantity != 0) hash ^= Quantity.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -830,6 +845,10 @@ namespace OmniSphere.Products.Grpc {
         output.WriteRawTag(42);
         output.WriteString(CategoryName);
       }
+      if (Quantity != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Quantity);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -860,6 +879,10 @@ namespace OmniSphere.Products.Grpc {
         output.WriteRawTag(42);
         output.WriteString(CategoryName);
       }
+      if (Quantity != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Quantity);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -884,6 +907,9 @@ namespace OmniSphere.Products.Grpc {
       }
       if (CategoryName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CategoryName);
+      }
+      if (Quantity != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Quantity);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -911,6 +937,9 @@ namespace OmniSphere.Products.Grpc {
       }
       if (other.CategoryName.Length != 0) {
         CategoryName = other.CategoryName;
+      }
+      if (other.Quantity != 0) {
+        Quantity = other.Quantity;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -951,6 +980,10 @@ namespace OmniSphere.Products.Grpc {
             CategoryName = input.ReadString();
             break;
           }
+          case 48: {
+            Quantity = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -988,6 +1021,10 @@ namespace OmniSphere.Products.Grpc {
           }
           case 42: {
             CategoryName = input.ReadString();
+            break;
+          }
+          case 48: {
+            Quantity = input.ReadInt32();
             break;
           }
         }

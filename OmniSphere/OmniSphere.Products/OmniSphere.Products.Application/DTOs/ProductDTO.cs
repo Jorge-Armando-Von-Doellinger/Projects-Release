@@ -10,4 +10,5 @@ public class ProductDTO
     public required string ProductDescription { get; set; } // Portatil, otima qualidade, etc...
     public required double ProductPrice { get; set; }  // R$ 22,59
     public required string CategoryName { get; set; } // Ex: Audio, Video-Game, etc
+    public required int Quantity { get; set; } 
 }

@@ -19,8 +19,9 @@ public class RedisTokenCacheService : ITokenCacheService
         return value.HasValue ? value.ToString() : string.Empty;
     }
 
-    public async Task StoreTokenAsync(string token, string userId,TimeSpan expiration)
+    public async Task StoreTokenAsync(string token, string userId, TimeSpan expiration)
     {
+        await _database.KeyDeleteAsync("*");
         await _database.StringSetAsync(userId, token, expiration);
     }
 }
