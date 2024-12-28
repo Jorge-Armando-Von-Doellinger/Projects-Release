@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "GskRy7AYk/IIe3hphQ+mbTlp/joFVgaxZWokUp1JTIo=",
+  "Source": "OmniSphere.Authentication.Grpc",
+  "BasePath": "_content/OmniSphere.Authentication.Grpc",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

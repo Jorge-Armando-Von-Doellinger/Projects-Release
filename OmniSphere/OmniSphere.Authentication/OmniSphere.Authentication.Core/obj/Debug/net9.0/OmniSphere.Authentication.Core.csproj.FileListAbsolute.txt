@@ -1,0 +1,12 @@
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/bin/Debug/net9.0/OmniSphere.Authentication.Core.deps.json
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/bin/Debug/net9.0/OmniSphere.Authentication.Core.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/bin/Debug/net9.0/OmniSphere.Authentication.Core.pdb
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/OmniSphere.Authentication.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/OmniSphere.Authentication.Core.AssemblyInfoInputs.cache
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/OmniSphere.Authentication.Core.AssemblyInfo.cs
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/OmniSphere.Authentication.Core.csproj.CoreCompileInputs.cache
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/OmniSphere.Authentication.Core.sourcelink.json
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/OmniSphere.Authentication.Core.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/refint/OmniSphere.Authentication.Core.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/OmniSphere.Authentication.Core.pdb
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/Debug/net9.0/ref/OmniSphere.Authentication.Core.dll

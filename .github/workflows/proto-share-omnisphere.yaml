@@ -31,9 +31,14 @@ jobs:
           repository: Jorge-Armando-Von-Doellinger/grpc-proto-files
           token: ${{ secrets.GH_TOKEN }}
           path: grpc-proto-files
+          
+      - name: Listar .protos capturados
+        run: |
+          mkdir /tmp/proto/OmniSphere
+          ls -R
 
       - name: Copiar arquivos para o repositório de protos do OmniSphere
-        run: cp -r /tmp/proto/OmniSphere* grpc-proto-files/proto/OmniSphere
+        run: cp -r . grpc-proto-files/proto/OmniSphere
 
       - name: Commit e push para o repositório de protos do OmniSphere
         env:
