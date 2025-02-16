@@ -1,0 +1,13 @@
+# Usar a imagem oficial do MongoDB
+FROM mongo:latest
+
+# Criar o diretório de dados e garantir que ele tenha permissões corretas
+RUN mkdir -p /data/db && \
+    chown -R mongodb:mongodb /data/db && \
+    chmod -R 755 /data/db
+
+# Expor a porta 27017 do MongoDB
+EXPOSE 27017
+
+# Definir o ponto de entrada padrão
+CMD ["mongod"]

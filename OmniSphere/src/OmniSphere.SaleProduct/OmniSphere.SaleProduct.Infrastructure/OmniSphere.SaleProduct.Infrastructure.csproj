@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <LangVersion>default</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OmniSphere.SaleProduct.Core\OmniSphere.SaleProduct.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.37.1" />
+        <PackageReference Include="Grpc.Tools" Version="2.37.1">
+            <PrivateAssets>All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Google.Protobuf" Version="3.17.3" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.0" />
+    </ItemGroup>
+
+    <Target Name="DownloadProtos" BeforeTargets="BeforeBuild">
+        <PropertyGroup>
+            <ProtoDownloadUrl> https://raw.githubusercontent.com/Jorge-Armando-Von-Doellinger/grpc-proto-files/main/proto/OmniSphere/payment.proto </ProtoDownloadUrl>
+            <ProtoLocalPath>ProtoFiles/External_Services/payment.proto</ProtoLocalPath>
+        </PropertyGroup>
+        <Exec Command="curl -L $(ProtoDownloadUrl) -o $(ProtoLocalPath)" />
+    </Target>
+    <Target Name="DownloadProtos" BeforeTargets="BeforeBuild">
+        <PropertyGroup>
+            <ProtoDownloadUrl> https://raw.githubusercontent.com/Jorge-Armando-Von-Doellinger/grpc-proto-files/refs/heads/main/proto/OmniSphere/OmniSphere/product.proto </ProtoDownloadUrl>
+            <ProtoLocalPath>ProtoFiles/External_Services/product.proto</ProtoLocalPath>
+        </PropertyGroup>
+        <Exec Command="curl -L $(ProtoDownloadUrl) -o $(ProtoLocalPath)" />
+    </Target>
+    <ItemGroup>
+        <Protobuf Include="ProtoFiles/External_Services/payment.proto" GrpcServices="Client" />
+        <Protobuf Include="ProtoFiles/External_Services/product.proto" GrpcServices="Client" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="ProtoFiles\External_Services\" />
+    </ItemGroup>
+</Project>

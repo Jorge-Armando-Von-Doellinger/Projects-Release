@@ -1,0 +1,128 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    user: "0:0" 
+    volumes:
+      - ./mongodb-data:/data/db:z
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+  postgresql-db:
+    image: postgres:latest
+    container_name: postgresql-db
+    volumes:
+      - ./data:/var/lib/postgresql/data:z
+    user: "0:0" 
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: Users
+
+  redis:
+    image: redis:latest
+    user: "0:0" 
+    container_name: redis-container
+    ports:
+      - "6379:6379" 
+    volumes:
+      - ./redis-data:/data:z
+
+  auth-service:
+    build:
+      context: ./src/OmniSphere.Authentication
+      dockerfile: Dockerfile
+    container_name: auth-service
+    ports:
+      - "50060:50060"
+    networks:
+      - app-network
+    depends_on:
+      - redis
+
+  payment-service:
+    build:
+      context: ./src/OmniSphere.Payments
+      dockerfile: Dockerfile
+    container_name: payment-service
+    ports:
+      - "50051:50051"
+    networks:
+      - app-network
+    depends_on:
+      - mongodb
+
+  products-service:
+    build:
+      context: ./src/OmniSphere.Products
+      dockerfile: Dockerfile
+    container_name: products-service
+    ports:
+      - "50052:50052"
+    networks:
+      - app-network
+    depends_on:
+      - mongodb
+
+  saleproducts-service:
+    build:
+      context: ./src/OmniSphere.SaleProduct
+      dockerfile: Dockerfile
+    container_name: saleproducts-service
+    ports:
+      - "50053:50053"
+    networks:
+      - app-network
+
+  users-service:
+    build:
+      context: ./src/OmniSphere.Users
+      dockerfile: Dockerfile
+    container_name: users-service
+    ports:
+      - "50054:50054"
+    networks:
+      - app-network
+    depends_on:
+      - postgresql-db
+
+  orderstate-service:
+    build:
+      context: ./src/OmniSphere.OrderState
+      dockerfile: Dockerfile
+    container_name: orderstate-service
+    ports:
+      - "50055:80"
+    networks:
+      - app-network
+    depends_on:
+      - postgresql-db
+
+  ngix:
+    image: nginx:latest
+    container_name: ngix
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    depends_on:
+      - products-service
+      - orderstate-service
+      - payment-service
+      - auth-service
+      - saleproducts-service
+      - users-service
+    privileged: true
+
+
+
+networks:
+  app-network:
+    name: omnisphere_network-v1

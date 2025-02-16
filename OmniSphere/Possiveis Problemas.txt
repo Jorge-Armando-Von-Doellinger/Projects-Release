@@ -1,0 +1,7 @@
+Falta dos containers:
+-MongoDb
+-PostgreSql
+-Redis
+// -RabbitMq (false - all in grpc)
+
+Falta de congruencia entre as portas do dockerfile, docker compose e a ASPNET_URL

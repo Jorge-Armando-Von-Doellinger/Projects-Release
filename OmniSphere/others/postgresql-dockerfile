@@ -1,0 +1,4 @@
+FROM postgres:latest
+
+# Comando de inicialização (geralmente já está configurado na imagem base)
+CMD ["postgres"]

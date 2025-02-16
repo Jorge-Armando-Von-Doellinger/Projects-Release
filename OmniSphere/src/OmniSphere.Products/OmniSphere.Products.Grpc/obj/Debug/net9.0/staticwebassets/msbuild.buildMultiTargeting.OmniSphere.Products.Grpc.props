@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/OmniSphere.Products.Grpc.props" />
+</Project>

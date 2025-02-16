@@ -1,0 +1,3 @@
+obj/Debug/net9.0/ProtoFiles/External_Services/Users.cs \
+obj/Debug/net9.0/ProtoFiles/External_Services/UsersGrpc.cs: /home/jorge/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/empty.proto\
+ ProtoFiles/External_Services/users.proto

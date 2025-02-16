@@ -1,0 +1,16 @@
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/bin/Debug/net9.0/OmniSphere.Products.Infrastructure.deps.json
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/bin/Debug/net9.0/OmniSphere.Products.Infrastructure.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/bin/Debug/net9.0/OmniSphere.Products.Infrastructure.pdb
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/bin/Debug/net9.0/OmniSphere.Products.Core.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/bin/Debug/net9.0/OmniSphere.Products.Core.pdb
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.csproj.AssemblyReference.cache
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.AssemblyInfoInputs.cache
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.AssemblyInfo.cs
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.csproj.CoreCompileInputs.cache
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.sourcelink.json
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphe.2C909CAB.Up2Date
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/refint/OmniSphere.Products.Infrastructure.dll
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/OmniSphere.Products.Infrastructure.pdb
+/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/OmniSphere.Products/OmniSphere.Products.Infrastructure/obj/Debug/net9.0/ref/OmniSphere.Products.Infrastructure.dll

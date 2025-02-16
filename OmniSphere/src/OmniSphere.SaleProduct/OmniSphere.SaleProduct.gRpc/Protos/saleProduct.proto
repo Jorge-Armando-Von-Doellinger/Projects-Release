@@ -1,0 +1,14 @@
+syntax = "proto3";
+option csharp_namespace = "OmniSphere.SaleProduct.gRpc";
+
+import "google/protobuf/empty.proto";
+
+service SaleProductService{
+  rpc SaleProduct(SaleProductMessage) returns (google.protobuf.Empty);
+}
+
+message SaleProductMessage {
+  string userId = 1;
+  string productId = 2;
+  int32 quantity = 3;
+}

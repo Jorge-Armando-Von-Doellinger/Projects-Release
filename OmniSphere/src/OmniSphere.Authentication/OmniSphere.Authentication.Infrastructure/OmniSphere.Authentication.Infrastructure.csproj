@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="ProtoFiles\External_Services\" />
+      <Folder Include="Requests\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Google.Protobuf" Version="3.29.2" />
+      <PackageReference Include="Grpc.Net.Client" Version="2.67.0" />
+      <PackageReference Include="Grpc.Tools" Version="2.68.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.0" />
+      <PackageReference Include="StackExchange.Redis" Version="2.8.24" />
+    </ItemGroup>
+
+    <Target Name="DownloadProtos" BeforeTargets="BeforeBuild">
+        <PropertyGroup>
+            <ProtoDownloadUrl> https://raw.githubusercontent.com/Jorge-Armando-Von-Doellinger/grpc-proto-files/main/proto/OmniSphere/users.proto </ProtoDownloadUrl>
+            <ProtoLocalPath>ProtoFiles/External_Services/users.proto</ProtoLocalPath>
+        </PropertyGroup>
+        <Exec Command="curl -L $(ProtoDownloadUrl) -o $(ProtoLocalPath)" />
+    </Target>
+
+    <ItemGroup>
+        <Protobuf Include="ProtoFiles/External_Services/users.proto" GrpcServices="Client" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\OmniSphere.Authentication.Core\OmniSphere.Authentication.Core.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+        <HintPath>..\..\..\..\..\..\.dotnet\packs\Microsoft.AspNetCore.App.Ref\9.0.0\ref\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

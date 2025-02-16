@@ -1,0 +1,36 @@
+syntax = "proto3";
+option csharp_namespace = "OmniSphere.OrderState.Grpc";
+
+import "google/protobuf/empty.proto";
+
+service OrderState {
+  rpc GetOrderById(OrderId) returns (OrderStateWithIdMessage);
+  rpc GetOrdersByAccountId(AccountId) returns (ListOrderStateMessages);
+  rpc GetOrders(google.protobuf.Empty) returns (ListOrderStateMessages);
+  rpc AddOrderState(OrderStateMessage) returns (google.protobuf.Empty);
+  rpc UpdateOrderState(OrderStateWithIdMessage) returns (google.protobuf.Empty);
+  rpc DeleteOrderState(OrderId) returns (google.protobuf.Empty);
+}
+
+message ListOrderStateMessages {
+  repeated OrderStateWithIdMessage orderStateMessages = 1;
+}
+
+message OrderStateMessage {
+  string AccountId = 1;
+  int32 State = 2;
+}
+
+message OrderStateWithIdMessage {
+  int32 Id = 1;
+  string AccountId = 2;
+  int32 State = 3;
+}
+
+message OrderId {
+  int32 Id = 1;
+}
+
+message AccountId {
+  string Id = 1;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+option csharp_namespace = "OmniSphere.Authentication.Grpc";
+
+import "google/protobuf/empty.proto";
+
+service AuthService {
+  rpc GetJwtToken(UserCredentials) returns (JwtToken);
+  rpc ValidateToken(JwtToken) returns (UserId);
+  rpc ValidateHeaderToken(google.protobuf.Empty) returns (UserId);
+}
+
+message JwtToken {
+  string token = 1;
+}
+
+message UserCredentials {
+  string email = 1;
+  string password = 2;
+}
+
+message UserId {
+  string userId = 1;
+}

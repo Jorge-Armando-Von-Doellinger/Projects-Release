@@ -1,0 +1,3 @@
+obj/Debug/net9.0/Protos/Auth.cs \
+obj/Debug/net9.0/Protos/AuthGrpc.cs: /home/jorge/.nuget/packages/grpc.tools/2.64.0/build/native/include/google/protobuf/empty.proto\
+ Protos/auth.proto

@@ -1,0 +1,332 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Grpc/OmniSphere.Authentication.Grpc.csproj": {}
+  },
+  "projects": {
+    "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Application/OmniSphere.Authentication.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Application/OmniSphere.Authentication.Application.csproj",
+        "projectName": "OmniSphere.Authentication.Application",
+        "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Application/OmniSphere.Authentication.Application.csproj",
+        "packagesPath": "/home/jorge/.nuget/packages/",
+        "outputPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jorge/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/OmniSphere.Authentication.Core.csproj": {
+                "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/OmniSphere.Authentication.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/OmniSphere.Authentication.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/OmniSphere.Authentication.Core.csproj",
+        "projectName": "OmniSphere.Authentication.Core",
+        "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/OmniSphere.Authentication.Core.csproj",
+        "packagesPath": "/home/jorge/.nuget/packages/",
+        "outputPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jorge/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Grpc/OmniSphere.Authentication.Grpc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Grpc/OmniSphere.Authentication.Grpc.csproj",
+        "projectName": "OmniSphere.Authentication.Grpc",
+        "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Grpc/OmniSphere.Authentication.Grpc.csproj",
+        "packagesPath": "/home/jorge/.nuget/packages/",
+        "outputPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Grpc/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jorge/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Application/OmniSphere.Authentication.Application.csproj": {
+                "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Application/OmniSphere.Authentication.Application.csproj"
+              },
+              "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Infrastructure/OmniSphere.Authentication.Infrastructure.csproj": {
+                "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Infrastructure/OmniSphere.Authentication.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.64.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Infrastructure/OmniSphere.Authentication.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Infrastructure/OmniSphere.Authentication.Infrastructure.csproj",
+        "projectName": "OmniSphere.Authentication.Infrastructure",
+        "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Infrastructure/OmniSphere.Authentication.Infrastructure.csproj",
+        "packagesPath": "/home/jorge/.nuget/packages/",
+        "outputPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jorge/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/OmniSphere.Authentication.Core.csproj": {
+                "projectPath": "/home/jorge/Documentos/Git-Clones/Projects-Release/OmniSphere/src/OmniSphere.Authentication/OmniSphere.Authentication.Core/OmniSphere.Authentication.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.29.2, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.67.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.68.1, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.24, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

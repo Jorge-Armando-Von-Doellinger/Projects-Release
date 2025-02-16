@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Users.Grpc", "OmniSphere.Users.Grpc\OmniSphere.Users.Grpc.csproj", "{22EE96E2-E9D2-46CF-BCA6-D87FC640A236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Users.Application", "OmniSphere.Users.Application\OmniSphere.Users.Application.csproj", "{EBE2CDE5-1EB9-40ED-B2CB-F5125907D9E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Users.Core", "OmniSphere.Users.Core\OmniSphere.Users.Core.csproj", "{1D558FF7-8722-4E76-98D8-97BAE8FD931E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSphere.Users.Infrastructure", "OmniSphere.Users.Infrastructure\OmniSphere.Users.Infrastructure.csproj", "{E1A656A9-3338-4EC7-9069-521B4DCB7928}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22EE96E2-E9D2-46CF-BCA6-D87FC640A236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22EE96E2-E9D2-46CF-BCA6-D87FC640A236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22EE96E2-E9D2-46CF-BCA6-D87FC640A236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22EE96E2-E9D2-46CF-BCA6-D87FC640A236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE2CDE5-1EB9-40ED-B2CB-F5125907D9E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE2CDE5-1EB9-40ED-B2CB-F5125907D9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE2CDE5-1EB9-40ED-B2CB-F5125907D9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE2CDE5-1EB9-40ED-B2CB-F5125907D9E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D558FF7-8722-4E76-98D8-97BAE8FD931E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D558FF7-8722-4E76-98D8-97BAE8FD931E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D558FF7-8722-4E76-98D8-97BAE8FD931E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D558FF7-8722-4E76-98D8-97BAE8FD931E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A656A9-3338-4EC7-9069-521B4DCB7928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A656A9-3338-4EC7-9069-521B4DCB7928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A656A9-3338-4EC7-9069-521B4DCB7928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A656A9-3338-4EC7-9069-521B4DCB7928}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
