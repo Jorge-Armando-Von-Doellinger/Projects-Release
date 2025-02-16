@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OmniSphere.Products.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0df6e18bf19ad21c2080b329b123199c821892b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0663de4903a4d76ead5ed3c98be05d51ede46a25")]
 [assembly: System.Reflection.AssemblyProductAttribute("OmniSphere.Products.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OmniSphere.Products.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
